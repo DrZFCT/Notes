@@ -1,0 +1,419 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage[a4paper,total={6in,10in}]{geometry}
+\usepackage{amsmath}
+\usepackage{mathrsfs}
+
+\usepackage{amsthm}
+
+\newtheorem{Thm}{Theorem}[section]
+\newtheorem{Cor}{Corollary}[Thm]
+\newtheorem{Lem}{Lemma}[section]
+\newtheorem{Eg}{Example}[section]
+\newtheorem*{Rk}{Remark}
+
+\theoremstyle{definition}
+\newtheorem{Def}{Definition}[section]
+
+
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{hyperref}
+
+
+
+\title{Lecture Notes in Stochastic Process}
+\author{Kaizhao Liu}
+\date{September 2022}
+
+\begin{document}
+\maketitle
+\tableofcontents
+\section{Discrete Space Discrete Time Markov Chain}
+\subsection{Theory}
+We begin by summarizing the concepts mathematicans are most interested in, and introducing their notations. 
+\begin{Def}[initial distribution]
+    
+\end{Def}
+
+\begin{Def}[transition matrix]
+    
+\end{Def}
+\begin{Rk}
+Transition matrix provides a way to calculate the probability that after $n$ steps the Markov chain is in a given state.
+\end{Rk}
+Now we focus on the class structure of markov chain.
+\begin{Def}[lead to]
+    We say $i$ leads to $j$ and write $i\to j$ if $P_i(X_n=j\text{ for some }n\ge 0)>0$.
+\end{Def}
+\begin{Def}[communicate with]
+    We say $i$ communicate with $j$ and write $i\leftrightarrow j$ if both $i\to j$ and $j\to i$.
+\end{Def}
+\begin{Thm}[communicating classes]
+    Communication is an equivalence relation on $I$, thus partition $I$ into communicating classes.
+\end{Thm}
+\begin{Def}[closed class]
+    We say a class $C$ is closed if \[i\in C,i\to j\Longrightarrow j\in C\]
+    A state $i$ is called absorbing if $\left\{i\right\}$ is a closed class.
+\end{Def}
+\begin{Def}[irreducibility]
+    A markov chain with only one class is called irreducible.
+\end{Def}
+
+
+\begin{Def}[hitting time]
+    Let $(X_n)_{n\ge 0}$ be a Markov chain with transition matrix $P$. The hitting time of a subset $A$ of $I$ is the random
+    variable \[H^A(\omega)=\inf \left\{n\ge 0:X_n(\omega)\in A\right\}\].
+\end{Def}
+\begin{Def}[first passage time]
+    The first passage time to state $i$ is the random variable $T_i$ defined by \[T_i(\omega)=\inf\left\{n\ge 1:X_n(\omega)=i\right\}\]
+\end{Def}
+\begin{Def}[$r$th passage time]
+    We define $r$th passage time inductively by 
+    $T_i^{(0)}(\omega)=0,T_i^{(1)}(\omega)=T_i(\omega)$
+    and for $r=0,1,2,\cdots,$
+    \[T_i^{(r+1)}(\omega)=\inf\left\{n\ge T_i^{(r)}(\omega)+1:X_n(\omega)=i\right\}\]
+\end{Def}
+
+
+\begin{Def}[absorption probability]
+    The probability starting from $i$ that $(X_n)_{n\ge 0}$ ever hits $A$ is then \[h_i^A=P_i(H^A<\infty)\]
+    When $A$ is a closed class, $h_i^A$ is called the absorption probability.
+\end{Def}
+\begin{Rk}
+A less formal notation is $h_i^A=P(\text{hit }A)$.
+\end{Rk}
+\begin{Def}
+    The mean time taken for $(X_n)_{n\ge 0}$ to reach $A$ from $i$ is given by \[k_i^A=E_i(H^A)=\sum_{n<\infty}nP(H^A=n)+\infty P(H^A=\infty)\]
+\end{Def}
+\begin{Rk}
+    A less formal notation is $k_i^A=E_i(\text{time to hit }A)$.
+\end{Rk}
+
+
+\begin{Def}[recurrent]
+    We say a state $i$ is recurrent if $P_i(X_n=i\text{ i.o. })=1$.
+\end{Def}
+\begin{Def}[transient]
+    We say a state $i$ is transient if $P_i(X_n=i\text{ i.o. })=0$.
+\end{Def}
+\begin{Def}[positive recurrent]
+    A state $i$ is postive recurrent if the expected return time $m_i=E_i(T_i)$ is finite.
+    A recurrent state which fails to have this stronger property is called null recurrent.
+\end{Def}
+\begin{Def}[invariant measure]
+    A measure is any row vector $(\lambda_i:i\in I)$ with non-negative entries. We say $\lambda$ is invariant if \[\lambda P=\lambda\]
+\end{Def}
+\begin{Def}[detailed balance]
+    
+\end{Def}
+
+
+
+
+\section{Discrete Space Continuous Time Markov Chain}
+
+\begin{Def}[continuous-time random process]
+    Let $I$ be a countable set. A continuous-time random process \[(X_t)_{t\ge 0}=(X_t:0\le t\le\infty)\] 
+    with values in $I$ is a family of random variables $X_t:\Omega\to I$.
+\end{Def}
+We are going to consider ways in which we might specify the probabilistic behavior of $(X_t)_{t\ge 0}$.
+To avoid uncountable union, we shall restrict our attention to processes $(X_t)_{t\ge 0}$ which are right-continuous.
+\begin{Def}[right continuous]
+    In the context of discrete space continuous time, a right-continuous process means $\forall \omega\in\Omega$
+    and $t\ge 0$, $\exists \epsilon>0$ s.t. \[X_s(\omega)=X_t(\omega)\quad t\le s\le t+\epsilon\]
+\end{Def}
+\begin{Def}[increment]
+    If $(X_t)_{t\ge 0}$ is a real-valued process, we can consider its increment $X_t-X_s$ over any interval $(s,t]$.
+\end{Def}
+\begin{Def}[stationary]
+    We say that $(X_t)_{t\ge 0}$ has stationary increments if the distribution of $X_{s+t}-X_s$ depends only on $t\ge 0$.
+\end{Def}
+\begin{Def}[independent]
+    We say that $(X_t)_{t\ge 0}$ has independent increments if its increments over amy finite collection of disjoint intervals are independent.
+\end{Def}
+\begin{Def}[$Q$-matrix]
+    A $Q$-matrix on $I$ is a matrix $Q=(q_{ij}:i,j\in I)$ satisfying the following conditions:\newline
+(i) $\forall i\quad 0\le -q_{ii}<\infty$ \newline 
+(ii) $\forall i\ne j\quad q_{ij}\ge 0$\newline 
+(iii) $\forall i\quad \sum_{j\in I}q_{ij}=0$
+\end{Def}
+
+\subsection{Review: Properties of Exponential Distribution}
+\begin{Def}
+    
+\end{Def}
+\begin{Thm}[memoryless property]
+    
+\end{Thm}
+\begin{Thm}[infimum]
+    Let $I$ be a countable set and let $T_k\,k\in I$ be independent random variables with $T_k \sim E(q_k)$ and $0 < q := \sum_{k\in I} q_k < \infty$. 
+    Set $T = \inf_k T_k$. Then this infimum is attained at a unique random value $K$ of $k$ a.s.. Moreover, $T$ and $K$ are independent, with $T \sim E(q)$ and $P(K = k) = \frac{q_k}{q}$.
+
+\end{Thm}
+
+\subsection{Poisson Process}
+
+We begin with a definition of Poisson process in terms of jump chain and holding times, and then relate it to
+the infinitesimal definition and transition probability definition.
+\begin{Def}
+    A right-continuous process $(X_t)_{t\le 0}$ with values in $\mathbb{N}_{\ge 0}$ is a Poisson process of rate $\lambda\in (0,\infty)$
+    if its holding times $S_1,S_2,\cdots$ are i.i.d. exponential random variables of mean $\lambda$ and its jump chain is given by $Y_n=n$.
+\end{Def}
+
+\begin{Thm}
+    Let $(X_t)_{t\ge 0}$ be an increasing, right-continuous integer-valued process starting from $0$. Let $\lambda\in(0,\infty)$. TFAE:\newline 
+    (i) (jump chain holding time definition) the holding times $S_1,S_2,\cdots$ of $(X_t)_{t\ge 0}$ are i.i.d. exponential random variables of mean $\lambda$ 
+    and the jump chain is given by $Y_n=n$.\newline 
+    (ii) (infinitesimal definition) $(X_t)_{t\ge 0}$ has independent increments and as $h\downarrow 0$, uniformly in $t$,
+    \[P(X_{t+h}-X_t=0)=1-\lambda h+o(h),\quad P(X_{t+h}-X_t=1)=\lambda h+o(h)\]\newline 
+    (iii) (incremental definition) $(X_t)_{t\ge 0}$ has stationary independent increments and for each $t$, $X_t$ has Poisson distribution of parameter $\lambda t$.
+\end{Thm}
+
+\begin{Thm}
+    Let $(X_t)_{t\ge 0}$ be a Poisson process. Then, conditional on $(X_t)_{t\ge 0}$ having exactly one jump in the interval $[s, s +t]$, the time at which that jump occurs is uniformly distributed on $[s, s + t]$.
+\end{Thm}
+\begin{Thm}
+    Let $(X_t)_{t\ge 0}$ be a Poisson process. Then, conditional on the event $\{X_t = n\}$, the jump times $J_1, \cdots ,J_n$ have joint density function
+\[f(t_1,\cdots ,t_n)=n!1_{0\le t_1\le \cdots \le t_n\le t}\]
+\end{Thm}
+\begin{Rk}
+    Thus, conditional on $\{X_t = n\}$, the jump times $J_1, \cdots ,J_n$ have the same distribution as an ordered sample of size $n$ from the uniform distribution on $[0,t]$.
+\end{Rk}
+
+\section{Continuous Time Martingale}
+\subsection{Stopping Times}
+\begin{Def}[stopping time]
+    Let $\tau$ be a random time. If $\{\tau\le t\}\in\mathcal{F}_t$ for every $t\ge 0$,
+    then $\tau$ is called a stopping time.
+\end{Def}
+\begin{Def}[optional time]
+    Let $T$ be a random time. If $\{T<t\}\in\mathcal{F}_t$ for every $t\ge 0$,
+    then $T$ is called a stopping time.
+\end{Def}
+\begin{Lem}
+    $T$ is an optional time of the filtration $\{\mathcal{F}_t\}$ if and only if it is a stopping time of the right-continuous
+    filtration $\{\mathcal{F}_{t^+}\}$.
+\end{Lem}
+\begin{Cor}
+    Every stopping time is optional, and the two concepts coincide if the filtration is right-continuous.
+\end{Cor}
+\begin{Lem}
+    If $T$ is optional and $\theta$ is a positive constant, then $T+\theta$ is a stopping time.
+\end{Lem}
+\begin{Lem}
+    If $\tau,\sigma$ are stopping times, then so are $\tau\wedge \sigma$, $\tau\vee \sigma$, $\tau+\sigma$.
+\end{Lem}
+\begin{proof}
+    The first two assertions are trivial. \newline 
+    For the third, start with the decomposition
+\end{proof}
+\begin{Lem}
+    Let $T,S$ be optional times; then $T+S$ is optional. \newline
+    Moreover, it is a stopping time if
+\end{Lem}
+\begin{Lem}
+    Let $\{T_n\}_{n=1}^\infty$ be a sequence of optional times; then the random times 
+    \[\sup_{n\ge 1}T_n\quad \inf_{n\ge 1}T_n\quad \limsup_{n\to\infty}T_n\quad \liminf_{n\to\infty}T_n \] 
+    are all optional.\newline 
+    Moreover, if the $T_n$'s are stopping times, then so is $\sup_{n\ge 1}T_n$.
+\end{Lem}
+
+
+\begin{Def}[$\sigma$-field of events determined prior to a stopping time]
+    Let $\tau$ be a stopping time of the filtration $\{\mathcal{F}_t\}$. The $\sigma$-field of events determined prior to the stopping time $T$
+    consists of those events $A\in\mathcal{F}$ for which $A\cap\{\tau\le t\}\in \mathcal{F}_t$ for every $t\ge 0$.
+\end{Def}
+\begin{Lem}
+    $\tau$ is $\mathcal{F}_\tau$-measurable.
+\end{Lem}
+\begin{proof}
+    $\{\tau\le t\}\cap\{\tau\le t\}=\{\tau\le t\}\in\mathcal{F}_t$, so $\{\tau\le t\}\in \mathcal{F}_\tau$.
+\end{proof}
+
+\begin{Thm}
+    For any two stopping time and $\tau,\sigma$ a random time s.t. $\sigma\le \tau$ on $\Omega$, we have $\mathcal{F}_\sigma\subset\mathcal{F}_\tau$.
+\end{Thm}
+\begin{proof}
+    For every stopping time $\tau$ and positive constant $t$, $\tau\wedge t$ is an $\mathcal{F}_t$-measurable random variable
+    because $\mathcal{F}_{\tau\wedge t}\subset\mathcal{F}_t$. Therefore, $\{\sigma\wedge t\le \tau\wedge t\}\in \mathcal{F}_t$.
+    Then for any $A\in\mathcal{F}_\sigma$ we have $A\cap\{\sigma\le \tau\}\in\mathcal{F}_\tau$, because
+    \[ A\cap\{\sigma\le \tau\}\cap \{\tau\le t\}= (A\cap \{\sigma\le t\})\cap \{\tau\le t\}\cap \{\sigma\wedge t\le \tau\wedge t\}\]
+    Finally notice that $\{\sigma\le \tau\}=\Omega$.
+\end{proof}
+\begin{Rk}
+    We have proved a stronger result, namely
+    for any $A\in\mathcal{F}_\sigma$ we have $A\cap\{\sigma\le \tau\}\in\mathcal{F}_\tau$.
+\end{Rk}
+\begin{Thm}
+    Let $\sigma$ and $\tau$ be stopping times. Then $\mathcal{F}_{\tau\wedge \sigma}=\mathcal{F}_\tau\cap\mathcal{F}_\sigma$.\newline 
+    Moreover, $\{\tau<\sigma\}$, $\{\tau>\sigma\}$, $\{\tau\le \sigma\}$, $\{\tau\ge \sigma\}$, $\{\tau=\sigma\}$ belongs to $\mathcal{F}_\tau\cap\mathcal{F}_\sigma$.
+\end{Thm}
+\begin{proof}
+    From the above theorem, $\mathcal{F}_{\tau\wedge \sigma}\subset \mathcal{F}_{\tau}\cap\mathcal{F}_\sigma$.\newline 
+    For $A\in \mathcal{F}_{\tau}\cap\mathcal{F}_\sigma$, $A\cap \{\tau\wedge \sigma\le t\}=A\cap(\{\tau\le t\}\cup\{\sigma\le t\})\in\mathcal{F}_t$.
+\end{proof}
+
+\begin{Thm}
+    Let $\tau,\sigma$ be stopping times and $X$ an integrable random variable. We have \newline 
+    (i) $E(X|\mathcal{F}_\tau)=E(X|\mathcal{F}_{\sigma\wedge \tau})$ a.s. on $\{\tau\le \sigma\}$.\newline 
+    (ii) $E(E(X|\mathcal{F}_\tau)|\mathcal{F}_\sigma)=E(X|\mathcal{F}_{\sigma\wedge \tau})$ a.s..
+\end{Thm}
+\begin{proof}
+    (i) Let $A\in\mathcal{F}_\tau$, then $A\cap \{\tau\le \sigma\}$ belongs to both $\mathcal{F}_\tau$ and $\mathcal{F}_\sigma$, and therefore to $\mathcal{F}_\tau\cap\mathcal{F}_\sigma$. So 
+    \[ \int_A 1_{\tau\le \sigma} E(X|\mathcal{F}_{\tau\wedge\sigma})\mathrm{d}P=\int E(1_A1_{\tau\le \sigma}X|\mathcal{F}_{\tau\wedge\sigma})\mathrm{d}P=\int_A1_{\tau\le \sigma}X\mathrm{d}P\]
+    (ii) On $\{\tau\le\sigma\}$ we have $E(X|\mathcal{F}_\tau)=E(X|\mathcal{F}_{\sigma\wedge \tau})$ a.s. by (i), so 
+    $E(E(X|\mathcal{F}_\tau)|\mathcal{F}_\sigma)=E(E(X|\mathcal{F}_{\sigma\wedge \tau})|\mathcal{F}_\sigma)=E(X|\mathcal{F}_{\sigma\wedge \tau})$. Similarly on
+    $\{\sigma\le \tau\}$ we have $E(E(X|\mathcal{F}_\tau)|\mathcal{F}_\sigma)=E(E(X|\mathcal{F}_\tau)|\mathcal{F}_{\sigma\wedge \tau})=E(X|\mathcal{F}_{\sigma\wedge \tau})$.
+\end{proof}
+\begin{Thm}
+    Let $X=\{X_t,\mathcal{F}_t\}$ be a progressively measurable process, and let $\tau$ be a stopping time of the filtration $\mathcal{F}_t$.
+    Then the random variable $X_\tau$ defined on $\{\tau<\infty\}$ is $\mathcal{F}_\tau$-measurable, and the stopped process 
+    $\{X_{\tau\wedge t},\mathcal{F}_t\}$ is progressively measurable.
+\end{Thm}
+
+
+
+\subsection{From Discrete to Continuous}
+In this subsection, we generalize inequalities and convergence results for discrete time martingales to continuous time martingales.\newline 
+Let $X_t$ be a submartingale adapted to $\{\mathcal{F}_t\}$ whose paths are right-continuous. Let $[\sigma,\tau]$ be a subinterval of $[0,+\infty)$,
+and let $a<b$, $\lambda>0$ be real numbers.
+\begin{Thm}[Doob's inequality]
+    Let $A=\left\{ \sup_{\sigma\le t\le \tau}X_t^+  \ge\lambda\right\}$, then \[\lambda P(A)\le EX_\tau1_A\le EX_\tau^+\]
+\end{Thm}
+\begin{proof}
+    Let the finite set $\mathcal{S}$ consist of $\sigma,\tau$ and a finite subset of $[\sigma,\tau]\cap \mathbb{Q}$.
+
+    By considering an increasing sequence $\{\mathcal{S}_n\}_{n=1}^\infty$ of finite sets whose union is the whole of $([\sigma,\tau]\cap \mathbb{Q})\cup\{\sigma,\tau\}$,
+    we may replace $S$ by this union in the preceding discrete version of the inequality.
+\end{proof}
+
+\begin{Thm}[upcrossing inequality]
+    \[(b-a)EU_{[\sigma,\tau]}\le E(X_\tau-a)^+-E(X_\sigma-a)^+\]
+\end{Thm}
+
+\begin{Thm}[$L^p$ maximum inequality]
+    $\bar{X}_\tau= \sup_{\sigma\le t\le \tau}X_t^+$, then for $1<p<\infty$, \[E(\bar{X}_\tau^p)\le (\frac{p}{p-1})^pE(X_\tau^+)^p\]
+\end{Thm}
+
+
+
+For the remainder of this subsection, we deal only with right-continuous processes,
+usually imposing no condition on the filtration $\mathcal{F}_t$.
+\begin{Thm}[submartingale convergence]
+    Assume $\sup_{t\ge 0} E(X_t^+)<\infty$. Then $X_\infty =\lim_{t\to\infty} X_t$ exists a.s., and $E|X_\infty|<\infty$.
+\end{Thm}
+\begin{proof}
+    
+\end{proof}
+
+\begin{Thm}[optional sampling]
+    Assume the submartingale has a last element $X_\infty$,
+    and let $S\le T$ be two optional times of the filtration. We have 
+    \[ E(X_T|\mathcal{F}_{S^+})\ge X_S \quad \text{a.s.}\] 
+    If $S$ is a stopping time, then $\mathcal{F}_S$ can replace $\mathcal{F}_{S^+}$ above.
+\end{Thm}
+\begin{proof}
+    Consider the sequence of random times 
+    \[S_n(\omega)=\left\{\begin{matrix}
+        +\infty   & S(\omega )=+\infty \\
+        \frac{k}{2^n}   & \frac{k-1}{2^n} \le S(\omega )<\frac{k}{2^n} 
+        \end{matrix}\right. \]
+    and similarly defined sequences $\{T_n\}$. These are stopping times.
+    For every fixed integer $n\ge 1$, both $S_n$ and $T_n$ take on a countable number of values and we also have $S_n\le T_n$.
+\end{proof}
+
+
+\subsection{Doob-Meyer Decomposition}
+\begin{Def}[increasing process]
+    An adapted process $A$ is called increasing if for P-a.e. $\omega\in\Omega$ we have \newline 
+    (i) $A_0(\omega)=0$\newline 
+    (ii) $t\mapsto A_t(\omega)$ is a nondecreasing, right-continuous function, and $EA_t<\infty$ holds for every $t\in [0,\infty)$.\newline 
+    An increasing process is called integrable if $EA_\infty<\infty$.
+\end{Def}
+\begin{Def}
+    An increasing process $A$ is called natural if for every bounded, right-continuous martingale $\{M_t,\mathcal{F}_t;0\le t<\infty\}$ we have
+    \[ E\int_{(0,t]}M_s\mathrm{d}A_s=E\int_{(0,t]}M_{s^-}\mathrm{d}A_s\quad\forall 0<t<\infty\]
+\end{Def}
+\begin{Lem}
+    If $A$ is an increasing process and $\{M_t,\mathcal{F}_t;0\le t<\infty\}$ is a bounded right-continuous martingale, then 
+    \[ E(M_tA_t)=E\int_{(0,t]}M_s\mathrm{d}A_s \]
+\end{Lem}
+The following concept is a strengthening of the notion of uniform integrablity for submartingales.
+\begin{Def}[class DL]
+    
+\end{Def}
+\begin{Thm}
+    Let $\{\mathcal{F}_t\}$ satisfies the usual conditions. If the right-continuous submartingale $X=$ is of class DL,
+    then it admits the decomposition as the summation if a right-continuous martingale
+\end{Thm}
+
+\subsection{Square Integrable Martingales}
+
+
+\section{BM}
+\begin{Def}[d-dimensional Brownian motion]
+    A d-dimensional Brownian motion $B=(B_t)_{t\ge 0}$ is a stochastic process indexed by $[0,\infty)$ taking values in $\mathbb{R}^d$ s.t. \newline 
+    (i) $B_0(\omega)=0$
+
+\end{Def}
+
+
+
+
+
+
+\section{Stochastic Integration}
+\subsection{}
+
+
+\subsection{Martingale Characterization of BM}
+\begin{Thm}[Levy]
+    
+\end{Thm}
+
+\subsection{Representations of Martingales by BM}
+
+
+\begin{Thm}[time-change for martingales]
+    
+\end{Thm}
+
+
+\begin{Thm}[representation of square-integrable martingales by BM via Ito's integral]
+    
+\end{Thm}
+
+\subsection{The Girsanov Theorem}
+
+
+\section{The PDE Connection}
+
+
+
+
+\section{Stochastic Differential Equations}
+
+
+
+
+\section{Diffusions}
+
+\subsection{Kolmogorov's Theory}
+
+
+\subsection{Ito's theory}
+
+\end{document}
+
+
+In this section, we consider a discrete-time Markov chain with finite or countable state space.
+\begin{Def}[$N$-Simplex]
+The set $\mathscr{P}_\mathscr{X}$ is called the $N$-simplex, where $N$ is the cardinality of the state space $\mathscr{X}$:it 
+is the subset of $\mathbb{R}^N$ gotten by intersecting the first orthant with the hyperplane consisting of all vectors whose entries sum to $1$.
+\end{Def}
+\begin{Thm}
+The $N$-simplex $\mathscr{P}$ is a closed and bounded subset of $\mathbb{R}^N$.
+Consequently, by the Heine-Borel Theorem, it is compact.
+\end{Thm}
+

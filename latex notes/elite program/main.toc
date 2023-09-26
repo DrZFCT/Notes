@@ -1,0 +1,5 @@
+\babel@toc {english}{}\relax 
+\beamer@sectionintoc {1}{Why Applied Math and Why Elite Program?}{2}{0}{1}
+\beamer@sectionintoc {2}{My Knowledge}{3}{0}{2}
+\beamer@sectionintoc {3}{Research Interests}{4}{0}{3}
+\beamer@sectionintoc {4}{Q\&A}{5}{0}{4}

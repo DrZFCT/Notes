@@ -1,0 +1,668 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage[a4paper,total={6in,10in}]{geometry}
+\usepackage{amsmath}
+\usepackage{mismath}
+\usepackage{amsthm}
+
+\newtheorem{Thm}{Theorem}[section]
+\newtheorem{corollary}{Corollary}[Thm]
+\newtheorem{Lem}{Lemma}[section]
+\newtheorem{Eg}{Example}[section]
+\newtheorem*{Rk}{Remark}
+
+\theoremstyle{definition}
+\newtheorem{Def}{Definition}[section]
+
+
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{hyperref}
+
+
+
+\title{Problems and Solutions in Abstract Algebra}
+\author{Kaizhao Liu}
+\date{August 2022}
+
+\begin{document}
+\maketitle
+\tableofcontents
+
+\section{Groups}
+\subsection{General Constructions}
+
+
+
+
+
+\subsubsection{Direct Products}
+\begin{Thm}
+Let $G$ be a group with normal subgroups $H$ and $K$. If $HK=G$ and $H\cap K=1$, then $G\simeq H\times K$.
+\end{Thm}
+
+\begin{Eg}
+Let $H$ be a subgroup of finite index $n$ of a group $G$. Then $g\in Z(G)\Longrightarrow g^n\in H$.
+\end{Eg}
+
+\subsection{Concrete Groups}
+\begin{Eg}[Fundamental Theorem of Finite Abelian Group]
+    \,\newline
+    Primary decomposition: every finite abelian group is a direct sum of primary cyclic group.
+    \newline
+\end{Eg}
+
+\begin{Eg}[Group of prime order]
+    If $p$ is a prime and $\left|G\right|=p$, then $G$ is a cyclic group.
+\end{Eg}
+
+\begin{Eg}
+    If $p$ is a prime and $\left|G\right|=p^2$, then $G$ is abelian. Therefore, $G$ is isomorphic to either $\mathbb{Z}_{p^2}$ or $\mathbb{Z}_{p}\times\mathbb{Z}_{p}$.
+\end{Eg}
+For example we have
+\begin{Eg}[Group of order $4$]
+    Every group of order $4$ is isomorphic to either $\mathbb{Z}_4$ or the $4$-group $\mathbf{V}$.
+\end{Eg}
+
+\begin{Eg}
+    If $m\ge 3$, then $U(\mathbb{Z}_{2^m})\cong \mathbb{Z}_2\times \mathbb{Z}_{2^{m-2}}$
+\end{Eg}
+\begin{proof}
+    $\left|U(\mathbb{Z}_{2^m})\right|=2^{m-1}$. So it is a $2$-group.
+\newline $5^{2^{m-3}}=(1+4)^{2^{m-3}}\equiv 1+2^{m-1}\mod{2^m}$ by induction and the binomial theorem. So $5$ has order $2^s$ for some $s\ge m-2$.
+\newline Of course $-1$ has order $2$. We claim that $\left\langle-1\right\rangle\cap\left\langle5\right\rangle=1$.
+\end{proof}
+\begin{Eg}
+    If $p$ is an odd prime, the multilpicative group $U(\mathbb{Z}_{p^n})\cong \mathbb{Z}_{(p-1)p^{n-1}}$.
+\end{Eg}
+
+
+\subsubsection{Cyclic Groups}
+
+
+\begin{Thm}[Euler $\varphi$-function]
+The Euler $\varphi$-function is defined as follows:
+\[\varphi(1)=1;\quad \varphi(n)=\left|\left\{k:1\le k<n,(k,n)=1\right\}\right|(n>1)\]\par 
+(i) If $G$ is cyclic of order $n$, then the number of generators of $G$ is $\varphi(n)$.\par 
+(ii) If $(r,s)=1$, then $\varphi(rs)=\varphi(r)\varphi(s)$.\par 
+(iii) If $p$ is prime, then $\varphi(p^k)=p^k-p^{k-1}=p^k(1-\frac{1}{p})$.\par 
+(iv) If the distinct prime divisor of $n$ are $p_1,\cdots,p_t$, then $\varphi(n)=n(1-\frac{1}{p_1})\cdots (1-\frac{1}{p_t})$. \par 
+(v) If $(r,s)=1$, then $s^{\varphi(r)}\equiv 1 \mod{r}$.
+\end{Thm}
+\begin{proof}
+    Suppose $G$ is a cyclic group.\par 
+    (i) If $G=\left\langle a\right\rangle$ and $\left|G\right|=n$, then $a^k$ is also a generator of $G$ if and only if $(k,n)=1$.\par 
+    (ii) 
+\end{proof}
+
+\begin{Thm}
+If $G$ is a cyclic group of order $n$, then there exists a unique subgroup of order $d$ for every divisor $d$ of $n$.
+\end{Thm}
+\begin{proof}
+If $G=\left\langle a\right\rangle$, then $\left\langle a^{\frac{n}{d}}\right\rangle$ is a subgroup of order $d$.\par 
+Assume $S=\left\langle b\right\rangle$ is a subgroup of order $d$, then $b^d=1$ and $b=a^m$ for some $m$. So $md=kn$ for some integer $k$, and $b=(a^{\frac{n}{d}})^k$.
+Therefore $\left\langle b\right\rangle\le\left\langle a^{\frac{n}{d}}\right\rangle$, and the inclusion is equality because both subgroups have order $n$.
+\end{proof}
+
+\begin{Eg}
+If $n$ is a positive integer, then $n=\sum_{d|n}\varphi(d)$.
+\end{Eg}
+\begin{proof}
+This identity can be easily proved by listing all fractions with denominator $n$ and reducing these fractions to simplified fractions.\par 
+Here we prove this identity in a group-theoritic manner. Consider a cyclic group $G$ of order $n$. If $C$ is a cyclic subgroup of a group $G$, let $\text{gen}(C)$ denote the set of all its generators.
+Every element in $G$ generates a cyclic subgroup. If we put the elements which generate the same cyclic subgroup together, we get a disjoint union decomposition of $G$: $G=\bigcup\text{gen}(C)$.
+But every cyclic subgroup of $G$ is of order $d$ for some $d|n$. Therefore, $n=\left|G\right|=\sum_{d|n}\left|\text{gen}(C_d)\right|=\sum_{d|n}\varphi(d)$.
+\end{proof}
+
+\begin{Eg}
+If $F$ is a field and $G$ is a finite subgroup of $F^\times$, then $G$ is cyclic. 
+\end{Eg}
+\begin{proof}
+If $a\in G$ satisfies $a^d=1$, then $a$ is a root of the polynomial $x^d-1\in F\left[x\right]$ in $F$. Since a polynomial of degree $d$ over a field has at most $d$ roots,
+\end{proof}
+
+
+\subsubsection{Symmetric Groups}
+
+
+\begin{Lem}
+If $\alpha,\beta\in S_n$, then $\alpha\beta\alpha^{-1}$ is the permutation with the same cyclic structure as $\beta$ which is obtained by applying $\alpha$ to the symbols in $\beta$.
+\end{Lem}
+
+\begin{Thm}
+Permutations $\alpha,\beta\in S_n$ are conjugate if and only if they have the same cycle structure.
+\end{Thm}
+\begin{proof}
+The lemma above shows that conjugate permutations do have the same cycle structure.\par 
+For the converse, define $\gamma\in S_n$ as follows: place the complete factorization of $\alpha$ over that of $\beta$ so that the cycles of the same length correspond, and let
+$\gamma$ be the function sending the top to the bottom. $\gamma$ is a permutation for every $i$ between $1$ and $n$ occurs exactly once in a complete factorization, and $\gamma\alpha\gamma^{-1}=\beta$. 
+\end{proof}
+\begin{corollary}
+A subgroup $H$ of $S_n$ is a normal subgroup if and only if whenever $a\in H$, then every $\beta$ having the same cycle structure as $\alpha$ also lies in $H$.
+\end{corollary}
+
+\begin{Thm}[Simplicity of $A_n$]
+$A_n$ is simple for all $n\ge 5$.
+\end{Thm}
+\begin{proof}
+The proof consists of several steps. All of them focus on $3$-cycles.\par 
+First, we are going to prove that $A_5$ is simple. 
+
+Second, let $H\lhd A_n$, where $n\ge 5$. If $H$ contains a $3$-cycle, then $H=A_n$.
+
+Third, we are going to prove that $A_6$ is simple.
+
+Finally, let $n>6$. Let $H\ne 1$ be a normal subgroup of $A_n$. If $\beta\in H$ and $\beta\ne 1$, then there is an $i$ with $\beta(i)=j\ne i$. If $\alpha$ is a $3$-cycle fixing $i$ and moving $j$,
+then $\alpha$ and $\beta$ do not commute: $\beta\alpha(i)=\beta(i)=j$ and $\alpha\beta(i)=\alpha(j)\ne j$. Therefore, their commutator is not the identity.
+$(\alpha\beta\alpha^{-1})\beta^{-1}$ lies in the normal subgroup $H$. $\alpha(\beta\alpha\beta^{-1})$ is a product of two $3$-cycles, thus it moves at most $6$ symbols.
+If $F=\left\{\gamma\in A_m: \gamma\text{ fixed the other symbols}\right\}$, then $F\simeq A_6$ and $\alpha\beta\alpha^{-1}\beta^{-1}\in H\cap F\lhd F$. Since $A_6$ is simple, $H\cap F=F$ so $F\le H$.
+Therefore $H$ contains a $3$-cycle, $H=A_n$.
+\end{proof}
+
+
+
+\subsection{Group Actions}
+
+
+
+\begin{Def}[group actions]
+    A (left) group action of $G$ on a set $X$ is a map
+    \begin{align*}
+        G\times X&\to X\\
+        (g,x)\mapsto gx
+    \end{align*}
+    that satisfies the following conditions:\newline
+    (1) $g(g'x)=(gg')x$ for all $x\in X$ and all $g,g'\in G$.\newline
+    (2) $1x=x$ for all $x\in X$, where $1$ is the identity element of $G$.
+\end{Def}
+\begin{Rk}
+Equivalently, a group action of $G$ on $X$ can be defined as a group homomorphism $\tau$ from $G$ to the symmetric group $S_X$ of $X$.
+\end{Rk}
+Two most important concept about group actions are \textbf{orbits} and \textbf{stabilizer}.
+\begin{Lem}[Burnside's lemma]
+    Let $G$ be a finite group and let $X$ be a finite $G$-set. For every $g\in G$, let $X^g\subset G$ be the set of elements $x$ of $X$ which are fixed under the action of $g$, and let $\chi_X(g)=\left|X^g\right|$. Then:
+    \[\left|X/G\right|=\frac{1}{\left|G\right|}\sum_{g\in G}\chi_X(g)\]
+    In other words, the number of orbits is the average of the number of fixed points of the elements of the group.
+\end{Lem}
+\begin{proof}
+    Define $f(g,x)=1_{gx=x}$. Let us compute in two different ways the sum $S=\sum_{(g,x)\in G\times X}f(g,x)$.
+\end{proof}
+\begin{Def}[$k$-transitivity]
+Let $X$ be a $G$-set of degree $n$ and let $k\le n$ be a positive integer. Then $X$ is $k$-transitive if, for every pair of $k$-tuples having distinct entries in $X$,
+say, $(x_1,\cdots,x_k)$ and $(y_1,\cdots,y_k)$, there is $g\in G$ with $gx_i=y_i$ for $i=1,\cdots,k$.
+\end{Def}
+
+
+\subsubsection{Sylow Theorems}
+
+
+\begin{Thm}[Cauchy]
+If $G$ is a finite group whose order is divisible by a prime $p$, then $G$ contains an element of order $p$.
+\end{Thm}
+\begin{proof}[J.H.McKay]
+First recall how we dealt with the rather simple case $p=2$. We pair $a$ and $a^{-1}$ for all $a\in G$ and count their numbers.
+The J.H.McKay's proof is actually a generalization of this idea.\par 
+Define \[X=\left\{(a_1,\cdots,a_p)\in G\times\cdots\times G:a_1a_2\cdots a_p=1\right\}\]
+Then $\left|X\right|=\left|G\right|^{p-1}$. View $X$ as a $Z_p$-set by defining the action to be cyclically permuting the coordinates.
+Verify that it is well-defined. \par 
+Each orbit of $X$ has either $1$ or $p$ elements for $\left|Z_p\right|=p$. If one orbit has only one element, then the element is a $p$-tuple having all its coordinates equal, say $a_i=a$ $\forall i$.
+Thus $a^p=1$. $(1,\cdots,1)$ is such an orbit. Were this the only orbit, then we would have $\left|X\right|=1+kp$ for some integer $k\ge 0$, that is, $\left|G\right|^{p-1}\equiv 1\mod{p}$, which is a contradiction.
+\end{proof}
+\begin{proof}
+Here is a proof by induction. First we prove this result for finite abelian groups, then we use the class equation to reduce the general case.\par 
+For abelian group $G$, suppose $\left|G\right|=pm$, where $m\ge 1$. When $m=1$, the statement is obvious. For the inductive step,
+choose $x\in G$ of order $t>1$. If $p|t$, then $x^{\frac{t}{p}}$ has order $p$. If $p\nmid t$, since $G$ is abelian, $\left\langle x\right\rangle$ is a normal subgroup of $G$,
+and $G/\left\langle x\right\rangle$ is an abelian group of order $\frac{pm}{t}$. By induction, $G/\left\langle x\right\rangle$ contains an element $y^*$ of order $p$.
+\end{proof}
+
+\begin{Thm}[$p$-group]
+If $p$ is a prime, then a $p$-group is a group in which every element has order a power of $p$.\par 
+(i) A finite group $G$ is a $p$-group if and only if $\left|G\right|$ is a power of $p$.\par 
+Now assume that $G$ is a finite $p$-group.\par 
+(ii) $Z(G)\ne 1$.\par 
+(iii) If $H$ is a proper subgroup of $G$, then $H<N_G(H)$.\par 
+(iv) Every maximal subgroup of $G$ is normal and has index $p$.\par 
+(v) Let $r_s$ be the number of subgroups of $G$ having order $p^s$, then $r_s\equiv 1\mod{p}$.
+\end{Thm}
+\begin{proof}
+(i) If $G$ is a $p$-group, assume that there is a prime $q\ne p$ which divides $\left|G\right|$. By Cauchy's theorem, $G$ contains an element of order $q$, and this is a contradiction.
+Conversely, if $\left|G\right|=p^m$, then Lagrange's theorem shows that $G$ is a $p$-group.\par 
+(ii) Consider the class equation $\left|G\right|=\left|Z(G)\right|+\sum \left[G:C_G(x_i)\right]$. Each $C_G(x_i)$ is a proper subgroup of $G$, and $\left[G:C_G(x_i)\right]$ is a power of $p$.
+Thus $p$ divides $\left|Z(G)\right|$.
+\end{proof}
+
+\begin{Eg}
+If $p$ is a prime, then every group $G$ of order $p^2$ is abelian.
+\end{Eg}
+\begin{proof}
+If p-group $G$ is not abelian, then $\left|Z(G)\right|=p$. Then $\left|G/Z(G)\right|=p$ is cyclic, which is a contradiction.
+\end{proof}
+
+\begin{Eg}
+Let $K$ be a finite field of characteristic $p$ with $q=p^f$ elements. Let $G=GL_n(K)$.
+The order of $G$ is the number of $K$-bases of $K^n$. Hence $\left|G\right|=(q^n-1)(q^n-1)\cdots(q^n-q^{n-1})=q^{\frac{n(n-1)}{2}}\prod_{i=1}^n(q^i-1)=p^{f\frac{n(n-1)}{2}}m$,
+where $m=\prod_{i=1}^n(q^i-1)$ is prime to $p$.\par 
+Let $S$ be the group of upper triangular matrices with diagonal entries equal to $1$. It is a subgroup of $G$ of order $q^{\frac{n(n-1)}{2}}$, hence it is a $p$-Sylow subgroup of $G$.
+\end{Eg}
+
+\begin{Thm}
+Let $H$ be a subgroup of $G$ and let $S$ be a $p$-Sylow subgroup of $G$. There exists $g\in G$ s.t. $H\cap gSg^{-1}$ is a $p$-Sylow subgroup of $H$.
+\end{Thm}
+\begin{proof}
+The key is to consider $H$ acting on $X=G/S$ by left multiplication. Notice that the stabliziers of the points of $X$ are of the form $H\cap gSg^{-1}$, with $g\in G$.
+This is exactly the form of the group we are looking for.\par 
+Then we make use of the fact that $S$ is a $p$-Sylow subgroup to conclude that $p\nmid \left|X\right|$. Hence there is at least one orbit $\mathcal{O}=Hx$ whose order is prime to $p$.
+The stablizier of $x$ is the $p$-Sylow subfroup of $H$ we sought.
+\end{proof}
+\begin{corollary}
+Here is a second proof of the first Sylow theorem.
+\end{corollary}
+\begin{proof}
+Let $n$ be the order of $G$. We embed $G$ into the symmetric group $S_n$ by making $G$ act on itself by left translations.
+We embed $S_n$ in $GL_n(F_p)$ as follows: if $\sigma\in S_n$ and $(e_i)_{1\le i\le n}$ is a basis of $F_p^n$, we associate to $\sigma$ the linear transformation $e_i\mapsto e_{\sigma(i)}$.
+Thus $G$ embeds in $GL_n(F_p)$. By the previous example, the group $GL_n(F_p)$ has a $p$-Sylow subgroup. Hence the same is true for $G$.
+\end{proof}
+
+\begin{Thm}
+$C_{qm}^q\equiv m \mod{p}$, where $q$ is a power of $p$ and $m$ is relatively prime to $p$.
+\end{Thm}
+\begin{proof}
+A typical method to deal with combinatorial identity module $p$ is to consider $R=F_p\left[t\right]$. On the one hanc, the coefficient of $t^q$ in $(1+t)^{qm}$ is $C_{qm}^q$.
+On the other hand, $(1+t)^q=1+t^q$ in $R$, hence $(1+t)^{qm}=1+mt^q+\cdots$.
+\end{proof}
+\begin{corollary}
+Here is a third proof of the first Sylow theorem.
+\end{corollary}
+\begin{proof}[Miller-Wielandt]
+Let $\left|G\right|=qm$, where $q$ is a power of $p$, and $m$ is prime to $p$. Let $X$ be the set of all the subsets of $G$ of cardinality $q$. We have $\left|X\right|=C_{qm}^{q}$.
+The above theorem shows that $\left|X\right|$ is prime to $p$. The group $G$ acts on $X$ by left translations. Since $\left|X\right|$ is prime to $p$. there is at least one orbit $\mathcal{O}$ s.t. $\left|\mathcal{O}\right|$ is prime to $p$.
+Hence $q|\left|H\right|$, where $H$ is the stablizier of an element of $\mathcal{O}$, say $A$.\par 
+If $a\in A$, the map $H\to A$ given by $h\mapsto ha$ is injective, hence $\left|H\right|\le \left|A\right|=q$. Therefore we have $\left|H\right|=q$, and $H$ is a $p$-Sylow subgroup of $G$.
+\end{proof}
+
+\begin{Lem}
+    Let $P$ be a $p$-group acting on a finite set $X$. Let $X^P$ be the set of elements of $X$ fixed by $P$. Then $\left|X\right|=\left|X^P\right|\mod{p}$.
+\end{Lem}
+\begin{proof}
+    Every orbit in $X-X^P$ has order divisible by $p$.
+\end{proof}
+
+\begin{Thm}[properties of $p$-Sylow subgroups]
+\,\newline
+(1) Every $p$-subgroup of $G$ is contained in a $p$-Sylow subgroup.\newline
+(2) The $p$-Sylow subgroups of $G$ are conjugate to each other.\newline
+(3) The number of $p$-Sylow subgroups of $G$ is congruent to $1$ module $p$.
+\end{Thm}
+\begin{proof}[Proof of parts (1) and (2)]
+    The proof again use the technique of $p$-group left multiplication.\par  
+    Let $S$ be a $p$-Sylow subgroup of $G$, let $P$ be a $p$-subgroup of $G$, and let $X=G/S$. We apply the lemma to $P$ acting on $X$.
+Since $\left|X\right|\not\equiv 0\mod{p}$, we have $\left|X^P\right|\not\equiv 0\mod{p}$, hence there exists $x\in X$ fixed by $P$. The stablizier of $x$ contains $P$ and is also a conjugate of $S$.
+Therefore, $P$ is contained in a conjugate $gSg^{-1}$ of $S$. This proves (1). For (2), notice that the inclusion is an equality since the two groups have the same order.
+\end{proof}
+
+\begin{Lem}
+    Let $S$ and $S'$ be two $p$-Sylow subgroups of $G$. If $S'$ normalizes $S$, then $S'=S$.
+\end{Lem}
+\begin{proof}
+    $S$ and $S'$ are $p$-Sylow subgroups of $N_G(S)$. Since $S$ is normal in $N_G(S)$, by (2), $S$ is the unique $p$-Sylow subgroup of $N_G(S)$.
+\end{proof}
+\begin{proof}[Proof of part (3)]
+    Let $X$ be the set of $p$-Sylow subgroups of $G$, and let $S$ act on $X$ by conjugation. By the above lemma, $S$ is the only element of $X$ that is fixed by all the elements of $S$.
+Therefore $\left|X^S\right|=1$. Thus $\left|X\right|\equiv 1\mod{p}$.
+\end{proof}
+
+\begin{Eg}
+    Recall that, if $x$ is a nonzero integer, $v_l(x)$ is the $l$-adic valuation of $x$, i.e., the largest integer $m$ s.t. $l^m$ divides $x$.
+For $m>0$, we have \begin{equation*}
+    v_l(m!)=[\frac{m}{l}]+[\frac{m}{l^2}]+[\frac{m}{l^3}]+\cdots
+\end{equation*}
+As a consequence, we obtain the order of a $l$-Sylow subgroup of $S_m$.
+\end{Eg}
+
+
+\subsection{Group Representations}
+The goal of group representation theory is to study groups via their actions on vector spaces. Consideration of groups acting on sets leads to such important results as the Sylow theorems.
+By studying actions on vector spaces even more detailed information about a group can be obtained. This is the subject of representation theory.
+\subsubsection{General Constructions}
+We only consider representation on a finite-dimensional vector space.
+\begin{Thm}
+    Let $\varphi:G\to GL(V)$ be a unitary representation of a group. Then $\varphi$ is either irreducible or decomposable.
+\end{Thm}
+\begin{proof}
+    Suppose $\varphi$ is not irreducible. Then there is a non-zero proper $G$-invariant subspace $W$ of $U$. Its orthogonal complement $W^\perp$ is then also non-zero and $V=W\oplus W^\perp$.
+So it remains to prove that $W^\perp$ is $G$-invariant. If $v\in W^\perp$ and $w\in W$, then $\left\langle\varphi_g(v),w\right\rangle=\left\langle\varphi_{g^{-1}}\varphi_g(v),\varphi_{g^{-1}}(w)\right\rangle=\left\langle v,\varphi_{g^{-1}}(w)\right\rangle=0$.
+We conclude $\varphi$ is decomposable.
+\end{proof}
+
+\begin{Thm}
+    Every representation of a finite group $G$ is equivalent to a unitary representation.
+\end{Thm}
+\begin{Rk}
+    This is not true for infinite groups in general.
+\end{Rk}
+\begin{proof}
+    Let $\varphi:G\to GL(V)$ be a representation where $\dim V=n$. Choose a basis $B$ for $V$, and let $T:V\to \mathbb{C}^n$ be the isomorphism taking coordinates w.r.t. $B$.
+Then setting $\rho_g=T\varphi_hT^{-1}$ yields a representation $\rho:G\to GL_n(\mathbb{C})$ equivalent to $\varphi$. Let $\left\langle,\right\rangle$ be the standard inner product on $\mathbb{C}^n$.
+We define a new inner product $(,)$ on $\mathbb{C}^n$ using the crucial \textbf{averaging trick}:
+\[(v,w)=\sum_{g\in G}\left\langle\rho_gv,\rho_gw\right\rangle\]
+The summation over $G$, of course, requires that $G$ is finite. Check that it is indeed an inner product, and that the representation is unitary w.r.t. this inner product. 
+\end{proof}
+\begin{corollary}
+Let $\varphi:G\to GL(V)$ be a non-zero representation of a finite group. Then $\varphi$ is either irreducible or decomposable.
+\end{corollary}
+
+\begin{Thm}[Maschke]
+    Every representation of a finite group is completely reducible.
+\end{Thm}
+
+\subsubsection{Character Theory}
+This subsubsection gets to the heart of group representation theory: the character theory of Frobenius and Schur.
+The fundamental idea of character theory id to encode a representation $\varphi:G\to GL_n(\mathbb{C})$ of $G$ by a complex-valued function $\chi_\varphi:G\to C$.
+In other words, we replace a function to an $n$-dimensional space with a function to a $1$-dimensional space.
+\begin{Lem}
+    Let $T:V\to W$ be in $\hom_G(\varphi,\rho)$. Then $\ker T$ and $\Im T$ are $G$-invariant.
+\end{Lem}
+
+\begin{Lem}
+    Let $\varphi:G\to GL(V)$ and $\rho:G\to GL(W)$ be representations. Then $\hom_G(\varphi,\rho)$ is a subspace of $\hom(V,W)$.
+\end{Lem}
+
+\begin{Lem}[Schur's Lemma]
+    Let $\varphi,\rho$ be irreducible representations of $G$, and $T\in\hom_G(\varphi,\rho)$. Then either $T$ is invertible or $T=0$.
+\end{Lem}
+
+\begin{corollary}
+    Let $G$ be an abelian group. Then any irreducible representation of $G$ has degree one.
+\end{corollary}
+
+From this point onward, the group $G$ shall always be assumed finite. Let $\varphi:G\to GL_n(\mathbb{C})$ be a representation. Then $\varphi_g=(\varphi_{ij}(g))$ where $\varphi_{ij}(g)\in\mathbb{C}$.
+Thus there are $n^2$ functions $\varphi_{ij}:G\to\mathbb{C}$ associated to the degree $n$ representation $\varphi$. What can be said about the functions $\varphi_{ij}:G\to\mathbb{C}$ when $\varphi$ is irreducible and unitary?
+It turns out that the functions of this sort form an orthogonal basis for $\mathbb{C}^G$.
+\begin{Def}[Group Algebra]
+    Let $G$ be a group and define \[L(G)=\mathbb{C}^G=\left\{f|f:G\to\mathbb{C}\right\}\]
+    Then $L(G)$ is an inner product space with the inner product given by \[\left\langle f_1,f_2\right\rangle=\frac{1}{\left|G\right|}\sum_{g\in G}f_1(g)\overline{f_2(g)}\]
+\end{Def}
+\begin{Thm}[Schur Orthogonality Relations]
+    Suppose that $\varphi:G\to U_n(\mathbb{C})$ and $\rho:G\to U_m(\mathbb{C})$ are inequivalent irreducible unitary representations. Then:\newline
+    1. $\left\langle\varphi_{ij},\rho_{kl}\right\rangle=0$\newline 
+    2. $\left\langle\varphi_{ij},\rho_{kl}\right\rangle=
+    \left\{\begin{matrix}\frac{1}{n}  & i=k\&j=l \\0 & \text{else} \end{matrix}\right. $
+\end{Thm}
+We begin the proof with our second usage of the averaging trick.
+\begin{Lem}
+    Let $\varphi:G\to GL(V)$ and $\rho:G\to GL(W)$ be representations and suppose that $T:V\to W$ is a linear transformation. Then:\newline 
+    (a) $T^\sharp=\frac{1}{\left|G\right|}\sum_{g\in G}\rho_{g^{-1}}T\varphi_g\in \hom_G(\varphi,\rho)$\newline 
+    (b) If $T\in\hom_G(\varphi,\rho)$, then $T^\sharp=T$\newline 
+    (c) The map $P:\hom(V,W)\to\hom_G(\varphi,\rho)$ defined by $P(T)=T^\sharp$ is an onto linear map.
+\end{Lem}
+
+\begin{Lem}
+    Let $\varphi:G\to GL(V)$ and $\rho:G\to GL(W)$ be representations and suppose that $T:V\to W$ is a linear transformation. Then:
+    \newline (a) If $\varphi\nsim\rho$, then $T^\sharp=0$\newline 
+    (b) If $\varphi=\rho$, then $T^\sharp=\frac{\tr(T)}{\deg (\varphi)}I$
+\end{Lem}
+
+\begin{Lem}
+    Let $\varphi:G\to U_n(\mathbb{C})$ and $\rho:G\to U_m(\mathbb{C})$ be unitary representations. Let $A=E_{ki}\in M_{mn}(\mathbb{C})$. Then $A^\sharp_{lj}=\left\langle\varphi_{ij},\rho_{kl}\right\rangle$.
+\end{Lem}
+\begin{proof}
+    Since $\rho$ is unitary, $\rho_{g^{-1}}=\rho_g^{-1}=\rho_g^*$. Thus $\rho_{lk}(g^{-1})=\overline{\rho_{kl}(g)}$.
+    We compute \begin{align*}
+        A^\sharp_{lj}&=\frac{1}{\left|G\right|}\sum_{g\in G}(\rho_{g^{-1}}E_{ki}\varphi_g)_{lj}\\
+        &=\frac{1}{\left|G\right|}\sum_{g\in G}\rho_{lk}(g^{-1})\varphi_{ij}(g)\\
+        &=\frac{1}{\left|G\right|}\sum_{g\in G}\overline{\rho_{kl}(g)}\varphi_{ij}(g)\\
+        &=\left\langle\varphi_{ij},\rho_{kl}\right\rangle
+    \end{align*}
+\end{proof}
+
+
+\begin{Def}[Character]
+    Let $\varphi:G\to GL(V)$ be a representation. The character $\chi_\varphi:G\to\mathbb{C}$ of $\varphi$ is defined by setting $\chi_\varphi(g)=\tr(\varphi_g)$.
+    The character of an irreducible representation is called an irreducible character.
+\end{Def}
+
+\begin{Lem}
+    Let $\varphi$ be a representation of $G$. Then $\chi_\varphi(1)=\deg \varphi$.
+\end{Lem}
+\begin{Lem}
+    If $\varphi$ and $\rho$ are equivalent representations, then $\chi_\varphi=\chi_\rho$.
+\end{Lem}
+\begin{Lem}
+    Let $\varphi$ be a representation of $G$. Then, $\forall g,h\in G$, the equality $\chi_\varphi(g)=\chi_\varphi(hgh^{-1})$ holds. That is, $\chi_\varphi$ is a class function.
+\end{Lem}
+
+\begin{Def}[Class function]
+    A function $f:G\to\mathbb{C}$ is called a class function if $f(g)=f(hgh^{-1})$ for all $g,h\in G$, or equivalently if $f$ is constant on conjugacy classes of $G$.
+    The space of class functions is denoted by $Z(L(G))$.
+\end{Def}
+\begin{Rk}
+    In particular, characters are class functions.
+\end{Rk}
+
+\begin{Lem}
+    $Z(L(G))$ is a subspace of $L(G)$.
+\end{Lem}
+Next let us compute the dimension of $Z(L(G))$. Let $Cl(G)$ be the set of conjugacy classes of $G$.
+Define, for $C\in Cl(G)$, the function $\delta_C:G\to\mathbb{C}$ by \[\delta_C=\left\{\begin{matrix}
+    1 & g\in C\\
+    0 & g\not\in C
+   \end{matrix}\right.\]
+\begin{Lem}
+    The set $B=\left\{\delta_C|C\in Cl(G)\right\}$ is a basis for $Z(L(G))$. Consequently, $\dim Z(L(G))=\left|Cl(G)\right|$
+\end{Lem}
+
+\begin{Thm}[First Orthogonality Relations]
+    Let $\varphi,\rho$ be irreducible representations of $G$. Then \begin{equation*}
+        \left\langle\chi_\varphi,\chi_\rho\right\rangle=\left\{\begin{matrix}
+            1\quad \varphi\sim\rho\\0\quad \varphi\not\sim\rho
+           \end{matrix}\right.
+    \end{equation*}
+    Thus the irreducible characters of $G$ form an orthonormal set of class functions.
+\end{Thm}
+
+Some notation. If $V$ is a vector space, $\varphi$ is a representation and $m>0$, then we set 
+\[mV=\underset{\times m}{\underbrace{V\oplus\cdots\oplus V} } \text{  and  }  m\varphi=\underset{\times m}{\underbrace{\varphi\oplus\cdots\oplus\varphi}}\]
+
+\begin{Def}
+    If $\rho\sim m_1\varphi^{(1)}\oplus\cdots\oplus m_s\varphi^{(s)}$, then $m_i$ is called the multiplicity of $\varphi^{(i)}$ in $\rho$.
+    If $m_i>0$, then we say that $\varphi^{(i)}$ is an irreducible constituent of $\rho$.
+\end{Def}
+Note that it is not clear at the moment if the multiplicity is well-defined because we have not yet established the uniqueness of the decomposition of a representation into irreducibles.
+To show that it is well defined, we come up with a way to compute the multiplicity directly from the character of $\rho$.
+Since the character only depends on the equivalence class, it follows that the multiplicity of $\varphi^{(i)}$ will be the same no matter how we decompose $\rho$.
+\begin{Lem}
+    Let $\varphi=\rho\oplus\phi$. Then $\chi_\varphi=\chi_\rho+\chi_\phi$.
+\end{Lem}
+\begin{Thm}
+    Let $\varphi^{(1)},\cdots,\varphi^{(s)}$ be a complete set of representatives of the equivalence classes of irreducible representations of $G$ and let 
+    \[\rho\sim m_1\varphi^{(1)}\oplus \cdots \oplus m_s \varphi^{(s)}\] 
+    Then $m_i=\left\langle\chi_\rho,\chi_{\varphi^{(i)}}\right\rangle$. Consequently, the decomposition of $\rho$ into irreducible consistuents is unique and $\rho$ is determined up to equivalence by its character.
+\end{Thm}
+\begin{proof}
+    By the previous lemma, $\chi_\rho=m_1\chi_{\varphi^{(1)}}+\cdots+m_s\chi_{\varphi^{(s)}}$. By the first orthogonality relations, we get the desired result.
+\end{proof}
+\begin{corollary}
+    A representation $\rho$ is irreducible if and only if $\left\langle\chi_\rho,\chi_\rho\right\rangle=1$.
+\end{corollary}
+
+
+Next we study a special kind of representation, namely the regular representation.
+
+\begin{Thm}
+    The regular representation is a unitary representation of $G$.
+\end{Thm}
+
+\begin{Thm}
+    The character of the regular representation $L$ is given by 
+    \[\chi_L(g)=\left\{\begin{matrix}
+        \left|G\right|  & g=1\\
+          0&g\ne 1
+        \end{matrix}\right.\]
+\end{Thm}
+
+\begin{Thm}
+    Let $L$ be the regular representation of $G$. Then holds the decomposition
+    \[L\sim d_1\varphi^{(1)}\oplus\cdots\oplus d_s\varphi^{(s)}\]
+\end{Thm}
+\begin{proof}
+    Using the formulas for the character, $\left\langle\chi_L,\chi_i\right\rangle=d_i$.
+\end{proof}
+\begin{corollary}
+    The formula $\left|G\right|=d_1^2+\cdots+d_s^2$ holds.
+\end{corollary}
+\begin{proof}
+    Evaluate $\chi_L$ at $1$.
+\end{proof}
+
+\begin{Thm}
+    The set $B=\left\{\sqrt{d_k}\varphi_{ij}^{(k)}|1\le k\le s,1\le i,j\le d_k\right\}$ is an orthonormal basis for $L(G)$.
+\end{Thm}
+\begin{proof}
+    Compare the two dimensions.
+\end{proof}
+
+\begin{Thm}
+    The set $\chi_1,\cdots,\chi_s$ is an orthonormal basis for $Z(L(G))$.
+\end{Thm}
+\begin{proof}
+    We show they span $Z(L(G))$. Let $f\in Z(L(G))$, by the averaging trick and $f=\sum_{i,j,k}c_{ij}^{(k)}\varphi_{ij}^{(k)}$
+    \begin{align*}
+        f(x)&=\frac{1}{\left|G\right|}\sum_{g\in G}f(g^{-1}xg)\\
+        &=\frac{1}{\left|G\right|}\sum_{g\in G}\sum_{i,j,k}c_{ij}^{(k)}\varphi_{ij}^{(k)}(g^{-1}xg)\\
+        &=\sum_{i,j,k}c_{ij}^{(k)}\left[\frac{1}{\left|G\right|}\sum_{g\in G}\varphi^{(k)}_{g^{-1}}\varphi^{(k)}_x\varphi^{(k)}_g\right]_{ij}\\
+        &=\sum_{i,j,k}c_{ij}^{(k)}\left[(\varphi_x^{(k)})^\sharp\right]_{ij}\\
+        &=\sum_{i,j,k}c_{ij}^{(k)}\frac{\tr(\varphi_x^{(k)})}{\deg \varphi^{(k)}}I_{ij}\\
+        &=\sum_{i,k}c_{ii}^{(k)}\frac{1}{d_k}\chi_k(x)
+    \end{align*}
+\end{proof}
+\begin{corollary}
+    The number of equivalence classes of irreducible representations of $G$ is the number of conjugacy classes of $G$.
+\end{corollary}
+\begin{proof}
+    $s=\dim Z(L(G))=\left|Cl(G)\right|$
+\end{proof}
+\begin{corollary}
+    A finite group $G$ is abelian if and only if it has $\left|G\right|$ equivalence classses of irreducible representations.
+\end{corollary}
+
+\begin{Thm}[Second Orthogonality Relations]
+    Let $C,C'$ be conjugacy classes of $G$ and let $g\in C$ and $h\in C'$. Then \[\sum_{i=1}^s\chi_i(g)\overline{\chi_i(h)}=\left\{\begin{matrix}
+        \frac{\left|G\right |}{\left|C\right |}  & C=C'\\
+        0 & C\ne C'
+       \end{matrix}\right.\]
+\end{Thm}
+
+
+\subsubsection{Burnside's Theorem}
+\begin{Thm}[Dimension Theorem]
+    Let $\varphi$ be an irreducible representation of $G$ of degree $d$, then $d$ divides $\left|G\right|$.
+\end{Thm}
+\begin{proof}
+    The first orthogonal relations provide $1=\left\langle\chi_\varphi,\chi_\rho\right\rangle=\frac{1}{\left|G\right|}\sum_{g\in G}\chi_\varphi(g)\overline{\chi_\varphi(g)}$.
+Let $C_1,\cdots,C_s$ be the conjugacy classes of $G$ and let $chi_i$ be the value of $chi_\varphi$ on $C_i$. Let $h_i=\left|C_i\right|$.
+Then $\frac{\left|G\right|}{d}=\sum_{i=1}^s\sum_{g\in C_i}\frac{\chi_\varphi(g)}{d}\overline{\chi_\varphi(g)}=\sum_{i=1}^s(\frac{h_i}{d}\chi_i)\overline{\chi_i}$.
+\end{proof}
+
+\begin{Eg}
+    Let $G$ be a group of order $p^2$ where $p$ is a prime. Let $d_1,\cdots,d_s$ be the degrees of the irreducible representations of $G$.
+    Then $d_i$ can be $1,p$ or $p^2$. Since the trivial representation has degree $1$ and $p^2=\left|G\right|=d_1^2+\cdots+d_s^2$, so all $d_i=1$ and hence $G$ is abelian.
+\end{Eg}
+
+\begin{Thm}
+    If $G'$ is the commutator subgroup of $G$, then there is a bijection between degree one representation of $G$ and irreducible representations of the abelian group $G/G'$.
+As a result, $G$ has $\left|G/G'\right|=[G:G']$ degree one representations.
+\end{Thm}
+\begin{Rk}
+    The number of degree one representations of $G$ divides $\left|G\right|$.
+\end{Rk}
+\begin{proof}
+    Every degree one representation of $G$ can be factored through $G/G'$, hence being an irreducible representation of $G/G'$. The other direct follows from the composition of two maps.
+\end{proof}
+
+\begin{Eg}
+    Let $p,q$ be primes with $p<q$ and $q\not\equiv 1\mod{p}$. Let $d_1,\cdots,d_s$ be the degrees of the irreducible representations of $G$.
+    Since $d_i|\left|G\right|$,$p<q$ and $pq=\left|G\right|=d_1^2+\cdots+d_s^2$, it follows that $d_i=1$ or $d_i=p$. Let $n$ be the number of degree $p$ representations of $G$ and
+    let $m$ be the number of degree $1$ representations of $G$. Then $pq=m+np^2$. Since $m$ divides $pq$ by the previous lemma, $m\ge 1$ and $p|m$, we must have $m=p$ or $m=pq$. If $m=p$, then $q=1+np$, a contradiction.
+    Therefore $m=pq$ and $G$ is abelian.
+\end{Eg}
+
+\begin{Lem}
+    Let $G$ be a group of order $n$ and let $C$ be a conjugacy class of $G$. Suppose that $\varphi:G\to GL_d(\mathbb{C})$ is an irreducible representation and assume that $h=\left|C\right|$ is relatively prime to $d$. Then either:\newline 
+    1. $\exists\lambda\in C^*$ s.t. $g\in C\quad\varphi_g=\lambda I$ \newline 
+    2. $\forall g\in C\quad\chi_\varphi(g)=0$
+\end{Lem}
+\begin{proof}
+    It suffices to show that if $\varphi_g\ne\lambda I$ for some $g\in C$, then $\chi_\varphi(g)=0$.
+    We have already known that $\frac{h\chi(g)}{d} $ and $\chi(g)$ are algebraic integers. Since $(d,h)=1$,
+    we can find integers $k,j$ so that $kh+jd=1$. Let $\alpha=k(\frac{h\chi(g)}{d})+j\chi(g)=\frac{\chi(g)}{d}$, then $\alpha$ is an algebraic integer.
+    $\varphi_g$ is diagonalizable and its eigenvalues $\lambda_1,\cdots,\lambda_d$ are $n$th-roots of unity, which are not all the same.
+    Thus $\left|\chi\right|<d$, and so $\left|\alpha\right|<1$.
+\end{proof}
+
+\begin{Lem}
+    Let $G$ be a finite non-abelian group. Suppose that there is a conjugacy class $C\ne\left\{1\right\}$ of $G$ s.t. $\left|C\right|=p^t$ with $p$ prime, $t\ge 0$. Then $G$ is not simple.
+\end{Lem}
+
+\begin{Thm}[Burnside]
+    Let $G$ be a group of order $p^aq^b$ with $p,q$ primes. Then $G$ is not simple unless it is cyclic of prime order.
+\end{Thm}
+\section{Rings}
+\subsection{General Constructions}
+
+
+\subsection{Concrete Rings}
+\subsubsection{Quaternion Algebra}
+
+\subsubsection{M\"{o}bius Inversion}
+\begin{Def}[locally finite poset]
+    A locally finite poset is a partially ordered set $P$ such that for all $x,y\in P$, the interval $[x,y]$ consists of finitely many elements.
+\end{Def}
+\begin{Thm}
+    Suppose $(P_1,\le),\cdots,(P_n,\le)$ are locally finite posets. Endow $P:=\prod_{i=1}^{n}P_i$ with the order \[(x_i)_{i=1}^n\le (x_i)_{i=1}^n\Longleftrightarrow \forall i\quad x_i\le y_i\]
+    then $P$ is also a locally finite poset, and its M\"{o}bius function is \[\mu_P(x,y)=\prod_{i=1}^n\mu_{P_i}(x_i,y_i)\]
+\end{Thm}
+
+\subsubsection{Integrality Properties}
+Let $x$ be an element of a commutative ring $R$.
+\begin{Thm}[$Z$-integral]
+    TFAE:\newline 
+(1) There exist an integer $n\ge 1$, and elements $a_1,\cdots,a_n$ of $\mathbb{Z}$ s.t.:\[x^n+a_1x^{n-1}+\cdots+a_n=0\]
+(2) The subring $\mathbb{Z}[x]$ of $R$ is a finitely generated $\mathbb{Z}$-module.\newline
+(3) The ring $\mathbb{Z}[x]$ is contained in a finitely generated $\mathbb{Z}$-submodule of $R$.
+\end{Thm}
+\begin{Rk}
+    An element having properties (1),(2) and (3) is called integral over $\mathbb{Z}$, or $\mathbb{Z}$-integral;
+    when the ring $R$ is contained in a field of characteristic $0$, one also says that $x$ is an algebraic integer.
+\end{Rk}
+\begin{Thm}
+    The set of $Z$-integral elements of $R$ is a subring of $R$.
+\end{Thm}
+\begin{proof}
+    Let $x,y$ be $\mathbb{Z}$-integral elements of $R$. Then the ring $P=\mathbb{Z}\otimes_{\mathbb{Z}}\mathbb{Z}[y]$ is finitely generated over $\mathbb{Z}$.
+    The subring $\mathbb{Z}[x,y]$ of $R$ generated by $x$ and $y$ is isomorphic to a quotient of $P$, hence finitely generated. Property (3) shows that every element
+of that ring is $\mathbb{Z}$-integral. Hence $x+y$ and $xy$ are $\mathbb{Z}$-integral.
+\end{proof}
+\begin{Thm}
+    An element of $\mathbb{Q}$ is $\mathbb{Z}$-integral if and only if it belongs to $\mathbb{Z}$.
+\end{Thm}
+\begin{proof}
+    If $x\in\mathbb{Q}$ is $\mathbb{Z}$-integral, it satisfies an eqaution of type: \[x^n+a_1x^{n-1}+\cdots+a_n=0\]
+    If we write $x=\frac{p}{q}$ with $(p,q)$ relatively prime, this eqaution gives \[p^n+a_1p^{n-1}q+\cdots+a_nq^n=0\]
+    it implies that $p^n$ is divisible by $q$. Hence $q=\pm 1$ and $x=\pm p$ belongs to $\mathbb{Z}$.
+\end{proof}
+\begin{Lem}
+    Let $x_1,\cdots,x_n\in\mathbb{C}$ be roots of unity. Suppose that $x=\frac{x_1+\cdots+x_n}{n}$ is an algebraic integer. Then either $x=0$, or $x_1=\cdots=x_n$.
+\end{Lem}
+\begin{proof}
+    Choose a finite Galios extension $K/\mathbb{Q}$, contained in $\mathbb{C}$, and containing all the $x_i$; let $\Gamma=Gal(K/\mathbb{Q})$. Since $x$ is $\mathbb{Z}$-integral,
+the same is true of all the $\gamma(x),\gamma\in\Gamma$, and also of their product $X=\prod_{\gamma\in\Gamma}\gamma(x)$. Since $X$ is $\Gamma$-invariant, it belongs to $\mathbb{Q}$,
+then by the previous theorem, it belongs to $\mathbb{Z}$. Each $\gamma(x)$
+\end{proof}
+\section{Modules}
+
+\section{Fields}
+\subsection{Finite Fields}
+\begin{Eg}
+    The number of irreducible polynomials of degree $n$ in $F_p[x]$ is 
+\end{Eg}
+\end{document}

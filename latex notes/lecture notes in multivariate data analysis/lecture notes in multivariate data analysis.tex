@@ -1,0 +1,128 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage[a4paper,total={6in,10in}]{geometry}
+\usepackage{amsmath}
+\usepackage{mathrsfs}
+
+\usepackage{amsthm}
+
+\newtheorem{Thm}{Theorem}[section]
+\newtheorem{Cor}{Corollary}[Thm]
+\newtheorem{Lem}{Lemma}[section]
+\newtheorem{Eg}{Example}[section]
+\newtheorem*{Rk}{Remark}
+
+\theoremstyle{definition}
+\newtheorem{Def}{Definition}[section]
+
+
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{hyperref}
+
+
+
+\title{Lecture Notes in Multivariate Data Analysis}
+\author{Kaizhao Liu}
+\date{September 2022}
+
+\begin{document}
+\maketitle
+\tableofcontents
+\section{The Multivariate Normal Distributions}
+\subsection{Asymptotic Distributions of Sample Means and Covariance Matrices}
+
+
+\subsection{The Noncentral \texorpdfstring{$\chi^2$}{} and \texorpdfstring{$F$}{} Distributions}
+\begin{Def}[generalized hypergeometric functions]
+The generalized hypergeometric function is
+\[\sideset{_{p}}{_q}{\operatorname{F}} (a_1,\cdots a_p;b_1,\cdots,b_q;z)=\sum_{n=0}^\infty \frac{(a_1)_k\cdots (a_p)_k}{(b_1)_k\cdots (b_q)_k}\frac{z^k}{k!}\]
+where $(a)_k=a(a+1)\cdots (a+k-1)$
+\end{Def}
+
+For our purpose we will make use of the results in the following two lemmas. The first gives a special integral for $_0F_1$.
+\begin{Lem}
+\[\frac{\Gamma(\frac{n}{2})}{\Gamma(\frac{1}{2})\Gamma(\frac{n-1}{2})}\int_0^\pi e^{z\cos \theta}\sin^{n-2}\theta\mathrm{d}\theta=\sideset{_0}{_1}{\operatorname{F}}(\frac{n}{2};\frac{z^2}{4})\]
+\end{Lem}
+The second lemma shows that $\sideset{_{p+1}}{_q}{\operatorname{F}}$ is essentially a Laplace transform of $\sideset{_p}{_q}{\operatorname{F}}$.
+\begin{Lem}
+\[\int_0^\infty e^{-zt}t^{a-1}\sideset{_p}{_q}{\operatorname{F}}(a_1,\cdots,a_p;b_1,\cdots,b_p;kt)\mathrm{d}t=\Gamma(a)z^{-a}\sideset{_{p+1}}{_q}{\operatorname{F}}(a_1,\cdots,a_p,a;b_1,\cdots,b_q;kz^{-1})\]
+for $p<q,\Re(a)>0,\Re(z)>0$ or $p=q,\Re(a)>0,\Re(z)>\Re(k)$.
+\end{Lem}
+
+\begin{Thm}
+If $X$ is $N_n(\mu,I_n)$ then the random variable $Z=X^TX$ has the density function
+\[e^{-\frac{\delta}{2}}\sideset{_0}{_1}{\operatorname{F}}(\frac{n}{2};\frac{\delta z}{4})\frac{1}{2^{\frac{n}{2}}\Gamma(\frac{n}{2})}e^{-\frac{z}{2}}z^{\frac{n}{2}-1}\quad(z>0)\]
+where $\delta=\mu^T\mu$. $Z$ is said to have the noncentral $\chi^2$ distribution with $n$ degrees of freedom and noncentrality parameter $\delta$, to be written as $\chi^2_n(\delta)$.
+\end{Thm}
+\begin{Cor}
+If $Z$ is $\chi^2_n(\delta)$ then its density function can be expressed as 
+\[\sum_{k=0}^\infty P(K=k)g_{n+2k}(z)\quad (z>0)\]
+where $K$ is a Poisson random variable with mean $\frac{\delta}{2}$, and 
+\[g_r(z)=\frac{1}{2^{\frac{r}{2}}\Gamma(\frac{r}{2})}e^{-\frac{z}{2}}z^{\frac{r}{2}-1}\]
+ the density function of the $\chi^2_r$ distribution.
+\end{Cor}
+\begin{Thm}
+    If $Z$ is $\chi^2_n(\delta)$ then its characteristic function is 
+\[\varphi_z(t)=(1-2it)^{\frac{n}{2}}e^{\frac{it\delta}{1-2it}}\]
+\end{Thm}
+\begin{Cor}
+    $E(Z)=n+\delta$ and $\text{Var}(Z)=2n+4\delta$
+\end{Cor}
+\begin{Cor}
+    If $Z_1$ is $\chi^2_{n_1}(\delta_1)$, $Z_2$ is $\chi^2_{n_2}(\delta_2)$, and $Z_1$ and $Z_2$ are independent, then $Z_1+Z_2$ is $\chi^2_{n_1+n_2}(\delta_1+\delta_2)$.
+\end{Cor}
+We now turn to the noncentral $F$ distribution. Recall that the usual central $F$ distribution is obtained by taking the ratio of two independent $\chi^2$ variables divided by their degrees of freedom.
+The noncentral $F$ distribution is obtained by allowing the numerator variable to be noncentral $\chi^2$.
+\begin{Thm}
+    If $Z_1$ is $\chi^2_{n_1}(\delta)$,$Z_2$ is $\chi^2_{n_2}$, and $Z_1$ and $Z_2$ are independent, then 
+    \[F=\frac{Z_1/n_1}{Z_2/n_2}\]
+    has the density function 
+    \[e^{-\frac{\delta}{2}}\sideset{_1}{_1}{\operatorname{F}}(\frac{n_1+n_2}{2};\frac{n_1}{2};\frac{\frac{n_1}{2n_2}\delta z}{1+\frac{n_1}{n_2}z})\times\frac{\Gamma(\frac{n_1+n_2}{2})}{\Gamma(\frac{n_1}{2})\Gamma(\frac{n_2}{2})}\frac{z^{\frac{n_1}{2}-1}(\frac{n_1}{n_2})^\frac{n_1}{2}}{(1+\frac{n_1}{n_2}z)^{\frac{n_1+n_2}{2}}}\quad z>0\]
+$F$ is said to have the noncentral $F$ distribution with $n_1$ and $n_2$ degrees of freedom and noncentrality parameter $\delta$, to be written as $F_{n_1,n_2}(\delta)$.
+\end{Thm}
+\begin{Cor}
+    $E(F)=\frac{n_2(n_1+\delta)}{n_1(n_2-2)}(n_2>2)$ and $\text{Var}(F)=2(\frac{n_2}{n_1})^2\frac{(n_1+\delta)^2+(n_1+2\delta)(n_2-2)}{(n_2-2)^2(n_2-4)}(n_2>4)$
+\end{Cor}
+\subsection{Quadratic Forms}
+\begin{Thm}
+If $X$ is $N_m(\mu,\Sigma)$, where $\Sigma$ is nonsingular, then \par
+(i) $(X-\mu)^T\Sigma^{-1}(X-\mu)$ is $\chi^2_m$ \par 
+(ii) $X^T\Sigma^{-1}X$ is $\chi^2_m(\delta)$ where $\delta=\mu^T\Sigma^{-1}\mu$
+\end{Thm}
+
+\begin{Thm}
+    If $X$ is $N_m(\mu,I_m)$ and $B$ is an $m\times m$ symmetric matrix, then $X^TBX$ has an noncentral $\chi^2$ distribution if and only if $B$ is idempotent.
+\end{Thm}
+
+\subsection{Spherical and Elliptical Distributions}
+\begin{Def}
+    A $m\times 1$ random vector $X$ is said to have a spherical distribution if $X$ and $OX$ have the same distribution for all $O\in O(n)$.
+\end{Def}
+
+\begin{Thm}
+    Let $X$ be $E_m(\mu,V)$, where $V$ is diagonal. If $X_1,\cdots,X_m$ are all independent then $X$ is normal.
+\end{Thm}
+\begin{proof}
+    WLOG assume $\mu=0$. Then the characteristic function of $X$ has the form $\phi(t)=\psi(t^TVt)=\psi(\sum_{i=1}^m t_i^2v_{ii})$.
+Since $X_1,\cdots,X_m$ are independent we have $ $
+This equation is known as Hamel's euqation and its only continuous solution is $\psi(z)=e^{kz}$ for some constant $k$.
+Hence the characteristic function of $X$ has the form $\phi(t)=e^{kt^TVt}$, and because it is a characteristic function, we must have $k\le 0$ which implies that $X$ has a normal distribution.
+\end{proof}
+
+
+\section{Multivariate Integration}
+\subsection{Exterior Products}
+For any matrix $X$, $\mathrm{d}(X)$ denotes the matrix of differentials $(\mathrm{d}x_{ij})$.\par 
+For an arbitary $n\times m$ matrix $X$, the symbol $(\mathrm{d}X)$ will denote the exterior product of the $mn$ distinct elements of $\mathrm{d}X$:
+\[(\mathrm{d}X):=\bigwedge _{j=1}^m \bigwedge _{i=1}^n \mathrm{d}x_{ij}\]\par 
+For a symmetric $m\times m$ matrix $X$, the symbol $(\mathrm{d}X)$ will denote the exterior product of the $\frac{m(m+1)}{2}$ distinct elements of $\mathrm{d}X$:
+\[(\mathrm{d}X):=\bigwedge _{1\le i\le j=1\le m} \mathrm{d}x_{ij}\]\par 
+
+
+\subsection{The Multivariate Gamma Function}
+
+\subsection{Miscellaneous Jacobians}
+
+\subsection{Invariant Measures}
+\end{document}

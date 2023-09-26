@@ -1,0 +1,227 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage[a4paper,total={6in,10in}]{geometry}
+\usepackage{amsmath}
+\usepackage[all,cmtip]{xy}
+
+\usepackage{amsthm}
+
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{corollary}{Corollary}[theorem]
+\newtheorem{lemma}{Lemma}[section]
+\newtheorem{example}{Example}[section]
+\newtheorem*{remark}{Remark}
+
+\theoremstyle{definition}
+\newtheorem{definition}{Definition}[section]
+
+
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{hyperref}
+
+
+
+\title{Banach Spaces I}
+\author{Kaizhao Liu}
+\date{Faburary 2023}
+
+\begin{document}
+\maketitle
+
+We can regard linear functional analysis as an extension of linear algebra to infinite-dimensional cases,
+with $\mathbb{F}=\mathbb{R}$, or $\mathbb{F}=\mathbb{C}$.
+In classical linear algebra we utilize the powerful concept of dimension to derive the structure of linear spaces and linear transformations.
+Here to cope with infinity, we must resort to techniques from mathematical analysis.
+
+\tableofcontents
+
+
+
+
+\section{Basic Definitions and Examples}
+\begin{definition}[Seminorm]
+    If $V$ is a vector space over $\mathbb{F}$, a seminorm is a function $p:V\to [0,\infty)$ with:\newline 
+    (i) $p(x+y)\le p(x)+p(y)$, $\forall x,y\in V$ \newline
+    (ii) $p(\alpha x)=\left|\alpha\right|p(x)$, $\forall \alpha\in \mathbb{F}$, $\forall x\in V$.
+\end{definition}
+Note that (ii) implies $p(0)=0$.
+\begin{definition}[Norm]
+    A norm is a seminorm $p$ s.t. $x=0$ if $p(x)=0$. Usually a norm is denoted by $\|\cdot\|$.
+    A normed space is a vector space endowed with with a norm. A Banach space is a normed space that is complete w.r.t. the metric defined by the norm.
+\end{definition}
+
+\begin{lemma}[Continuity]
+    If $V$ is a normed space, then: \newline 
+    (i) $V\times V\to V$, $(x,y)\mapsto x+y$ is continuous. \newline
+    (ii) $\mathbb{F}\times V\to V$, $(\alpha,x)\mapsto \alpha x$ is continuous.
+\end{lemma}
+\begin{proof}
+    By the definiton of continuity and the triangle inequality of norm.
+\end{proof}
+
+\begin{lemma}
+    If $p$ and $q$ are seminorms on $V$, TFAE: \newline
+    (i) $p\le q$ \newline 
+    (ii) $p<1$ whenever $q<1$\newline 
+    (iii) $p\le 1$ whenever $q\le 1$ \newline 
+    (iv) $p\le 1$ whenever $q<1$.
+\end{lemma}
+\begin{proof}
+    Only need to show (iv) implies (i). \newline 
+    Suppose (iv). Fix any $x$, and set $\alpha=q(x)$. Then for any $\epsilon>0$, $q(\frac{1}{\alpha+\epsilon}x)<1$.
+    So $p(\frac{1}{\alpha+\epsilon}x)\le 1$ and $p(x)\le q(x)+\epsilon$. The arbitariness of $\epsilon$ implies $p\le q$.
+\end{proof}
+
+\begin{definition}[Equivalent Norms]
+    If $\|\cdot\|_1$ and $\|\cdot\|_2$ are two norms on $V$, they are said to be equivalent norms if they define
+    the same topology on $V$.
+\end{definition}
+
+\begin{lemma}
+    
+\end{lemma}
+
+\section{Linear Operators on Normed Spaces}
+$B(V,W)=$ all continuous linear transformations from $V$ to $W$.
+
+
+\begin{lemma}
+    If $V$ and $W$ are normed spaces and $T:V\to W$ is a linear transformation, TFAE:\newline 
+    (i) $T\in B(V,W)$. \newline 
+    (ii) $T$ is continuous at $0$. \newline 
+    (iii) $T$ is continuous at some point.\newline 
+    (iv) $\exists c>0$ s.t. $\forall x\in V$ $\|Tx\|\le c\|x\|$.
+\end{lemma}
+
+\section{Finite Dimensional Normed Spaces}
+\begin{theorem}
+    If $V$ is a finite dimensional vector space, then any two norms on $V$ are equivalent.
+\end{theorem}
+\begin{proof}
+    Let $\{ e_1,\cdots,e_d\}$ be a Hamel basis for $V$. For $x=\sum_{j=1}^{d}x_je_j$, define $\|x\|_\infty:=\max\{|x_j|:1\le j\le d\}$.
+    Then $\|x\|_\infty$ is a norm. Let $\|\cdot\|$ be any norm on $V$.If $x=\sum_{j=1}^{d}x_je_j$, then $\|x\|\le C\|x\|_\infty$, 
+    where $C=\sum_{j=1}^{d}\|e_j\|$. To show the other inequality, we need a technique from analysis (or topology).
+
+    ???
+\end{proof}
+\begin{corollary}
+    A finite dimensional linear manifold $M$ in a normed space $V$ is closed.
+\end{corollary}
+\begin{proof}
+    Choose a Hamel basis for $M$ and define a norm $\|\cdot\|_\infty$ as above. Then $M$ is complete w.r.t $\|\cdot\|_\infty$,
+    thus complete w.r.t the original norm by the above theorem. Hence it is closed.
+\end{proof}
+\begin{corollary}
+    A linear transformation $T$ from a finite dimensional normed space $V$ to any normed space $W$ is continuous.
+\end{corollary}
+\begin{proof}
+    Since all norms are equivalent on $V$, we may choose a Hamel basis and define $\|\cdot\|_\infty$ as above.
+    Thus for $x=\sum_{j=1}^{d}x_je_j$, $\|Tx\|=\|\sum_j x_j Te_j\|\le \sum_j |\xi_j| \|Te_j\|\le C\|x\|_\infty$, where $C=\sum_j \|Te_j\|$.
+    Hence $T$ is bounded and continuous.
+\end{proof}
+
+\section{Quotients and Products of Normed Spaces}
+Let $V$ be a normed space, let $M$ be a linear manifold in $V$, and let $Q:V\to V/M$ be the natural map $Qx=x+M$.
+Our goal is to make $V/M$ into a normed space, so define \[\|x+M\|=\inf \{\|x+y\|:y\in M\}=\text{dist}(x,M).\]
+This defines a seminorm on $V/M$, but if $M$ is not closed, it can not define a norm.
+\begin{theorem}
+    If $M\le V$ and $\|\cdot\|$ is defined above, then it is a norm on $V/M$. Also:\newline 
+    (i)
+\end{theorem}
+
+\section{The Hahn-Banach Theorem}
+We first state the Hahn-Banach Theorem for real spaces and then extend it to complex spaces. Thereafter,
+we discuss several corollary of it. We postpone the proof to the end of this section.
+\begin{definition}[Sublinear Functional]
+    If $V$ is a vector space over $\mathbb{R}$, a seminorm is a function $q:V\to \mathbb{R}$ with:\newline 
+    (i) $q(x+y)\le q(x)+q(y)$, $\forall x,y\in V$ \newline
+    (ii) $q(\alpha x)=\alpha q(x)$, $\forall \alpha\ge 0$, $\forall x\in V$.
+\end{definition}
+
+\begin{theorem}[Hahn-Banach]
+    Let $V$ be a vector space over $\mathbb{R}$ and let $q$ be a sublinear functional on $V$. If $M$ is a
+    linear manifold in $V$ and $f:M\to\mathbb{R}$ is a linear functional s.t. $\forall x\in M$, $f(x)\le q(x)$,
+    then there is a linear functional $F:V\to\mathbb{R}$ s.t. $F|M=f$ and $\forall x\in V$, $F(x)\le q(x)$.
+\end{theorem}
+Note that the essence of the theorem is not the extension exists but that an extension can be found that remains
+dominated by $q$. Just to find an extension, we can simply take a Hamel basis.
+
+\begin{lemma}[Complexification]
+    Let $V$ be a linear space over $\mathbb{C}$.\newline 
+    (i) If $f:V\to\mathbb{R}$ is an $\mathbb{R}$-linear functional, then $\tilde{f}(x)=f(x)-if(ix)$ is a
+    $\mathbb{C}$-linear functional and $f=\Re \tilde{f}$. \newline 
+    (ii) If $g:V\to\mathbb{C}$ is $\mathbb{C}$-linear, $f=\Re g$, and $\tilde{f}$ is defined as in (i), then 
+    $\tilde{f}=g$. \newline
+    (iii) If $p$ is a seminorm on $V$, and $f$ and $\tilde{f}$ are as in $(i)$, then $\forall x$ $\left|f(x)\right|\le p(x)$
+    if and only if $\forall x$ $|\tilde{f}(x)|\le p(x)$.\newline 
+    (iv) If $V$ is furthermore a normed space, and $f$ and $\tilde{f}$ are as in $(i)$, then 
+    $\left\|f\right\|=\|\tilde{f}\|$.
+\end{lemma}
+
+
+\begin{theorem}[Seperation of Convex Sets]
+    
+\end{theorem}
+
+\section{The Opening Mapping Theorem}
+\begin{theorem}[Open Mapping Theorem]
+    If $V$ and $W$ are Banach spaces and $T:V\to W$ is a continuous linear surjection,
+    then $T(G)$ is open in $W$ whenever $G$ is open in $V$.
+\end{theorem}
+
+
+\begin{theorem}[Inverse Mapping Theorem]
+    If $V$ and $W$ are Banach spaces and $T:V\to W$ is a bounded linear transformation that is bijective,
+    then $T^{-1}$ is bounded.
+\end{theorem}
+\begin{proof}
+    As $T$ is continuous and surjective, by the open mapping theorem $T$ is open and hence a homeomorphism.
+\end{proof}
+
+\begin{definition}[isomorphism between Banach spaces]
+    If $V$ and $W$ are Banach spaces, an isomorphism of $V$ and $W$ is a linear bijection that is a homeomorphism.
+    Say $V$ and $W$ are isomorphic if there is an isomorphism of $V$ onto $W$.
+\end{definition}
+\begin{remark}
+    The use of the word 'isomorphism' is counter to the spirit of category theory, but it is traditional in Banach 
+    space theory. The inverse mapping theorem just says that a continuous bijection is an isomorphism.
+\end{remark}
+
+
+\begin{theorem}[Closed Graph Theorem]
+    If $V$ and $W$ are Banach spaces and $T:V\to W$ is a linear transformation s.t. the graph of $T$,
+    \[ G=\left\{x\oplus Tx\in V\oplus_1 W: x\in V\right\}\] 
+    is closed, then $T$ is continuous.
+\end{theorem}
+\begin{proof}
+    Since $V\oplus_1 W$ is a Banach space and $G$ is closed, $G$ is a Banach space.
+    Define $P_1:G\to V$ by $P_1(x\oplus Tx)=x$ and define $P_2:G\to W$ by $P_2(x\oplus Tx)=Tx$. 
+    $P_1$ and $P_2$ are bounded. Moreover, $P_1$ is bijective. By the inverse mapping theorem, $P_1^{-1}$ is continuous. 
+    Thus $T=P_2\circ P_1^{-1}$ is continuous.
+\end{proof}
+
+
+\section{The Principle of Uniform Boundness}
+\begin{theorem}
+    Let $X$ be a Banach space and $Y$ a normed space. If $\mathcal{T}\subset B(X,Y)$ s.t. $\forall x\in V$,
+    $\sup\left\{\left\|Tx\right\|:T\in \mathcal{T}\right\}<\infty$, then $\sup\left\{\left\|T\right\|:T\in\mathcal{T}\right\}<\infty$.
+\end{theorem}
+
+
+
+
+\section{The Adjoint of a Linear Operator}
+
+
+\section{The Banach-Stone Theorem}
+
+
+
+\section{Compact Operators}
+\begin{definition}
+    If $V$ and $W$ are Banach spaces and $T:V\to W$ is a linear transformation,
+    then $T$ is compact if ??? is compact in $W$.
+\end{definition}
+
+\end{document}

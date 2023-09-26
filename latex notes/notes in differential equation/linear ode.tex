@@ -1,0 +1,100 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage[a4paper,total={6in,10in}]{geometry}
+\usepackage{amsmath}
+\usepackage[all,cmtip]{xy}
+
+\usepackage{amsthm}
+
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{corollary}{Corollary}[theorem]
+\newtheorem{lemma}{Lemma}[section]
+\newtheorem{example}{Example}[section]
+\newtheorem*{remark}{Remark}
+
+\theoremstyle{definition}
+\newtheorem{definition}{Definition}[section]
+
+
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{hyperref}
+
+
+
+\title{Counterfactuals}
+\author{Kaizhao Liu}
+\date{May 2023}
+
+\begin{document}
+\maketitle
+\tableofcontents
+
+This note aims to present the basic idea of counterfactuals in the language of probability theory. 
+In this way, I hope to introduce new concepts and structures to enrich probability theory, and borrow tools and insights from probability theory to study causal inference.
+In the following I fix $(\Omega,\mathcal{F},\mathbb{P})$ to be a probability space.
+\section{Binary Treatment}
+ Let $X,Y$ be random variables on $\Omega$.
+\begin{example}[binary treatment]\label{binary treatment}
+    You can imagine $\Omega$ as the collection of all people being investigated, each element $\omega\in\Omega$ stands for a single person being investigated.
+    Suppose $X$ is a binary treatment variable, where $X=1$ means 'treated' and $X=0$ means 'not treated'. Let $Y$ be some outcome varible such as the absence of disease.
+    The goal is to study the relationship between $Y$ and $X$. 
+\end{example}
+
+\begin{definition}[potential decomposition]
+    If a random variable $Y$ can be written as $Y=C_01_{A^c}+C_11_A$ where $C_0$ and $C_1$ are two random variables,
+    then we say that $Y$ admits a potential decomposition $C_0,C_1$ w.r.t. $A$.
+\end{definition}
+\begin{remark}
+    If $X=1_A$ is the binary treatment varible associated with $A$, then we also say that $Y$ admits a potential decomposition w.r.t $X$. 
+    In this case, we can call $C_0,C_1$ the potential outcomes with the following interpretation: $C_0$ is the outcome if not 
+    treated and $C_1$ is the outcome if treated.
+\end{remark}
+
+\begin{theorem}[existence]
+    For any random variable $Y$ on $\Omega$ and any event $A\in\mathcal{F}$, there exists random variable $C_0$ and $C_1$ s.t. 
+    \[Y=C_01_{A^c}+C_11_{A}.\]
+\end{theorem}
+This theorem is self-evident. We can look at the following cases, where we assume $X=1_A$ is a binary treatment variable. 
+\begin{example}
+    Let $C_0=C_1=Y$, then it is a potential decomposition of $Y$ w.r.t. $X$. In this example, the outcome is the same whether treated or not.
+    We can interpret this as $X$ has no causal effect on $Y$.
+\end{example}
+
+\begin{example}
+    Let $C_0=Y1_{D}$ and $C_1=Y1_E$, where $A^c\subset D$, $A\subset E$ and $D,E\in\mathcal{F}$, then it is a potential decomposition of $Y$ w.r.t. $X$. 
+    In this example, $D,E$ can be chosen rather arbitarily. This shows that potential decomposition is not unique.
+\end{example}
+The problem of the above example is that we can decompose a random variable \textit{a posteriori}. 
+To model the causal effect of the real world, we want the decomposition to be \textit{a priori}.
+Namely, we are given a treatment $X$ and potential outcomes $C_0,C_1$ first, then we construct $Y$ naturally. 
+We express this special type of potential decomposition more succinctly by
+\begin{equation}
+    Y=C_X,
+\end{equation}
+which is called the \textbf{consistency relationship}.
+
+
+Now we can define statistics.
+
+\begin{definition}[average causal effect]
+    Define the average causal effect or average treatment effect to be
+    \begin{equation}
+        \theta=\mathbb{E}C_1-\mathbb{E}C_0.
+    \end{equation}
+\end{definition}
+
+\section{}
+\begin{definition}[counterfactual function]
+    A random variable which is parameterized by $X$.
+\end{definition}
+
+\begin{definition}[causal regression function]
+    Define the causal regression function to be 
+    \begin{equation}
+        \theta(x)=\mathbb{E}_\omega C(x,\omega).
+    \end{equation}
+    Note that $x$ is fixed.
+\end{definition}
+
+\end{document}

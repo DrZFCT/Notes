@@ -1,0 +1,453 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage[a4paper,total={6in,10in}]{geometry}
+\usepackage{amsmath}
+\usepackage{mathrsfs}
+
+\usepackage{amsthm}
+
+\newtheorem{Thm}{Theorem}[section]
+\newtheorem{Cor}{Corollary}[Thm]
+\newtheorem{Lem}{Lemma}[section]
+\newtheorem{Eg}{Example}[section]
+\newtheorem*{Rk}{Remark}
+
+\theoremstyle{definition}
+\newtheorem{Def}{Definition}[section]
+
+
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{hyperref}
+
+
+
+\title{Notes in Game Theory}
+\author{Kaizhao Liu}
+\date{December 2022}
+
+\begin{document}
+\maketitle
+\tableofcontents
+\section{Fundamental Concepts}
+
+\subsection{Basic Assumptions}
+
+
+\begin{Def}[common knowledge]
+    Let A be a knowledge. If all players know A, and know that their opponents know A,
+    and know their opponents know that they know, so on ad infinitum. Then A is called common knowledge.
+\end{Def}
+
+
+\begin{Def}[sequential rationality]
+    
+\end{Def}
+
+\begin{Def}[perfect recall]
+    No players ever forgets any information he once knew, and all players know the actions they have chosen previously.
+\end{Def}
+
+\subsection{Utility}
+Utility is a quantification of preference.
+\begin{Thm}[Von Neumann-Morgenstern utility theorem]
+    
+\end{Thm}
+
+
+\subsection{Descriptions of Games}
+For static games, we model them with strategic form. For dynamic games, we model them with extensive form. If the game, dynamic or not, has
+incomplete information, we model them with Bayesian
+
+\begin{Def}[game in strategic form]
+    A game in strategic form consist of the following information:\newline 
+    (the set of players) $i\in I$, where $I$ is taken to be the finite set $\left\{1,2,\cdots,I\right\}$ \newline 
+    (the pure-strategy space) $S_i$ for each $i\in I$\newline 
+    (payoff functions) $u_i=u_i(s)$, where $s=(s_1,\cdots,s_I)$ is the profile of strategies.
+\end{Def}
+\begin{Rk}
+    The finiteness can be removed by utlizing measure theory.
+\end{Rk}
+
+\begin{Def}[mixed strategy]
+    A mixed strategy $\sigma_i$ is a probability distribution over pure strategies.
+    The space of player $i$'s mixed strategies is denoted by $\Sigma_i$, where $\sigma_i(s_i)$ is the probability that $\sigma_i$ assigns to $s_i$.
+\end{Def}
+
+Games in strategic form do not make explicit time. To model games with dynamic structures, for example multistage games, we propose the extensive form,
+which is a generalization of decision trees.
+Games in extensive form make explicit the order in which players move, and what each player knows when making each of his decisions.
+\begin{Def}[game in extensive form]
+    A game in strategic form consist of the following information:\newline 
+    (the set of players)
+    (the order of moves)
+
+    (payoff functions)
+
+\end{Def}
+
+
+Next we relate strategies of extensive-form games to strategies of strategic-form games. Maps from
+extensive-form games to strategies of strategic-form games can be defined. Normal representation by von Neumann and multiagent representation by Selten are two.\par 
+\begin{Def}[normal representation]
+    
+\end{Def}
+
+\begin{Def}[multiagent representation]
+    
+\end{Def}
+
+Now let us examine mixed-strategies for extensive-form games closely. The above two different 
+give rise to two different ways to define randomized strategy profiles for any given extensive form game.
+\begin{Def}[behavior strategy]
+    Let $\Delta(A(h_i))$ be the probability distributions on $A(h_i)$. A behavior strategy for player $i$, denoted by $b_i$,
+    is an element of $\prod_{h_i\in H_i}\Delta(A(h_i))$. That is, a behavior strategy specifies a probability distribution over actions at each $h_i$,
+    and the probability distributions at different information sets are independent.
+\end{Def}
+
+
+\begin{Thm}[Kuhn's theorem]
+    If $\Gamma^e$ is a game with perfect recall. then any two mixed strategies that are behaviorally equivalent are also payoff equivalent.
+\end{Thm}
+
+
+
+
+\begin{Eg}
+    
+\end{Eg}
+
+To model games with incomplete information, Harsanyi introduced a common prior, i.e. belief, and type of players to simplify the analysis.
+We call these kind of model Bayesian games. Note that there are also other models of games with incomplete information, for example the Aumann model and the belief space model.
+
+\begin{Def}[belief]
+    
+\end{Def}
+
+\begin{Def}[consistent]
+    
+\end{Def}
+
+\begin{Thm}[Aumann]
+    Agreeing to disagree.
+\end{Thm}
+
+\begin{Def}[Bayesian game]
+    
+\end{Def}
+On the one hand, a Bayesian game can be described as an extensive-form game.
+\begin{Thm}
+    Every Bayesian game can be described as an extensive-form game (with moves of chance and information sets).
+\end{Thm}
+This extensibe-form game can be further represented by a strategic-form game (normal or multiagent).
+On the other hand, a Bayesian game can be described as another kind of strategic-form game.
+\begin{Def}[type-agent representation]
+    
+\end{Def}
+
+
+
+\section{Equilibria}
+In game theory, we focus on the concept of equilibrium. When rational people play a game, the final result must be a Nash equilibrium.
+The theory of equilibrium can be regarded as a ultimate theory for super-human, who are really rational.
+The process of how real-human in our current myopia update their strategies, is somewhat explained by evolutionary game theory
+and the theory of learning in games.
+\subsection{Nash Equilibria}
+\subsubsection{games in strategic form}
+\begin{Def}[Nash Equilibrium of an strategic form game]
+    A mixed-strategy profile $\sigma^*$ is a Nash equilibrium if 
+    \[ u_i(\sigma_i^*,\sigma_{-i}^*)\ge u_i(s_i,\sigma_{-i}^*)\quad \forall s_i\in S_i\quad \forall i\in I\]
+\end{Def}
+\begin{Thm}
+    Every finite strategic-form game has a mixed-strategy equilibrium.
+\end{Thm}
+\begin{Lem}[Kakutani's fixed point theorem]
+    Let $S$ be a non-empty, compact, convex subset of some finite-dimensional Euclidean space,
+\end{Lem}
+\begin{proof}
+    \footnote{Shizuo Kakutani. 1941. A generalization of Brouwer's fixed point theorem. Duke Math. J. 8(3): 457-459.}
+\end{proof}
+\begin{proof}
+    \footnote{John F. Nash, Jr. 1950. Equilibrium points in n-person games. Proc. Natl. Acad. Sci. U.S.A. 36 (1): 48-49.}
+    The idea of the proof is to apply Kakutanils fixed point theorem to the players' reaction correspondences.\par 
+    Player $i$'s reaction correspondence $r_i$ maps each strategy profile $\sigma$ to the set of mixed strategies that maximize
+    player $i$'s payoff when his opponents play $\sigma_{-i}$. Note that although $r_i$ only depends on $\sigma_{-i}$,
+    we write it as a function of the strategies of all players, because later we will look for a fixed point in the space $\Sigma$ of strategy profiles.
+    Define the correspondence $r:\Sigma\to\Sigma$ be the Cartesian product of the $r_i$'s. Then a fixed point of $r$ is a Nash equilibrium.
+\end{proof}
+Now let us examine how to find a Nash equilibrium.
+
+
+\subsubsection{games in extensive form}
+If we define an equilibrium of an extensive form game to be an equilibrium of its normal representation in the strategic form, then some
+games would have an enormous multiplicity of equilibria that are all behaviorally equivalent.
+\begin{Eg}
+    
+\end{Eg}
+To avoid this problem, we may consider defining an equilibrium of an extensive-form game to be an equilibrium of its multiagent representation,
+but such a definition could create a more serious problem of nonsensical equilibria in which a player fails to coordinate his moves across
+different information states.
+\begin{Eg}
+    
+\end{Eg}
+To avoid both problems, we have the following definition.
+\begin{Def}[Nash Equilibrium of an extensive form game]
+    A Nash equilibrium of an extensive form game, or an equilibrium in behavioral strategies, is defined to be any Nash equilibrium $\sigma$ of the multiagent representation
+    such that the the mixed representation of $\sigma$ is also an equilibrium of the normal representation.
+\end{Def}
+Now let us examine how to find an equilibrium for a game in extensive form.
+\begin{Thm}
+    If $\Gamma^e$ is an extensive-form game with perfect recall and $\tau$ is an equilibrium of the normal representation of $\Gamma^e$,
+    then any behavioral representation of $\tau$ is an equilibrium of the multiagent representation of $\Gamma^e$.
+\end{Thm}
+\begin{Cor}
+    For any extensive-form game with perfect recall, a Nash equilibrium in behavioral strategies exists.
+\end{Cor}
+So to find an equilibrium of $\Gamma^e$, it suffices to find an equilibrium of the normal representation of $\Gamma^e$,
+because any equilibrium of the normal representation corresponds to an equilibrium of the multiagent representation.
+
+
+\subsubsection{Bayesian games}
+As we pointed out, Bayesian games may be analyzed at two separate points in time:
+at the ex ante stage, before the players know their types, and at the interim stage, after they have learned what types they are.
+Accordingly, two different types of equilibria can be defined. The first equilibrium concept, which is Nash equilibrium in Bayesian games, poses the requirement that no player can profit by a unilateral deviation before knowing his type.
+The second equilibrium concept, called Bayesian equilibrium, poses the requirement that no player i can profit by deviating at the interim stage, after learning his type $t_i$.
+\begin{Def}[Bayesian equilibrium]
+    A Bayesian equilibrium in a game of incomplete information is defined to be any Nash equilibrium of the type-agent representation
+    in strategic form.
+\end{Def}
+To state it formally,
+\begin{Def}
+    
+\end{Def} 
+One can verify that these two formulations of Bayesian equilibrium are equivalent.
+
+\begin{Thm}
+    Every Bayesian game in which the set of types is finite and the set of actions of each type is finite
+    has a Nash equilibrium in behavior strategies.
+\end{Thm}
+\begin{proof}
+    As every game with incomplete information can be described as an extensive-form game,
+    every finite extensive-form game has a Nash equilibrium in mixed strategies,
+    and every mixed strategy is equivalent to a behavior strategy,
+    the result is obvious.
+\end{proof}
+
+\begin{Thm}
+    Every Bayesian game in which the set of types is finite and the set of actions of each type is finite has a Bayesian equilibrium.
+\end{Thm}
+\begin{proof}
+    The type-agent representation of the game has a Nash equilibrium.
+\end{proof}
+As already noted, the two definitions of equilibrium presented in this section (Nash equilibrium and Bayesian equilibrium) express two different perspectives on the game.
+The next theorem shows that these two definitions are in fact equivalent.
+\begin{Thm}[Harsanyi]
+    In a game with incomplete information in which the number of types of each player is finite, every Bayesian equilibrium is also a Nash equilibrium, and conversely every Nash equilibrium is also a Bayesian equilibrium.
+\end{Thm}
+\begin{proof}
+    Because the expected payoff of player i in a game with incomplete information is the expectation of the conditional expected payoff of all of his types $t_i$,
+    and because the probability of each type is positive, it follows that every deviation that increases the expected payoff of any single type of player i also increases the overall payoff for player i in the game.
+    In the other direction, if there is a deviation that increases the total expected payoff of player i in the game, it must necessarily increase the conditional expected payoff of at least one type $t_i$.
+\end{proof}
+
+
+\subsection{Refinements of Nash Equilibrium}
+\subsubsection{Perfect Equilibrium}
+
+\subsubsection{Proper Equilibrium}
+
+\subsubsection{Correlated Equilibrium}
+
+
+\subsection{Subgame-Perfect Equilibrium}
+Nash equilibrium itself can not explain everything. In a game, there may exist too many Nash equilibriums, and many of them look rediculous. 
+This subsection concern some refinements of Nash equilibriums.
+Let us first look at an example.
+\begin{Eg}[5 Pirates and 100 Gold Coins]
+    There are 5 pirates, they must decide how to distribute 100 gold coins among them.
+    The pirates have seniority levels, the senior-most is A, then B, then C, then D, and finally the junior-most is E. \par
+    Rules of distribution are: \newline 
+    1. The most senior pirate proposes a distribution of coins.\newline 
+    2. All pirates vote on whether to accept the distribution.\newline 
+    3. The distribution is approved if at least half of the pirates agree (including the proposer)\newline 
+    4. If the distribution is accepted, the coins are disbursed and the game ends.
+    If not, the proposer is thrown and dies, and the next most senior pirate makes a new proposal to begin the system again.\newline 
+    5. In case of a tie vote, the proposer can have the casting vote. \par
+    Rules every pirate follows:\newline 
+    1. Every pirate wants to survive\newline 
+    2. Given survival, each pirate wants to maximize the number of gold coins he receives.\par 
+    Question: What is the maximum number of coins that pirate A might get? \par 
+    Answer: 98\newline 
+    1. Consider the situation when A, B, and C die, only D and E are left. E knows that he will not get anything (D is senior and will make a distribution of (100, 0).
+    So E would be fine with anything greater than 0.\newline 
+    2. Consider the situation when A and B die, C, D, and E are left. D knows that he will not get anything (C will make a distribution of (99, 0, 1) 
+    and E will vote in favor of C).\newline
+    3. Consider the situation when A dies. B, C, D, and E are left. To survive, B only needs to give 1 coin to D. So distribution is (99, 0, 1, 0).\newline 
+    4. Similarly, A knows about point 3, so he just needs to give 1 coin to C and 1 coin to E to get them in favor. So distribution is (98, 0, 1, 0, 1).
+\end{Eg}
+The idea we use to analysis this illustrative example is exactly backward indcution. The equilibrium concept beheind backward indcution is just subgame-perfect equilibrium.
+\begin{Def}[subgame-perfect equilibrium]
+    A strategy profile $s$ of a multi-stage game with observed actions is a subgame-perfect equilibrium if 
+    \[s|h^k\]
+\end{Def}
+
+\begin{Thm}[one-stage-deviation principle for finite-horizon games]
+    
+\end{Thm}
+\begin{Def}
+    A game is continuous at infinity if for each player $i$ the utility function $u_i$ satisfies
+    \[\sup_{h,\tilde{h}\text{ s.t. }h^t=\tilde{h}^t}\left|u_i(h)-u_i(\tilde{h})\right|\to 0 \text{  as  }t\to\infty\]
+\end{Def}
+\begin{Eg}
+    If we introduce a discount factor $\delta\in(0,1)$ to discount future payoffs in a game, then this game must be continuous at infinity.
+\end{Eg}
+\begin{Thm}[one-stage-deviation principle for infinite-horizon games]
+    
+\end{Thm}
+
+
+
+
+
+
+\subsection{Perfect Bayesian Equilibria}
+
+
+
+
+Now let us examine how to find a prefect Bayesian equilibrium.\par 
+One way is to first find all the profiles of strategies in the Bayesian game that are Bayesian Nash equilibria;
+then we can systematically check for each Bayesian Nash equilibrium to see whether we can find a system of beliefs so that together they constitute a perfect Bayesian equilibrium.
+
+
+
+Now let us consider refinements of perfect Bayesian equilibrium.
+\begin{Def}[consistent]
+    
+\end{Def}
+
+\begin{Def}[sequential equilibrium]
+    
+\end{Def}
+
+
+\section{Applications}
+Game theory roots in reality and applies to reality. Here we discuss some simplified models. However,
+when analysing real life problems, note that what we are analysing is not an isolated game, but is a subgame of an enormous game.
+\subsection{Bargaining}
+
+
+
+
+\subsection{Auctions}
+The concept of Bayesian equilibrium is important in the analysis of auctions.\par 
+We consider goods with independent private values first.
+
+\begin{Thm}[revenue equivalence theorem]
+    
+\end{Thm}
+
+
+
+\begin{Thm}
+    In the second-price sealed-bid auction, each player has a weakly dominant strategy, which is to bid his true valuation.
+\end{Thm}
+
+
+Next, let us consider goods with public 
+
+\subsection{Mechanism Design}
+\begin{Thm}[revelation principle]
+    
+\end{Thm}
+
+
+
+\section{Miscellanea}
+\subsection{Repeated Games}
+First we consider 
+\begin{Thm}
+    A strategy vector at which in each stage the players
+    play a one-stage equilibrium is an equilibrium of the T-stage game.
+\end{Thm}
+
+
+\begin{Thm}[Folk theorem ]
+    
+\end{Thm}
+\begin{proof}
+    
+\end{proof}
+
+Next let us consider infinitely repeated games.
+\begin{Thm}[Folk theorem for the infinitely repeated game]
+    The set of equilibrium payoffs of $\Gamma_\infty$ is the set $F \cap V$ .
+\end{Thm}
+\begin{Rk}
+    Note that the Folk Theorem for $\Gamma_\infty$ and the Folk theorem for $\Gamma_T$ differ in two aspects.
+\end{Rk}
+
+Now let us examine infinitely repeated games with discount factor $\delta$.
+
+\subsection{Signaling Games}
+
+
+\subsection{Building a Reputation}
+
+\subsection{Information Transmision and Cheap Talk}
+
+\subsection{Two-Person Zero-Sum Game}
+This is actually the earliest work in game theory, which was first considered by von Neumann.
+
+\begin{Thm}
+    $(\sigma_1,\sigma_2)$ is an equilibrium of a finite two-person zero-sum game if and only if 
+    \[ \sigma_1\in\sideset{}{}{\arg\max}_{\tau_1\in \Sigma(S_1)}\sideset{}{}\min_{\tau_2\in\Sigma(S_2)} u_1(\tau_1,\tau_2)\] 
+    and \[\sigma_2\in\sideset{}{}{\arg\min}_{\tau_2\in \Sigma(S_2)}\sideset{}{}\min_{\tau_1\in\Sigma(S_1)} u_1(\tau_1,\tau_2)\] 
+    \par 
+    Furthermore, if $(\sigma_1,\sigma_2)$ is an equilibrium of this game, then 
+    \[u_1(\sigma_1,\sigma_2)=\max_{\tau_1\in\Sigma(S_1)}\min_{\tau_2\in\Sigma(S_1)}u_1(\tau_1,\tau_2)=\min_{\tau_2\in\Sigma(S_2)}\max_{\tau_1\in\Sigma(S_1)}u_1(\tau_1,\tau_2)\]
+
+\end{Thm}
+\begin{Rk}
+    Note that we have always assumed that the players
+    in a strategic form game choose their strategies simultaneously and independently, so a change of plans by
+    one player cannot affect the strategy chosen by the other player. Suppose for a moment, however, that player 1
+    is afraid that, whatever randomized strategy he might choose, 2 would be able to discover that he had chosen this
+    and would respond in the way that is worst for 1. The theorem asserts that player 1's equilibrium strategy in a
+    two-people zero-sum game also maximizes 1's expected payoff under this pessimistic assumption.
+\end{Rk}
+\begin{proof}
+    \footnote{von Neumann, 1928. Zur theorie der gesellschaftsspiele. Math. Ann. 100, 295-320. }
+\end{proof}
+
+\subsection{Two-Person Bargaining Problems and the Nash Bargaining Solution}
+\begin{Def}
+    A two-person bargaining problem to consist of a pair $(F,v)$.\newline 
+    (feasible set) $F$ is a closed convex subset of $\mathbb{R}^2$\newline 
+    (disagreement point) $v=(v_1,v_2)\in\mathbb{R}^2$ is a vector\newline 
+    (technical) the set $F\cap\left\{(x_1,x_2)|x_1\ge v_1,x_2\ge v_2\right\}$ is nonempty and bounded.
+\end{Def}
+
+The axioms for Nash's bargaining solution can be written as follows:
+\begin{enumerate}
+    \item (strong efficiency) $\phi(F,v)$ is an allocation on $F$, and for any $x\in F$ with $x\ge \phi(F,v)$, $x=\phi(F,v)$.
+    \item (individual rationality) $\phi(F,v)\ge v$.
+    \item (scale covariance)
+    \item (independence of irrelevant alternatives)
+    \item (symmetry) If $v_1=v_2$ and $\left\{(x_2,x_1)|(x_1,x_2)\in F\right\}=F$, then $\phi_1(F,v)=\phi_2(F,v)$.
+\end{enumerate}
+
+\begin{Thm}
+    There is a unique solution fuction $\phi(\cdot,\cdot)$ that satisfies the above axioms.
+    This solution function satisfies \[\phi(F,v)\in\sideset{}{}{\arg\max}_{x\in F,x\ge v}(x_1-v_1)(x_2-v_2)\]
+\end{Thm}
+\begin{proof}
+    \footnote{John F. Nash, Jr. 1950. The bargaining problem. Econometrica. 18 (2): 155-162.}
+\end{proof}
+\subsection{Universal Belief Space}
+In this section, we prove that under some technical assumptions, there exist type sets that are large enough
+to include all possible states of all players. This construction is purely algebraic, but it reveals how expressive
+is the model of Bayesian game.
+\end{document}
+
+
