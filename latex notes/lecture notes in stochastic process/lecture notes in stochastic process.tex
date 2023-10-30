@@ -108,7 +108,42 @@ A less formal notation is $h_i^A=P(\text{hit }A)$.
     
 \end{Def}
 
+\section{Introduction to Ising Model}
+The Ising model is a theoretical model in statistical physics that was originally developed
+to describe ferromagnetism, a property of certain materials such as iron. A system of magnetic particles can be modeled as a linear
+chain in one dimension or a lattice in two dimension, with one molecule or atom at each
+lattice site $i$. To each molecule or atom a magnetic moment is assigned that is represented
+in the model by a discrete variable $\sigma_i$. Each 'spin' can only have a value of $\sigma_i = \pm 1$.
+The two possible values indicate whether two spins $\sigma_i$ and $\sigma_j$ are align and thus parallel
+($\sigma_i \cdot \sigma_j = +1$) or anti-parallel ($\sigma_i \cdot \sigma_j = +1$)
 
+A system of two spins is considered to be in a lower energetic state if the two magnetic
+moments are aligned. If the magnetic moments points in opposite directions they are
+consider to be in a higher energetic state. Due to this interaction the system tends to
+align all magnetic moments in one direction in order to minimise energy. If nearly all
+magnetic moments point in the same direction the arrangement of molecules behaves like
+a macroscopic magnet.
+
+A phase transition in the context of the Ising model is a transition from an ordered state
+to a disordered state. A ferromagnet above the critical temperature $T_C$ is in a disordered
+state. In the Ising model this corresponds to a random distribution of the spin values.
+Below the critical temperature $T_C$ (nearly) all spins are aligned, even in the absence of an
+external applied magnetic field H. If we heat up a cooled ferromagnet, the magnetization
+vanishes at $T_C$ and the ferromagnet switches from an ordered to a disordered state. This
+is a phase transition of second order.
+
+\subsection{1D Ising Model without Magnetic Field}
+
+\subsection{1D Ising Model with Magnetic Field}
+
+\subsection{2D Ising Model: Peirls Proof}
+The Hamiltonion of the system is 
+\[ \]
+
+
+\section{Measurable Space Discrete Time Markov Chain}
+Now we develop a more formal theory for discrete time Markov Chains by means of measure theory.
+Let $(S,\mathcal{S})\to\mathbb{R}$ be a measurable space. This is the state space for our Markov chain.
 
 
 \section{Discrete Space Continuous Time Markov Chain}
@@ -349,6 +384,8 @@ The following concept is a strengthening of the notion of uniform integrablity f
 \end{Thm}
 
 \subsection{Square Integrable Martingales}
+
+
 
 
 \section{BM}
