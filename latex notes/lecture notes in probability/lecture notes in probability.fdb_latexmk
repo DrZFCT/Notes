@@ -1,6 +1,6 @@
 # Fdb version 3
-["pdflatex"] 1681907050 "/Users/mrzt/Documents/latex notes/lecture notes in probability/lecture notes in probability.tex" "lecture notes in probability.pdf" "lecture notes in probability" 1681907050
-  "/Users/mrzt/Documents/latex notes/lecture notes in probability/lecture notes in probability.tex" 1681907049 62579 d8e83989c0d9a7a3f51444b93b690b15 ""
+["pdflatex"] 1698637426 "/Users/mrzt/Documents/GitHub/notes/Notes/latex notes/lecture notes in probability/lecture notes in probability.tex" "lecture notes in probability.pdf" "lecture notes in probability" 1698637426
+  "/Users/mrzt/Documents/GitHub/notes/Notes/latex notes/lecture notes in probability/lecture notes in probability.tex" 1681907049 62579 d8e83989c0d9a7a3f51444b93b690b15 ""
   "/usr/local/texlive/2022/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "/usr/local/texlive/2022/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex7.tfm" 1246382020 1004 54797486969f23fa377b128694d548df ""
   "/usr/local/texlive/2022/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex8.tfm" 1246382020 988 bdf658c3bfc2d96d3c8b02cfc1c94c20 ""
@@ -97,10 +97,10 @@
   "/usr/local/texlive/2022/texmf-var/fonts/map/pdftex/updmap/pdftex.map" 1647878959 4410336 7d30a02e9fa9a16d7d1f8d037ba69641 ""
   "/usr/local/texlive/2022/texmf-var/web2c/pdftex/pdflatex.fmt" 1661094221 2826440 e3df3e53eaa293ef3171676f55b00abf ""
   "/usr/local/texlive/2022/texmf.cnf" 1647878952 577 209b46be99c9075fd74d4c0369380e8c ""
-  "lecture notes in probability.aux" 1681907050 6917 379e0d30f56908c2c50e9159de88716b "pdflatex"
-  "lecture notes in probability.out" 1681907050 6775 83c795349b710411232175777941f448 "pdflatex"
+  "lecture notes in probability.aux" 1698637426 6917 379e0d30f56908c2c50e9159de88716b "pdflatex"
+  "lecture notes in probability.out" 1698637426 6775 83c795349b710411232175777941f448 "pdflatex"
   "lecture notes in probability.tex" 1681907049 62579 d8e83989c0d9a7a3f51444b93b690b15 ""
-  "lecture notes in probability.toc" 1681907050 3890 80ea68d08f8f6a978868648e60be6572 "pdflatex"
+  "lecture notes in probability.toc" 1698637426 3890 80ea68d08f8f6a978868648e60be6572 "pdflatex"
   (generated)
   "lecture notes in probability.aux"
   "lecture notes in probability.log"
