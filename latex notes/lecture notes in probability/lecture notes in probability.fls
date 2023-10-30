@@ -1,8 +1,8 @@
-PWD /Users/mrzt/Documents/latex notes/lecture notes in probability
+PWD /Users/mrzt/Documents/GitHub/notes/Notes/latex notes/lecture notes in probability
 INPUT /usr/local/texlive/2022/texmf.cnf
 INPUT /usr/local/texlive/2022/texmf-dist/web2c/texmf.cnf
 INPUT /usr/local/texlive/2022/texmf-var/web2c/pdftex/pdflatex.fmt
-INPUT /Users/mrzt/Documents/latex notes/lecture notes in probability/lecture notes in probability.tex
+INPUT /Users/mrzt/Documents/GitHub/notes/Notes/latex notes/lecture notes in probability/lecture notes in probability.tex
 OUTPUT lecture notes in probability.log
 INPUT /usr/local/texlive/2022/texmf-dist/tex/latex/base/article.cls
 INPUT /usr/local/texlive/2022/texmf-dist/tex/latex/base/article.cls
