@@ -1,23 +1,36 @@
-\contentsline {section}{\numberline {1}Discrete Space Discrete Time Markov Chain}{1}{section.1}%
-\contentsline {subsection}{\numberline {1.1}Theory}{1}{subsection.1.1}%
+\contentsline {section}{\numberline {1}Discrete Space Discrete Time Markov Chain}{2}{section.1}%
+\contentsline {subsection}{\numberline {1.1}Basic Theory}{2}{subsection.1.1}%
+\contentsline {subsection}{\numberline {1.2}Ergodic Theorems}{3}{subsection.1.2}%
 \contentsline {section}{\numberline {2}Introduction to Ising Model}{3}{section.2}%
-\contentsline {subsection}{\numberline {2.1}1D Ising Model}{3}{subsection.2.1}%
-\contentsline {section}{\numberline {3}Discrete Space Continuous Time Markov Chain}{3}{section.3}%
-\contentsline {subsection}{\numberline {3.1}Review: Properties of Exponential Distribution}{3}{subsection.3.1}%
-\contentsline {subsection}{\numberline {3.2}Poisson Process}{4}{subsection.3.2}%
-\contentsline {section}{\numberline {4}Continuous Time Martingale}{4}{section.4}%
-\contentsline {subsection}{\numberline {4.1}Stopping Times}{4}{subsection.4.1}%
-\contentsline {subsection}{\numberline {4.2}From Discrete to Continuous}{5}{subsection.4.2}%
-\contentsline {subsection}{\numberline {4.3}Doob-Meyer Decomposition}{6}{subsection.4.3}%
-\contentsline {subsection}{\numberline {4.4}Square Integrable Martingales}{6}{subsection.4.4}%
-\contentsline {section}{\numberline {5}BM}{6}{section.5}%
-\contentsline {section}{\numberline {6}Stochastic Integration}{6}{section.6}%
-\contentsline {subsection}{\numberline {6.1}}{6}{subsection.6.1}%
-\contentsline {subsection}{\numberline {6.2}Martingale Characterization of BM}{6}{subsection.6.2}%
-\contentsline {subsection}{\numberline {6.3}Representations of Martingales by BM}{7}{subsection.6.3}%
-\contentsline {subsection}{\numberline {6.4}The Girsanov Theorem}{7}{subsection.6.4}%
-\contentsline {section}{\numberline {7}The PDE Connection}{7}{section.7}%
-\contentsline {section}{\numberline {8}Stochastic Differential Equations}{7}{section.8}%
-\contentsline {section}{\numberline {9}Diffusions}{7}{section.9}%
-\contentsline {subsection}{\numberline {9.1}Kolmogorov's Theory}{7}{subsection.9.1}%
-\contentsline {subsection}{\numberline {9.2}Ito's theory}{7}{subsection.9.2}%
+\contentsline {subsection}{\numberline {2.1}1D Ising Model without Magnetic Field}{3}{subsection.2.1}%
+\contentsline {subsection}{\numberline {2.2}1D Ising Model with Magnetic Field}{3}{subsection.2.2}%
+\contentsline {subsection}{\numberline {2.3}2D Ising Model: Peirls Proof}{3}{subsection.2.3}%
+\contentsline {section}{\numberline {3}Electrical Networks}{3}{section.3}%
+\contentsline {subsection}{\numberline {3.1}The Correspondence}{3}{subsection.3.1}%
+\contentsline {subsection}{\numberline {3.2}Random Walks}{3}{subsection.3.2}%
+\contentsline {section}{\numberline {4}Introduction to Branching Process}{3}{section.4}%
+\contentsline {subsection}{\numberline {4.1}Galton-Watson Process}{3}{subsection.4.1}%
+\contentsline {paragraph}{Mean and Variance}{3}{section*.2}%
+\contentsline {paragraph}{The Extinction Probability}{4}{section*.3}%
+\contentsline {paragraph}{The Extinction Rate}{4}{section*.4}%
+\contentsline {subsection}{\numberline {4.2}Biased Random Walk on a Galton-Watson Tree}{4}{subsection.4.2}%
+\contentsline {section}{\numberline {5}Measurable Space Discrete Time Markov Chain}{4}{section.5}%
+\contentsline {section}{\numberline {6}Discrete Space Continuous Time Markov Chain}{4}{section.6}%
+\contentsline {subsection}{\numberline {6.1}Review: Properties of Exponential Distribution}{5}{subsection.6.1}%
+\contentsline {subsection}{\numberline {6.2}Poisson Process}{5}{subsection.6.2}%
+\contentsline {section}{\numberline {7}Continuous Time Martingale}{5}{section.7}%
+\contentsline {subsection}{\numberline {7.1}Stopping Times}{5}{subsection.7.1}%
+\contentsline {subsection}{\numberline {7.2}From Discrete to Continuous}{6}{subsection.7.2}%
+\contentsline {subsection}{\numberline {7.3}Doob-Meyer Decomposition}{7}{subsection.7.3}%
+\contentsline {subsection}{\numberline {7.4}Square Integrable Martingales}{7}{subsection.7.4}%
+\contentsline {section}{\numberline {8}BM}{7}{section.8}%
+\contentsline {section}{\numberline {9}Stochastic Integration}{8}{section.9}%
+\contentsline {subsection}{\numberline {9.1}}{8}{subsection.9.1}%
+\contentsline {subsection}{\numberline {9.2}Martingale Characterization of BM}{8}{subsection.9.2}%
+\contentsline {subsection}{\numberline {9.3}Representations of Martingales by BM}{8}{subsection.9.3}%
+\contentsline {subsection}{\numberline {9.4}The Girsanov Theorem}{8}{subsection.9.4}%
+\contentsline {section}{\numberline {10}The PDE Connection}{8}{section.10}%
+\contentsline {section}{\numberline {11}Stochastic Differential Equations}{8}{section.11}%
+\contentsline {section}{\numberline {12}Diffusions}{8}{section.12}%
+\contentsline {subsection}{\numberline {12.1}Kolmogorov's Theory}{8}{subsection.12.1}%
+\contentsline {subsection}{\numberline {12.2}Ito's theory}{8}{subsection.12.2}%

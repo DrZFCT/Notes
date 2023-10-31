@@ -1,6 +1,6 @@
 # Fdb version 3
-["pdflatex"] 1698656892 "d:/GitHub/Notes/latex notes/lecture notes in statistics/lecture notes in statistics.tex" "lecture notes in statistics.pdf" "lecture notes in statistics" 1698656893
-  "d:/GitHub/Notes/latex notes/lecture notes in statistics/lecture notes in statistics.tex" 1698656892 13054 f132ddd2979bbc3459286ab8cbb2bec7 ""
+["pdflatex"] 1698735633 "d:/GitHub/Notes/latex notes/lecture notes in statistics/lecture notes in statistics.tex" "lecture notes in statistics.pdf" "lecture notes in statistics" 1698735634
+  "d:/GitHub/Notes/latex notes/lecture notes in statistics/lecture notes in statistics.tex" 1698735631 13050 bbbcb50596042b08a6c4ac2e55297f09 ""
   "d:/texlive/2022/texmf-dist/fonts/map/fontname/texfonts.map" 1649389004 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "d:/texlive/2022/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex7.tfm" 1649388241 1004 54797486969f23fa377b128694d548df ""
   "d:/texlive/2022/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex8.tfm" 1649388241 988 bdf658c3bfc2d96d3c8b02cfc1c94c20 ""
@@ -111,10 +111,10 @@
   "d:/texlive/2022/texmf-var/fonts/map/pdftex/updmap/pdftex.map" 1649390905 4448422 15354be9acfb30b1b7485a9cb19efaa9 ""
   "d:/texlive/2022/texmf-var/web2c/pdftex/pdflatex.fmt" 1649391010 2826451 660740ac61e69e5937838ee186708b77 ""
   "d:/texlive/2022/texmf.cnf" 1649390884 713 e69b156964470283e0530f5060668171 ""
-  "lecture notes in statistics.aux" 1698656893 1857 0a5a57f19c2f9fe83f4d62f15f255b8d "pdflatex"
-  "lecture notes in statistics.out" 1698656893 1250 72a6f8ec713c7c8730199dc5a1d1cdeb "pdflatex"
-  "lecture notes in statistics.tex" 1698656892 13054 f132ddd2979bbc3459286ab8cbb2bec7 ""
-  "lecture notes in statistics.toc" 1698656893 579 672cdfeeb2a595c4bade7a0322b8fe16 "pdflatex"
+  "lecture notes in statistics.aux" 1698735634 1857 0a5a57f19c2f9fe83f4d62f15f255b8d "pdflatex"
+  "lecture notes in statistics.out" 1698735634 1250 72a6f8ec713c7c8730199dc5a1d1cdeb "pdflatex"
+  "lecture notes in statistics.tex" 1698735631 13050 bbbcb50596042b08a6c4ac2e55297f09 ""
+  "lecture notes in statistics.toc" 1698735634 579 672cdfeeb2a595c4bade7a0322b8fe16 "pdflatex"
   (generated)
   "lecture notes in statistics.aux"
   "lecture notes in statistics.log"

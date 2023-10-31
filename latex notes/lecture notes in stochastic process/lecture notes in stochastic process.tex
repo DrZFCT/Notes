@@ -20,7 +20,10 @@
 \usepackage{amssymb}
 \usepackage{hyperref}
 
-
+\newcommand{\EE}{\operatorname{\mathbb{E}}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\cF}{\mathcal{F}}
+\newcommand{\var}{\text{Var}}
 
 \title{Lecture Notes in Stochastic Process}
 \author{Kaizhao Liu}
@@ -30,7 +33,7 @@
 \maketitle
 \tableofcontents
 \section{Discrete Space Discrete Time Markov Chain}
-\subsection{Theory}
+\subsection{Basic Theory}
 We begin by summarizing the concepts mathematicans are most interested in, and introducing their notations. 
 \begin{Def}[initial distribution]
     
@@ -108,6 +111,8 @@ A less formal notation is $h_i^A=P(\text{hit }A)$.
     
 \end{Def}
 
+\subsection{Ergodic Theorems}
+
 \section{Introduction to Ising Model}
 The Ising model is a theoretical model in statistical physics that was originally developed
 to describe ferromagnetism, a property of certain materials such as iron. A system of magnetic particles can be modeled as a linear
@@ -139,6 +144,66 @@ is a phase transition of second order.
 \subsection{2D Ising Model: Peirls Proof}
 The Hamiltonion of the system is 
 \[ \]
+
+
+
+
+
+
+\section{Electrical Networks}
+\subsection{The Correspondence}
+
+\subsection{Random Walks}
+
+
+
+\section{Introduction to Branching Process}
+\subsection{Galton-Watson Process}
+Let $\{\xi_{ni}:n\geq 0,i\geq 0\}$ be a set of independent and identically-distributed natural number-valued random variables.
+A Galton-Watson process is a stochastic process $\{X_n\}$ which evolves according to the recurrence formula $X_0 = 1$ and 
+\[ X_{n+1}=\sum_{i=1}^{X_n}\xi_{ni}.\]
+Our goal is to analysis the properties of this process.
+
+\paragraph{Mean and Variance} As the Galton-Watson process is tree-like, it possesses many recurrence structure.
+The first one we would utilize is the martingale property. We have 
+\[\EE(X_{n+1}|\cF_n)=X_n\EE \xi ,\]
+so that \[\frac{X_n}{(\EE \xi)^n}\]
+is a martingale. By the property of martingales, we have 
+\[\EE X_{n}=(\EE \xi)^n.\]
+If we further assume that $\var \xi<\infty$, we can calculate the variance of $X_n$ similarly. 
+We have
+\begin{align*}
+    \var (X_{n+1}) &= \var (\EE(X_{n+1}|\cF_n))+\EE \var(X_{n+1}|\cF_n)\\
+    &=(\EE \xi)^2\var(X_n)+\EE X_n \var \xi\\
+    &=(\EE \xi)^2\var(X_n)+(\EE \xi)^n \var \xi
+\end{align*}
+and we can solve this update formula by noting that $\var X_{1}=\var \xi $, which yields
+\[\var X_{n}=\var \xi \sum_{i=n}^{2n-1} (\EE \xi)^n.\]
+
+\paragraph{The Extinction Probability} The key quantity we are interested in is the
+extinction probability (i.e. the probability of final extinction), which is given by
+\[ \lim_{n\to\infty}\PP(X_n=0).\]
+Note that once $X_n=0$, then $X_{n+k}=0$ for all $k\geq 1$, so $0$ is an absorbing state.
+
+
+
+\paragraph{The Extinction Rate} ss
+
+\begin{Eg}
+    Let $\xi\sim\text{Geo}(\frac{1}{2})$. Then $\PP(X_n \geq 1)=\frac{1}{n+1}$.
+\end{Eg}
+\begin{proof}
+    The distribution of $X_n$ can be described by its generating function $f_{X_n}(s)=f^{(n)}(s)$
+    where $f(s)=\frac{1}{2-s}$. So $f(0)=\frac{1}{2}$, $f^{(2)}(0)=\frac{2}{3}$, and $f^{(n)}=\frac{n}{n+1}$.
+    Now $\PP(X_n=0)=f_{X_n}(0)=f^{(n)}(0)$, so $\PP(X_n \geq 1)=1-\PP(X_n = 0)=\frac{1}{n+1}$.
+\end{proof}
+\begin{Rk}
+    Another view of this result.
+    This is the probability that a simple random walk 
+\end{Rk}
+
+\subsection{Biased Random Walk on a Galton-Watson Tree}
+
 
 
 \section{Measurable Space Discrete Time Markov Chain}

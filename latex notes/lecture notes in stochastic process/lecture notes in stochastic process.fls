@@ -558,8 +558,8 @@ INPUT d:/texlive/2022/texmf-dist/fonts/tfm/public/amsfonts/symbols/msbm7.tfm
 INPUT d:/texlive/2022/texmf-dist/fonts/tfm/public/amsfonts/symbols/msbm5.tfm
 OUTPUT lecture notes in stochastic process.toc
 INPUT d:/texlive/2022/texmf-dist/fonts/tfm/public/cm/cmbx12.tfm
-INPUT d:/texlive/2022/texmf-dist/fonts/tfm/public/cm/cmti10.tfm
 INPUT d:/texlive/2022/texmf-var/fonts/map/pdftex/updmap/pdftex.map
+INPUT d:/texlive/2022/texmf-dist/fonts/tfm/public/cm/cmti10.tfm
 INPUT d:/texlive/2022/texmf-dist/fonts/tfm/public/cm/cmti7.tfm
 INPUT d:/texlive/2022/texmf-dist/fonts/tfm/public/cm/cmti7.tfm
 INPUT lecture notes in stochastic process.aux
