@@ -1,6 +1,6 @@
 # Fdb version 3
-["pdflatex"] 1698738915 "d:/GitHub/Notes/latex notes/lecture notes in stochastic process/lecture notes in stochastic process.tex" "lecture notes in stochastic process.pdf" "lecture notes in stochastic process" 1698738916
-  "d:/GitHub/Notes/latex notes/lecture notes in stochastic process/lecture notes in stochastic process.tex" 1698738912 22943 c76af2398833a34c1fa2f76ed91be0cc ""
+["pdflatex"] 1698740116 "d:/GitHub/Notes/latex notes/lecture notes in stochastic process/lecture notes in stochastic process.tex" "lecture notes in stochastic process.pdf" "lecture notes in stochastic process" 1698740117
+  "d:/GitHub/Notes/latex notes/lecture notes in stochastic process/lecture notes in stochastic process.tex" 1698740113 23086 c6be8342e482cee656bc6f181d19dc15 ""
   "d:/texlive/2022/texmf-dist/fonts/map/fontname/texfonts.map" 1649389004 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "d:/texlive/2022/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex7.tfm" 1649388241 1004 54797486969f23fa377b128694d548df ""
   "d:/texlive/2022/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex8.tfm" 1649388241 988 bdf658c3bfc2d96d3c8b02cfc1c94c20 ""
@@ -96,10 +96,10 @@
   "d:/texlive/2022/texmf-var/fonts/map/pdftex/updmap/pdftex.map" 1649390905 4448422 15354be9acfb30b1b7485a9cb19efaa9 ""
   "d:/texlive/2022/texmf-var/web2c/pdftex/pdflatex.fmt" 1649391010 2826451 660740ac61e69e5937838ee186708b77 ""
   "d:/texlive/2022/texmf.cnf" 1649390884 713 e69b156964470283e0530f5060668171 ""
-  "lecture notes in stochastic process.aux" 1698738916 5236 53c230cd9f844131bf3ff0c05705f574 "pdflatex"
-  "lecture notes in stochastic process.out" 1698738916 6027 e5ad02186b2fab6b5f60f7a2fed3e862 "pdflatex"
-  "lecture notes in stochastic process.tex" 1698738912 22943 c76af2398833a34c1fa2f76ed91be0cc ""
-  "lecture notes in stochastic process.toc" 1698738916 3074 4e123d73812772f08bdd90f3408536e4 "pdflatex"
+  "lecture notes in stochastic process.aux" 1698740117 5676 06fb41399750e27fb774121128c2b8c5 "pdflatex"
+  "lecture notes in stochastic process.out" 1698740117 6272 baa3b09935371db31106f04918cdd886 "pdflatex"
+  "lecture notes in stochastic process.tex" 1698740113 23086 c6be8342e482cee656bc6f181d19dc15 ""
+  "lecture notes in stochastic process.toc" 1698740117 3350 bfa3bb07fcec946516cb3e159643fc3b "pdflatex"
   (generated)
   "lecture notes in stochastic process.aux"
   "lecture notes in stochastic process.log"

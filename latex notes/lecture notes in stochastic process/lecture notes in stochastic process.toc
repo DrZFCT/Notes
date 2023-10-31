@@ -1,6 +1,10 @@
 \contentsline {section}{\numberline {1}Discrete Space Discrete Time Markov Chain}{2}{section.1}%
 \contentsline {subsection}{\numberline {1.1}Basic Theory}{2}{subsection.1.1}%
 \contentsline {subsection}{\numberline {1.2}Ergodic Theorems}{3}{subsection.1.2}%
+\contentsline {subsection}{\numberline {1.3}Introduction to Markov Chain Mixing}{3}{subsection.1.3}%
+\contentsline {paragraph}{Contraction}{3}{section*.2}%
+\contentsline {paragraph}{Canonical Path}{3}{section*.3}%
+\contentsline {paragraph}{Cheeger's Constant}{3}{section*.4}%
 \contentsline {section}{\numberline {2}Introduction to Ising Model}{3}{section.2}%
 \contentsline {subsection}{\numberline {2.1}1D Ising Model without Magnetic Field}{3}{subsection.2.1}%
 \contentsline {subsection}{\numberline {2.2}1D Ising Model with Magnetic Field}{3}{subsection.2.2}%
@@ -10,9 +14,9 @@
 \contentsline {subsection}{\numberline {3.2}Random Walks}{3}{subsection.3.2}%
 \contentsline {section}{\numberline {4}Introduction to Branching Process}{3}{section.4}%
 \contentsline {subsection}{\numberline {4.1}Galton-Watson Process}{3}{subsection.4.1}%
-\contentsline {paragraph}{Mean and Variance}{3}{section*.2}%
-\contentsline {paragraph}{The Extinction Probability}{4}{section*.3}%
-\contentsline {paragraph}{The Extinction Rate}{4}{section*.4}%
+\contentsline {paragraph}{Mean and Variance}{4}{section*.5}%
+\contentsline {paragraph}{The Extinction Probability}{4}{section*.6}%
+\contentsline {paragraph}{The Extinction Rate}{4}{section*.7}%
 \contentsline {subsection}{\numberline {4.2}Biased Random Walk on a Galton-Watson Tree}{4}{subsection.4.2}%
 \contentsline {section}{\numberline {5}Measurable Space Discrete Time Markov Chain}{4}{section.5}%
 \contentsline {section}{\numberline {6}Discrete Space Continuous Time Markov Chain}{4}{section.6}%
@@ -20,10 +24,10 @@
 \contentsline {subsection}{\numberline {6.2}Poisson Process}{5}{subsection.6.2}%
 \contentsline {section}{\numberline {7}Continuous Time Martingale}{5}{section.7}%
 \contentsline {subsection}{\numberline {7.1}Stopping Times}{5}{subsection.7.1}%
-\contentsline {subsection}{\numberline {7.2}From Discrete to Continuous}{6}{subsection.7.2}%
+\contentsline {subsection}{\numberline {7.2}From Discrete to Continuous}{7}{subsection.7.2}%
 \contentsline {subsection}{\numberline {7.3}Doob-Meyer Decomposition}{7}{subsection.7.3}%
-\contentsline {subsection}{\numberline {7.4}Square Integrable Martingales}{7}{subsection.7.4}%
-\contentsline {section}{\numberline {8}BM}{7}{section.8}%
+\contentsline {subsection}{\numberline {7.4}Square Integrable Martingales}{8}{subsection.7.4}%
+\contentsline {section}{\numberline {8}BM}{8}{section.8}%
 \contentsline {section}{\numberline {9}Stochastic Integration}{8}{section.9}%
 \contentsline {subsection}{\numberline {9.1}}{8}{subsection.9.1}%
 \contentsline {subsection}{\numberline {9.2}Martingale Characterization of BM}{8}{subsection.9.2}%
