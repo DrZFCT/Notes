@@ -111,6 +111,15 @@ A less formal notation is $h_i^A=P(\text{hit }A)$.
     
 \end{Def}
 
+\begin{Eg}[Chip-Firing/Sand-Pile]
+    Every time, pick a random $\tau$ such that $a_\tau\geq 2$ and do the update 
+    \[\left\{\begin{matrix}
+        a_\tau^{t+1} = a_\tau^{t} -2 \\
+        a_{\tau+1}^{t+1}= a_{\tau+1}^{t}+1  \\
+        a_{\tau-1}^{t+1}= a_{\tau-1}^{t}+1
+        \end{matrix}\right.\]
+\end{Eg}
+
 \subsection{Ergodic Theorems}
 
 \subsection{Introduction to Markov Chain Mixing}
@@ -121,7 +130,18 @@ A less formal notation is $h_i^A=P(\text{hit }A)$.
 
 \paragraph{Cheeger's Constant}
 
-\section{Introduction to Ising Model}
+
+\section{Introduction to Markov Random Fields}
+\subsection{Basics}
+
+
+\subsection{Coloring}
+
+\paragraph{Glauber Dynamics}
+Every time pick a random vertex and assign a random color which is not used by any neighbors.
+
+
+\subsection{1D Ising Model without Magnetic Field}
 The Ising model is a theoretical model in statistical physics that was originally developed
 to describe ferromagnetism, a property of certain materials such as iron. A system of magnetic particles can be modeled as a linear
 chain in one dimension or a lattice in two dimension, with one molecule or atom at each
@@ -145,7 +165,6 @@ external applied magnetic field H. If we heat up a cooled ferromagnet, the magne
 vanishes at $T_C$ and the ferromagnet switches from an ordered to a disordered state. This
 is a phase transition of second order.
 
-\subsection{1D Ising Model without Magnetic Field}
 
 \subsection{1D Ising Model with Magnetic Field}
 
@@ -153,16 +172,29 @@ is a phase transition of second order.
 The Hamiltonion of the system is 
 \[ \]
 
-
-
-
+The idea of Peirls proof is very similar to the idea of reflection principle,
+which map 
 
 
 \section{Electrical Networks}
 \subsection{The Correspondence}
 
+Nash-Williams Criterion
+
 \subsection{Random Walks}
 
+
+\section{Introduction to Random Walks}
+\subsection{1D Simple Random Walk}
+\paragraph{Reflection Principle}
+
+\paragraph{Arcsin Law}
+
+\begin{Rk}
+    Anti-concentration Ineqaulity
+\end{Rk}
+
+\subsection{Lamplighter}
 
 
 \section{Introduction to Branching Process}
