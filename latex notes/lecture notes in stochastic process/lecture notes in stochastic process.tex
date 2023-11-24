@@ -3,7 +3,7 @@
 \usepackage[a4paper,total={6in,10in}]{geometry}
 \usepackage{amsmath}
 \usepackage{mathrsfs}
-
+\usepackage{enumitem}
 \usepackage{amsthm}
 
 \newtheorem{Thm}{Theorem}[section]
@@ -487,7 +487,7 @@ Let \[C_{xy}=\pi(x)p(x,y),\]
 then it is indeed a well-defined electrical network as 
 \[C_{xy}=\pi(x)p(x,y)=\pi(y)p(y,x)=C_{yx}. \]
 \paragraph{Voltage}
-\begin{Thm} 
+\begin{Thm}[Voltage as ]
 $\varphi(x)=\PP_x(\tau_a<\tau_b)$
 \end{Thm}
 \begin{proof}
@@ -496,8 +496,7 @@ $\varphi(x)=\PP_x(\tau_a<\tau_b)$
 \end{proof}
 
 
-\paragraph{Electrical Current}
-\begin{Thm}
+\begin{Thm}[Electrical Current as Edge Crossings]
     $I(x,y)=?$
 \end{Thm}
 \begin{proof}
@@ -523,7 +522,12 @@ $\varphi(x)=\PP_x(\tau_a<\tau_b)$
     \end{align*}
 \end{proof}
 
+\paragraph{Thomson Principle}
 Nash-Williams Criterion
+
+
+
+\paragraph{Dirichlet Principle}
 
 \subsection{Random Walks}
 
@@ -671,10 +675,32 @@ extinction probability (i.e. the probability of final extinction), which is give
 \[ \lim_{n\to\infty}\PP(X_n=0).\]
 Note that once $X_n=0$, then $X_{n+k}=0$ for all $k\geq 1$, so $0$ is an absorbing state.
 
+\begin{Thm}[subcritical]
+    If $\mu<1$, then $X_n$ extincts.
+\end{Thm}
+\begin{proof}
+    $\PP(X_n>0)=\PP(X_n\geq 1)\leq \EE X_n = \mu^n\to 0$.
+\end{proof}
+\begin{Rk}
+    The extinction rate when $\mu<1$ is exponentially fast.
+\end{Rk}
 
-
-\paragraph{The Extinction Rate} $\frac{1}{n}$ by second moment method
-
+\begin{Thm}[critical]
+    If $\mu=1$ and $\PP(\xi=1)<1$, then $X_n$ extincts.
+\end{Thm}
+\begin{proof}
+    When $\mu=1$, $X_n$ itself is a nonnegative martingale. So $X_n$ converges to a finite limit $X_\infty$ a.s..
+    As $X_n$ is integer valued, we must have $X_n= X_\infty$ for large $n$. 
+    However, for any $k>0$, $\PP(X_n=k\quad \forall n\geq N)=0$ for any $N$ because $\PP(\xi=1)<1$. So we must have $X_\infty=0$.
+\end{proof}
+In this case, the extinction rate is at most $\frac{1}{n}$ by an easy second moment estimate.
+\begin{Thm}
+    If $\mu=1$, then $\PP(X_n \geq 1)\geq\frac{1}{1+n\var(\xi)}$.
+\end{Thm}
+\begin{proof}
+    $\PP(X_n \geq 1)\geq\frac{(\EE X_n)^2}{\EE X_n^2}=\frac{1}{1+n\var(\xi)}$.
+\end{proof}
+This rate cannot be improved.
 \begin{Eg}
     Let $\xi\sim\text{Geo}(\frac{1}{2})$. Then $\PP(X_n \geq 1)=\frac{1}{n+1}$.
 \end{Eg}
@@ -687,13 +713,75 @@ Note that once $X_n=0$, then $X_{n+k}=0$ for all $k\geq 1$, so $0$ is an absorbi
     Another view of this result.
     This is the probability that a simple random walk 
 \end{Rk}
+For $s\in [0,1]$, let $f(s)=\sum_{k\geq 0}p_ks^k$ be the generating function of $\xi$.
+Then $f(1)=1$ and $f'(s)\geq 0$.
+\begin{Lem}
+    The generating function for $X_n$
+\end{Lem}
+
+
+\begin{Thm}[supercritical]
+    If $\mu>1$, then $\lim_{n\to\infty}\PP(X_n=0)=\rho$, where $\rho$ is the only solution of $f(\rho)=\rho$ in $[0,1)$.
+\end{Thm}
+\begin{proof}
+    
+\end{proof}
+
+
 
 \subsection{Biased Random Walk on a Galton-Watson Tree}
 Let $\QQ(\cdot)=\PP(\cdot||\TT|=\infty)$ be the measure conditioned on all Galton-Watson trees that survive.
+\begin{Lem}
+    On the event of nonextinction, \(X_n \to \infty\) almost surely, provided \(p_1 \neq 1\).
+\end{Lem}
+\begin{proof}
+    If 0 is the only nontransient state state of $X_n$, then the result follows. Thus we want to show that any state other than 0 is transient.
+
+    Now for any $k>0$, eventually returning to $k$ requires not immediately being extinct, which has probability $\leq 1-p_0^k$.
+    If $p_0>0$, then $k$ is transient. If $p_0=0$, as $p_1\neq 1$, $k$ is also transient.
+\end{proof}
+
+\begin{Def}[inherited property]
+    Call a property of trees inherited if \newline
+    (i) every finite tree has this property and \newline 
+    (ii) if whenever a tree has this property, so do all the descendant trees of the children of
+the root.
+\end{Def}
+\begin{Thm}[0-1 law for inherited properties]
+    Every inherited property has conditional probability either 0 or 1 given
+nonextinction.
+\end{Thm}
+\begin{proof}
+    Let \(A\) be the set of trees possessing a given inherited property. For a tree \(T\) with \(k\) children of the root, let \(T(1), \ldots, T(k)\) be the descendant trees of these children. Then
+\[
+\PP(A) = \EE[\PP[T \in A \,|\, X_1]] \leq \EE[\PP[T(1) \in A, \ldots, T(X_1) \in A \,|\, Z_1]]
+\]
+by definition of inherited. Since \(T(1), \ldots, T(Z_1)\) are i.i.d. given \(Z_1\), the last quantity above is equal to \(\EE[\PP(A)^{Z_1}] = f(\PP(A))\). 
+Thus, \(\PP(A) \leq f(\PP(A))\). On the other hand, \(\PP(A) \geq q\) since every finite tree is in \(A\). 
+It follows upon inspection of a graph of \(f\) that \(\PP(A) \in [q, 1]\), from which the desired conclusion follows.
+\end{proof}
+\begin{Cor}
+    Either $W = 0$ a.s. or $W > 0$ a.s. on nonextinction
+\end{Cor}
+
+\begin{Thm}[The Seneta-Heyde Theorem]
+    If \(1 < \mu < 1\), then there exist constants \(c_n\) such that
+    \begin{enumerate}[label=(\roman*)]
+        \item \(\lim \frac{Z_n}{c_n}\) exists almost surely in \([0, \infty)\);
+        \item \(\PP[\lim \frac{Z_n}{c_n} = 0] = \rho\);
+        \item \(\frac{c_{n+1}}{c_n} \to m\).
+    \end{enumerate}
+
+\end{Thm}
+\begin{proof}
+    
+\end{proof}
 
 Let $\eta$ be the (corresponds to $\xi$)
 \[q_k=\sum_{l=0}^{\infty} p_{k+l} C_{k+l}^k \rho^{k-1}(1-\rho)^l \quad k\geq 1 \]
 
+We will often want to consider random trees produced by a Galton-Watson branching
+process. For a precise formulation of tree-valued random variables, one is referred to.
 
 \[\frac{1}{R}=\sum_{i=1}^{\eta}\frac{1}{\lambda+\lambda R^{(i)}}\]
 therefore $R=\infty$ if and only if $R^{(i)}=0$ $\forall i$.
@@ -716,7 +804,54 @@ therefore $R=\infty$ if and only if $R^{(i)}=0$ $\forall i$.
     
 \end{Eg}
 
+\begin{Def}[Branching Number]
+    The branching number of a tree $T$ is
+the supremum of those $\lambda$ that admit a positive total amount of water to flow through $T$ ;
+denote this critical value of $\lambda$ by $\text{br} T$
+\end{Def}
+
 \paragraph{Precolation}
+\begin{Thm}
+    Let \(T\) be the family tree of a Galton-Watson process with mean \(\mu > 1\). Then \(p_c(T) = \frac{1}{\mu}\) almost surely, given nonextinction.
+\end{Thm}
+The basic intuition goes like this.
+If \(T\) is an \(n\)-ary tree, then the cluster of the root under percolation is a Galton-Watson tree with progeny distribution Binomial(\(n, p\)). Thus, this cluster is infinite with positive probability if and only if \(np > 1\), whence \(p_c(T) = \frac{1}{n}\).
+\begin{proof}
+    Let \(T\) be a given tree, and write \(K\) for the cluster of the root of \(T\) after percolation on \(T\) with the survival parameter \(p\). 
+    When \(T\) has the law of a Galton-Watson tree with mean \(\mu\), we claim that \(K\) has the law of another Galton-Watson tree having mean \(\mu p\): 
+    if \(Y_i\) represent i.i.d. \(\text{Bin}(1, p)\) random variables that are also independent of \(L\), then
+\[
+\EE\left[\sum_{i=1}^{L} Y_i\right] = \EE\left[\EE\left[\sum_{i=1}^{L} Y_i \,|\, L\right]\right] = \EE\left[\sum_{i=1}^{L} \EE[Y_i]\right] = \EE\left[\sum_{i=1}^{L} p\right] = \mu p.
+\]
+Hence, \(K\) is finite almost surely if and only if \(mp \leq 1\). Since
+
+\begin{equation}\label{eq:precolation on GW}
+    \EE[\PP(|K| < \infty \,|\, T)] = \PP(|K| < \infty),
+\end{equation}
+    
+this means that for almost every Galton-Watson tree \(T\), the cluster of its root is finite almost surely if \(p \leq \frac{1}{\mu}\). 
+On the other hand, for fixed \(p\), the property \(\{T; P_p(|K| < \infty) = 1\}\) is inherited, so has probability \(\rho\) or \(1\). 
+If it has probability \(1\), then Equation \eqref{eq:precolation on GW} shows that \(mp \leq 1\). 
+That is, if \(mp > 1\), this property has probability \(\rho\), so that the cluster of the root of \(T\) will be infinite with positive probability almost surely on the event of nonextinction. 
+Considering a sequence \(p_n \to \frac{1}{\mu}\), we see that this holds almost surely on the event of nonextinction for all \(p > \frac{1}{\mu}\) at once, not just for a fixed \(p\). 
+We conclude that \(p_c(T) = \frac{1}{\mu}\) almost surely on nonextinction.
+
+\end{proof}
+\begin{Cor}
+    If \(T\) is a Galton-Watson tree with mean \(\mu > 1\), then \(\text{br}(T) = \mu\) almost surely, given nonextinction.
+\end{Cor}
+\begin{Thm}
+    For an independent percolation and adapted conductances on the same tree, we have
+\[
+\frac{C(o \leftrightarrow 1)}{1 + C(o \leftrightarrow 1)} \leq \PP[o \leftrightarrow 1].
+\]
+
+\end{Thm}
+
+\begin{Cor}
+    For any locally finite infinite tree $T$, 
+    \[p_c(T)=\frac{1}{\text{br}T}\]
+\end{Cor}
 
 \section{Measurable Space Discrete Time Markov Chain}
 Now we develop a more formal theory for discrete time Markov Chains by means of measure theory.
@@ -753,17 +888,114 @@ To avoid uncountable union, we shall restrict our attention to processes $(X_t)_
 
 \subsection{Review: Properties of Exponential Distribution}
 \begin{Def}
-    
+    A random variable \(T : \Omega \to [0,\infty]\) has an exponential distribution of parameter \(\lambda\) (\(0 \leq \lambda < \infty\)) if
+\[
+\mathbb{P}(T > t) = e^{-\lambda t} \quad \text{for all } t \geq 0.
+\]
+We write \(T \sim \text{E}(\lambda)\) for short. If \(\lambda > 0\), then \(T\) has a density function
+\[
+f_T(t) = \lambda e^{-\lambda t} 1_{\{t \geq 0\}}.
+\]
 \end{Def}
+\begin{Rk}
+    The mean of \(T\) is given by
+\[
+\mathbb{E}(T) = \int_{0}^{\infty} P(T > t) \, dt = \lambda^{-1}.
+\]
+
+\end{Rk}
+
 \begin{Thm}[memoryless property]
-    
+    A random variable \(T : \Omega \to (0,\infty]\) has an exponential distribution if and only if it has the following memoryless property:
+\[
+\PP(T > s + t \,|\, T > s) = \PP(T > t) \quad \text{for all } s, t \geq 0.
+\]
 \end{Thm}
+\begin{proof}
+    Suppose \(T \sim \text{E}(\lambda)\), then
+\[
+\PP(T > s + t \,|\, T > s) = \frac{\PP(T > s + t)}{ \PP(T > s)} = \frac{e^{-\lambda(s+t)}}{e^{-\lambda s}} = e^{-\lambda t} = \PP(T > t).
+\]
+On the other hand, suppose \(T\) has the memoryless property whenever \(P(T > s) > 0\). Then \(g(t) = P(T > t)\) satisfies
+\[
+g(s + t) = g(s)g(t) \quad \text{for all } s, t \geq 0.
+\]
+We assumed \(T > 0\) so that \(g\left(\frac{1}{n}\right) > 0\) for some \(n\). Then, by induction,
+\[
+g(1) = g(\frac{1}{n}+\cdots+\frac{1}{n})=g\left(\frac{1}{n}\right)^n > 0,
+\]
+so \(g(1) = e^{-\lambda}\) for some \(0 \leq \lambda < \infty\). By the same argument, for integers \(p, q \geq 1\),
+\[
+g\left(\frac{p}{q}\right) = g\left(\frac{1}{q}\right)^p = g(1)^{p/q},
+\]
+so \(g(r) = e^{-\lambda r}\) for all rationals \(r > 0\). For real \(t > 0\), choose rationals \(r, s > 0\) with \(r \leq t \leq s\). Since \(g\) is decreasing,
+\[
+e^{-\lambda r} = g(r) \geq g(t) \geq g(s) = e^{-\lambda s}
+\]
+and, since we can choose \(r\) and \(s\) arbitrarily close to \(t\), this forces \(g(t) = e^{-\lambda t}\), so \(T \sim \text{E}(\lambda)\).
+
+\end{proof}
+
 \begin{Thm}[infimum]
     Let $I$ be a countable set and let $T_k\,k\in I$ be independent random variables with $T_k \sim E(q_k)$ and $0 < q := \sum_{k\in I} q_k < \infty$. 
-    Set $T = \inf_k T_k$. Then this infimum is attained at a unique random value $K$ of $k$ a.s.. Moreover, $T$ and $K$ are independent, with $T \sim E(q)$ and $P(K = k) = \frac{q_k}{q}$.
+    Set $T = \inf_k T_k$. Then this infimum is attained at a unique random value $K$ of $k$ a.s.. Moreover, $T$ and $K$ are independent, with $T \sim E(q)$ and $\PP(K = k) = \frac{q_k}{q}$.
 
 \end{Thm}
+\begin{proof}
+    Set \(K = k\) if \(T_k < T_j\) for all \(j \neq k\), otherwise, let \(K\) be undefined. Then
+\[
+\begin{aligned}
+\PP(K = k \text{ and } T \geq t) &= \PP(T_k \geq t \text{ and } T_j > T_k \text{ for all } j \neq k) \\
+&= \int_{t}^{\infty} q_k e^{-q_k s} \PP(T_j > s \text{ for all } j \neq k) \, ds \\
+&= \int_{t}^{\infty} q_k e^{-q_k s} \prod_{j \neq k} e^{-q_j s} \, ds \\
+&= \int_{t}^{\infty} q_k e^{-qs} \, ds = \frac{q_k}{q} e^{-qt}.
+\end{aligned}
+\]
+Hence, \(\PP(K = k \text{ for some } k) = 1\), and \(T\) and \(K\) have the claimed joint distribution.
 
+\end{proof}
+
+\begin{Thm}
+    Let \(S_1, S_2, \ldots\) be a sequence of independent random variables with \(S_n \sim \text{E}(\lambda_n)\) and \(0 < \lambda_n < \infty\) for all \(n\).\newline 
+    (i) If \(\sum_{n=1}^{\infty} \frac{1}{\lambda_n} < \infty\), then \(\PP \left(\sum_{n=1}^{\infty} S_n < \infty\right) = 1\).\newline
+    (ii) If \(\sum_{n=1}^{\infty} \frac{1}{\lambda_n} = \infty\), then \(\PP \left(\sum_{n=1}^{\infty} S_n = \infty\right) = 1\).
+    
+\end{Thm}
+\begin{proof}
+    (i) Suppose \(\sum_{n=1}^{\infty} \frac{1}{\lambda_n} < \infty\). Then, by monotone convergence
+\[
+\mathbb{E} \left( \sum_{n=1}^{\infty} S_n \right) = \sum_{n=1}^{\infty} \frac{1}{\lambda_n} < \infty
+\]
+so
+\[
+\mathbb{P} \left( \sum_{n=1}^{\infty} S_n < \infty \right) = 1.
+\]
+(ii) Suppose instead that \(\sum_{n=1}^{\infty} \frac{1}{\lambda_n} = \infty\). Then \(\prod_{n=1}^{\infty} (1 + \frac{1}{\lambda_n}) = \infty\).
+By monotone convergence and independence
+\[
+\mathbb{E} \left[ \exp\left\{- \sum_{n=1}^{\infty} S_n \right\} \right] = \prod_{n=1}^{\infty} \mathbb{E} \left[ \exp\{-S_n\} \right] = \prod_{n=1}^{\infty} (1 + \lambda_1 n)^{-1} = 0
+\]
+so
+\[
+\mathbb{P} \left( \sum_{n=1}^{\infty} S_n = \infty \right) = 1.
+\]
+
+\end{proof}
+
+\begin{Thm}
+    For independent random variables \(S \sim \text{E}(\lambda)\) and \(R \sim \text{E}(\mu)\) and for \(t \geq 0\), we have
+\[
+\mu \PP(S \leq t < S + R) = \lambda \PP(R \leq t < R + S).
+\]
+\end{Thm}
+\begin{proof}
+    We have
+    \[
+    \mu \PP(S \leq t < S + R) = \int_{0}^{t} \int_{t-s}^{\infty} \lambda\mu e^{-\lambda s} e^{-\mu r} \, dr \, ds = \lambda\mu \int_{0}^{t} e^{-\lambda s} e^{-\mu(t-s)} \, ds
+    \]
+    from which the identity follows by symmetry.
+    
+\end{proof}
 \subsection{Poisson Process}
 
 We begin with a definition of Poisson process in terms of jump chain and holding times, and then relate it to
@@ -871,15 +1103,15 @@ the infinitesimal definition and transition probability definition.
 
 \begin{Thm}
     Let $\tau,\sigma$ be stopping times and $X$ an integrable random variable. We have \newline 
-    (i) $E(X|\mathcal{F}_\tau)=E(X|\mathcal{F}_{\sigma\wedge \tau})$ a.s. on $\{\tau\leq \sigma\}$.\newline 
-    (ii) $E(E(X|\mathcal{F}_\tau)|\mathcal{F}_\sigma)=E(X|\mathcal{F}_{\sigma\wedge \tau})$ a.s..
+    (i) $\EE(X|\mathcal{F}_\tau)=\EE(X|\mathcal{F}_{\sigma\wedge \tau})$ a.s. on $\{\tau\leq \sigma\}$.\newline 
+    (ii) $\EE(\EE(X|\mathcal{F}_\tau)|\mathcal{F}_\sigma)=\EE(X|\mathcal{F}_{\sigma\wedge \tau})$ a.s..
 \end{Thm}
 \begin{proof}
     (i) Let $A\in\mathcal{F}_\tau$, then $A\cap \{\tau\leq \sigma\}$ belongs to both $\mathcal{F}_\tau$ and $\mathcal{F}_\sigma$, and therefore to $\mathcal{F}_\tau\cap\mathcal{F}_\sigma$. So 
-    \[ \int_A 1_{\tau\leq \sigma} E(X|\mathcal{F}_{\tau\wedge\sigma})\mathrm{d}P=\int E(1_A1_{\tau\leq \sigma}X|\mathcal{F}_{\tau\wedge\sigma})\mathrm{d}P=\int_A1_{\tau\leq \sigma}X\mathrm{d}P\]
-    (ii) On $\{\tau\leq\sigma\}$ we have $E(X|\mathcal{F}_\tau)=E(X|\mathcal{F}_{\sigma\wedge \tau})$ a.s. by (i), so 
-    $E(E(X|\mathcal{F}_\tau)|\mathcal{F}_\sigma)=E(E(X|\mathcal{F}_{\sigma\wedge \tau})|\mathcal{F}_\sigma)=E(X|\mathcal{F}_{\sigma\wedge \tau})$. Similarly on
-    $\{\sigma\leq \tau\}$ we have $E(E(X|\mathcal{F}_\tau)|\mathcal{F}_\sigma)=E(E(X|\mathcal{F}_\tau)|\mathcal{F}_{\sigma\wedge \tau})=E(X|\mathcal{F}_{\sigma\wedge \tau})$.
+    \[ \int_A 1_{\tau\leq \sigma} \EE(X|\mathcal{F}_{\tau\wedge\sigma})\mathrm{d}P=\int \EE(1_A1_{\tau\leq \sigma}X|\mathcal{F}_{\tau\wedge\sigma})\mathrm{d}P=\int_A1_{\tau\leq \sigma}X\mathrm{d}P\]
+    (ii) On $\{\tau\leq\sigma\}$ we have $\EE(X|\mathcal{F}_\tau)=\EE(X|\mathcal{F}_{\sigma\wedge \tau})$ a.s. by (i), so 
+    $\EE(\EE(X|\mathcal{F}_\tau)|\mathcal{F}_\sigma)=\EE(\EE(X|\mathcal{F}_{\sigma\wedge \tau})|\mathcal{F}_\sigma)=\EE(X|\mathcal{F}_{\sigma\wedge \tau})$. Similarly on
+    $\{\sigma\leq \tau\}$ we have $\EE(\EE(X|\mathcal{F}_\tau)|\mathcal{F}_\sigma)=\EE(\EE(X|\mathcal{F}_\tau)|\mathcal{F}_{\sigma\wedge \tau})=\EE(X|\mathcal{F}_{\sigma\wedge \tau})$.
 \end{proof}
 \begin{Thm}
     Let $X=\{X_t,\mathcal{F}_t\}$ be a progressively measurable process, and let $\tau$ be a stopping time of the filtration $\mathcal{F}_t$.
@@ -904,11 +1136,11 @@ and let $a<b$, $\lambda>0$ be real numbers.
 \end{proof}
 
 \begin{Thm}[upcrossing inequality]
-    \[(b-a)EU_{[\sigma,\tau]}\leq E(X_\tau-a)^+-E(X_\sigma-a)^+\]
+    \[(b-a)EU_{[\sigma,\tau]}\leq \EE(X_\tau-a)^+-\EE(X_\sigma-a)^+\]
 \end{Thm}
 
 \begin{Thm}[$L^p$ maximum inequality]
-    $\bar{X}_\tau= \sup_{\sigma\leq t\leq \tau}X_t^+$, then for $1<p<\infty$, \[E(\bar{X}_\tau^p)\leq (\frac{p}{p-1})^pE(X_\tau^+)^p\]
+    $\bar{X}_\tau= \sup_{\sigma\leq t\leq \tau}X_t^+$, then for $1<p<\infty$, \[\EE(\bar{X}_\tau^p)\leq (\frac{p}{p-1})^pE(X_\tau^+)^p\]
 \end{Thm}
 
 
@@ -916,7 +1148,7 @@ and let $a<b$, $\lambda>0$ be real numbers.
 For the remainder of this subsection, we deal only with right-continuous processes,
 usually imposing no condition on the filtration $\mathcal{F}_t$.
 \begin{Thm}[submartingale convergence]
-    Assume $\sup_{t\geq 0} E(X_t^+)<\infty$. Then $X_\infty =\lim_{t\to\infty} X_t$ exists a.s., and $E|X_\infty|<\infty$.
+    Assume $\sup_{t\geq 0} \EE(X_t^+)<\infty$. Then $X_\infty =\lim_{t\to\infty} X_t$ exists a.s., and $\EE|X_\infty|<\infty$.
 \end{Thm}
 \begin{proof}
     
@@ -925,7 +1157,7 @@ usually imposing no condition on the filtration $\mathcal{F}_t$.
 \begin{Thm}[optional sampling]
     Assume the submartingale has a last element $X_\infty$,
     and let $S\leq T$ be two optional times of the filtration. We have 
-    \[ E(X_T|\mathcal{F}_{S^+})\geq X_S \quad \text{a.s.}\] 
+    \[ \EE(X_T|\mathcal{F}_{S^+})\geq X_S \quad \text{a.s.}\] 
     If $S$ is a stopping time, then $\mathcal{F}_S$ can replace $\mathcal{F}_{S^+}$ above.
 \end{Thm}
 \begin{proof}
@@ -948,11 +1180,11 @@ usually imposing no condition on the filtration $\mathcal{F}_t$.
 \end{Def}
 \begin{Def}
     An increasing process $A$ is called natural if for every bounded, right-continuous martingale $\{M_t,\mathcal{F}_t;0\leq t<\infty\}$ we have
-    \[ E\int_{(0,t]}M_s\mathrm{d}A_s=E\int_{(0,t]}M_{s^-}\mathrm{d}A_s\quad\forall 0<t<\infty\]
+    \[ \EE\int_{(0,t]}M_s\mathrm{d}A_s=\EE\int_{(0,t]}M_{s^-}\mathrm{d}A_s\quad\forall 0<t<\infty\]
 \end{Def}
 \begin{Lem}
     If $A$ is an increasing process and $\{M_t,\mathcal{F}_t;0\leq t<\infty\}$ is a bounded right-continuous martingale, then 
-    \[ E(M_tA_t)=E\int_{(0,t]}M_s\mathrm{d}A_s \]
+    \[ \EE(M_tA_t)=\EE\int_{(0,t]}M_s\mathrm{d}A_s \]
 \end{Lem}
 The following concept is a strengthening of the notion of uniform integrablity for submartingales.
 \begin{Def}[class DL]

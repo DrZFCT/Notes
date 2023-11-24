@@ -1,6 +1,6 @@
 # Fdb version 3
-["pdflatex"] 1699501776 "d:/GitHub/Notes/latex notes/lecture notes in stochastic process/lecture notes in stochastic process.tex" "lecture notes in stochastic process.pdf" "lecture notes in stochastic process" 1699501777
-  "d:/GitHub/Notes/latex notes/lecture notes in stochastic process/lecture notes in stochastic process.tex" 1699501775 39597 d4225daced47ff36ffb02a6d1f4cf25c ""
+["pdflatex"] 1699690731 "d:/GitHub/Notes/latex notes/lecture notes in stochastic process/lecture notes in stochastic process.tex" "lecture notes in stochastic process.pdf" "lecture notes in stochastic process" 1699690732
+  "d:/GitHub/Notes/latex notes/lecture notes in stochastic process/lecture notes in stochastic process.tex" 1699690729 50518 1910bf75e49f4ca040992333da02df84 ""
   "d:/texlive/2022/texmf-dist/fonts/map/fontname/texfonts.map" 1649389004 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "d:/texlive/2022/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex7.tfm" 1649388241 1004 54797486969f23fa377b128694d548df ""
   "d:/texlive/2022/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex8.tfm" 1649388241 988 bdf658c3bfc2d96d3c8b02cfc1c94c20 ""
@@ -47,6 +47,7 @@
   "d:/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb" 1649388242 31764 459c573c03a4949a528c2cc7f557e217 ""
   "d:/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/symbols/msam7.pfb" 1649388242 33366 60462f3d16c3d0f024f1f856e64b09cd ""
   "d:/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb" 1649388242 34694 870c211f62cb72718a00e353f14f254d ""
+  "d:/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm7.pfb" 1649388242 35309 940e81a5b9e04201a07e8b33a3ae6e64 ""
   "d:/texlive/2022/texmf-dist/tex/generic/atbegshi/atbegshi.sty" 1649388291 24708 5584a51a7101caf7e6bbf1fc27d8f7b1 ""
   "d:/texlive/2022/texmf-dist/tex/generic/bigintcalc/bigintcalc.sty" 1649388416 40635 c40361e206be584d448876bba8a64a3b ""
   "d:/texlive/2022/texmf-dist/tex/generic/bitset/bitset.sty" 1649388421 33961 6b5c75130e435b2bfdb9f480a09a39f9 ""
@@ -79,6 +80,7 @@
   "d:/texlive/2022/texmf-dist/tex/latex/base/atveryend-ltx.sty" 1649389396 2462 754d6b31b2ab5a09bb72c348ace2ec75 ""
   "d:/texlive/2022/texmf-dist/tex/latex/base/inputenc.sty" 1649389396 5049 969aec05d5f39c43f8005910498fcf90 ""
   "d:/texlive/2022/texmf-dist/tex/latex/base/size10.clo" 1649389396 8448 96f18c76bf608a36ee6fbf021ac1dd32 ""
+  "d:/texlive/2022/texmf-dist/tex/latex/enumitem/enumitem.sty" 1649388842 51697 f8f08183cd2080d9d18a41432d651dfb ""
   "d:/texlive/2022/texmf-dist/tex/latex/geometry/geometry.sty" 1649389067 41601 9cf6c5257b1bc7af01a58859749dd37a ""
   "d:/texlive/2022/texmf-dist/tex/latex/graphics/keyval.sty" 1649389125 2671 4de6781a30211fe0ea4c672e4a2a8166 ""
   "d:/texlive/2022/texmf-dist/tex/latex/hycolor/hycolor.sty" 1649389229 17914 4c28a13fc3d975e6e81c9bea1d697276 ""
@@ -99,10 +101,10 @@
   "d:/texlive/2022/texmf-var/fonts/map/pdftex/updmap/pdftex.map" 1649390905 4448422 15354be9acfb30b1b7485a9cb19efaa9 ""
   "d:/texlive/2022/texmf-var/web2c/pdftex/pdflatex.fmt" 1649391010 2826451 660740ac61e69e5937838ee186708b77 ""
   "d:/texlive/2022/texmf.cnf" 1649390884 713 e69b156964470283e0530f5060668171 ""
-  "lecture notes in stochastic process.aux" 1699501777 8101 9f625451b8cfd8b9724edcb8d0fefe73 "pdflatex"
-  "lecture notes in stochastic process.out" 1699501777 6993 fb1dbd14471452305d2ac27ea310d0b7 "pdflatex"
-  "lecture notes in stochastic process.tex" 1699501775 39597 d4225daced47ff36ffb02a6d1f4cf25c ""
-  "lecture notes in stochastic process.toc" 1699501777 4870 da800f7104abab96b68968a5df040a27 "pdflatex"
+  "lecture notes in stochastic process.aux" 1699690732 8175 798529b2cd93598116c6f2d52585be54 "pdflatex"
+  "lecture notes in stochastic process.out" 1699690732 6993 fb1dbd14471452305d2ac27ea310d0b7 "pdflatex"
+  "lecture notes in stochastic process.tex" 1699690729 50518 1910bf75e49f4ca040992333da02df84 ""
+  "lecture notes in stochastic process.toc" 1699690732 4874 9638438df58f07a1cf4edcb5235476db "pdflatex"
   (generated)
   "lecture notes in stochastic process.aux"
   "lecture notes in stochastic process.log"

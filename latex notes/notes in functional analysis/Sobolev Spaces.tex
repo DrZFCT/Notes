@@ -56,7 +56,7 @@ Assume $U\subset \mathbb{R}^n$ is open and $0<\gamma\le 1$.
 \begin{definition}
     The H\"older space \[C^{k,\gamma}(\bar{U})\] consists of all functions $u\in C^k(\bar{U})$ for which the norm 
     \[ \|u\|_{C^{k,\gamma}(\bar{U})}:= \sum_{|\alpha|\le k}\|D^\alpha u\|_{C(\bar{U})}+\sum_{|\alpha|= k}[u]_{C^{0,\gamma}(\bar{U})}\]
-    is finite,
+    is finite.
 \end{definition}
 
 \begin{theorem}[H\"older spaces as function spaces]
@@ -100,7 +100,7 @@ We will sometimes call a function belonging to $C_c^\infty(U)$ a test function.
             v(x)=\left\{\begin{matrix}
             x  & x\in(0,1]\\
             1  & x\in[1,2)
-            \end{matrix}\right.\] 
+            \end{matrix}\right..\] 
     But \[ u(x)=\left\{\begin{matrix}
         x  & x\in(0,1]\\
         2  & x\in(1,2)
@@ -138,6 +138,7 @@ Fix $1\le p\le \infty$ and let $k$ be a nonnegative integer.
     We denote by \[W_0^{k,p}(U)\] the closure of $C_c^\infty(U)$ in $W^{k,p}(U)$.
 \end{notation}
 We interpret $W_0^{k,p}(U)$ as comprising those functions $u\in W^{k,p}(U)$ s.t. 
+\[D^\alpha=0\text{ on }\partial U\quad \forall |\alpha|\leq k-1. \]
 
 \begin{example}
     If $n=1$ and $U$ is an open interval in $\mathbb{R}^1$
@@ -231,13 +232,16 @@ We will consider first only the Sobolev space $W^{1,p}(U)$ and ask the following
 \subsection{$1\le p<n$}
 
 Let us first ask whether we can establish an estimate of the form 
-\[ \|u\|_{L^q(\mathbb{R}^n)}\le C\|Du\|_{L^p(\mathbb{R}^n)}\] 
-for certain constants $C>0$, $1\le q<\infty$ and all functions $u\in C^\infty_c(\mathbb{R}^n)$.
-By a simple observation, we 
+\[ \|u\|_{L^{p^*}(\mathbb{R}^n)}\le C\|Du\|_{L^p(\mathbb{R}^n)}\] 
+for certain constants $C>0$, $1\le p^*<\infty$ and all functions $u\in C^\infty_c(\mathbb{R}^n)$.
+We should expect that differentiation of a function increases the strength of its local singularities and improves its decay at infinity.
+Thus, if $Du\in L^p(\mathbb{R}^n)$, it is reasonable to expect that $f\in L^{p^*}(\mathbb{R}^n)$ for some $p^*>p$.
+By a simple dimensional analysis, we can obtain the only possible $p^*$:
 \begin{definition}
     If $1\le p<n$, the Sobolev conjugate of $p$ is 
     \[p^*=\frac{np}{n-p}\] 
 \end{definition}
+
 
 \begin{theorem}[Gagliardo-Nirenberg-Sobolev inequality]
     
@@ -269,8 +273,16 @@ This compactness will be fundamental for our applications of functional analysis
 
 
 \subsection{$n<p\le\infty$}
-
-
+In the previous section, we saw that if the weak derivative of a function that
+vanishes at infinity belongs to $L^p(\mathbb{R}^n)$ with $p < n$, then the function has improved
+integrability properties and belongs to $L^{p^*}(\mathbb{R}^n)$.
+In this regime the Sobolev conjugate of $p$ is negative. Therefore we should expect 
+Even though the function is weakly differentiable, it need not be continuous. 
+In this section, we show that if the derivative belongs to $L^p(\mathbb{R}^n)$ with $p > n$ then the function (or a pointwise a.e. equivalent
+version of it) is continuous, and in fact H\"older continuous. 
+\begin{theorem}[Morrey's inequality]
+    
+\end{theorem}
 
 \subsection{$p=n$}
 Owing to the Gagliardo-Nirenberg-Sobolev inequality, and the fact that $p^*\to\infty$ as $p\to n$, we might expect $u\in L^\infty(U)$ provided 
@@ -278,6 +290,15 @@ $u\in W^{1,n}(U)$. This is however false if $n>1$.
 \begin{example}
     If $U=B^0(0,1)$, the function $u=\log\log (1+\frac{1}{|x|})$ belongs to $W^{1,n}(U)$ but not to $L^\infty(U)$.
 \end{example}
+
+\subsection{General Sobolev inequalities}
+Now we deal with $W^{k,p}(U)$ with general $k$.
+
+
+\section{Poincare's inequalities}
+\begin{notation}
+    $(u)_U=$ is the average of $u$ over $U$.
+\end{notation}
 
 \section{Fourier Transform}
 We employ the Fourier transform to give an alternate characterization of the spaces $H^k(\mathbb{R}^n)$.
