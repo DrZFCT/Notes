@@ -296,7 +296,18 @@ We begin by summarizing the concepts mathematicans are most interested in, and i
 \begin{Rk}
 Transition matrix provides a way to calculate the probability that after $n$ steps the Markov chain is in a given state.
 \end{Rk}
-Now we focus on the class structure of markov chain.
+
+Next we explain the markov property.
+\begin{Def}[markov property]
+    
+\end{Def}
+
+\begin{Def}[strong markov property]
+    
+\end{Def}
+
+Next we explain the class structure of markov chain.
+
 \begin{Def}[lead to]
     We say $i$ leads to $j$ and write $i\to j$ if $P_i(X_n=j\text{ for some }n\geq 0)>0$.
 \end{Def}
@@ -315,6 +326,8 @@ Now we focus on the class structure of markov chain.
 \end{Def}
 
 
+\subsection{Recurrence and Transience}
+A markov chain starting from a state can visit other state. We are interested in the timing of a visit.
 
 \begin{Def}[hitting time]
     Let $(X_n)_{n\geq 0}$ be a Markov chain with transition matrix $P$. The hitting time of a subset $A$ of $I$ is the random
@@ -330,6 +343,7 @@ Now we focus on the class structure of markov chain.
     \[T_i^{(r+1)}(\omega)=\inf\left\{n\geq T_i^{(r)}(\omega)+1:X_n(\omega)=i\right\}\]
 \end{Def}
 
+A state can never be visited as well.
 
 \begin{Def}[absorption probability]
     The probability starting from $i$ that $(X_n)_{n\geq 0}$ ever hits $A$ is then \[h_i^A=P_i(H^A<\infty)\]
@@ -338,6 +352,7 @@ Now we focus on the class structure of markov chain.
 \begin{Rk}
 A less formal notation is $h_i^A=\PP(\text{hit }A)$.
 \end{Rk}
+Absorption probability can be calculated by first-step analysis.
 \begin{Def}
     The mean time taken for $(X_n)_{n\geq 0}$ to reach $A$ from $i$ is given by \[k_i^A=E_i(H^A)=\sum_{n<\infty}nP(H^A=n)+\infty \PP(H^A=\infty)\]
 \end{Def}
@@ -345,6 +360,7 @@ A less formal notation is $h_i^A=\PP(\text{hit }A)$.
     A less formal notation is $k_i^A=E_i(\text{time to hit }A)$.
 \end{Rk}
 
+We can classify the states into three categories according to whether a state is visited i.o. by a markov chain.
 
 \begin{Def}[recurrent]
     We say a state $i$ is recurrent if $P_i(X_n=i\text{ i.o. })=1$.
@@ -356,12 +372,37 @@ A less formal notation is $h_i^A=\PP(\text{hit }A)$.
     A state $i$ is postive recurrent if the expected return time $m_i=E_i(T_i)$ is finite.
     A recurrent state which fails to have this stronger property is called null recurrent.
 \end{Def}
+The next result is immediate once we combine the strong markov property and the property of the geometric distribution.
+\begin{Thm}
+    $y$ is recurrent if and only if $\EE_yN(y)=\infty$.
+\end{Thm}
+This is also called Green's function.
+
+The next fact help us identify recurrent state when the state space is finite.
+\begin{Thm}
+    Let $C$ be a finite closed set. Then $C$ contains a recurrent state. If $C$ is irreducible then all states in $C$ are recurrent.
+\end{Thm}
+
+\begin{Thm}[Decomposition theorem]
+    
+\end{Thm}
+
+\subsection{Invariant Measures}
+
 \begin{Def}[invariant measure]
     A measure is any row vector $(\lambda_i:i\in I)$ with non-negative entries. We say $\lambda$ is invariant if \[\lambda P=\lambda\]
 \end{Def}
+\begin{Rk}
+    Invariant measure is also called stationary measure.
+\end{Rk}
+
 \begin{Def}[detailed balance]
     
 \end{Def}
+\begin{Def}[reversible measure]
+    A measure that satisfies the detailed balance condition is said to be a reversible measure.
+\end{Def}
+These quantities can be computed by definition.
 
 \begin{Eg}[Chip-Firing/Sand-Pile]
     Every time, pick a random $\tau$ such that $a_\tau\geq 2$ and do the update 
@@ -371,6 +412,46 @@ A less formal notation is $h_i^A=\PP(\text{hit }A)$.
         a_{\tau-1}^{t+1}= a_{\tau-1}^{t}+1
         \end{matrix}\right.\]
 \end{Eg}
+
+The next theorem explain why reversible measure is reversible.
+\begin{Thm}[dual transition probability]
+    
+\end{Thm}
+
+A necessary and sufficient condition for a chain to have a reversible measure is given below. This condition can be checked if the transition probability is given.
+\begin{Thm}[Kolmogorov's cycle condition]
+    
+\end{Thm}
+Only special chains have reversible measures, but the next result shows that many markov chains have stationary measures by relating it to the expected number of visits during an excursion.
+\begin{Thm}\label{stationary measure and expected number of visit}
+    Let $x$ be an recurrent state and let $T=\inf\{n\geq 1:X_n=x\}$. Then 
+    \[\mu_x(y)=\EE_x(\sum_{n=0}^{T-1}1_{X_n=y}) \] 
+    defines a stationary measure.
+\end{Thm}
+
+\begin{Thm}
+   If $p$ is irreducible and recurrent, then the stationary measure is unique up to constant multiples. 
+\end{Thm}
+Having examine the existence and uniqueness of stationary measures, we turn our attention to stationary distributions.
+Stationary measures may exist for transient chains, e.g. random walks in $d\geq 3$, but stationary distribution only exist for recurrent chains,
+as the following theorem shows:
+\begin{Thm}
+    If there is a stationary distribution, then all states $y$ with $\pi(y)>0$ are recurrent.
+\end{Thm}
+We can relate stationary distributions to the expected time of an excursion
+\begin{Thm}
+    If $p$ is irreducible and has stationary distribution $\pi$, then 
+    \[\pi(x)=\frac{1}{\EE_x T_x}\]
+\end{Thm}
+Recall the concept of positive recurrent and null recurrent. The next result 
+\begin{Thm}
+    If $p$ is irreducible, then TFAE:
+    \begin{itemize}
+        \item Some $x$ is positive recurrent.
+        \item There is a stationary distribution.
+        \item All states are positive recurrent.
+    \end{itemize}
+\end{Thm}
 
 \subsection{Ergodic Theorems}
 The first topic in this section is to investigate 
@@ -389,6 +470,17 @@ be the number of visits to $y$ by time $n$.
 
     \paragraph{Step 2} Then we generalize to $x\ne y$. The result is obviously true if $T_y=\infty$.
 \end{proof}
+
+\begin{Eg}
+    
+\end{Eg}
+\begin{Def}[period]
+    let $d_x$ by the greatest common divisor of $I_x$. $d_x$ is called the period of $x$.
+\end{Def}
+The next lemma says that period is a class property.
+\begin{Lem}
+    If $\rho_{xy}>0$, then $d_y=d_x$.
+\end{Lem}
 
 \begin{Thm}
     Suppose $p$ is irreducible, aperiodic, and has stationary distribution $\pi$. Then as $n\to\infty$, $p^n(x,y)\to \pi(y)$.
@@ -412,6 +504,16 @@ be the number of visits to $y$ by time $n$.
     Finally we let $X_0=x$ and $Y_0\sim \pi$, then $Y_n$ has distribution $\pi$, and it follows that 
     \[\sum_{y}|p^n(x,y)-\pi(y)|\leq 2 \PP(T>n)\to 0. \] 
 \end{proof}
+\begin{Rk}
+    Some shortcuts exist for helping to determine when a Markov chain is ergodic, i.e. irreducible, aperiodic, and positive recurrent.
+    \begin{enumerate}
+        \item A Markov chain with a finite number of states has only transient and positive recurrent states. Only a Markov chain with an infinite number of
+        states can be null recurrent.
+        \item A sufficient test for a state to be aperiodic is that it has a self-loop.
+        \item In an irreducible, finite state Markov chain, the presence of one aperiodic
+        state guarantees ergodicity.
+    \end{enumerate}
+\end{Rk}
 
 \subsection{Introduction to Markov Chain Mixing}
 
@@ -725,7 +827,7 @@ Then $f(1)=1$ and $f'(s)\geq 0$.
     If $\mu>1$, then $\lim_{n\to\infty}\PP(X_n=0)=\rho$, where $\rho$ is the only solution of $f(\rho)=\rho$ in $[0,1)$.
 \end{Thm}
 \begin{proof}
-    
+    This is basically because a tree extinct if and only if all children trees extinct.
 \end{proof}
 
 
@@ -1208,14 +1310,62 @@ The following concept is a strengthening of the notion of uniform integrablity f
 
 
 \section{BM}
+\subsection{Construction}
 \begin{Def}[d-dimensional Brownian motion]
     A d-dimensional Brownian motion $B=(B_t)_{t\geq 0}$ is a stochastic process indexed by $[0,\infty)$ taking values in $\mathbb{R}^d$ s.t. \newline 
     (i) $B_0(\omega)=0$
 
 \end{Def}
 
-\subsection{Brownian Local Time}
+\subsection{Sample Path Properties}
+\begin{Thm}
+    Almost surely, for all $0<a<b<\infty$, BM is not monotone on the interval $[a,b]$.
+\end{Thm}
 
+\begin{Lem}
+    Almost surely, 
+    \[\limsup_{t\to\infty}\frac{B(t)}{\sqrt{t}}=+\infty\quad \liminf_{t\to\infty}\frac{B(t)}{\sqrt{t}}=-\infty\]
+\end{Lem}
+
+\begin{Lem}
+    Fix $t\geq 0$. Then almost surely, BM is not differentiable at $t$. 
+    Moreover, $D^*B(t)=+\infty$ and $D_*B(t)=-\infty$.
+\end{Lem}
+
+These two lemmas can be strengthened to the law of iterated logarithm and nowhere differentiability.
+\begin{Thm}
+    Almost surely,
+    \[\limsup_{t\to\infty}\frac{B(t)}{\sqrt{2t\log\log t}}=1\]
+\end{Thm}
+\begin{proof}
+    
+\end{proof}
+
+\begin{Thm}
+    Almost surely, BM is nowhere differentiable. Furthermore, almost surely, for all $t$,
+    either $D^*B(t)=+\infty$ or $D_*B(t)=-\infty$ or both.
+\end{Thm}
+
+
+Next we consider modulus of continuity.
+\begin{Lem}
+    There exists a constant $C>0$ such that, almost surely, for every sufficiently small $h>0$ and all $0<t\leq 1-h$,
+    \[|B(t+h)-B(t)|\leq C\sqrt{h\log\frac{1}{h}}\]
+\end{Lem}
+
+\begin{Lem}
+    For every constant $c<\sqrt{2}$, almost surely, for every $\ep>0$ there exist $0<h<\ep$ and $t\in [0,1-h]$ with 
+    \[|B(t+h)-B(t)|\geq c\sqrt{h\log\frac{1}{h}}\]
+\end{Lem}
+
+\begin{Thm}
+    Almost surely,
+    \[\limsup_{h\downarrow 0}\sup_{0\leq t\leq 1-h}\frac{|B(t+h)-B(t)|}{\sqrt{2h\log\frac{1}{h}}}=1\]
+\end{Thm}
+
+\subsection{Brownian Local Time}
+We denote by $D(a,b,t)$ the number of downcrossings of the interval $[a,b]$ before time $t$.
+Note that $D(a,b,t)$ is almost surely finite by the uniform continuity of Brownian motion on the compact interval $[0,t]$.
 \begin{Thm}
     There exists a stochastic process $\{L(t):t\geq 0\}$ called the local time at zero such that for all sequence $a_n\uparrow 0$ and $b_n\downarrow 0$ with 
     $a_n<b_n$, a.s.,
@@ -1225,6 +1375,18 @@ The following concept is a strengthening of the notion of uniform integrablity f
 
 \begin{Thm}
     $\{L(t):t\geq 0\}\overset{d}{=}  \{M(t):t\geq 0\}$
+\end{Thm}
+
+\begin{Thm}[Occupation time representation of the local time at zero]
+    For all sequence $a_n\uparrow 0$ and $b_n\downarrow 0$ with $a_n<b_n$, almost surely,
+    \[\lim_{n\to\infty}\frac{1}{b_n-a_n}\int_0^t 1_{a_n\leq B(s)\leq b_n}\mathrm{d}s=L(t)\quad \forall t>0 \]
+\end{Thm}
+
+
+\begin{Thm}[Ray-Knight theorem]
+    Suppose $a>0$ and $\{B(t):0\leq t\leq T\}$ is a liinear BM started at $a$ and stopped at time $T=\int\{t\geq 0:B(t)=0\}$.
+    Then \[\{L^x(T):0\leq x\leq a\}\overset{d}{=}\{|W(x)|^2:0\leq x\leq a\},\]
+    where $\{W(x):x\geq 0\}$ is a standard planar BM.
 \end{Thm}
 
 

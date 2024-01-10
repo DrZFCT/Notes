@@ -1,7 +1,9 @@
 # Fdb version 3
-["pdflatex"] 1704859542 "/Users/mrzt/Documents/GitHub/notes/Notes/latex notes/lecture notes in stochastic process/lecture notes in stochastic process.tex" "lecture notes in stochastic process.pdf" "lecture notes in stochastic process" 1704859543
-  "/Users/mrzt/Documents/GitHub/notes/Notes/latex notes/lecture notes in stochastic process/lecture notes in stochastic process.tex" 1704859542 50323 1976ad960904c832c82b808147988058 ""
+["pdflatex"] 1704878874 "/Users/mrzt/Documents/GitHub/notes/Notes/latex notes/lecture notes in stochastic process/lecture notes in stochastic process.tex" "lecture notes in stochastic process.pdf" "lecture notes in stochastic process" 1704878875
+  "/Users/mrzt/Documents/GitHub/notes/Notes/latex notes/lecture notes in stochastic process/lecture notes in stochastic process.tex" 1704878874 56677 a7b1b17ec55fd665896026463d0755e4 ""
+  "/usr/local/texlive/2022/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc" 1136849721 2900 1537cc8184ad1792082cd229ecc269f4 ""
   "/usr/local/texlive/2022/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
+  "/usr/local/texlive/2022/texmf-dist/fonts/tfm/jknappen/ec/tcrm1000.tfm" 1136768653 1536 e07581a4bb3136ece9eeb4c3ffab8233 ""
   "/usr/local/texlive/2022/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex7.tfm" 1246382020 1004 54797486969f23fa377b128694d548df ""
   "/usr/local/texlive/2022/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex8.tfm" 1246382020 988 bdf658c3bfc2d96d3c8b02cfc1c94c20 ""
   "/usr/local/texlive/2022/texmf-dist/fonts/tfm/public/amsfonts/symbols/msam10.tfm" 1246382020 916 f87d7c45f9c908e672703b83b72241a3 ""
@@ -48,6 +50,7 @@
   "/usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/symbols/msam7.pfb" 1248133631 33366 60462f3d16c3d0f024f1f856e64b09cd ""
   "/usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb" 1248133631 34694 ad62b13721ee8eda1dcc8993c8bd7041 ""
   "/usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm7.pfb" 1248133631 35309 940e81a5b9e04201a07e8b33a3ae6e64 ""
+  "/usr/local/texlive/2022/texmf-dist/fonts/type1/public/cm-super/sfrm1000.pfb" 1215737283 138258 6525c253f16cededa14c7fd0da7f67b2 ""
   "/usr/local/texlive/2022/texmf-dist/tex/generic/atbegshi/atbegshi.sty" 1575674566 24708 5584a51a7101caf7e6bbf1fc27d8f7b1 ""
   "/usr/local/texlive/2022/texmf-dist/tex/generic/bigintcalc/bigintcalc.sty" 1576625341 40635 c40361e206be584d448876bba8a64a3b ""
   "/usr/local/texlive/2022/texmf-dist/tex/generic/bitset/bitset.sty" 1576016050 33961 6b5c75130e435b2bfdb9f480a09a39f9 ""
@@ -101,10 +104,10 @@
   "/usr/local/texlive/2022/texmf-var/fonts/map/pdftex/updmap/pdftex.map" 1647878959 4410336 7d30a02e9fa9a16d7d1f8d037ba69641 ""
   "/usr/local/texlive/2022/texmf-var/web2c/pdftex/pdflatex.fmt" 1661094221 2826440 e3df3e53eaa293ef3171676f55b00abf ""
   "/usr/local/texlive/2022/texmf.cnf" 1647878952 577 209b46be99c9075fd74d4c0369380e8c ""
-  "lecture notes in stochastic process.aux" 1704859543 8302 fd474b6fe2368763cfc7bc332fda211d "pdflatex"
-  "lecture notes in stochastic process.out" 1704859543 7152 7ccfe18bd2e6ad5d91d6351ba126e63e "pdflatex"
-  "lecture notes in stochastic process.tex" 1704859542 50323 1976ad960904c832c82b808147988058 ""
-  "lecture notes in stochastic process.toc" 1704859543 4960 466350a9a39817e911d5464a2a5685d4 "pdflatex"
+  "lecture notes in stochastic process.aux" 1704878874 8893 5050508ccf1f01d87a0746f3e0fd9b15 "pdflatex"
+  "lecture notes in stochastic process.out" 1704878874 7784 123da9cce89e6ef377c5c0d91f1704cb "pdflatex"
+  "lecture notes in stochastic process.tex" 1704878874 56677 a7b1b17ec55fd665896026463d0755e4 ""
+  "lecture notes in stochastic process.toc" 1704878874 5305 dc16bd10e367c722f7225183f03e9209 "pdflatex"
   (generated)
   "lecture notes in stochastic process.aux"
   "lecture notes in stochastic process.log"
