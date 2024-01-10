@@ -1,6 +1,6 @@
 # Fdb version 3
-["pdflatex"] 1704859261 "/Users/mrzt/Documents/GitHub/notes/Notes/latex notes/lecture notes in stochastic process/lecture notes in stochastic process.tex" "lecture notes in stochastic process.pdf" "lecture notes in stochastic process" 1704859262
-  "/Users/mrzt/Documents/GitHub/notes/Notes/latex notes/lecture notes in stochastic process/lecture notes in stochastic process.tex" 1704859261 39133 ac8c982f27266c748d17cd53990a85a8 ""
+["pdflatex"] 1704859542 "/Users/mrzt/Documents/GitHub/notes/Notes/latex notes/lecture notes in stochastic process/lecture notes in stochastic process.tex" "lecture notes in stochastic process.pdf" "lecture notes in stochastic process" 1704859543
+  "/Users/mrzt/Documents/GitHub/notes/Notes/latex notes/lecture notes in stochastic process/lecture notes in stochastic process.tex" 1704859542 50323 1976ad960904c832c82b808147988058 ""
   "/usr/local/texlive/2022/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "/usr/local/texlive/2022/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex7.tfm" 1246382020 1004 54797486969f23fa377b128694d548df ""
   "/usr/local/texlive/2022/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex8.tfm" 1246382020 988 bdf658c3bfc2d96d3c8b02cfc1c94c20 ""
@@ -47,6 +47,7 @@
   "/usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb" 1248133631 31764 459c573c03a4949a528c2cc7f557e217 ""
   "/usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/symbols/msam7.pfb" 1248133631 33366 60462f3d16c3d0f024f1f856e64b09cd ""
   "/usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb" 1248133631 34694 ad62b13721ee8eda1dcc8993c8bd7041 ""
+  "/usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm7.pfb" 1248133631 35309 940e81a5b9e04201a07e8b33a3ae6e64 ""
   "/usr/local/texlive/2022/texmf-dist/tex/generic/atbegshi/atbegshi.sty" 1575674566 24708 5584a51a7101caf7e6bbf1fc27d8f7b1 ""
   "/usr/local/texlive/2022/texmf-dist/tex/generic/bigintcalc/bigintcalc.sty" 1576625341 40635 c40361e206be584d448876bba8a64a3b ""
   "/usr/local/texlive/2022/texmf-dist/tex/generic/bitset/bitset.sty" 1576016050 33961 6b5c75130e435b2bfdb9f480a09a39f9 ""
@@ -79,6 +80,7 @@
   "/usr/local/texlive/2022/texmf-dist/tex/latex/base/atveryend-ltx.sty" 1636758526 2462 754d6b31b2ab5a09bb72c348ace2ec75 ""
   "/usr/local/texlive/2022/texmf-dist/tex/latex/base/inputenc.sty" 1622581934 5049 969aec05d5f39c43f8005910498fcf90 ""
   "/usr/local/texlive/2022/texmf-dist/tex/latex/base/size10.clo" 1636758526 8448 96f18c76bf608a36ee6fbf021ac1dd32 ""
+  "/usr/local/texlive/2022/texmf-dist/tex/latex/enumitem/enumitem.sty" 1561238569 51697 f8f08183cd2080d9d18a41432d651dfb ""
   "/usr/local/texlive/2022/texmf-dist/tex/latex/geometry/geometry.sty" 1578002852 41601 9cf6c5257b1bc7af01a58859749dd37a ""
   "/usr/local/texlive/2022/texmf-dist/tex/latex/graphics/keyval.sty" 1622581934 2671 4de6781a30211fe0ea4c672e4a2a8166 ""
   "/usr/local/texlive/2022/texmf-dist/tex/latex/hycolor/hycolor.sty" 1580250785 17914 4c28a13fc3d975e6e81c9bea1d697276 ""
@@ -99,10 +101,10 @@
   "/usr/local/texlive/2022/texmf-var/fonts/map/pdftex/updmap/pdftex.map" 1647878959 4410336 7d30a02e9fa9a16d7d1f8d037ba69641 ""
   "/usr/local/texlive/2022/texmf-var/web2c/pdftex/pdflatex.fmt" 1661094221 2826440 e3df3e53eaa293ef3171676f55b00abf ""
   "/usr/local/texlive/2022/texmf.cnf" 1647878952 577 209b46be99c9075fd74d4c0369380e8c ""
-  "lecture notes in stochastic process.aux" 1704859261 8228 ff1f9b8c188a212a77a31345d4b1feb0 "pdflatex"
-  "lecture notes in stochastic process.out" 1704859261 7152 7ccfe18bd2e6ad5d91d6351ba126e63e "pdflatex"
-  "lecture notes in stochastic process.tex" 1704859261 39133 ac8c982f27266c748d17cd53990a85a8 ""
-  "lecture notes in stochastic process.toc" 1704859261 4956 7dc53562874c7048147d948ed2aa2d09 "pdflatex"
+  "lecture notes in stochastic process.aux" 1704859543 8302 fd474b6fe2368763cfc7bc332fda211d "pdflatex"
+  "lecture notes in stochastic process.out" 1704859543 7152 7ccfe18bd2e6ad5d91d6351ba126e63e "pdflatex"
+  "lecture notes in stochastic process.tex" 1704859542 50323 1976ad960904c832c82b808147988058 ""
+  "lecture notes in stochastic process.toc" 1704859543 4960 466350a9a39817e911d5464a2a5685d4 "pdflatex"
   (generated)
   "lecture notes in stochastic process.aux"
   "lecture notes in stochastic process.log"

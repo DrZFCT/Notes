@@ -144,6 +144,17 @@ INPUT /usr/local/texlive/2022/texmf-dist/tex/latex/jknapltx/mathrsfs.sty
 INPUT /usr/local/texlive/2022/texmf-dist/tex/latex/jknapltx/mathrsfs.sty
 INPUT /usr/local/texlive/2022/texmf-dist/tex/latex/jknapltx/mathrsfs.sty
 INPUT /usr/local/texlive/2022/texmf-dist/tex/latex/jknapltx/mathrsfs.sty
+INPUT /usr/local/texlive/2022/texmf-dist/tex/latex/enumitem/enumitem.sty
+INPUT /usr/local/texlive/2022/texmf-dist/tex/latex/enumitem/enumitem.sty
+INPUT /usr/local/texlive/2022/texmf-dist/tex/latex/enumitem/enumitem.sty
+INPUT /usr/local/texlive/2022/texmf-dist/tex/latex/enumitem/enumitem.sty
+INPUT /usr/local/texlive/2022/texmf-dist/tex/latex/enumitem/enumitem.sty
+INPUT /usr/local/texlive/2022/texmf-dist/tex/latex/enumitem/enumitem.sty
+INPUT /usr/local/texlive/2022/texmf-dist/tex/latex/enumitem/enumitem.sty
+INPUT /usr/local/texlive/2022/texmf-dist/tex/latex/enumitem/enumitem.sty
+INPUT /usr/local/texlive/2022/texmf-dist/tex/latex/enumitem/enumitem.sty
+INPUT /usr/local/texlive/2022/texmf-dist/tex/latex/enumitem/enumitem.sty
+INPUT /usr/local/texlive/2022/texmf-dist/tex/latex/enumitem/enumitem.sty
 INPUT /usr/local/texlive/2022/texmf-dist/tex/latex/amscls/amsthm.sty
 INPUT /usr/local/texlive/2022/texmf-dist/tex/latex/amscls/amsthm.sty
 INPUT /usr/local/texlive/2022/texmf-dist/tex/latex/amscls/amsthm.sty
@@ -584,3 +595,4 @@ INPUT /usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmti7.pf
 INPUT /usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb
 INPUT /usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/symbols/msam7.pfb
 INPUT /usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb
+INPUT /usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm7.pfb
