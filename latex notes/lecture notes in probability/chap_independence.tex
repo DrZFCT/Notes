@@ -1,0 +1,27 @@
+\chapter{Independence}
+\section{Basic Definitions}
+\begin{definition}[independence: events]
+Two events $A,B$ are independent if $P(AB)=P(A)P(B)$.
+\end{definition}
+\begin{definition}[independence: random variables]
+Two random variables $X,Y$ are independent if for all $C,D\in \mathcal{R}$, the events $A=\left \{ X\in C \right \} $ and $B=\left \{ Y\in D \right \} $ are independent.
+\end{definition}
+\begin{definition}[independence: $\sigma$-fields]
+Two $\sigma$-fields $\mathcal{F}$ and $\mathcal{G}$ are independent if for all $A\in\mathcal{F}$ and $B\in\mathcal{G}$, the events $A$ and $B$ are independent.
+\end{definition}
+Actually, the first definition is a special case of the second, which is a special case of the third. This can be summarized in the following theorem.
+\begin{theorem}
+\,\par
+(i) If $A$ and $B$ are independent, then so are $A^c$ and $B$ , $A$ and $B^c$, and $A^c$ and $B^c$.\par
+(ii) Events $A$ and $B$ are independent if and only if $1_A$ and $1_B$ are independent.\par
+(iii) If $X$ and $Y$ are independent then $\sigma(X)$ and $\sigma(Y)$ are.\par
+(iv) If $\mathcal{F}$ and $\mathcal{G}$ are independent, $X\in\mathcal{F}$, and $Y\in\mathcal{G}$, then $X$ and $Y$ are independent.
+\end{theorem}
+We can extend this definition in an evident way for finitely many objects. Then, an infinite collection of objects is said to be independent if every finite subcollection is.
+\section{Sufficient Conditions for Independence}
+\begin{theorem}[$\pi$-$\lambda$ theorem]
+If $\mathcal{P}$ is a $\pi$-system and $\mathcal{L}$ is a $\lambda$-system that contains $\mathcal{P}$, then $\sigma(\mathcal{P})\subset \mathcal{L}$.
+\end{theorem}
+
+
+

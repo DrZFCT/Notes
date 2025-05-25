@@ -1,0 +1,55 @@
+\chapter{von Mises Expansion}
+
+\section{Int}
+
+\begin{definition}[statistical functional]
+    Let $X_1,\cdots,X_n$ be a sample from population with distribution function $F$ and let $T_n=T_n(X_1,\cdots,X_n)$ be a 
+    statistic. If $T_n$ can be written as a functional $T$ of the empirical distribution $\hat{F}_n$, i.e. $T_n=T(\hat{F}_n)$ where $T$
+    does not depend on $n$.
+\end{definition}
+
+\begin{example}
+    Let $\phi$ be a real-valued function and let 
+    \[ T_n=\frac{1}{n}\sum_{i=1}^{n}\phi(X_i).\] 
+    Then for a general distribution $G$, the functional defined by 
+    \[ T(G)=\int \phi(x) \mathrm{d}G(x) \] 
+    satisfies $T_n(X_1,\cdots,X_n)=T(\hat{F}_n)$. Functional of this form is called linear statistical functional.
+\end{example}
+
+\begin{example}
+    The sample $k$-th central moment $T_n=m_k=T_n(\hat{F}_n)$, where 
+    \[ T(G)=\int [x-\int x\mathrm{d}G]^k \mathrm{d}G(x)\]
+\end{example}
+
+\section{Influence Function}
+\begin{definition}[von Mises derivative]
+    Let $X_1,\cdots,X_n$ be a sample and let $T$ be a functional on a convex set of d.f.'s containing all empirical d.f.'s and the population d.f. $F$.
+    Let $G$ be a point in this convex set. Then the von Mises derivative $T'_F$ of $T$ at $F$ is defined by 
+    \[ T'_F(G-F)=\frac{\mathrm{d}}{\mathrm{d}t} T(F+t(G-F))|_{t=0},\]
+    if there exists a real-valued function $\phi_F(x)$ (independent of $G$) s.t. 
+    \[ T'_F(G-F)=\int \phi_F(x)\mathrm{d}(G-F)(x).\] 
+    We shall normalize $\phi_F(x)$ by making 
+    \[\int \phi_F(x)\mathrm{d}F (x)=0 ,\]
+    and call it the influence function.
+\end{definition}
+
+
+
+
+
+\section{Infinitesimal Jackknife}
+Jackknife is a general tool for estimating the variance and reducing the bias.
+The basic idea of Jackknife is to drop one observations and recompute the estimate using the remaining observations.
+This is done for each observation, and the results are then combined to produce an estimate.
+
+
+If we assign each observation a weight, then dropping one observation is identical to giving it weight of zero.
+The Infinitesimal Jackknife
+
+
+
+
+\section{Perturbing a Training Input}
+How would the model's prediction change if a training input were modified?
+
+

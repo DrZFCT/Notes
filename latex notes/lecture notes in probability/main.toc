@@ -1,0 +1,119 @@
+\contentsline {part}{I\hspace {1em}Probability}{7}{part.1}%
+\contentsline {chapter}{\numberline {1}Independence}{9}{chapter.1}%
+\contentsline {section}{\numberline {1.1}Basic Definitions}{9}{section.1.1}%
+\contentsline {section}{\numberline {1.2}Sufficient Conditions for Independence}{9}{section.1.2}%
+\contentsline {chapter}{\numberline {2}Law of Large Numbers}{11}{chapter.2}%
+\contentsline {section}{\numberline {2.1}Stochastic Orders}{11}{section.2.1}%
+\contentsline {section}{\numberline {2.2}WLLN}{11}{section.2.2}%
+\contentsline {section}{\numberline {2.3}Borel-Cantelli Lemmas}{11}{section.2.3}%
+\contentsline {section}{\numberline {2.4}SLLN}{12}{section.2.4}%
+\contentsline {section}{\numberline {2.5}0-1 Laws}{12}{section.2.5}%
+\contentsline {section}{\numberline {2.6}Convergence of Random Series}{12}{section.2.6}%
+\contentsline {section}{\numberline {2.7}Large Deviations}{13}{section.2.7}%
+\contentsline {chapter}{\numberline {3}Central Limit Theorems}{15}{chapter.3}%
+\contentsline {section}{\numberline {3.1}Distributions}{15}{section.3.1}%
+\contentsline {section}{\numberline {3.2}weak convergence}{15}{section.3.2}%
+\contentsline {section}{\numberline {3.3}Characteristic Functions}{17}{section.3.3}%
+\contentsline {section}{\numberline {3.4}The Moment Problem}{18}{section.3.4}%
+\contentsline {section}{\numberline {3.5}Central Limit Theorems}{18}{section.3.5}%
+\contentsline {section}{\numberline {3.6}Local Limit Theorems}{19}{section.3.6}%
+\contentsline {section}{\numberline {3.7}Poisson Convergence}{19}{section.3.7}%
+\contentsline {section}{\numberline {3.8}Stable Laws}{20}{section.3.8}%
+\contentsline {section}{\numberline {3.9}Infinitely Divisible Distributions}{20}{section.3.9}%
+\contentsline {section}{\numberline {3.10}Limit Theorems in $\mathbb {R}^d$}{21}{section.3.10}%
+\contentsline {section}{\numberline {3.11}Stein's method}{21}{section.3.11}%
+\contentsline {chapter}{\numberline {4}Martingales}{23}{chapter.4}%
+\contentsline {section}{\numberline {4.1}Conditional Expectation}{23}{section.4.1}%
+\contentsline {section}{\numberline {4.2}Martingales}{24}{section.4.2}%
+\contentsline {section}{\numberline {4.3}Stopping Times}{25}{section.4.3}%
+\contentsline {section}{\numberline {4.4}Almost Sure Convergence}{25}{section.4.4}%
+\contentsline {section}{\numberline {4.5}Convergence in $L^p$}{26}{section.4.5}%
+\contentsline {section}{\numberline {4.6}Square Integrable Martingales}{27}{section.4.6}%
+\contentsline {section}{\numberline {4.7}Convergence in $L^1$}{27}{section.4.7}%
+\contentsline {section}{\numberline {4.8}Backwards Martingales}{28}{section.4.8}%
+\contentsline {section}{\numberline {4.9}Optional Stopping Theorems}{28}{section.4.9}%
+\contentsline {subsubsection}{Applications}{29}{section*.2}%
+\contentsline {chapter}{\numberline {5}High Dimensional Probability}{31}{chapter.5}%
+\contentsline {section}{\numberline {5.1}Concentration with Independence}{31}{section.5.1}%
+\contentsline {section}{\numberline {5.2}Concentration without Independence}{31}{section.5.2}%
+\contentsline {section}{\numberline {5.3}Kernel Trick}{31}{section.5.3}%
+\contentsline {section}{\numberline {5.4}Decoupling}{32}{section.5.4}%
+\contentsline {section}{\numberline {5.5}Symmetrization}{32}{section.5.5}%
+\contentsline {section}{\numberline {5.6}Chaining}{33}{section.5.6}%
+\contentsline {chapter}{\numberline {6}The Probabilistic Method}{35}{chapter.6}%
+\contentsline {section}{\numberline {6.1}The Method}{35}{section.6.1}%
+\contentsline {section}{\numberline {6.2}123 Theorem}{35}{section.6.2}%
+\contentsline {section}{\numberline {6.3}The Local Lemma}{35}{section.6.3}%
+\contentsline {section}{\numberline {6.4}Correlation Inequalities}{35}{section.6.4}%
+\contentsline {chapter}{\numberline {7}Random Matrices}{37}{chapter.7}%
+\contentsline {part}{II\hspace {1em}Stochastic Process}{39}{part.2}%
+\contentsline {chapter}{\numberline {8}Discrete Space Discrete Time Markov Chain}{41}{chapter.8}%
+\contentsline {section}{\numberline {8.1}Basic Theory}{41}{section.8.1}%
+\contentsline {section}{\numberline {8.2}Recurrence and Transience}{41}{section.8.2}%
+\contentsline {section}{\numberline {8.3}Invariant Measures}{42}{section.8.3}%
+\contentsline {section}{\numberline {8.4}Ergodic Theorems}{43}{section.8.4}%
+\contentsline {paragraph}{Step 1}{44}{section*.3}%
+\contentsline {paragraph}{Step 2}{44}{section*.4}%
+\contentsline {paragraph}{ $\bar {p}$ is irreducible.}{44}{section*.5}%
+\contentsline {paragraph}{ $\bar {p}$ is recurrent.}{44}{section*.6}%
+\contentsline {section}{\numberline {8.5}Introduction to Markov Chain Mixing}{44}{section.8.5}%
+\contentsline {paragraph}{Contraction}{44}{section*.7}%
+\contentsline {paragraph}{Canonical Path}{44}{section*.8}%
+\contentsline {paragraph}{Cheeger's Constant}{44}{section*.9}%
+\contentsline {section}{\numberline {8.6}Introduction to Markov Random Fields}{45}{section.8.6}%
+\contentsline {subsection}{\numberline {8.6.1}Basics}{45}{subsection.8.6.1}%
+\contentsline {subsection}{\numberline {8.6.2}Coloring}{45}{subsection.8.6.2}%
+\contentsline {paragraph}{Glauber Dynamics}{45}{section*.10}%
+\contentsline {subsection}{\numberline {8.6.3}1D Ising Model without Magnetic Field}{45}{subsection.8.6.3}%
+\contentsline {subsection}{\numberline {8.6.4}1D Ising Model with Magnetic Field}{45}{subsection.8.6.4}%
+\contentsline {subsection}{\numberline {8.6.5}2D Ising Model: Peirls Proof}{45}{subsection.8.6.5}%
+\contentsline {section}{\numberline {8.7}Electrical Networks}{45}{section.8.7}%
+\contentsline {subsection}{\numberline {8.7.1}The Correspondence}{45}{subsection.8.7.1}%
+\contentsline {paragraph}{The Correspondence between Reversible Markov Chains and Electrical Networks}{45}{section*.11}%
+\contentsline {paragraph}{Voltage}{46}{section*.12}%
+\contentsline {paragraph}{Effective Resistance}{46}{section*.13}%
+\contentsline {paragraph}{Thomson Principle}{46}{section*.14}%
+\contentsline {paragraph}{Dirichlet Principle}{46}{section*.15}%
+\contentsline {subsection}{\numberline {8.7.2}Random Walks}{46}{subsection.8.7.2}%
+\contentsline {section}{\numberline {8.8}Introduction to Random Walks}{46}{section.8.8}%
+\contentsline {subsection}{\numberline {8.8.1}1D Simple Random Walk}{46}{subsection.8.8.1}%
+\contentsline {paragraph}{Reflection Principle}{47}{section*.16}%
+\contentsline {paragraph}{Arcsin Laws}{47}{section*.17}%
+\contentsline {paragraph}{Maringale}{48}{section*.18}%
+\contentsline {subsection}{\numberline {8.8.2}Lamplighter}{48}{subsection.8.8.2}%
+\contentsline {paragraph}{reversibility}{48}{section*.19}%
+\contentsline {paragraph}{transience}{48}{section*.20}%
+\contentsline {paragraph}{recurrence}{48}{section*.21}%
+\contentsline {section}{\numberline {8.9}Introduction to Branching Process}{48}{section.8.9}%
+\contentsline {subsection}{\numberline {8.9.1}Galton-Watson Process}{48}{subsection.8.9.1}%
+\contentsline {paragraph}{Mean and Variance}{49}{section*.22}%
+\contentsline {paragraph}{The Extinction Probability}{49}{section*.23}%
+\contentsline {subsection}{\numberline {8.9.2}Biased Random Walk on a Galton-Watson Tree}{50}{subsection.8.9.2}%
+\contentsline {paragraph}{Precolation}{51}{section*.24}%
+\contentsline {chapter}{\numberline {9}Measurable Space Discrete Time Markov Chain}{53}{chapter.9}%
+\contentsline {chapter}{\numberline {10}Jump Process}{55}{chapter.10}%
+\contentsline {subsection}{\numberline {10.0.1}Review: Properties of Exponential Distribution}{55}{subsection.10.0.1}%
+\contentsline {subsection}{\numberline {10.0.2}Poisson Process}{57}{subsection.10.0.2}%
+\contentsline {paragraph}{An Approximation Scheme for Poisson Process}{57}{section*.25}%
+\contentsline {chapter}{\numberline {11}Brownian Motion}{59}{chapter.11}%
+\contentsline {section}{\numberline {11.1}Construction}{59}{section.11.1}%
+\contentsline {section}{\numberline {11.2}Sample Path Properties}{59}{section.11.2}%
+\contentsline {section}{\numberline {11.3}Brownian Local Time}{60}{section.11.3}%
+\contentsline {chapter}{\numberline {12}Stochastic Calculus}{61}{chapter.12}%
+\contentsline {section}{\numberline {12.1}Continuous Time Martingale}{61}{section.12.1}%
+\contentsline {subsection}{\numberline {12.1.1}Stopping Times}{61}{subsection.12.1.1}%
+\contentsline {subsection}{\numberline {12.1.2}From Discrete to Continuous}{62}{subsection.12.1.2}%
+\contentsline {subsection}{\numberline {12.1.3}Doob-Meyer Decomposition}{63}{subsection.12.1.3}%
+\contentsline {subsection}{\numberline {12.1.4}Square Integrable Martingales}{63}{subsection.12.1.4}%
+\contentsline {section}{\numberline {12.2}Stochastic Integration}{63}{section.12.2}%
+\contentsline {subsection}{\numberline {12.2.1}}{63}{subsection.12.2.1}%
+\contentsline {subsection}{\numberline {12.2.2}Martingale Characterization of BM}{63}{subsection.12.2.2}%
+\contentsline {subsection}{\numberline {12.2.3}Representations of Martingales by BM}{63}{subsection.12.2.3}%
+\contentsline {subsection}{\numberline {12.2.4}The Girsanov Theorem}{63}{subsection.12.2.4}%
+\contentsline {section}{\numberline {12.3}The PDE Connection}{63}{section.12.3}%
+\contentsline {section}{\numberline {12.4}Stochastic Differential Equations}{63}{section.12.4}%
+\contentsline {chapter}{\numberline {13}Geometry and Analysis of Markov Process}{65}{chapter.13}%
+\contentsline {section}{\numberline {13.1}Diffusions}{65}{section.13.1}%
+\contentsline {subsection}{\numberline {13.1.1}Kolmogorov's Theory???}{65}{subsection.13.1.1}%
+\contentsline {subsection}{\numberline {13.1.2}Ito's theory???}{65}{subsection.13.1.2}%
+\contentsfinish 

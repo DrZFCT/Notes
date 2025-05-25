@@ -1,0 +1,169 @@
+\chapter{Jump Process}
+
+\begin{definition}[continuous-time random process]
+    Let $I$ be a countable set. A continuous-time random process \[(X_t)_{t\geq 0}=(X_t:0\leq t\leq\infty)\] 
+    with values in $I$ is a family of random variables $X_t:\Omega\to I$.
+\end{definition}
+We are going to consider ways in which we might specify the probabilistic behavior of $(X_t)_{t\geq 0}$.
+To avoid uncountable union, we shall restrict our attention to processes $(X_t)_{t\geq 0}$ which are right-continuous.
+\begin{definition}[right continuous]
+    In the context of discrete space continuous time, a right-continuous process means $\forall \omega\in\Omega$
+    and $t\geq 0$, $\exists \epsilon>0$ s.t. \[X_s(\omega)=X_t(\omega)\quad t\leq s\leq t+\epsilon\]
+\end{definition}
+\begin{definition}[increment]
+    If $(X_t)_{t\geq 0}$ is a real-valued process, we can consider its increment $X_t-X_s$ over any interval $(s,t]$.
+\end{definition}
+\begin{definition}[stationary]
+    We say that $(X_t)_{t\geq 0}$ has stationary increments if the distribution of $X_{s+t}-X_s$ depends only on $t\geq 0$.
+\end{definition}
+\begin{definition}[independent]
+    We say that $(X_t)_{t\geq 0}$ has independent increments if its increments over amy finite collection of disjoint intervals are independent.
+\end{definition}
+\begin{definition}[$Q$-matrix]
+    A $Q$-matrix on $I$ is a matrix $Q=(q_{ij}:i,j\in I)$ satisfying the following conditions:\newline
+(i) $\forall i\quad 0\leq -q_{ii}<\infty$ \newline 
+(ii) $\forall i\ne j\quad q_{ij}\geq 0$\newline 
+(iii) $\forall i\quad \sum_{j\in I}q_{ij}=0$
+\end{definition}
+
+\subsection{Review: Properties of Exponential Distribution}
+\begin{definition}
+    A random variable \(T : \Omega \to [0,\infty]\) has an exponential distribution of parameter \(\lambda\) (\(0 \leq \lambda < \infty\)) if
+\[
+\mathbb{P}(T > t) = e^{-\lambda t} \quad \text{for all } t \geq 0.
+\]
+We write \(T \sim \text{E}(\lambda)\) for short. If \(\lambda > 0\), then \(T\) has a density function
+\[
+f_T(t) = \lambda e^{-\lambda t} 1_{\{t \geq 0\}}.
+\]
+\end{definition}
+\begin{remark}
+    The mean of \(T\) is given by
+\[
+\mathbb{E}(T) = \int_{0}^{\infty} P(T > t) \, dt = \lambda^{-1}.
+\]
+
+\end{remark}
+
+\begin{theorem}[memoryless property]
+    A random variable \(T : \Omega \to (0,\infty]\) has an exponential distribution if and only if it has the following memoryless property:
+\[
+\PP(T > s + t \,|\, T > s) = \PP(T > t) \quad \text{for all } s, t \geq 0.
+\]
+\end{theorem}
+\begin{proof}
+    Suppose \(T \sim \text{E}(\lambda)\), then
+\[
+\PP(T > s + t \,|\, T > s) = \frac{\PP(T > s + t)}{ \PP(T > s)} = \frac{e^{-\lambda(s+t)}}{e^{-\lambda s}} = e^{-\lambda t} = \PP(T > t).
+\]
+On the other hand, suppose \(T\) has the memoryless property whenever \(P(T > s) > 0\). Then \(g(t) = P(T > t)\) satisfies
+\[
+g(s + t) = g(s)g(t) \quad \text{for all } s, t \geq 0.
+\]
+We assumed \(T > 0\) so that \(g\left(\frac{1}{n}\right) > 0\) for some \(n\). Then, by induction,
+\[
+g(1) = g(\frac{1}{n}+\cdots+\frac{1}{n})=g\left(\frac{1}{n}\right)^n > 0,
+\]
+so \(g(1) = e^{-\lambda}\) for some \(0 \leq \lambda < \infty\). By the same argument, for integers \(p, q \geq 1\),
+\[
+g\left(\frac{p}{q}\right) = g\left(\frac{1}{q}\right)^p = g(1)^{p/q},
+\]
+so \(g(r) = e^{-\lambda r}\) for all rationals \(r > 0\). For real \(t > 0\), choose rationals \(r, s > 0\) with \(r \leq t \leq s\). Since \(g\) is decreasing,
+\[
+e^{-\lambda r} = g(r) \geq g(t) \geq g(s) = e^{-\lambda s}
+\]
+and, since we can choose \(r\) and \(s\) arbitrarily close to \(t\), this forces \(g(t) = e^{-\lambda t}\), so \(T \sim \text{E}(\lambda)\).
+
+\end{proof}
+
+\begin{theorem}[infimum]
+    Let $I$ be a countable set and let $T_k\,k\in I$ be independent random variables with $T_k \sim E(q_k)$ and $0 < q := \sum_{k\in I} q_k < \infty$. 
+    Set $T = \inf_k T_k$. Then this infimum is attained at a unique random value $K$ of $k$ a.s.. Moreover, $T$ and $K$ are independent, with $T \sim E(q)$ and $\PP(K = k) = \frac{q_k}{q}$.
+
+\end{theorem}
+\begin{proof}
+    Set \(K = k\) if \(T_k < T_j\) for all \(j \neq k\), otherwise, let \(K\) be undefined. Then
+\[
+\begin{aligned}
+\PP(K = k \text{ and } T \geq t) &= \PP(T_k \geq t \text{ and } T_j > T_k \text{ for all } j \neq k) \\
+&= \int_{t}^{\infty} q_k e^{-q_k s} \PP(T_j > s \text{ for all } j \neq k) \, ds \\
+&= \int_{t}^{\infty} q_k e^{-q_k s} \prod_{j \neq k} e^{-q_j s} \, ds \\
+&= \int_{t}^{\infty} q_k e^{-qs} \, ds = \frac{q_k}{q} e^{-qt}.
+\end{aligned}
+\]
+Hence, \(\PP(K = k \text{ for some } k) = 1\), and \(T\) and \(K\) have the claimed joint distribution.
+
+\end{proof}
+
+\begin{theorem}
+    Let \(S_1, S_2, \ldots\) be a sequence of independent random variables with \(S_n \sim \text{E}(\lambda_n)\) and \(0 < \lambda_n < \infty\) for all \(n\).\newline 
+    (i) If \(\sum_{n=1}^{\infty} \frac{1}{\lambda_n} < \infty\), then \(\PP \left(\sum_{n=1}^{\infty} S_n < \infty\right) = 1\).\newline
+    (ii) If \(\sum_{n=1}^{\infty} \frac{1}{\lambda_n} = \infty\), then \(\PP \left(\sum_{n=1}^{\infty} S_n = \infty\right) = 1\).
+    
+\end{theorem}
+\begin{proof}
+    (i) Suppose \(\sum_{n=1}^{\infty} \frac{1}{\lambda_n} < \infty\). Then, by monotone convergence
+\[
+\mathbb{E} \left( \sum_{n=1}^{\infty} S_n \right) = \sum_{n=1}^{\infty} \frac{1}{\lambda_n} < \infty
+\]
+so
+\[
+\mathbb{P} \left( \sum_{n=1}^{\infty} S_n < \infty \right) = 1.
+\]
+(ii) Suppose instead that \(\sum_{n=1}^{\infty} \frac{1}{\lambda_n} = \infty\). Then \(\prod_{n=1}^{\infty} (1 + \frac{1}{\lambda_n}) = \infty\).
+By monotone convergence and independence
+\[
+\mathbb{E} \left[ \exp\left\{- \sum_{n=1}^{\infty} S_n \right\} \right] = \prod_{n=1}^{\infty} \mathbb{E} \left[ \exp\{-S_n\} \right] = \prod_{n=1}^{\infty} (1 + \lambda_1 n)^{-1} = 0
+\]
+so
+\[
+\mathbb{P} \left( \sum_{n=1}^{\infty} S_n = \infty \right) = 1.
+\]
+
+\end{proof}
+
+\begin{theorem}
+    For independent random variables \(S \sim \text{E}(\lambda)\) and \(R \sim \text{E}(\mu)\) and for \(t \geq 0\), we have
+\[
+\mu \PP(S \leq t < S + R) = \lambda \PP(R \leq t < R + S).
+\]
+\end{theorem}
+\begin{proof}
+    We have
+    \[
+    \mu \PP(S \leq t < S + R) = \int_{0}^{t} \int_{t-s}^{\infty} \lambda\mu e^{-\lambda s} e^{-\mu r} \, dr \, ds = \lambda\mu \int_{0}^{t} e^{-\lambda s} e^{-\mu(t-s)} \, ds
+    \]
+    from which the identity follows by symmetry.
+    
+\end{proof}
+\subsection{Poisson Process}
+
+We begin with a definition of Poisson process in terms of jump chain and holding times, and then relate it to
+the infinitesimal definition and transition probability definition.
+\begin{definition}
+    A right-continuous process $(X_t)_{t\leq 0}$ with values in $\mathbb{N}_{\geq 0}$ is a Poisson process of rate $\lambda\in (0,\infty)$
+    if its holding times $S_1,S_2,\cdots$ are i.i.d. exponential random variables of mean $\lambda$ and its jump chain is given by $Y_n=n$.
+\end{definition}
+
+\begin{theorem}
+    Let $(X_t)_{t\geq 0}$ be an increasing, right-continuous integer-valued process starting from $0$. Let $\lambda\in(0,\infty)$. TFAE:\newline 
+    (i) (jump chain holding time definition) the holding times $S_1,S_2,\cdots$ of $(X_t)_{t\geq 0}$ are i.i.d. exponential random variables of mean $\lambda$ 
+    and the jump chain is given by $Y_n=n$.\newline 
+    (ii) (infinitesimal definition) $(X_t)_{t\geq 0}$ has independent increments and as $h\downarrow 0$, uniformly in $t$,
+    \[\PP(X_{t+h}-X_t=0)=1-\lambda h+o(h),\quad \PP(X_{t+h}-X_t=1)=\lambda h+o(h)\]\newline 
+    (iii) (incremental definition) $(X_t)_{t\geq 0}$ has stationary independent increments and for each $t$, $X_t$ has Poisson distribution of parameter $\lambda t$.
+\end{theorem}
+
+\begin{theorem}
+    Let $(X_t)_{t\geq 0}$ be a Poisson process. Then, conditional on $(X_t)_{t\geq 0}$ having exactly one jump in the interval $[s, s +t]$, the time at which that jump occurs is uniformly distributed on $[s, s + t]$.
+\end{theorem}
+\begin{theorem}
+    Let $(X_t)_{t\geq 0}$ be a Poisson process. Then, conditional on the event $\{X_t = n\}$, the jump times $J_1, \cdots ,J_n$ have joint density function
+\[f(t_1,\cdots ,t_n)=n!1_{0\leq t_1\leq \cdots \leq t_n\leq t}\]
+\end{theorem}
+\begin{remark}
+    Thus, conditional on $\{X_t = n\}$, the jump times $J_1, \cdots ,J_n$ have the same distribution as an ordered sample of size $n$ from the uniform distribution on $[0,t]$.
+\end{remark}
+
+\paragraph{An Approximation Scheme for Poisson Process} In the same spirit as Donsker's invariance principle,
+

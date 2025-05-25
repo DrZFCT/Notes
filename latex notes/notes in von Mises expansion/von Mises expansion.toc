@@ -1,4 +1,0 @@
-\contentsline {section}{\numberline {1}Int}{1}{section.1}%
-\contentsline {section}{\numberline {2}Influence Function}{1}{section.2}%
-\contentsline {section}{\numberline {3}Infinitesimal Jackknife}{2}{section.3}%
-\contentsline {section}{\numberline {4}Perturbing a Training Input}{2}{section.4}%

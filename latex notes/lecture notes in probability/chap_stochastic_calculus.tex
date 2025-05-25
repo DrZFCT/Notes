@@ -1,0 +1,213 @@
+\chapter{Stochastic Calculus}
+
+
+\section{Continuous Time Martingale}
+\subsection{Stopping Times}
+\begin{definition}[stopping time]
+    Let $\tau$ be a random time. If $\{\tau\leq t\}\in\mathcal{F}_t$ for every $t\geq 0$,
+    then $\tau$ is called a stopping time.
+\end{definition}
+\begin{definition}[optional time]
+    Let $T$ be a random time. If $\{T<t\}\in\mathcal{F}_t$ for every $t\geq 0$,
+    then $T$ is called a stopping time.
+\end{definition}
+\begin{lemma}
+    $T$ is an optional time of the filtration $\{\mathcal{F}_t\}$ if and only if it is a stopping time of the right-continuous
+    filtration $\{\mathcal{F}_{t^+}\}$.
+\end{lemma}
+\begin{corollary}
+    Every stopping time is optional, and the two concepts coincide if the filtration is right-continuous.
+\end{corollary}
+\begin{lemma}
+    If $T$ is optional and $\theta$ is a positive constant, then $T+\theta$ is a stopping time.
+\end{lemma}
+\begin{lemma}
+    If $\tau,\sigma$ are stopping times, then so are $\tau\wedge \sigma$, $\tau\vee \sigma$, $\tau+\sigma$.
+\end{lemma}
+\begin{proof}
+    The first two assertions are trivial. \newline 
+    For the third, start with the decomposition
+\end{proof}
+\begin{lemma}
+    Let $T,S$ be optional times; then $T+S$ is optional. \newline
+    Moreover, it is a stopping time if
+\end{lemma}
+\begin{lemma}
+    Let $\{T_n\}_{n=1}^\infty$ be a sequence of optional times; then the random times 
+    \[\sup_{n\geq 1}T_n\quad \inf_{n\geq 1}T_n\quad \limsup_{n\to\infty}T_n\quad \liminf_{n\to\infty}T_n \] 
+    are all optional.\newline 
+    Moreover, if the $T_n$'s are stopping times, then so is $\sup_{n\geq 1}T_n$.
+\end{lemma}
+
+
+\begin{definition}[$\sigma$-field of events determined prior to a stopping time]
+    Let $\tau$ be a stopping time of the filtration $\{\mathcal{F}_t\}$. The $\sigma$-field of events determined prior to the stopping time $T$
+    consists of those events $A\in\mathcal{F}$ for which $A\cap\{\tau\leq t\}\in \mathcal{F}_t$ for every $t\geq 0$.
+\end{definition}
+\begin{lemma}
+    $\tau$ is $\mathcal{F}_\tau$-measurable.
+\end{lemma}
+\begin{proof}
+    $\{\tau\leq t\}\cap\{\tau\leq t\}=\{\tau\leq t\}\in\mathcal{F}_t$, so $\{\tau\leq t\}\in \mathcal{F}_\tau$.
+\end{proof}
+
+\begin{theorem}
+    For any two stopping time and $\tau,\sigma$ a random time s.t. $\sigma\leq \tau$ on $\Omega$, we have $\mathcal{F}_\sigma\subset\mathcal{F}_\tau$.
+\end{theorem}
+\begin{proof}
+    For every stopping time $\tau$ and positive constant $t$, $\tau\wedge t$ is an $\mathcal{F}_t$-measurable random variable
+    because $\mathcal{F}_{\tau\wedge t}\subset\mathcal{F}_t$. Therefore, $\{\sigma\wedge t\leq \tau\wedge t\}\in \mathcal{F}_t$.
+    Then for any $A\in\mathcal{F}_\sigma$ we have $A\cap\{\sigma\leq \tau\}\in\mathcal{F}_\tau$, because
+    \[ A\cap\{\sigma\leq \tau\}\cap \{\tau\leq t\}= (A\cap \{\sigma\leq t\})\cap \{\tau\leq t\}\cap \{\sigma\wedge t\leq \tau\wedge t\}\]
+    Finally notice that $\{\sigma\leq \tau\}=\Omega$.
+\end{proof}
+\begin{remark}
+    We have proved a stronger result, namely
+    for any $A\in\mathcal{F}_\sigma$ we have $A\cap\{\sigma\leq \tau\}\in\mathcal{F}_\tau$.
+\end{remark}
+\begin{theorem}
+    Let $\sigma$ and $\tau$ be stopping times. Then $\mathcal{F}_{\tau\wedge \sigma}=\mathcal{F}_\tau\cap\mathcal{F}_\sigma$.\newline 
+    Moreover, $\{\tau<\sigma\}$, $\{\tau>\sigma\}$, $\{\tau\leq \sigma\}$, $\{\tau\geq \sigma\}$, $\{\tau=\sigma\}$ belongs to $\mathcal{F}_\tau\cap\mathcal{F}_\sigma$.
+\end{theorem}
+\begin{proof}
+    From the above theorem, $\mathcal{F}_{\tau\wedge \sigma}\subset \mathcal{F}_{\tau}\cap\mathcal{F}_\sigma$.\newline 
+    For $A\in \mathcal{F}_{\tau}\cap\mathcal{F}_\sigma$, $A\cap \{\tau\wedge \sigma\leq t\}=A\cap(\{\tau\leq t\}\cup\{\sigma\leq t\})\in\mathcal{F}_t$.
+\end{proof}
+
+\begin{theorem}
+    Let $\tau,\sigma$ be stopping times and $X$ an integrable random variable. We have \newline 
+    (i) $\EE(X|\mathcal{F}_\tau)=\EE(X|\mathcal{F}_{\sigma\wedge \tau})$ a.s. on $\{\tau\leq \sigma\}$.\newline 
+    (ii) $\EE(\EE(X|\mathcal{F}_\tau)|\mathcal{F}_\sigma)=\EE(X|\mathcal{F}_{\sigma\wedge \tau})$ a.s..
+    (i) $\EE(X|\mathcal{F}_\tau)=\EE(X|\mathcal{F}_{\sigma\wedge \tau})$ a.s. on $\{\tau\leq \sigma\}$.\newline 
+    (ii) $\EE(\EE(X|\mathcal{F}_\tau)|\mathcal{F}_\sigma)=\EE(X|\mathcal{F}_{\sigma\wedge \tau})$ a.s..
+\end{theorem}
+\begin{proof}
+    (i) Let $A\in\mathcal{F}_\tau$, then $A\cap \{\tau\leq \sigma\}$ belongs to both $\mathcal{F}_\tau$ and $\mathcal{F}_\sigma$, and therefore to $\mathcal{F}_\tau\cap\mathcal{F}_\sigma$. So 
+    \[ \int_A 1_{\tau\leq \sigma} \EE(X|\mathcal{F}_{\tau\wedge\sigma})\mathrm{d}\PP=\int \EE(1_A1_{\tau\leq \sigma}X|\mathcal{F}_{\tau\wedge\sigma})\mathrm{d}\PP=\int_A1_{\tau\leq \sigma}X\mathrm{d}\PP\]
+    (ii) On $\{\tau\leq\sigma\}$ we have $\EE(X|\mathcal{F}_\tau)=\EE(X|\mathcal{F}_{\sigma\wedge \tau})$ a.s. by (i), so 
+    $\EE(\EE(X|\mathcal{F}_\tau)|\mathcal{F}_\sigma)=\EE(\EE(X|\mathcal{F}_{\sigma\wedge \tau})|\mathcal{F}_\sigma)=\EE(X|\mathcal{F}_{\sigma\wedge \tau})$. Similarly on
+    $\{\sigma\leq \tau\}$ we have $\EE(\EE(X|\mathcal{F}_\tau)|\mathcal{F}_\sigma)=\EE(\EE(X|\mathcal{F}_\tau)|\mathcal{F}_{\sigma\wedge \tau})=\EE(X|\mathcal{F}_{\sigma\wedge \tau})$.
+\end{proof}
+\begin{theorem}
+    Let $X=\{X_t,\mathcal{F}_t\}$ be a progressively measurable process, and let $\tau$ be a stopping time of the filtration $\mathcal{F}_t$.
+    Then the random variable $X_\tau$ defined on $\{\tau<\infty\}$ is $\mathcal{F}_\tau$-measurable, and the stopped process 
+    $\{X_{\tau\wedge t},\mathcal{F}_t\}$ is progressively measurable.
+\end{theorem}
+
+
+
+\subsection{From Discrete to Continuous}
+In this subsection, we generalize inequalities and convergence results for discrete time martingales to continuous time martingales.\newline 
+Let $X_t$ be a submartingale adapted to $\{\mathcal{F}_t\}$ whose paths are right-continuous. Let $[\sigma,\tau]$ be a subinterval of $[0,+\infty)$,
+and let $a<b$, $\lambda>0$ be real numbers.
+\begin{theorem}[Doob's inequality]
+    Let $A=\left\{ \sup_{\sigma\leq t\leq \tau}X_t^+  \geq\lambda\right\}$, then \[\lambda \PP(A)\leq EX_\tau1_A\leq EX_\tau^+\]
+\end{theorem}
+\begin{proof}
+    Let the finite set $\mathcal{S}$ consist of $\sigma,\tau$ and a finite subset of $[\sigma,\tau]\cap \mathbb{Q}$.
+
+    By considering an increasing sequence $\{\mathcal{S}_n\}_{n=1}^\infty$ of finite sets whose union is the whole of $([\sigma,\tau]\cap \mathbb{Q})\cup\{\sigma,\tau\}$,
+    we may replace $S$ by this union in the preceding discrete version of the inequality.
+\end{proof}
+
+\begin{theorem}[upcrossing inequality]
+    \[(b-a)EU_{[\sigma,\tau]}\leq \EE(X_\tau-a)^+-\EE(X_\sigma-a)^+\]
+\end{theorem}
+
+\begin{theorem}[$L^p$ maximum inequality]
+    $\bar{X}_\tau= \sup_{\sigma\leq t\leq \tau}X_t^+$, then for $1<p<\infty$, \[\EE(\bar{X}_\tau^p)\leq (\frac{p}{p-1})^pE(X_\tau^+)^p\]
+\end{theorem}
+
+
+
+For the remainder of this subsection, we deal only with right-continuous processes,
+usually imposing no condition on the filtration $\mathcal{F}_t$.
+\begin{theorem}[submartingale convergence]
+    Assume $\sup_{t\geq 0} \EE(X_t^+)<\infty$. Then $X_\infty =\lim_{t\to\infty} X_t$ exists a.s., and $\EE|X_\infty|<\infty$.
+    Assume $\sup_{t\geq 0} \EE(X_t^+)<\infty$. Then $X_\infty =\lim_{t\to\infty} X_t$ exists a.s., and $\EE|X_\infty|<\infty$.
+\end{theorem}
+\begin{proof}
+    
+\end{proof}
+
+\begin{theorem}[optional sampling]
+    Assume the submartingale has a last element $X_\infty$,
+    and let $S\leq T$ be two optional times of the filtration. We have 
+    \[ \EE(X_T|\mathcal{F}_{S^+})\geq X_S \quad \text{a.s.}\] 
+    \[ \EE(X_T|\mathcal{F}_{S^+})\geq X_S \quad \text{a.s.}\] 
+    If $S$ is a stopping time, then $\mathcal{F}_S$ can replace $\mathcal{F}_{S^+}$ above.
+\end{theorem}
+\begin{proof}
+    Consider the sequence of random times 
+    \[S_n(\omega)=\left\{\begin{matrix}
+        +\infty   & S(\omega )=+\infty \\
+        \frac{k}{2^n}   & \frac{k-1}{2^n} \leq S(\omega )<\frac{k}{2^n} 
+        \end{matrix}\right. \]
+    and similarly defined sequences $\{T_n\}$. These are stopping times.
+    For every fixed integer $n\geq 1$, both $S_n$ and $T_n$ take on a countable number of values and we also have $S_n\leq T_n$.
+\end{proof}
+
+
+\subsection{Doob-Meyer Decomposition}
+\begin{definition}[increasing process]
+    An adapted process $A$ is called increasing if for $\PP$-a.e. $\omega\in\Omega$ we have \newline 
+    (i) $A_0(\omega)=0$\newline 
+    (ii) $t\mapsto A_t(\omega)$ is a nondecreasing, right-continuous function, and $EA_t<\infty$ holds for every $t\in [0,\infty)$.\newline 
+    An increasing process is called integrable if $EA_\infty<\infty$.
+\end{definition}
+\begin{definition}
+    An increasing process $A$ is called natural if for every bounded, right-continuous martingale $\{M_t,\mathcal{F}_t;0\leq t<\infty\}$ we have
+    \[ \EE\int_{(0,t]}M_s\mathrm{d}A_s=\EE\int_{(0,t]}M_{s^-}\mathrm{d}A_s\quad\forall 0<t<\infty\]
+    \[ \EE\int_{(0,t]}M_s\mathrm{d}A_s=\EE\int_{(0,t]}M_{s^-}\mathrm{d}A_s\quad\forall 0<t<\infty\]
+\end{definition}
+\begin{lemma}
+    If $A$ is an increasing process and $\{M_t,\mathcal{F}_t;0\leq t<\infty\}$ is a bounded right-continuous martingale, then 
+    \[ \EE(M_tA_t)=\EE\int_{(0,t]}M_s\mathrm{d}A_s \]
+    \[ \EE(M_tA_t)=\EE\int_{(0,t]}M_s\mathrm{d}A_s \]
+\end{lemma}
+The following concept is a strengthening of the notion of uniform integrablity for submartingales.
+\begin{definition}[class DL]
+    
+\end{definition}
+\begin{theorem}
+    Let $\{\mathcal{F}_t\}$ satisfies the usual conditions. If the right-continuous submartingale $X=$ is of class DL,
+    then it admits the decomposition as the summation if a right-continuous martingale
+\end{theorem}
+
+\subsection{Square Integrable Martingales}
+
+
+
+
+
+\section{Stochastic Integration}
+\subsection{}
+
+
+\subsection{Martingale Characterization of BM}
+\begin{theorem}[Levy]
+    
+\end{theorem}
+
+\subsection{Representations of Martingales by BM}
+
+
+\begin{theorem}[time-change for martingales]
+    
+\end{theorem}
+
+
+\begin{theorem}[representation of square-integrable martingales by BM via Ito's integral]
+    
+\end{theorem}
+
+\subsection{The Girsanov Theorem}
+
+
+\section{The PDE Connection}
+
+
+
+
+\section{Stochastic Differential Equations}
+

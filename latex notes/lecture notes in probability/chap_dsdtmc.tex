@@ -1,0 +1,673 @@
+\chapter{Discrete Space Discrete Time Markov Chain}
+We first study the simpliest stochastic process.
+\section{Basic Theory}
+We begin by summarizing the concepts mathematicans are most interested in, and introducing their notations. 
+\begin{definition}[initial distribution]
+    
+\end{definition}
+
+\begin{definition}[transition matrix]
+    
+\end{definition}
+\begin{remark}
+Transition matrix provides a way to calculate the probability that after $n$ steps the Markov chain is in a given state.
+\end{remark}
+
+Next we explain the markov property.
+\begin{definition}[markov property]
+    
+\end{definition}
+
+\begin{definition}[strong markov property]
+    
+\end{definition}
+
+Next we explain the class structure of markov chain.
+
+\begin{definition}[lead to]
+    We say $i$ leads to $j$ and write $i\to j$ if $P_i(X_n=j\text{ for some }n\geq 0)>0$.
+\end{definition}
+\begin{definition}[communicate with]
+    We say $i$ communicate with $j$ and write $i\leftrightarrow j$ if both $i\to j$ and $j\to i$.
+\end{definition}
+\begin{theorem}[communicating classes]
+    Communication is an equivalence relation on $I$, thus partition $I$ into communicating classes.
+\end{theorem}
+\begin{definition}[closed class]
+    We say a class $C$ is closed if \[i\in C,i\to j\Longrightarrow j\in C\]
+    A state $i$ is called absorbing if $\left\{i\right\}$ is a closed class.
+\end{definition}
+\begin{definition}[irreducibility]
+    A markov chain with only one class is called irreducible.
+\end{definition}
+
+
+\section{Recurrence and Transience}
+A markov chain starting from a state can visit other state. We are interested in the timing of a visit.
+
+\begin{definition}[hitting time]
+    Let $(X_n)_{n\geq 0}$ be a Markov chain with transition matrix $P$. The hitting time of a subset $A$ of $I$ is the random
+    variable \[H^A(\omega)=\inf \left\{n\geq 0:X_n(\omega)\in A\right\}\].
+\end{definition}
+\begin{definition}[first passage time]
+    The first passage time to state $i$ is the random variable $T_i$ defined by \[T_i(\omega)=\inf\left\{n\geq 1:X_n(\omega)=i\right\}\]
+\end{definition}
+\begin{definition}[$r$th passage time]
+    We define $r$th passage time inductively by 
+    $T_i^{(0)}(\omega)=0,T_i^{(1)}(\omega)=T_i(\omega)$
+    and for $r=0,1,2,\cdots,$
+    \[T_i^{(r+1)}(\omega)=\inf\left\{n\geq T_i^{(r)}(\omega)+1:X_n(\omega)=i\right\}\]
+\end{definition}
+
+A state can never be visited as well.
+
+\begin{definition}[absorption probability]
+    The probability starting from $i$ that $(X_n)_{n\geq 0}$ ever hits $A$ is then \[h_i^A=P_i(H^A<\infty)\]
+    When $A$ is a closed class, $h_i^A$ is called the absorption probability.
+\end{definition}
+\begin{remark}
+A less formal notation is $h_i^A=\PP(\text{hit }A)$.
+\end{remark}
+Absorption probability can be calculated by first-step analysis.
+\begin{definition}
+    The mean time taken for $(X_n)_{n\geq 0}$ to reach $A$ from $i$ is given by \[k_i^A=E_i(H^A)=\sum_{n<\infty}nP(H^A=n)+\infty \PP(H^A=\infty)\]
+\end{definition}
+\begin{remark}
+    A less formal notation is $k_i^A=E_i(\text{time to hit }A)$.
+\end{remark}
+
+We can classify the states into three categories according to whether a state is visited i.o. by a markov chain.
+
+\begin{definition}[recurrent]
+    We say a state $i$ is recurrent if $P_i(X_n=i\text{ i.o. })=1$.
+\end{definition}
+\begin{definition}[transient]
+    We say a state $i$ is transient if $P_i(X_n=i\text{ i.o. })=0$.
+\end{definition}
+\begin{definition}[positive recurrent]
+    A state $i$ is postive recurrent if the expected return time $m_i=E_i(T_i)$ is finite.
+    A recurrent state which fails to have this stronger property is called null recurrent.
+\end{definition}
+The next result is immediate once we combine the strong markov property and the property of the geometric distribution.
+\begin{theorem}
+    $y$ is recurrent if and only if $\EE_yN(y)=\infty$.
+\end{theorem}
+This is also called Green's function.
+
+The next fact help us identify recurrent state when the state space is finite.
+\begin{theorem}
+    Let $C$ be a finite closed set. Then $C$ contains a recurrent state. If $C$ is irreducible then all states in $C$ are recurrent.
+\end{theorem}
+
+\begin{theorem}[Decomposition theorem]
+    
+\end{theorem}
+
+\section{Invariant Measures}
+
+\begin{definition}[invariant measure]
+    A measure is any row vector $(\lambda_i:i\in I)$ with non-negative entries. We say $\lambda$ is invariant if \[\lambda P=\lambda\]
+\end{definition}
+\begin{remark}
+    Invariant measure is also called stationary measure.
+\end{remark}
+
+\begin{definition}[detailed balance]
+    
+\end{definition}
+\begin{definition}[reversible measure]
+    A measure that satisfies the detailed balance condition is said to be a reversible measure.
+\end{definition}
+These quantities can be computed by definition.
+
+\begin{example}[Chip-Firing/Sand-Pile]
+    Every time, pick a random $\tau$ such that $a_\tau\geq 2$ and do the update 
+    \[\left\{\begin{matrix}
+        a_\tau^{t+1} = a_\tau^{t} -2 \\
+        a_{\tau+1}^{t+1}= a_{\tau+1}^{t}+1  \\
+        a_{\tau-1}^{t+1}= a_{\tau-1}^{t}+1
+        \end{matrix}\right.\]
+\end{example}
+
+The next theorem explain why reversible measure is reversible.
+\begin{theorem}[dual transition probability]
+    
+\end{theorem}
+
+A necessary and sufficient condition for a chain to have a reversible measure is given below. This condition can be checked if the transition probability is given.
+\begin{theorem}[Kolmogorov's cycle condition]
+    
+\end{theorem}
+Only special chains have reversible measures, but the next result shows that many markov chains have stationary measures by relating it to the expected number of visits during an excursion.
+\begin{theorem}\label{stationary measure and expected number of visit}
+    Let $x$ be an recurrent state and let $T=\inf\{n\geq 1:X_n=x\}$. Then 
+    \[\mu_x(y)=\EE_x(\sum_{n=0}^{T-1}1_{X_n=y}) \] 
+    defines a stationary measure.
+\end{theorem}
+
+\begin{theorem}
+   If $p$ is irreducible and recurrent, then the stationary measure is unique up to constant multiples. 
+\end{theorem}
+Having examine the existence and uniqueness of stationary measures, we turn our attention to stationary distributions.
+Stationary measures may exist for transient chains, e.g. random walks in $d\geq 3$, but stationary distribution only exist for recurrent chains,
+as the following theorem shows:
+\begin{theorem}
+    If there is a stationary distribution, then all states $y$ with $\pi(y)>0$ are recurrent.
+\end{theorem}
+We can relate stationary distributions to the expected time of an excursion
+\begin{theorem}
+    If $p$ is irreducible and has stationary distribution $\pi$, then 
+    \[\pi(x)=\frac{1}{\EE_x T_x}\]
+\end{theorem}
+Recall the concept of positive recurrent and null recurrent. The next result 
+\begin{theorem}
+    If $p$ is irreducible, then TFAE:
+    \begin{itemize}
+        \item Some $x$ is positive recurrent.
+        \item There is a stationary distribution.
+        \item All states are positive recurrent.
+    \end{itemize}
+\end{theorem}
+
+\section{Ergodic Theorems}
+The first topic in this section is to investigate 
+
+Let \[N_n(y)=\sum_{m=1}^{n}1_{X_m=y} \] 
+be the number of visits to $y$ by time $n$.
+
+\begin{theorem}
+    Suppose $y$ is recurrent. For any $x\in S$, as $n\to\infty$ 
+    \[ \frac{N_n(y)}{n}\to \frac{1}{E_y T_y}1_{T_y<\infty} \]
+\end{theorem}
+\begin{proof}
+    a
+    \paragraph{Step 1} Suppose first we start at $x=y$. Let $R(k)=\min \{n\geq 1:N_n(y)=k \}$ and $t_k=R(k)-R(k-1)$, where $R(0)=0$.
+    Then $t_i$ are i.i.d. and SLLN implies \[\frac{R(k)}{k}\to \EE_y T_y \] 
+
+    \paragraph{Step 2} Then we generalize to $x\ne y$. The result is obviously true if $T_y=\infty$.
+\end{proof}
+
+\begin{example}
+    
+\end{example}
+\begin{definition}[period]
+    let $d_x$ by the greatest common divisor of $I_x$. $d_x$ is called the period of $x$.
+\end{definition}
+The next lemma says that period is a class property.
+\begin{lemma}
+    If $\rho_{xy}>0$, then $d_y=d_x$.
+\end{lemma}
+
+\begin{theorem}
+    Suppose $p$ is irreducible, aperiodic, and has stationary distribution $\pi$. Then as $n\to\infty$, $p^n(x,y)\to \pi(y)$.
+\end{theorem}
+\begin{proof}
+    The proof technique is called \textbf{coupling}. Let $S^2=S\times S$. Define a transition probability $\bar{p}$ on $S\times S$ by 
+    \[ \bar{p}=p((x_1,y_1),(x_2,y_2))=p(x_1,x_2)p(y_1,y_n) \] 
+    i.e. each coordinate moves independently. 
+
+    \paragraph{ $\bar{p}$ is irreducible.} This is the only step that requires aperiodicity.
+
+    \paragraph{ $\bar{p}$ is recurrent.} This is becasue $\bar{\pi}(a,b)=\pi(a)\pi(b)$ defines a stationary distribution for $\bar{p}$. 
+
+    Now let $(X_n,Y_n)$ denote the cahin on $S\times S$, and let $T$ be the first time that this chain hits the diagonal $\{(y,y):y\in S\}$. Let 
+    $T_{(x,x)}$ be the hitting time of $(x,x)$. Since $\bar{p}$ is irreducible and recurrent, $T_{(x,x)}<\infty$ a.s. and hence $T<\infty$ a.s..
+
+    Now we want to show the following key identity:
+    \[\sum_{y}|\PP(X_n=y)-\PP(Y_n=y)|\leq 2 \PP(T>n). \] 
+    This is because on $\{T\leq n\}$, the two coordinates $X_n$ and $Y_n$ have the same distribution.
+
+    Finally we let $X_0=x$ and $Y_0\sim \pi$, then $Y_n$ has distribution $\pi$, and it follows that 
+    \[\sum_{y}|p^n(x,y)-\pi(y)|\leq 2 \PP(T>n)\to 0. \] 
+\end{proof}
+\begin{remark}
+    Some shortcuts exist for helping to determine when a Markov chain is ergodic, i.e. irreducible, aperiodic, and positive recurrent.
+    \begin{enumerate}
+        \item A Markov chain with a finite number of states has only transient and positive recurrent states. Only a Markov chain with an infinite number of
+        states can be null recurrent.
+        \item A sufficient test for a state to be aperiodic is that it has a self-loop.
+        \item In an irreducible, finite state Markov chain, the presence of one aperiodic
+        state guarantees ergodicity.
+    \end{enumerate}
+\end{remark}
+
+\section{Introduction to Markov Chain Mixing}
+
+\paragraph{Contraction}
+
+\paragraph{Canonical Path}
+
+\paragraph{Cheeger's Constant}
+
+
+
+\section{Introduction to Markov Random Fields}
+\subsection{Basics}
+
+
+\subsection{Coloring}
+
+\paragraph{Glauber Dynamics}
+Every time pick a random vertex and assign a random color which is not used by any neighbors.
+
+
+\subsection{1D Ising Model without Magnetic Field}
+The Ising model is a theoretical model in statistical physics that was originally developed
+to describe ferromagnetism, a property of certain materials such as iron. A system of magnetic particles can be modeled as a linear
+chain in one dimension or a lattice in two dimension, with one molecule or atom at each
+lattice site $i$. To each molecule or atom a magnetic moment is assigned that is represented
+in the model by a discrete variable $\sigma_i$. Each 'spin' can only have a value of $\sigma_i = \pm 1$.
+The two possible values indicate whether two spins $\sigma_i$ and $\sigma_j$ are align and thus parallel
+($\sigma_i \cdot \sigma_j = +1$) or anti-parallel ($\sigma_i \cdot \sigma_j = +1$)
+
+A system of two spins is considered to be in a lower energetic state if the two magnetic
+moments are aligned. If the magnetic moments points in opposite directions they are
+consider to be in a higher energetic state. Due to this interaction the system tends to
+align all magnetic moments in one direction in order to minimise energy. If nearly all
+magnetic moments point in the same direction the arrangement of molecules behaves like
+a macroscopic magnet.
+
+A phase transition in the context of the Ising model is a transition from an ordered state
+to a disordered state. A ferromagnet above the critical temperature $T_C$ is in a disordered
+state. In the Ising model this corresponds to a random distribution of the spin values.
+Below the critical temperature $T_C$ (nearly) all spins are aligned, even in the absence of an
+external applied magnetic field H. If we heat up a cooled ferromagnet, the magnetization
+vanishes at $T_C$ and the ferromagnet switches from an ordered to a disordered state. This
+is a phase transition of second order.
+
+
+\subsection{1D Ising Model with Magnetic Field}
+
+\subsection{2D Ising Model: Peirls Proof}
+The Hamiltonion of the system is 
+\[ \]
+
+The idea of Peirls proof is very similar to the idea of reflection principle,
+which map 
+
+
+\section{Electrical Networks}
+\subsection{The Correspondence}
+
+Assume a unit voltage is charged on $a$ and $b$ is grounded, i.e. $\varphi(a)=1$ and $\varphi(b)=0$.
+
+\paragraph{The Correspondence between Reversible Markov Chains and Electrical Networks}
+Given an electrical network, we can define a corresponding reversible Markov chain as follows.
+Let the \textbf{transition probability} be \[p(x,y)=\frac{C_{xy}}{C_x},\] 
+where \[C_x=\sum_{y} C_{xy} .\]
+This chain is indeed reversible because we can define a measure as 
+\[\pi(x)=C_x,\] 
+then the detailed balance condition is satisdied as 
+\[\pi(x)p(x,y)= C_{xy}= C_{yx}=\pi(y)p(y,x).\]
+
+
+Conversely, given a reversible Markov chain with reversible measure $\pi(x)$, i.e. $\pi(x)p(x,y)=\pi(y)p(y,x)$,
+we can define a corresponding electrical network as follows.
+Let \[C_{xy}=\pi(x)p(x,y),\]
+then it is indeed a well-defined electrical network as 
+\[C_{xy}=\pi(x)p(x,y)=\pi(y)p(y,x)=C_{yx}. \]
+\paragraph{Voltage}
+\begin{theorem}[Voltage as ]
+$\varphi(x)=\PP_x(\tau_a<\tau_b)$
+\end{theorem}
+\begin{proof}
+    $\varphi(x)$ satisfies the same harmonic equation as $\PP_x(\tau_a<\tau_b)$.
+    Moreover, the boundary condition is also the same.
+\end{proof}
+
+
+\begin{theorem}[Electrical Current as Edge Crossings]
+    $I(x,y)=?$
+\end{theorem}
+\begin{proof}
+    \begin{align*}
+        I(x,y)&=C_{xy}(\varphi(x)-\varphi(y))
+    \end{align*}
+\end{proof}
+
+\paragraph{Effective Resistance} 
+\begin{definition}[effective resistance]
+    $R_{\text{eff}}=\frac{1}{I(a^+)}$
+\end{definition}
+
+\begin{theorem}
+    $\PP_b(\tau_a<\sigma_b)=\frac{1}{C_bR_{\text{eff}}}$
+\end{theorem}
+\begin{proof}
+    \begin{align*}
+        \PP_b(\tau_a<\sigma_b)&=\sum_x p(b,x)\varphi(x)\\
+        &=\sum_x \frac{C_{bx}\varphi(x)}{C_b}\\
+        &=\sum_x \frac{I(b,x)}{C_b}\\
+        &=\frac{1}{C_bR_{\text{eff}}}
+    \end{align*}
+\end{proof}
+
+\paragraph{Thomson Principle}
+Nash-Williams Criterion
+
+
+
+\paragraph{Dirichlet Principle}
+
+\subsection{Random Walks}
+
+
+\section{Introduction to Random Walks}
+\subsection{1D Simple Random Walk}
+Let $S_n=\sum_{i=1}^{n}\xi_i$ where $\xi_i$'s are i.i.d. Rademacher random varaibles.
+\paragraph{Reflection Principle}
+\begin{lemma}
+$\PP_0(\tau_i< n,S_n=i+j)=\PP_0(\tau_i< n,S_n=i-j)$
+\end{lemma}
+\begin{proof}
+    Note that when $\tau_i<n$ and $S_n=i+j$, the trajectory must cross the line $i$. 
+    Reflect the trajectory with respect to $i$ yields a trajectory which satisfies $\tau_i<n$ and $S_n=i-j$, and vice versa.
+    Therefore a bijection between these two events is constructed. 
+    Noting that the weights of all these trajectories induced by the probability distribution are equal.
+\end{proof}
+\begin{remark}
+    Note that $\PP_0(\tau_i< n,S_n=i+j)=\PP_0(S_n=i+j)$.
+\end{remark}
+
+\begin{theorem}[Ballot Theorem]
+    $\PP_0(\tau_i=n|S_n=i)=\frac{i}{n}$
+\end{theorem}
+\begin{proof}
+    \begin{align*}
+        \PP_0(\tau_i=n)&=\PP_0(S_n=i)-\PP_0(\tau_i<n,S_n=i)\\
+                    &=\PP_0(S_n=i)-\frac{1}{2}\PP_0(\tau_i<n,S_{n-1}=i-1)-\frac{1}{2}\PP_0(\tau_i<n,S_{n-1}=i+1)\\
+                    &=\PP_0(S_n=i)-\PP_0(\tau_i<n,S_{n-1}=i+1)\\
+                    &=\PP_0(S_n=i)-\PP_0(S_{n-1}=i+1)\\
+                    &=C_{n}^{\frac{n+i}{2}}\frac{1}{2^n}-C_{n-1}^{\frac{n+i}{2}}\frac{1}{2^{n-1}}\\
+                    &=\frac{i}{n}C_{n}^{\frac{n+i}{2}}\frac{1}{2^n}\\
+                    &=\frac{i}{n}\PP_0(S_n=i)
+    \end{align*}
+\end{proof}
+
+\begin{remark}
+    Another interpretation of this result is that consider the trajectory of.
+    The first time that it reaches 
+    There is exactly $i$ such time. Therefore, 
+\end{remark}
+\begin{theorem}
+    $\PP_0(\tau_1>2n-1)=\PP_0(S_{2n}=0)$
+\end{theorem}
+\begin{proof}
+    \begin{align*}
+        \PP_0(\tau_1\leq 2n)&=\sum_i \PP_0(\tau_1\leq 2n,S_{2n}=i)\\
+        &=\sum_{i\geq 1} \PP_0(\tau_1\leq 2n,S_{2n}=i)+\sum_{i\leq 0} \PP_0(\tau_1\leq 2n,S_{2n}=i)\\
+        &=2\sum_{i\geq 1} \PP_0(S_{2n}=i)\\
+        &=1-\PP_0(S_{2n}=0)
+    \end{align*}
+\end{proof}
+\begin{remark}
+    $\PP_0(S_1\neq 0,\cdots,S_{2n}\neq 0)=\PP_0(S_{2n}=0)$
+\end{remark}
+
+\begin{theorem}
+    
+\end{theorem}
+
+\begin{corollary}
+    $\PP_0(\tau_1<\infty)=1,\EE_0\tau_1=\infty$
+\end{corollary}
+
+\paragraph{Arcsin Laws}
+Let $u_{2n}=\PP_0(S_{2n}=0)$. We first describe the arcsin law for the last visit to $0$.
+\begin{lemma}
+    Let $\sigma_{2n}=\sup\{m\leq 2n:S_m=0\} $. Then 
+    \[\PP(\sigma_{2n}=2k)=u_{2k}u_{2n-2k} \] 
+\end{lemma}
+\begin{proof}
+    $\PP(\sigma_{2n}=2k)=\PP(S_{2k}=0,S_{2k+1}\neq 0,\cdots,S_{2n}\neq 0)$.
+\end{proof}
+
+\begin{theorem}
+    For $0<a<b<1$,
+    \[ \PP_0(a\leq \frac{\sigma_{2n}}{2n}\leq b)\to \int_{a}^{b}\frac{1}{\pi}\frac{1}{\sqrt{x(1-x)}}\]
+\end{theorem}
+\begin{corollary}
+    $\lim_{n\to\infty}\PP_0(S_r\neq 0 \quad\forall \delta n<r\leq n)=\frac{2}{\pi}\arcsin \sqrt{\delta}$
+\end{corollary}
+
+\begin{remark}
+    Anti-concentration Ineqaulity
+\end{remark}
+
+Next, we prove the arcsin law for the time above 0.
+\begin{lemma}
+    Let $\pi_{2n}$ be the number of segments $(k-1,S_{k-1})\to (k,S_k)$ that lie above the axis, i.e. in $\{(x,y):y\geq 0\}$. Then 
+    \[ \PP_0(\pi_{2n}=2k)=u_{2k}u_{2n-2k}. \]
+\end{lemma}
+\begin{corollary}
+    For $0<a<b<1$,
+    \[ \PP_0(a\leq \frac{\pi_{2n}}{2n}\leq b)\to \int_{a}^{b}\frac{1}{\pi}\frac{1}{\sqrt{x(1-x)}}\]
+\end{corollary}
+
+\paragraph{Maringale} Now we want to calculate the moments of $\tau$. Our method involves differentiating the exponential martingales.
+For a simple random walk, 
+\[Y_n(t):=\frac{e^{tS_n}}{(\cosh t)^n} \]
+is a martingale. Thus its derivatives are also martingales.
+\[\frac{\mathrm{d} Y_n(t)}{\mathrm{d} t}=\frac{e^{tS_n}}{(\cosh t)^{n+1}}(S_n\cosh t - n\sinh t)\]
+so $\frac{\mathrm{d} Y_n(t)}{\mathrm{d} t}|_{t=0}=S_n$ is a martingale, as expected.
+\[\frac{\mathrm{d}^2 Y_n(t)}{\mathrm{d} t^2}=\frac{e^{tS_n}}{(\cosh t)^{n+1}}((S_n^2-n)\cosh t - 2nS_n\sinh t)+n(n+1)\frac{e^{tS_n}\sinh^2t}{(\cosh t)^{n+2}} \]
+so $\frac{\mathrm{d}^2 Y_n(t)}{\mathrm{d} t^2}|_{t=0}=S_n^2-n$ is a martingale, as expected.
+
+\subsection{Lamplighter}
+
+\begin{example}
+    Consider
+\end{example}
+
+\paragraph{reversibility}
+
+\paragraph{transience}
+
+\paragraph{recurrence}
+
+
+\section{Introduction to Branching Process}
+\subsection{Galton-Watson Process}
+Let $\{\xi_{ni}:n\geq 0,i\geq 0\}$ be a set of independent and identically-distributed natural number-valued random variables.
+A Galton-Watson process is a stochastic process $\{X_n\}$ which evolves according to the recurrence formula $X_0 = 1$ and 
+\[ X_{n+1}=\sum_{i=1}^{X_n}\xi_{ni}.\]
+Our goal is to analysis the properties of this process.
+
+\paragraph{Mean and Variance} As the Galton-Watson process is tree-like, it possesses many recurrence structure.
+The first one we would utilize is the martingale property. We have 
+\[\EE(X_{n+1}|\cF_n)=X_n\EE \xi ,\]
+so that \[\frac{X_n}{(\EE \xi)^n}\]
+is a martingale. By the property of martingales, we have 
+\[\EE X_{n}=(\EE \xi)^n.\]
+If we further assume that $\var \xi<\infty$, we can calculate the variance of $X_n$ similarly. 
+We have
+\begin{align*}
+    \var (X_{n+1}) &= \var (\EE(X_{n+1}|\cF_n))+\EE \var(X_{n+1}|\cF_n)\\
+    &=(\EE \xi)^2\var(X_n)+\EE X_n \var \xi\\
+    &=(\EE \xi)^2\var(X_n)+(\EE \xi)^n \var \xi
+\end{align*}
+and we can solve this update formula by noting that $\var X_{1}=\var \xi $, which yields
+\[\var X_{n}=\var \xi \sum_{i=n}^{2n-1} (\EE \xi)^n.\]
+
+\paragraph{The Extinction Probability} The key quantity we are interested in is the
+extinction probability (i.e. the probability of final extinction), which is given by
+\[ \lim_{n\to\infty}\PP(X_n=0).\]
+Note that once $X_n=0$, then $X_{n+k}=0$ for all $k\geq 1$, so $0$ is an absorbing state.
+
+\begin{theorem}[subcritical]
+    If $\mu<1$, then $X_n$ extincts.
+\end{theorem}
+\begin{proof}
+    $\PP(X_n>0)=\PP(X_n\geq 1)\leq \EE X_n = \mu^n\to 0$.
+\end{proof}
+\begin{remark}
+    The extinction rate when $\mu<1$ is exponentially fast.
+\end{remark}
+
+\begin{theorem}[critical]
+    If $\mu=1$ and $\PP(\xi=1)<1$, then $X_n$ extincts.
+\end{theorem}
+\begin{proof}
+    When $\mu=1$, $X_n$ itself is a nonnegative martingale. So $X_n$ converges to a finite limit $X_\infty$ a.s..
+    As $X_n$ is integer valued, we must have $X_n= X_\infty$ for large $n$. 
+    However, for any $k>0$, $\PP(X_n=k\quad \forall n\geq N)=0$ for any $N$ because $\PP(\xi=1)<1$. So we must have $X_\infty=0$.
+\end{proof}
+In this case, the extinction rate is at most $\frac{1}{n}$ by an easy second moment estimate.
+\begin{theorem}
+    If $\mu=1$, then $\PP(X_n \geq 1)\geq\frac{1}{1+n\var(\xi)}$.
+\end{theorem}
+\begin{proof}
+    $\PP(X_n \geq 1)\geq\frac{(\EE X_n)^2}{\EE X_n^2}=\frac{1}{1+n\var(\xi)}$.
+\end{proof}
+This rate cannot be improved.
+\begin{example}
+    Let $\xi\sim\text{Geo}(\frac{1}{2})$. Then $\PP(X_n \geq 1)=\frac{1}{n+1}$.
+\end{example}
+\begin{proof}
+    The distribution of $X_n$ can be described by its generating function $f_{X_n}(s)=f^{(n)}(s)$
+    where $f(s)=\frac{1}{2-s}$. So $f(0)=\frac{1}{2}$, $f^{(2)}(0)=\frac{2}{3}$, and $f^{(n)}=\frac{n}{n+1}$.
+    Now $\PP(X_n=0)=f_{X_n}(0)=f^{(n)}(0)$, so $\PP(X_n \geq 1)=1-\PP(X_n = 0)=\frac{1}{n+1}$.
+\end{proof}
+\begin{remark}
+    Another view of this result.
+    This is the probability that a simple random walk 
+\end{remark}
+For $s\in [0,1]$, let $f(s)=\sum_{k\geq 0}p_ks^k$ be the generating function of $\xi$.
+Then $f(1)=1$ and $f'(s)\geq 0$.
+\begin{lemma}
+    The generating function for $X_n$
+\end{lemma}
+
+
+\begin{theorem}[supercritical]
+    If $\mu>1$, then $\lim_{n\to\infty}\PP(X_n=0)=\rho$, where $\rho$ is the only solution of $f(\rho)=\rho$ in $[0,1)$.
+\end{theorem}
+\begin{proof}
+    This is basically because a tree extinct if and only if all children trees extinct.
+\end{proof}
+
+
+
+\subsection{Biased Random Walk on a Galton-Watson Tree}
+Let $\QQ(\cdot)=\PP(\cdot||\TT|=\infty)$ be the measure conditioned on all Galton-Watson trees that survive.
+\begin{lemma}
+    On the event of nonextinction, \(X_n \to \infty\) almost surely, provided \(p_1 \neq 1\).
+\end{lemma}
+\begin{proof}
+    If 0 is the only nontransient state state of $X_n$, then the result follows. Thus we want to show that any state other than 0 is transient.
+
+    Now for any $k>0$, eventually returning to $k$ requires not immediately being extinct, which has probability $\leq 1-p_0^k$.
+    If $p_0>0$, then $k$ is transient. If $p_0=0$, as $p_1\neq 1$, $k$ is also transient.
+\end{proof}
+
+\begin{definition}[inherited property]
+    Call a property of trees inherited if \newline
+    (i) every finite tree has this property and \newline 
+    (ii) if whenever a tree has this property, so do all the descendant trees of the children of
+the root.
+\end{definition}
+\begin{theorem}[0-1 law for inherited properties]
+    Every inherited property has conditional probability either 0 or 1 given
+nonextinction.
+\end{theorem}
+\begin{proof}
+    Let \(A\) be the set of trees possessing a given inherited property. For a tree \(T\) with \(k\) children of the root, let \(T(1), \ldots, T(k)\) be the descendant trees of these children. Then
+\[
+\PP(A) = \EE[\PP[T \in A \,|\, X_1]] \leq \EE[\PP[T(1) \in A, \ldots, T(X_1) \in A \,|\, Z_1]]
+\]
+by definition of inherited. Since \(T(1), \ldots, T(Z_1)\) are i.i.d. given \(Z_1\), the last quantity above is equal to \(\EE[\PP(A)^{Z_1}] = f(\PP(A))\). 
+Thus, \(\PP(A) \leq f(\PP(A))\). On the other hand, \(\PP(A) \geq q\) since every finite tree is in \(A\). 
+It follows upon inspection of a graph of \(f\) that \(\PP(A) \in [q, 1]\), from which the desired conclusion follows.
+\end{proof}
+\begin{corollary}
+    Either $W = 0$ a.s. or $W > 0$ a.s. on nonextinction
+\end{corollary}
+
+\begin{theorem}[The Seneta-Heyde Theorem]
+    If \(1 < \mu < 1\), then there exist constants \(c_n\) such that
+    \begin{enumerate}[label=(\roman*)]
+        \item \(\lim \frac{Z_n}{c_n}\) exists almost surely in \([0, \infty)\);
+        \item \(\PP[\lim \frac{Z_n}{c_n} = 0] = \rho\);
+        \item \(\frac{c_{n+1}}{c_n} \to m\).
+    \end{enumerate}
+
+\end{theorem}
+\begin{proof}
+    
+\end{proof}
+
+Let $\eta$ be the (corresponds to $\xi$)
+\[q_k=\sum_{l=0}^{\infty} p_{k+l} C_{k+l}^k \rho^{k-1}(1-\rho)^l \quad k\geq 1 \]
+
+We will often want to consider random trees produced by a Galton-Watson branching
+process. For a precise formulation of tree-valued random variables, one is referred to.
+
+\[\frac{1}{R}=\sum_{i=1}^{\eta}\frac{1}{\lambda+\lambda R^{(i)}}\]
+therefore $R=\infty$ if and only if $R^{(i)}=0$ $\forall i$.
+
+\begin{lemma}[0-1 law]
+    $\QQ(R=\infty)=0$ or $1$
+\end{lemma}
+
+\begin{theorem}
+    When $\lambda\geq m$, recurrent
+\end{theorem}
+
+
+
+\begin{theorem}
+    When $\lambda<m$, transient
+\end{theorem}
+
+\begin{example}[3-1 tree]
+    
+\end{example}
+
+\begin{definition}[Branching Number]
+    The branching number of a tree $T$ is
+the supremum of those $\lambda$ that admit a positive total amount of water to flow through $T$ ;
+denote this critical value of $\lambda$ by $\text{br} T$
+\end{definition}
+
+\paragraph{Precolation}
+\begin{theorem}
+    Let \(T\) be the family tree of a Galton-Watson process with mean \(\mu > 1\). Then \(p_c(T) = \frac{1}{\mu}\) almost surely, given nonextinction.
+\end{theorem}
+The basic intuition goes like this.
+If \(T\) is an \(n\)-ary tree, then the cluster of the root under percolation is a Galton-Watson tree with progeny distribution Binomial(\(n, p\)). Thus, this cluster is infinite with positive probability if and only if \(np > 1\), whence \(p_c(T) = \frac{1}{n}\).
+\begin{proof}
+    Let \(T\) be a given tree, and write \(K\) for the cluster of the root of \(T\) after percolation on \(T\) with the survival parameter \(p\). 
+    When \(T\) has the law of a Galton-Watson tree with mean \(\mu\), we claim that \(K\) has the law of another Galton-Watson tree having mean \(\mu p\): 
+    if \(Y_i\) represent i.i.d. \(\text{Bin}(1, p)\) random variables that are also independent of \(L\), then
+\[
+\EE\left[\sum_{i=1}^{L} Y_i\right] = \EE\left[\EE\left[\sum_{i=1}^{L} Y_i \,|\, L\right]\right] = \EE\left[\sum_{i=1}^{L} \EE[Y_i]\right] = \EE\left[\sum_{i=1}^{L} p\right] = \mu p.
+\]
+Hence, \(K\) is finite almost surely if and only if \(mp \leq 1\). Since
+
+\begin{equation}\label{eq:precolation on GW}
+    \EE[\PP(|K| < \infty \,|\, T)] = \PP(|K| < \infty),
+\end{equation}
+    
+this means that for almost every Galton-Watson tree \(T\), the cluster of its root is finite almost surely if \(p \leq \frac{1}{\mu}\). 
+On the other hand, for fixed \(p\), the property \(\{T; P_p(|K| < \infty) = 1\}\) is inherited, so has probability \(\rho\) or \(1\). 
+If it has probability \(1\), then Equation \eqref{eq:precolation on GW} shows that \(mp \leq 1\). 
+That is, if \(mp > 1\), this property has probability \(\rho\), so that the cluster of the root of \(T\) will be infinite with positive probability almost surely on the event of nonextinction. 
+Considering a sequence \(p_n \to \frac{1}{\mu}\), we see that this holds almost surely on the event of nonextinction for all \(p > \frac{1}{\mu}\) at once, not just for a fixed \(p\). 
+We conclude that \(p_c(T) = \frac{1}{\mu}\) almost surely on nonextinction.
+
+\end{proof}
+\begin{corollary}
+    If \(T\) is a Galton-Watson tree with mean \(\mu > 1\), then \(\text{br}(T) = \mu\) almost surely, given nonextinction.
+\end{corollary}
+\begin{theorem}
+    For an independent percolation and adapted conductances on the same tree, we have
+\[
+\frac{C(o \leftrightarrow 1)}{1 + C(o \leftrightarrow 1)} \leq \PP[o \leftrightarrow 1].
+\]
+
+\end{theorem}
+
+\begin{corollary}
+    For any locally finite infinite tree $T$, 
+    \[p_c(T)=\frac{1}{\text{br}T}\]
+\end{corollary}

@@ -1,0 +1,129 @@
+\chapter{High Dimensional Probability}
+The goal of HDP is to quantify the convergence rate of limit theorems such as CLT. So it is of non-asymptotic nature.
+\section{Concentration with Independence}
+\begin{theorem}[Hoeffding's inequality]
+    Let $X_1,\cdots,X_n$ be i.i.d. symmetric Bernoulli random variable. Then 
+\end{theorem}
+
+\begin{definition}[sub-gaussian random variable]
+    
+\end{definition}
+
+
+\begin{definition}[sub-exponential random variable]
+    
+\end{definition}
+
+
+\begin{lemma}[Hoeffding's lemma]
+    Assume $a\le X\le b$. Then $\phi(t)\le \frac{t^2(b-a)^2}{8}$.
+\end{lemma}
+\begin{proof}
+    WLOG assume $EX=0$. Recall that $\phi(t)=\log E(e^{tX})$. Then 
+    \[\phi'(t)=\frac{E(Xe^{tX})}{E(e^{tX})},\quad \phi''(t)=\frac{E(X^2e^{tX})}{E(e^{tX})}-(\frac{E(Xe^{tX})}{E(e^{tX})})^2\]
+    Let $Q$ denote the distribution with $\frac{\mathrm{d} Q}{\mathrm{d} P} = \frac{e^{tX}}{Ee^{tX}} $, where $P$ is the distribution of $X$.
+    Then $\phi''(t)=\text{Var}_Q(X)\le \frac{(b-a)^2}{4}$.
+\end{proof}
+
+\begin{lemma}[maximal inequality]
+    Assume that $X_1,\cdots,X_n$ be $n$ sub-gaussian random variables
+    \[E\max_{i\in[n]}X_i\le \sqrt{2\log n}\]
+\end{lemma}
+\begin{proof}
+    LogSumExp Trick.
+\end{proof}
+\begin{remark}
+    The bound is sharp even though we do not assume independence.
+\end{remark}
+\begin{example}
+    Let $X_1,\cdots,X_n$ be independent $N(0,1)$ random variables. Then 
+\end{example}
+
+\section{Concentration without Independence}
+The approach to concentration inequality we developed so far relies crucially on independence of random variables.
+We now pursue some alternative approaches to concentration, which are not based on independence.
+
+
+\section{Kernel Trick}
+\begin{theorem}[Grothendick's inequality]
+    Consider an $m\times m$ matrix $(a_{ij})$ of real numbers. Assume that for numbers $x_i,y_j\in\left\{0,1\right\}$,
+    we have \[\left|\sum_{i,j}a_{ij}x_iy_j\right|\le 1\] 
+    Then, for any Hilbert space $H$ and any vector $u_i,v_j\in H$ satisfying $\left\|u_i\right\|=\left\|v_j\right\|=1$,
+    we have \[\left|\sum_{i,j}a_{ij}x_iy_j\right|\le K\] 
+    where $K\le 1.783$ is an absolute constant.
+\end{theorem}
+
+\section{Decoupling}
+In the beginning of HDP, we studied independent random variables of the type $\sum_{i=1}^n a_iX_i$.
+Now we want to study quadratic forms of the type $\sum_{i,j=1}^na_{ij}X_iX_j$ where $X_i$'s are independent. Such a quadratic form is called a chaos in probability theory.
+It is harder to establish a concentration of a chaos. The main difficulty is that the terms of the sum are not independent.
+This difficulty can be overcome by the decoupling technique.\par 
+The purpose of decoupling is to replace the quadratic form with the bilinear form $\sum_{i,j=1}^na_{ij}X_iX'_j$ where $X'$ is an independent copy of $X$.
+\begin{theorem}[decoupling]
+    Let $A$ be an $n\times n$ diagonal-free matrix. Let $X$ be a random vector with independent mean zero coordinates $X_i$.
+    Then for every convex function $F:\mathbb{R}\to \mathbb{R}$, 
+    \[EF(X^TAX)\le EF(4X^TAX')\] 
+    where $X'$ is an independent copy of $X$.
+\end{theorem}
+
+\begin{lemma}
+    Let $Y$ and $Z$ be independent random variables s.t. $EZ=0$. Then for every convex function $F:\mathbb{R}\to\mathbb{R}$,
+    \[EF(Y)\le EF(Y+Z)\]
+\end{lemma}
+\begin{proof}
+    First condition on $Y$ and use Jensen's inequality. Then take expecation w.r.t $Y$.
+\end{proof}
+\begin{remark}
+    Intuitively, this lemma tells us, under some conditions, adding a mean zero disturbance increases the value.
+\end{remark}
+
+Now we can prove the Hason-Wright inequality.
+\begin{theorem}
+    Let $X=(X_1,\cdots,X_n)\in \mathbb{R}^n$ be a random vector with independent, 
+    mean zero, sub-gaussian coordinates.Let $A$ be an $n\times n$ matrix. Then, for every $t\geq 0$, we have 
+    \[ \]
+\end{theorem}
+
+\section{Symmetrization}
+In this section we develop the simple and useful technique of symmetrization.
+It allows one to reduce problems about arbitary distributions to symmetric distributions.
+\begin{definition}[Rademacher random variable]
+    
+\end{definition}
+Throuhout this section, we denote by $\xi_1,\xi_2,\cdots$ a sequence of independent Rademacher random variables.
+We assume that they are independent not only with each other, but also of any other random variable in question.
+\begin{lemma}[symmetrization]
+    Let $X_1,\cdots,X_N$ be independent, mean zero random vectors in a normed space. Then 
+    \[\frac{1}{2}E\left\|\sum_{i=1}^N\xi_iX_i\right\|\le E\left\|\sum_{i=1}^NX_i\right\|\le 2E\left\|\sum_{i=1}^N\xi_iX_i\right\|\]
+\end{lemma}
+\begin{proof}
+    The proof relies on introducing an independent copy $X'_i$'s of $X_i$ to symmetrize the expression,
+    and noticing that $X=^d \xi X$ if $X$ is symmetric.
+    \begin{align*}
+        E\left\|\sum_{i=1}^NX_i\right\|&\le E\left\|\sum_{i=1}^N(X_i-X'_i)\right\|\\
+        &=E\left\|\sum_{i=1}^N\xi_i(X_i-X'_i)\right\|\\
+        &=2 E\left\|\sum_{i=1}^N\xi_iX_i\right\|
+    \end{align*}
+    \begin{align*}
+        E\left\|\sum_{i=1}^N\xi_iX_i\right\|&\le E\left\|\sum_{i=1}^N\xi_i(X_i-X'_i)\right\|\\
+        &=E\left\|\sum_{i=1}^N(X_i-X'_i)\right\|\\
+        &\le 2E\left\|\sum_{i=1}^NX_i\right\|
+    \end{align*}
+        
+\end{proof}
+
+
+\section{Chaining}
+\textbf{This section should be moved to stochastic analysis notes because it considers a continuum of random variables.}
+Chaining is a multi-scale version of the $\epsilon$-net argument.
+\begin{lemma}[discrete Dudley's inequality]
+    Let $(X_t)_{t\in T}$ be a mean zero random process on a metric space $(T,d)$ with sub-gaussian increments.
+    Then \[E\sup_{t\in T}X_t\le CK\sum_{k\in\mathbb{Z}}2^{-k}\sqrt{\log \mathcal{N}(T,d,2^{-k})}\]
+\end{lemma}
+In the single-scale $\epsilon$-net argument, we discretize $T$ by choosing an $\epsilon$-net $\mathcal{N}$ of $T$.
+Then every point $t\in T$ can be approximated by a closest point from the net $\pi(t)\in\mathcal{N}$ with accuracy $\epsilon$.
+The increment condition yields $\left\|X_t-X_{\pi(t)}\right\|_{\phi_2}\le K\epsilon$. This gives $E\sup_{t\in T}X_t\le E\sup_{t\in T}X_{\pi(t)}+E\sup_{t\in T}(X_t-X_{\pi(t)})$.
+The first term can be controlled by a union bound over $\left|\mathcal{N}\right|=\mathcal{N}(T,d,\epsilon)$ points $\pi(t)$.
+But for the second term, it is not clear how to control the supremum over $t\in T$.
+
+

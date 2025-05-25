@@ -1,0 +1,79 @@
+\chapter{Brownian Motion}
+\section{Construction}
+\begin{definition}[d-dimensional Brownian motion]
+    A d-dimensional Brownian motion $B=(B_t)_{t\geq 0}$ is a stochastic process indexed by $[0,\infty)$ taking values in $\mathbb{R}^d$ s.t. \newline 
+    (i) $B_0(\omega)=0$
+
+\end{definition}
+
+\section{Sample Path Properties}
+\begin{theorem}
+    Almost surely, for all $0<a<b<\infty$, BM is not monotone on the interval $[a,b]$.
+\end{theorem}
+
+\begin{lemma}
+    Almost surely, 
+    \[\limsup_{t\to\infty}\frac{B(t)}{\sqrt{t}}=+\infty\quad \liminf_{t\to\infty}\frac{B(t)}{\sqrt{t}}=-\infty\]
+\end{lemma}
+
+\begin{lemma}
+    Fix $t\geq 0$. Then almost surely, BM is not differentiable at $t$. 
+    Moreover, $D^*B(t)=+\infty$ and $D_*B(t)=-\infty$.
+\end{lemma}
+
+These two lemmas can be strengthened to the law of iterated logarithm and nowhere differentiability.
+\begin{theorem}
+    Almost surely,
+    \[\limsup_{t\to\infty}\frac{B(t)}{\sqrt{2t\log\log t}}=1\]
+\end{theorem}
+\begin{proof}
+    
+\end{proof}
+
+\begin{theorem}
+    Almost surely, BM is nowhere differentiable. Furthermore, almost surely, for all $t$,
+    either $D^*B(t)=+\infty$ or $D_*B(t)=-\infty$ or both.
+\end{theorem}
+
+
+Next we consider modulus of continuity.
+\begin{lemma}
+    There exists a constant $C>0$ such that, almost surely, for every sufficiently small $h>0$ and all $0<t\leq 1-h$,
+    \[|B(t+h)-B(t)|\leq C\sqrt{h\log\frac{1}{h}}\]
+\end{lemma}
+
+\begin{lemma}
+    For every constant $c<\sqrt{2}$, almost surely, for every $\epsilon>0$ there exist $0<h<\epsilon$ and $t\in [0,1-h]$ with 
+    \[|B(t+h)-B(t)|\geq c\sqrt{h\log\frac{1}{h}}\]
+\end{lemma}
+
+\begin{theorem}
+    Almost surely,
+    \[\limsup_{h\downarrow 0}\sup_{0\leq t\leq 1-h}\frac{|B(t+h)-B(t)|}{\sqrt{2h\log\frac{1}{h}}}=1\]
+\end{theorem}
+
+\section{Brownian Local Time}
+We denote by $D(a,b,t)$ the number of downcrossings of the interval $[a,b]$ before time $t$.
+Note that $D(a,b,t)$ is almost surely finite by the uniform continuity of Brownian motion on the compact interval $[0,t]$.
+\begin{theorem}
+    There exists a stochastic process $\{L(t):t\geq 0\}$ called the local time at zero such that for all sequence $a_n\uparrow 0$ and $b_n\downarrow 0$ with 
+    $a_n<b_n$, a.s.,
+    \[\lim_{n\to\infty} 2(b_n-a_n)D(a_n,b_n,t)=L(t) \quad\forall t>0.\]
+    Moreover, this process is almost surely locally $\gamma$-Holder continuous for any $\gamma<\frac{1}{2}$.
+\end{theorem}
+
+\begin{theorem}
+    $\{L(t):t\geq 0\}\overset{d}{=}  \{M(t):t\geq 0\}$
+\end{theorem}
+
+\begin{theorem}[Occupation time representation of the local time at zero]
+    For all sequence $a_n\uparrow 0$ and $b_n\downarrow 0$ with $a_n<b_n$, almost surely,
+    \[\lim_{n\to\infty}\frac{1}{b_n-a_n}\int_0^t 1_{a_n\leq B(s)\leq b_n}\mathrm{d}s=L(t)\quad \forall t>0 \]
+\end{theorem}
+
+
+\begin{theorem}[Ray-Knight theorem]
+    Suppose $a>0$ and $\{B(t):0\leq t\leq T\}$ is a liinear BM started at $a$ and stopped at time $T=\int\{t\geq 0:B(t)=0\}$.
+    Then \[\{L^x(T):0\leq x\leq a\}\overset{d}{=}\{|W(x)|^2:0\leq x\leq a\},\]
+    where $\{W(x):x\geq 0\}$ is a standard planar BM.
+\end{theorem}

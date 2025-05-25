@@ -1,0 +1,432 @@
+
+\chapter{Martingales}
+\section{Conditional Expectation}
+\begin{definition}[conditional expectation]
+Given a probability space $(\Omega,\mathcal{F}_o,P)$, a $\sigma$-field $\mathcal{F}\subset\mathcal{F}_o$, and a random varaible $X\in\mathcal{F}_o$ with $E\left|X\right|<\infty$. The conditional expectation of $X$ given $\mathcal{F}$ is any random variable $Y$ that satisfies:\par
+(i) $Y\in\mathcal{F}$\par
+(ii) $\forall A\in\mathcal{F},\int_AX\mathrm{d}P=\int_A\mathrm{d}P$.
+\end{definition}
+\begin{lemma}
+If $Y$ satisfies (i)\&(ii), then it is integrable.
+\end{lemma}
+\begin{proof}
+Let $A=\left \{ Y>0 \right \} \in \mathcal{F}$. We have $\int_AY\mathrm{d}P=\int_AX\mathrm{d}P\le\int_A\left | X \right | \mathrm{d}P$ and $\int_{A^c}-Y\mathrm{d}P=\int_{A^c}-X\mathrm{d}P\le \int_{A^c}\left | X \right | \mathrm{d}P$, therefore we have $E\left |Y \right | \le\left | X \right | $.
+\end{proof}
+\begin{theorem}[uniqueness of conditional expectation]
+The conditional expecation of $X$ given $\mathcal{F}$ is unique, denoted by $E(X|\mathcal{F})$.
+\end{theorem}
+\begin{proof}
+Suppose $Y'$ also satisfies (i)\&(ii). Taking $A=\left \{ Y-Y'\ge\epsilon>0 \right \} $, we see $0=\int_AX-X\mathrm{d}P=\int_AY-Y'\mathrm{d}P\ge\epsilon P(A)$ so $P(A)=0$. Since this holds for all $\epsilon$, we have $Y\le Y'$ a.s., and switching the role of $Y$\&$Y'$ gives the desiered result.
+\end{proof}
+\begin{theorem}[existence of conditional expectation]
+$E(X|\mathcal{F})$ exists.
+\end{theorem}
+\begin{proof}
+The proof is based on Radon-Nikodym Theorem. Suppose first that $X\ge 0$. Construct  a measure $\nu(A)=\int_AX\mathrm{d}P$ for $A\in\mathcal{F}$. Then $\nu\ll P$, so by Radon-Nikodym Theorem, there exists $Y\in\mathcal{F}$ satisfying $\nu(A)=\int_AY\mathrm{d}P$.\par
+To treat the general case, write $X=X^+-X^-$, let $Y_1=E(X^+|\mathcal{F})$ and $Y_2=E(X^-|\mathcal{F})$, then verify condition (i)\&(ii).
+\end{proof}
+Now we investigate the properties of conditional expectation.
+\begin{theorem}
+
+\end{theorem}
+\begin{theorem}
+If $\varphi$ is convex and $E\left|X\right|,E\left|\varphi(X)\right|<\infty$, then \[\varphi(E(X|\mathcal{F}))\le E(\varphi(X)|\mathcal{F})\]
+\end{theorem}
+\begin{proof}
+
+\end{proof}
+\begin{corollary}
+Conditional expectation is a contraction in $L^p$, $p\ge 1$.
+\end{corollary}
+\begin{theorem}
+If $\mathcal{F}_1\subset\mathcal{F}_2$, then:\par
+(i) $E(E(X|\mathcal{F}_1)|\mathcal{F}_2)=E(X|\mathcal{F}_1)$\par
+(ii) $E(E(X|\mathcal{F}_2)|\mathcal{F}_1)=E(X|\mathcal{F}_1)$
+\end{theorem}
+\begin{proof}
+Directly follows from the definition.
+\end{proof}
+\begin{remark}
+This theorem shows that whatever the order of conditioning is, the result is always conditioning on the smallest $\sigma$-field.
+\end{remark}
+\begin{theorem}
+If $X\in\mathcal{F}$ and $E\left|Y\right|,E\left|XY\right|<\infty$, then \[E(XY|\mathcal{F})=XE(Y|\mathcal{F})\]
+\end{theorem}
+\begin{proof}
+Approximate $X$ by the standard process as in the construction of Lebesgue integral.
+\end{proof}
+\begin{theorem}[LSE]
+Suppose $EX^2<\infty$. $E(X|\mathcal{F})$ is the variable $Y\in\mathcal{F}$ that minimizes $E(X-Y)^2$.
+\end{theorem}
+
+\section{Martingales}
+\begin{definition}[filtration]
+An increasing sequence of $\sigma$-fields is called a filtration.
+\end{definition}
+\begin{definition}[adapted]
+A sequence $X_n$ is said to be adapted to $\mathcal{F}_n$ if $X_n\in\mathcal{F}_n$ for all $n$.
+\end{definition}
+\begin{definition}[martingale]
+If $X_n$ is a sequence with:\par
+(i) $E\left|X_n\right|<\infty$\par
+(ii) $X_n$ is adapted to $\mathcal{F}_n$\par
+(iii) $E(X_{n+1}|\mathcal{F}_n)=X_n$ for all $n$\par
+then $X$ is said to be a martingale.
+\end{definition}
+\begin{remark}
+If in (iii) is replaced by $\le$ or $\ge$, then $X$ is said to be a supermartingale or submartingale respectively.
+\end{remark}
+\begin{theorem}
+If $X_n$ is a supermartingale, then for $n>m$, $E(X_n|\mathcal{F}_m)\le X_m$.\par
+If $X_n$ is a submartingale, then for $n>m$, $E(X_n|\mathcal{F}_m)\ge X_m$.\par
+If $X_n$ is a martingale, then for $n>m$, $E(X_n|\mathcal{F}_m)= X_m$.
+\end{theorem}
+\begin{proof}
+By definition and induction.
+\end{proof}
+\begin{theorem}
+If $X_n$ is a supermartingale w.r.t. $\mathcal{F}_n$ and $\varphi$ is an increasing  concave function with $E\left|\varphi(X_n)\right|<\infty$ for all $n$, then $\varphi(X_n)$ is a supermartingale w.r.t $\mathcal{F}_n$. \par
+If $X_n$ is a submartingale w.r.t. $\mathcal{F}_n$ and $\varphi$ is an increasing  convex function with $E\left|\varphi(X_n)\right|<\infty$ for all $n$, then $\varphi(X_n)$ is a submartingale w.r.t $\mathcal{F}_n$. \par
+If $X_n$ is a martingale w.r.t. $\mathcal{F}_n$ and $\varphi$ is a convex function with $E\left|\varphi(X_n)\right|<\infty$ for all $n$, then $\varphi(X_n)$ is a submartingale w.r.t $\mathcal{F}_n$. 
+\end{theorem}
+\begin{proof}
+Directly follows from the definition of martingale and Jensen's inequality.
+\end{proof}
+\begin{corollary}
+If $X_n$ is a submartingale, then $(X_n-a)^+$ is a submartingale.
+\end{corollary}
+\begin{corollary}
+If $X_n$ is a supermartingale, then $X_n\wedge a$ is a supermartingale.
+\end{corollary}
+\begin{definition}[predictable]
+Let $\mathcal{F}_n$, $n\ge 0$ be a filtration. $H_n$, $n\ge 1$ is said to be a predictable sequence if $H_n\in\mathcal{F}_{n-1}$ for all $n\ge 1$.
+\end{definition}
+\begin{example}
+
+\end{example}
+\begin{theorem}
+Let $X_n$, $n\ge 0$, be a supermartingale. If $H_n\ge0$ is predictable and each $H_n$ is bounded, then $(H\cdot X)_n=\sum_{m=1}^nH_m(X_m-X_{m-1})$ is a supermartingale. \par
+The same fact is true for submartingales and for martingales, while in the latter case we can relax the restriction $H_n\ge0$.
+\end{theorem}
+
+
+\begin{theorem}[Doob's decomposition]
+Any submartingale $X_n,n\ge 0$, can be written in a unique way as $X_n=M_n+A_n$, where $M_n$ is a martingale and $A_n$ is a predictable increasing sequence with $A_0=0$.
+\end{theorem}
+\begin{proof}
+We want $X_n=M_n+A_n,E(M_n|\mathcal{F}_{n-1})=M_{n-1}$, and $A_n\in\mathcal{F}_{n-1}$. So we must have 
+\begin{align*}
+E(X_n|\mathcal{F}_{n-1})&=E(M_n|\mathcal{F}_{n-1})+E(A_n|\mathcal{F}_{n-1})\\
+&=M_{n-1}+A_n\\
+&=X_{n-1}-A_{n-1}+A_n
+\end{align*}
+So $A_n-A_{n-1}=E(X_n|\mathcal{F}_{n-1})-X_{n-1}$. Since $A_0=0$, we have \[A_n=\sum_{m=1}^nE(X_n-X_{n-1}|\mathcal{F}_{n-1})\]
+The last step is to check what we have constructed above indeed satisfies the desired properties.
+\end{proof}
+
+\section{Stopping Times}
+\begin{definition}[stopping time]
+    A random variable $N$ is said to be a stopping time if $\left\{N=n\right\}\in\mathcal{F}_n$ for all $n$.
+\end{definition}
+\begin{corollary}
+    If $N$ is a stopping time and $X_n$ is a supermartingale, then $X_{N\wedge n}$ is a supermartingale.
+\end{corollary}
+\begin{proof}
+    Let $H_n=1_{N\ge n}$. Verify that $H_n$ is predictable. It follows from the theorem that $(H\cdot X)_n=X_{N\wedge n}-X_0$ is a supermartingale. Thus $X_{N\wedge n}$ is a supermartingale as a sum of two supermartingale.
+\end{proof}
+
+
+\section{Almost Sure Convergence}
+Suppose $X_n$, $n\ge0$, is a submartingale. Let $a<b$ and $N_0=-1$, and for $k\ge 1$ let \[ N_l=\left\{\begin{matrix}
+\inf\left \{ m>N_{2k-2}:X_m\le a \right \},   &l=2k-1\\
+\inf\left \{ m>N_{2k-1}:X_m\ge b \right \},&l=2k
+\end{matrix}\right.\]
+The $N_j$ are stopping times and $\left \{ N_{2k-1}<m\le N_{2k} \right \} =\left \{ N_{2k-1}\le m-1\right \} \cap\left \{ N_{2k}\le m-1 \right \}^c \in\mathcal{F}_{m-1}$, so \[H_m=\left\{\begin{matrix}
+ 1 & \text{ if }N_{2k-1}<m\le N_{2k} \text{ for some }k\\
+ 0& \text{otehrwise}
+\end{matrix}\right.\]
+defines a predictable sequence.\par
+Note that $X_{N_{2k-1} }\le a$ and $X_{N_{2k}}\ge b$. We can regard $H_m$ as a gambling system taking advantage of these upcrossings. In stock market terms, we buy when $X_m\le a$ and sell when $X_m\ge b$, so every time an upcrossing is completed, we make a profit of $\ge (b-a)$. \par
+Finally, let $U_n=\sup\left\{k:N_{2k}\le n\right\}$ be the number of upcrossings completed by time $n$.
+\begin{theorem}[upcrossing inequality]
+If $X_m$, $m\ge0$, is a submartingale, then \[(b-a)EU_n\le E(X_n-a)^+-E(X_0-a)^+\]
+\end{theorem}
+\begin{proof}
+Let we introduce $Y_n=a+(X_n-a)^+$ to fix the final incomplete upcrossing, then $Y_n$ is a submartingale that upcrosses $[a,b]$ the same number of times that $X_m$ does. Each upcross results in a profit $\ge(b-a)$ and a final incomplete upcrossing of $Y_n$ (instead of $X_n$) results in a nonnegative profit, therefore we have $(b-a)U_n\le (H\cdot Y)_n$.\par
+Let $K_m=1-H_m$, then $Y_n-Y_0=(H\cdot Y)_n+(K\cdot Y)_n$. $(K\cdot Y)_n$ is a submartingale as well, so $E(K\cdot Y)_n\ge E(K\cdot Y)_0=0$. Therefore $E(H\cdot Y)_n\le E(Y_n-Y_0)$.
+\end{proof}
+\begin{theorem}[martingale convergence theorem]
+If $X_n$ is a submartingale with $\sup EX_n^+<\infty$, then as $n\to\infty$, $X_n$ converges a.s. to a limit $X$ with $E\left|X\right|<\infty$.
+\end{theorem}
+\begin{proof}
+Since $(X-a)^+\le X^++\left|a\right|$, upcrossing inequality implies that \[EU_n\le \frac{ EX^+_n+\left|a\right|}{b-a}\]
+As $n\uparrow\infty$, $U_n\uparrow U$, where $U$ is the number of upcrossings of $[a,b]$ by the whole sequence, so if $\sup EX_n^+<\infty$, then $EU<\infty$ and hence $U\le\infty$ a.s..\par
+Since the last conclusion holds for all rational $a$ and $b$,\[P(\bigcup_{a,b\in\mathbb{Q}}\left\{\liminf X_n<a<b<\limsup X_n\right\})=0\]
+and hence $\lim X_n$ exists a.s..\par
+Fatou's lemma guarantees $EX^+\le\liminf EX_n^+<\infty$. For $EX^-$, we observe that $EX_n^-=EX_n^+-EX_n\le EX_n^+-EX_0$ since $X_n$ is a submartingale, so another application of Fatou's lemma shows $EX^-\le\liminf EX^-_n\le \sup EX_n^+-EX_0$ and completes the proof.
+\end{proof}
+\section{\texorpdfstring{Convergence in $L^p$}{Convergence in Lp}}
+\begin{lemma}[bounded optional stopping]\label{Bounded Optional Stopping}
+If $X_n$ is a submartingale and $N$ is a stopping time with $P(N\le k)=1$, then \[EX_0\le EX_N\le EX_k\]
+\end{lemma}
+\begin{proof}
+$X_{N\wedge n}$ is a submartingale, so $EX_0=EX_{N\wedge n}\le EX_{N\wedge k}=EX_N$.\par
+To prove the other inequality, let $K_n=1_{\left\{N<n\right\}}=1_{\left\{N\le n-1\right\}}$. $K_n$ is predictable, so $(K\cdot X)_n=X_n-X_{n\wedge N}$ is a submartingale, and it follows that $EX_k-EX_N=E(K\cdot X)_k\ge E(K\cdot X)_0=0$.
+\end{proof}
+\begin{lemma}
+    If $X_n$ is a submartingale and $M\le N$ are stopping times with $P(N\le k)=1$,
+    then $EX_M\le EX_N$.
+\end{lemma}
+\begin{proof}
+    Let $K_n=1_{\{M<n\le N\}}$ and modify the above proof.
+\end{proof}
+\begin{lemma}[bounded Doob's stopping]
+    If $X_n$ is a submartingale and $M\le N$ are stopping times with $P(N\le k)=1$,
+    then $X_M\le E(X_N|\mathcal{F}_M)$.
+\end{lemma}
+\begin{proof}
+    Let $A\in\mathcal{F}_M$. Define a random time $L=M 1_A +N 1_{A^c}$. Actually, this is a stopping time.
+    So $EX_M\le EX_L\le EX_N$ by the above lemma. Thus $E(X_M 1_A)\le E(X_N 1_A)$ and the result follows.
+\end{proof}
+
+\begin{corollary}
+    An adapted and integrable process $X_t$ is a martingale if and only if 
+    \[E(X_M)=E(X_N)\] 
+    for every such pair of stopping times.
+\end{corollary}
+\begin{proof}
+    Let $A\in\mathcal{F}_{n-1}$ and $L=(n-1)1_A+n1_{A^c}$. By $EX_L=EX_n$, we have $EX_n1_A=EX_{n-1}1_A$,
+    so $E(X_n|\mathcal{F}_{n-1})=X_{n-1}$.
+\end{proof}
+
+
+\begin{theorem}[Doob's inequality]
+Let $X_m$ be a submartingale, $\lambda>0$, and $A=\left\{ \max_{0\le m\le n}X_m^+  \ge\lambda\right\}$, then \[\lambda P(A)\le EX_n1_A\le EX_n^+\]
+\end{theorem}
+\begin{proof}
+Let $N=\inf\left\{m:X_m\ge\lambda\right\}\wedge n$, then $X_N\ge\lambda$ on $A$. Therefore $\lambda P(A)\le EX_N1_A\le EX_n1_A$, where the second inequality follows from the lemma above.\par
+The other inequality is obvious.
+\end{proof}
+\begin{example}[Kolmogorov's maximal inequality]
+If we let $S_n=\xi_1+\cdots+\xi_n$, where the $\xi_m$ is independent and have $E\xi_m=0$, $\sigma_m^2=E\xi_m^2<\infty$. $S_n$ is a martingale, so $S_n^2$ is a submartingale. If we let $\lambda=x^2$ and apply Doob's inequality, we get Kolmogorov's maximal inequality: \[P(\max_{1\le m\le n}\left|S_m\right|\ge x)\le x^{-2}\text{var}(S_n)\]
+\end{example}
+\begin{theorem}[$L^p$ maximum inequality]
+If $X_n$ is a submartingale, and $\bar{X}_n= \max_{0\le m\le n}X_m^+$, then for $1<p<\infty$, \[E(\bar{X}_n^p)\le (\frac{p}{p-1})^pE(X_n^+)^p\]
+\end{theorem}
+\begin{proof}
+The ingredients are  Doob's inequality and H\"older's inequality. 
+To avoid dividing infinity, we will work with $\bar{X}_n\wedge M$ rather than $\bar{X}_n$. This does not change the application of Doob's inequality.\par
+\begin{align*}
+E((\bar{X}_n\wedge M)^p)&=\int_0^\infty p\lambda^{p-1}P(\bar{X}_n\wedge M\ge \lambda)\mathrm{d}\lambda\\
+&\le \int_0^\infty p\lambda^{p-1}(\lambda^{-1}\int X_n^+1_{\left \{ \bar{X}_n\wedge M\ge\lambda \right \} }\mathrm{d}P)\mathrm{d}\lambda\\
+&=\int X_n^+\int_0^{\bar{X}_n\wedge M}p\lambda^{p-2}\mathrm{d}\lambda\mathrm{d}P\\
+&=\frac{p}{p-1}\int X_n^+(\bar{X}_n\wedge M)^{p-1}\mathrm{d}P
+\end{align*}
+If we let $q=\frac{p}{p-1}$ be the conjugate to $p$ and apply H\"older's inequality, we see that \[\le (\frac{p}{p-1})(E\left|X_n^+\right|^p)^{1/p}(E\left|\bar{X}_n\wedge M\right|^p)^{1/q}\]
+If we divide both sides of the last inequality by $(E\left|\bar{X}_n\wedge M\right|^p)^{1/q}$, which is finite thanks to $\wedge M$, then take the $p$th power of each side, and letting $M\to\infty$ and using the monotone convergence theorem gives the desired result.
+\end{proof}
+\begin{theorem}[$L^p$ convergence theorem]
+If $X_n$ is a martingale with $\sup E\left|X_n\right|^p<\infty$ where $p>1$, then $X_n\to X$ a.s. and in $L^p$.
+\end{theorem}
+\begin{proof}
+$(EX_n^+)^p\le (E\left|X_n\right|)^p\le E\left|X_n\right|^p$, so it follows from the martingale convergence theorem that $X_n\to X$ a.s..\par
+Applying $L^p$ maximum inequality to $\left|X_n\right|$ implies \[E(\sup_{0\le m\le n}\left|X_n\right|)^p\le (\frac{p}{p-1})^pE(\left|X_n\right|)^p\]
+Letting $n\to\infty$ and using the monotone convergence theorem implies $\sup\left|X_n\right|\in L^p$. Since $\left|X_n-X\right|^p\le (2\sup\left|X_n\right|)^p$, it follows from the dominated convergence theorem that $E\left|X_n-X\right|^p\to 0$.
+\end{proof}
+
+\section{Square Integrable Martingales}
+In this section, we will suppose \[X_n \text{ is a martingale with }X_0=0 \text{ and } EX_n^2<\infty \text{ for all } n\]
+Thus, $X_n^2$ is a submartingale. It follows from Doob's decomposition that we can write $X_n^2=M_n+A_n$, where $M_n$ is a martingale, and \[A_n=\sum_{m=1}^nE(X_n^2-X_{n-1}^2|\mathcal{F}_{n-1})=\sum_{m=1}^nE((X_n-X_{n-1})^2|\mathcal{F}_{n-1})\]
+$A_n$ is called the increasing process associated with $X_n$.
+\begin{theorem}
+$\lim_{n\to\infty}X_n$ exists and is finite a.s. on $\left\{A_\infty<\infty\right\}$.
+\end{theorem}
+\begin{lemma}
+$E(\sup_m\left|X_m\right|^2)\le 4EA_\infty$
+\end{lemma}
+\begin{proof}
+By $L^2$ maximum inequality, $E(sup_{0\le m\le n}\left|X_m\right|^2)\le 4EX_n^2=4EA_n+4EM_n=4EA_n+4EM_0=4EA_n+4EX_0^2=4EA_n$. Using the monotone convergence theorem now gives the desired result.
+\end{proof}
+\begin{proof}
+Let $a>0$. Since $A_{n+1}\in \mathcal{F}_n$, $N=\inf\left\{n:A_{n+1}>a^2\right\}$ is a stopping time. Applying the lemma to $X_{N\wedge n}$ and noticing $A_{N\wedge n}\ge a^2$ gives $E(\sup_n\left|X_{N\wedge n}\right|^2)\le 4a^2$, so the $L^2$ convergence theorem implies that $\lim X_{N\wedge n}$ exists and is finite a.s.. Since $a$ is arbitary, the desired result follows.
+\end{proof}
+\begin{theorem}
+Let $f\ge 1$ be increasing with $\int_0^\infty f(t)^{-2}\mathrm{d}t<\infty$. Then $\frac{X_n}{f(A_n)}\to 0$ a.s. on $\left\{A_\infty=\infty\right\}$.
+\end{theorem}
+
+\section{\texorpdfstring{Convergence in $L^1$}{Convergence in L1}}
+Now we seek the necessary and sufficient conditions for a martingale to converge in $L^1$. This leads to the definition of uniformly integrability.
+\begin{definition}[uniformly integrablity]
+A collection of random variables $X_i,i\in I$ is said to be uniformly integrable if 
+\[\lim_{M\to\infty}(\sup_{i\in I}E(\left|X_i\right|;\left|X_i\right|>M))=0\]
+\end{definition}
+\begin{example}
+    A collection of random variables that are dominated by an integrable random variable is uniformly integrable.
+\end{example}
+\begin{example}
+    A collection of bounded random variables is uniformly integrable.
+\end{example}
+Below we give an interesting example of a uniformly integrable family.
+\begin{theorem}
+Given a probability space $(\Omega,\mathcal{F}_o.P)$ and an $X\in L^1$, then $\left\{E(X|\mathcal{F}):\mathcal{F}\text{ is a }\sigma\text{-field}\subset\mathcal{F}_o\right\}$ is uniformly integrable.
+\end{theorem}
+
+A common way to check uniform integrability is to use:
+\begin{lemma}
+Let $\varphi\ge 0$ be any function with $\frac{\varphi(x)}{x}\to\infty$ as $x\to\infty$. If $E\varphi(\left|X_i\right|)\le C$ for all $i\in I$, then $X_i,i\in I$ is uniformly integrable.
+\end{lemma}
+\begin{proof}
+    Write $E(\left|X_i\right|;\left|X_i\right|>M)=E(\frac{\left|X_i\right|}{\varphi(\left|X_i\right|)}\varphi(\left|X_i\right|);\left|X_i\right|>M)$ and notice that $\frac{\left|X_i\right|}{\varphi(\left|X_i\right|)}\to 0$.
+\end{proof}
+
+
+
+\begin{lemma}
+If integrable random variables $X_n\to X$ in $L^1$, then $E(X_n;A)\to E(X;A)$.
+\end{lemma}
+\begin{proof}
+The difference is smaller than $E\left|X_n-X\right|$.
+\end{proof}
+\begin{lemma}
+If a martingale $X_n\to X$ in $L^1$, then $X_n=E(X|\mathcal{F}_n)$.
+\end{lemma}
+\begin{proof}
+$E(X_m|\mathcal{F}_n)$ for $m>n$, so if $A\in\mathcal{F}_n$, $E(X_m;A)=E(X_n;A)$. By the lemma above, we have $E(X_n;A)=E(X;A)$ for all $A\in\mathcal{F}_n$. By the definition of condition expectation, $X_n=E(X|\mathcal{F}_n)$.
+\end{proof}
+\begin{theorem}
+    For a martingale, TFAE:\newline
+    (i) It is uniformly integrable.\newline 
+    (ii) It converges a.s. and in $L^1$.\newline 
+    (iii) It converges in $L^1$.\newline 
+    (iv) There is an integrable random variable $X$ s.t. $X_n=E(X|\mathcal{F}_n)$.
+\end{theorem}
+
+
+
+\section{Backwards Martingales}
+\begin{definition}[backwards martingale]
+A backwards martingale is a martingale indexed by the negative integers, i.e., $X_n,n\le 0$, adapted to an increasing sequence of $\sigma$-fields $\mathcal{F}_n$ with $E(X_{n+1}|\mathcal{F}_n)=X_n$ for $n\le -1$.
+\end{definition}
+\begin{theorem}
+$X_{-\infty}=\lim_{n\to-\infty}X_n$ exists a.s. and in $L^1$.
+\end{theorem}
+\begin{proof}
+ Let $U_n$ be the number of upcrossings of $[a,b]$ by $X_{-n},\cdots,X_0$.
+ The upcrossing inequality implies $(b-a)EU_n\le E(X_0-a)^+$. Letting $n\to\infty$ and using the monotone convergence theorem,
+ we have $EU_\infty<\infty$, so $X_{-\infty}=\lim_{n\to-\infty}X_n$ exists a.s..\newline 
+ The martingale property implies $X_n=E(X_0|\mathcal{F}_n)$, so $X_n$ is uniformly integrable and the convergence occurs in $L_1$.
+
+\end{proof}
+Now we identify the limit.
+\begin{theorem}
+If $X_{-\infty}=\lim_{n\to-\infty}X_n$ and $\mathcal{F}_{-\infty}=\bigcap_n\mathcal{F}_n$, then $X_{-\infty}=E(X_0|\mathcal{F}_{-\infty})$.
+\end{theorem}
+\begin{proof}
+Clearly $X_{-\infty}\in\mathcal{F}_{-\infty}$. $X_n=E(X_0|\mathcal{F}_n)$, so if $A\in\mathcal{F}_{-\infty}\subset\mathcal{F}_n$, then $\int_AX_n\mathrm{d}P=\int_AX_0\mathrm{d}P$, so $\int_AX_{-\infty}\mathrm{d}P=\int_AX_0\mathrm{d}P$ for all $A\in\mathcal{F}_{-\infty}$, proving the desired conclusion.
+\end{proof}
+\begin{theorem}
+If $\mathcal{F}_n\downarrow\mathcal{F}_{-\infty}$ as $n\downarrow -\infty$, then $E(Y|\mathcal{F}_n)\to E(Y|\mathcal{F}_{-\infty})$ a.s. and in $L^1$.
+\end{theorem}
+\begin{proof}
+$X_n=E(Y|\mathcal{F}_n)$ is a backwards martingale, so $X_n\to X_{-\infty}$ a.s. and in $L^1$, where $X_{-\infty}=E(X_0|\mathcal{F}_{-\infty})=E(Y|\mathcal{F}_{-\infty})$.
+\end{proof}
+
+\section{Optional Stopping Theorems}
+Recall that in Lemma \ref{Bounded Optional Stopping}, we have already established optional stopping theorem for bounded stopping times,
+so in this section we mainly focus on unbounded stopping time. 
+
+
+\begin{theorem}
+    If $X_n$ is a uniformly integrable submartingale, them for any stopping time $N$,
+    $X_{n\wedge N}$ is uniformly integrable.
+\end{theorem}
+\begin{proof}
+    As $X_n^+$ is a submartingale, so by bounded optional stopping $EX_{N\wedge n}^+ \le EX_n^+$.
+    Since $X_n^+$ is uniformly integrable, $\sup_n X_{N\wedge n}^+ \le \sup_n EX_n^+ <\infty$. So by martingale convergence, $X_{N\wedge n}\to X_N$ a.s. and $E|X_N|<\infty$.
+    Now
+    \begin{equation*}
+        E(|X_{N\wedge n}|;|X_{N\wedge n}|>K) = E(|X_{N\wedge n}|;|X_{N\wedge n}|>K,N\le n)+E(|X_{N\wedge n}|;|X_{N\wedge n}|>K,N>n)
+    \end{equation*}
+    Since $E|X_N|<\infty$ and $X_n$ is uniformly integrable, if $K$ is large, then each term is controlled.
+
+\end{proof}
+\begin{remark}
+    From the last computation above, we actually get that if $E|X_N|<\infty$ and $X_n1_{\{N>n\}}$ is uniformly integrable,
+    then $X_{N\wedge n}$ is uniformly integrable. And this is the requirement of the optional sampling theorem we usually see.
+\end{remark}
+
+\begin{theorem}
+    If $X_n$ is a uniformly integrable submartingale, then for any stopping time $N\le \infty$,
+    we have $EX_0\le EX_N\le EX_\infty$. 
+\end{theorem}
+\begin{proof}
+    By bounded optional stopping, $EX_0\le EX_{N\wedge n}\le EX_n$. Let $n\to\infty$ and use the $L1$ convergence of uniformly integrable submartingale.
+\end{proof}
+
+\begin{theorem}
+    If $X_n$ is a uniformly integrable submartingale and $L\le M$ are stopping times and $Y_{M\wedge n}$ is uniformly integrable submartingale,
+    then we have $Y_L\le E(Y_M|\mathcal{F}_L)$. 
+\end{theorem}
+
+For a nonegative supermartingale, we do not require uniform integrability.
+\begin{theorem}
+    If $X_n$ is a nonnegative supermartingale and $N\le\infty$ is a stopping time,
+    then $EX_0\ge EX_N$
+\end{theorem}
+\begin{proof}
+    
+\end{proof}
+
+\begin{theorem}
+    Suppose $X_n$ is a submartingale and $E(|X_{n+1}-X_n||\mathcal{F}_n)\le B$ a.s..
+    If $N$ is a stopping time with $EN<\infty$, then $X_{N\wedge n}$ is uniformly integrable
+    and hence $EX_N\ge EX_0$.
+\end{theorem}
+\begin{proof}
+    We begin by observing that \[|X_{N\wedge n}|\le |X_0|+\sum_{m=0}^\infty|X_{m+1}-X_m|1_{(N>m)}\] 
+    To prove uniform integrability, it suffices to show that the right-hand side has finite expectation for then $|X_{N\wedge n}|$ is dominated by an integrable r.v..\newline 
+    \[ E(|X_{m+1}-X_m|1_{\{N>m\}})=E(E(|X_{m+1}-X_m||\mathcal{F}_m)1_{\{N>m\}})\le BP(N>m)\] 
+    and hence the expectation of RHS$\le E|X_0|+BEN$.
+\end{proof}
+
+Now we come to Doob's stopping theorem.
+\begin{theorem}
+    If $X_n$ is a uniformly integrable submartingale, then 
+\end{theorem}
+
+
+\subsubsection{Applications}
+\begin{example}
+    
+\end{example}
+
+\begin{example}
+    Let $S_n$ be symmetric random walk with $S_0=0$ and let $T_1=\min\{n:S_n=1\}$.
+    Find $P(T_1=2n-1)$.
+\end{example}
+\begin{proof}
+    First $P(T_1<\infty)=1$
+    Use the exponential martingale $X_n=\frac{\exp{\theta S_n}}{E\exp{\theta S_n}}$. $E\exp{\theta S_n}=\frac{e^\theta+e^{-\theta}}{2}$.
+\end{proof}
+
+\begin{example}
+    Let $S_n$ be a symmetric random walk starting at $0$, and let $T=\inf\{n:S_n\notin (-a,a)\}$,
+    where $a$ is an integer. Compute $ET^2$.
+\end{example}
+\begin{proof}
+    
+\end{proof}
+
+\begin{example}
+    Consider a favorable game in which the payoffs are -1,1,2 with probability $\frac{1}{3}$ each. Compute the probability 
+    we ever go broke when we start with $i>0$.
+\end{example}
+\begin{lemma}
+    Let $S_n=\xi_1+\cdots+\xi_n$ be a random walk. Suppose  
+\end{lemma}
+\begin{proof}
+    
+\end{proof}
+\begin{proof}
+    The original problem is the case where $\theta_0=\ln (\sqrt{2}-1)$. So the probability is $(\sqrt{2}-1)^i$.
+\end{proof}

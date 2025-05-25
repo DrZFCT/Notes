@@ -1,0 +1,44 @@
+\documentclass{book}
+\usepackage[utf8]{inputenc}
+\usepackage[a4paper,total={6in,10in}]{geometry}
+
+\usepackage{style}
+\usepackage{thmtools}
+\usepackage{thm-restate}
+
+\usepackage{verbatim}
+\usepackage[all,cmtip]{xy}
+
+%bib
+\usepackage[square]{natbib}
+\bibliographystyle{plainnat}
+
+
+\title{Lecture Notes in Probability and Stochastic Process}
+\author{Kaizhao Liu}
+\date{\today}
+
+\begin{document}
+\maketitle
+\tableofcontents
+
+\part{Probability}
+
+\input{chap_independence.tex}
+\input{chap_lln.tex}
+\input{chap_clt.tex}
+\input{chap_martingale.tex}
+\input{chap_hdp.tex}
+\input{chap_probabilistic_method.tex}
+\input{chap_matrix.tex}
+
+\part{Stochastic Process}
+\input{chap_dsdtmc.tex}
+\input{chap_msdtmc.tex}
+\input{chap_dsctmc.tex}
+\input{chap_bm.tex}
+\input{chap_stochastic_calculus.tex}
+\input{chap_diffusion.tex}
+%\bibliography{bib}
+
+\end{document}

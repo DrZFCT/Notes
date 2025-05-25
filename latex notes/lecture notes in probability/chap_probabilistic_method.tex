@@ -1,0 +1,67 @@
+
+\chapter{The Probabilistic Method}
+\section{The Method}
+
+
+
+\section{123 Theorem}
+As a sort of 'inverse' of the probabilistic method, combinatorial techniques can also apply to probabilistic statement.
+
+
+\section{The Local Lemma}
+
+\begin{definition}[dependency digraph]
+    Let $A_i$($i\in [n])$ be $n$ events. A directed graph $D=(V,E)$ on the set of vertices 
+    $V=\{1,\cdots,n\}$ is called a dependency digraph for the events if 
+    for each $i$ the event is mutually independent of all the events $\{A_j:(i,j)\notin E\}$.
+\end{definition}
+\begin{theorem}[the local lemma]
+    Let $A_i$($i\in [n])$ be $n$ events. Suppose $D=(V,E)$ is a dependency digraph for the above events and 
+    suppose there are real numbers $x_1,\cdots,x_n$ s.t. $1\le x_i<0$ and $P(A_i)\le x_i\prod_{(i,j)\in E}(1-x_j)$
+    for all $1\le i\le n$. Then 
+    \[ P(\bigcap_{i=1}^n\overline{A_i})\ge \prod_{i=1}^n (1-x_i)\] 
+\end{theorem}
+\begin{remark}
+    In particular, with positive probability, no event $A_i$ holds.
+\end{remark}
+
+\begin{corollary}[the local lemma: symmetric case]
+    
+\end{corollary}
+\begin{remark}
+    The constant $e$ is the best possible constant.
+\end{remark}
+
+
+\section{Correlation Inequalities}
+\begin{theorem}[the four functions theorem]
+    
+\end{theorem}
+
+
+
+\begin{theorem}[FKG inequality]
+    Let $L$ be a finite distributive lattice, and let $\mu:L\to \mathbb{R}^+$ be a log-supermodular function.
+    Then for any two increasing functions $f,g$, we have
+    \[E(fg)\ge (Ef) (Eg)\] where the expectation is taken w.r.t. 
+\end{theorem}
+\begin{remark}
+    If both $f$ and $g$ are decreasing, the the result still holds. If one is increasing and one is decreasing, then the inequality is reversed.
+\end{remark}
+
+\begin{lemma}[Kleitman's lemma]
+    Let 
+\end{lemma}
+
+\begin{theorem}
+    
+\end{theorem}
+
+\begin{definition}[linear extension]
+    
+\end{definition}
+
+\begin{theorem}[XYZ theorem]
+    Let 
+\end{theorem}
+

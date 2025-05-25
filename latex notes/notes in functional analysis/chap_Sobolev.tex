@@ -1,0 +1,290 @@
+\chapter{Sobolev Spaces}
+
+
+We establish a proper setting in which to apply ideas of functional analysis to glean information concerning PDE
+
+
+\section{H\"older Spaces}
+Assume $U\subset \mathbb{R}^n$ is open and $0<\gamma\le 1$. 
+\begin{definition}[H\"older continuous]
+    A function is said to be H\"older continuous with exponent $\gamma\in (0,1]$ if $\forall x,y\in U$
+    \begin{equation}
+        |u(x)-u(y)|\le C|x-y|^\gamma
+    \end{equation}
+    for some constant $C$.    
+\end{definition}
+
+\begin{definition}
+    (i) If $u:U\to\mathbb{R}$ is bounded and continuous, we write 
+    \[\|u\|_{C(\bar{U})}:=\sup_{x\in U}|u(x)|\] 
+    (ii) The $\gamma$th-H\"older seminorm of $u:U\to\mathbb{R}$ is 
+    \[[u]_{C^{0,\gamma}(\bar{U})}:=\sup_{x,y\in U,x\ne y} \frac{|u(x)-u(y)|}{|x-y|^\gamma}\] 
+    and the $\gamma$th-H\"older norm is 
+    \[\|u\|_{C^{0,\gamma}(\bar{U})}:= \|u\|_{C(\bar{U})}+[u]_{C^{0,\gamma}(\bar{U})}\]
+\end{definition}
+
+\begin{definition}
+    The H\"older space \[C^{k,\gamma}(\bar{U})\] consists of all functions $u\in C^k(\bar{U})$ for which the norm 
+    \[ \|u\|_{C^{k,\gamma}(\bar{U})}:= \sum_{|\alpha|\le k}\|D^\alpha u\|_{C(\bar{U})}+\sum_{|\alpha|= k}[u]_{C^{0,\gamma}(\bar{U})}\]
+    is finite.
+\end{definition}
+
+\begin{theorem}[H\"older spaces as function spaces]
+    $C^{k,\gamma}(\bar{U})$ is a Banach space.
+\end{theorem}
+\begin{proof}
+    The construction of $\|\cdot\|_{C^{k,\gamma}(\bar{U})}$ ensures that it is a norm. 
+    In addition, each Cauchy sequence converges.
+\end{proof}
+
+
+
+\section{Sobolev Spaces}
+The H\"older spaces are unfortunately not often suitable settings for elementary PDE theory,
+as we usually cannot make good enough analytic estimates to demonstrate that the solutions we construct actually belong to such spaces.
+What are needed rather are some kind of spaces containing less smooth functions.
+
+\subsection{Weak Derivatives}
+We start off by substantially weakening the notion of partial derivatives.
+\begin{notation}
+Let $C_c^\infty(U)$ denote the space of infinitely differentiable function $\varphi:U\to\mathbb{R}$, with compact support in $U$.
+We will sometimes call a function belonging to $C_c^\infty(U)$ a test function.
+\end{notation}
+
+\begin{definition}
+    Suppose 
+\end{definition}
+
+\begin{lemma}[uniqueness of weak derivatives]
+    A weak $\alpha$th-partial derivative of $u$, if it exists, is uniquely defined up to a set of measure zero.
+\end{lemma}
+
+\begin{example}
+    Let $n=1$, $U=(0,2)$, and 
+    \[ u(x)=\left\{\begin{matrix}
+        x  & x\in(0,1]\\
+        1  & x\in[1,2)
+        \end{matrix}\right.\] 
+    has weak derivative 
+        \[
+            v(x)=\left\{\begin{matrix}
+            x  & x\in(0,1]\\
+            1  & x\in[1,2)
+            \end{matrix}\right..\] 
+    But \[ u(x)=\left\{\begin{matrix}
+        x  & x\in(0,1]\\
+        2  & x\in(1,2)
+        \end{matrix}\right.\] 
+    does not have a weak derivative.
+        
+\end{example}
+
+\subsection{Definition of Sobolev Spaces}
+Fix $1\le p\le \infty$ and let $k$ be a nonnegative integer. 
+\begin{definition}
+    The Sobolev space \[W^{k,p}(U)\] consists of all locally summable function $u:U\to\mathbb{R}$ s.t. for each multiindex $\alpha$ with $|\alpha|\le k$,
+    $D^\alpha u$ exists in the weak sense and belongs to $L^p(U)$.
+\end{definition}
+\begin{notation}
+    If $p=2$, we usually write \[H^k(U)=W^{k,2}(U)\] 
+    $H$ is used since $H^k(U)$ is a Hilbert space.
+\end{notation}
+
+\begin{definition}
+    If $u\in W^{k,p}(U)$, we define the norm to be 
+    \begin{equation}
+        \left\{\begin{matrix}
+            (\sum_{|\alpha|\le k}\int_U |D^\alpha u|^p\mathrm{d}x)^{\frac{1}{p}}  & p\in [1,\infty)\\
+             \sum_{|\alpha|\le k} \text{ess}\sup_U |D^\alpha u| & p=\infty
+            \end{matrix}\right.            
+    \end{equation}
+\end{definition}
+
+\begin{notation}
+    
+\end{notation}
+
+\begin{notation}
+    We denote by \[W_0^{k,p}(U)\] the closure of $C_c^\infty(U)$ in $W^{k,p}(U)$.
+\end{notation}
+We interpret $W_0^{k,p}(U)$ as comprising those functions $u\in W^{k,p}(U)$ s.t. 
+\[D^\alpha=0\text{ on }\partial U\quad \forall |\alpha|\leq k-1. \]
+
+\begin{example}
+    If $n=1$ and $U$ is an open interval in $\mathbb{R}^1$
+\end{example}
+
+\subsection{Properties}
+\begin{theorem}[weak derivatives]
+    Assume $u,v\in W^{k,p}(U)$, $|\alpha|\le k$. Then \newline 
+    (i) $D^\alpha u\in W^{k-|\alpha|,p}(U)$, and $D^\alpha(D^\beta u) =D^{\alpha+\beta}u$ $\forall |\alpha|+|\beta|\le k$ .\newline 
+    (ii) For each $\lambda,\mu\in\mathbb{R}$, $\lambda u+\mu v\in W^{k,p}(U)$ and $D^\alpha(\lambda u+\mu v)=\lambda D^\alpha u+\mu D^\alpha v$, $|\alpha|\le k$.\newline 
+    (iii) If $V$ is an open subset of $U$, then $u\in W^{k,p}(V)$.\newline 
+    (iv) If $\zeta\in C^\infty_c(U)$, then $\zeta u\in W^{k,p}(U)$ and 
+    \[ D^\alpha(\zeta u)=\sum_{\beta\le \alpha}C_\alpha^\beta D^\beta\zeta D^{\alpha-\beta}u \]
+\end{theorem}
+
+\begin{theorem}[Sobolev space is Banach]
+    For each $k\in\mathbb{Z}_{\ge 1}$ and $1\le p\le\infty$, the Sobolev space $W^{k,p}(U)$ is a Banach space.
+\end{theorem}
+\begin{proof}
+    Note that the completeness is encoded in the definition. If $\{u_m\}_{m=1}^\infty$ is a Cauchy sequence, then for $|\alpha|\le k$, $\{D^\alpha u_m\}_{m=1}^\infty$
+    is a Cauchy sequence in $L^p(U)$ and $L^p(U)$ is complete.
+\end{proof}
+
+\section{Approximation}
+We need to develop some systematic procedures for approximating a function in a Sobolev space by smooth functions. 
+The method of mollifiers provides such a tool.
+\begin{notation}
+    If $U\subset \mathbb{R}^n$ is open and $\epsilon>0$, we write 
+    \[ U_\epsilon:=\{x\in U|\text{dist}(x,\partial U)>\epsilon\} \]
+\end{notation}
+
+\begin{definition}
+    Define $\eta\in C^\infty(\mathbb{R}^n)$ by \[\eta (x)=\left\{\begin{matrix}
+        Ce^{\frac{1}{|x|^2-1}} & |x|<1\\
+        0 & |x|\ge 1
+       \end{matrix}\right.\] 
+       $C$ is selected s.t. $\int \eta =1$. We call $\eta$ the standard mollifier.\newline 
+       For each $\epsilon>0$, set \[\eta_\epsilon(x)=\frac{1}{\epsilon^n}\eta(\frac{x}{\epsilon})\]
+\end{definition}
+
+\begin{definition}
+    If $U\to\mathbb{R}$ is locally integrable, define its mollification 
+    \[f^\epsilon=\eta_\epsilon*f\quad \text{in} U_\epsilon\]
+\end{definition}
+
+\begin{theorem}[properties of mollifiers]
+    (i) $f^\epsilon\in C^\infty (U_\epsilon)$\newline 
+    (ii) $f^\epsilon\to f$ a.e. as $\epsilon\to 0$\newline 
+    (iii) If $f\in C(U)$, then $f^\epsilon\to f$ uniformly on compact subsets of $U$.\newline 
+    (iv) If $1\le p<\infty$ and $f\in L^p_{\text{loc}}(U)$, then $f^\epsilon\to f$ in $L^p_{\text{loc}}(U)$.
+\end{theorem}
+
+\section{Extensions}
+Our goal is to extend functions in the Sobolev space $W^{1,p}(U)$ to become functions in the Sobolev space $W^{1,p}(\mathbb{R}^n)$.
+We must invent a way to extend $u$ which preserves the weak derivatives accross $\partial U$.
+
+\begin{theorem}[extension theorem]
+    Assume $U$ is bounded and $\partial U$ is $C^1$. Select a bounded open set $V$ s.t. $U\subset \subset V$. Then there exists a bounded linear operator 
+    \[ E:W^{1,p}(U)\to W^{1,p}(\mathbb{R}^n)\] 
+    s.t. for each $u\in W^{1,p}(U)$:\newline 
+    (i) $Eu=u$ a.e. in $U$\newline 
+    (ii) $Eu$ has support within $V$\newline 
+    (iii) $\|Eu\|_{W^{1,p}(\mathbb{R}^n)}\le C\|u\|_{W^{1,p}(U)}$, where the constant $C$ depends on $p,U,V$.
+\end{theorem}
+
+
+\section{Traces}
+
+\begin{theorem}[trace theorem]
+    Assume $U$ is bounded and $\partial U$ is $C^1$. Then there exists a bounded linear operator 
+    \[T:W^{1,p}(U)\to L^p(\partial U)\] 
+    s.t. \newline 
+    (i) $Tu=u|_{\partial U}$ if $u\in W^{1,p}(U)\cap C(\bar{U})$ \newline 
+    (ii) $\|Tu\|_{L^p(\partial U)}\le C\|u\|_{W^{1,p}(U)}$
+\end{theorem}
+\begin{definition}
+    We will call $Tu$ the trace of $u$ on $\partial U$.
+\end{definition}
+
+\section{Compactness}
+
+
+
+
+\section{Sobolev Inequalities}
+Our goal in this section is to discover embeddings of various Sobolev spaces into others. 
+The crucical analytic tools here will be so-called Sobolev-type Inequalities, which we prove below for smooth functions.
+These will then establish the estimates for arbitary functions in the various relevant Sobolev spaces, since smooth functions are dense.
+
+We will consider first only the Sobolev space $W^{1,p}(U)$ and ask the following 
+\subsection{\texorpdfstring{$1\le p<n$}{1<=p<n}}
+
+Let us first ask whether we can establish an estimate of the form 
+\[ \|u\|_{L^{p^*}(\mathbb{R}^n)}\le C\|Du\|_{L^p(\mathbb{R}^n)}\] 
+for certain constants $C>0$, $1\le p^*<\infty$ and all functions $u\in C^\infty_c(\mathbb{R}^n)$.
+We should expect that differentiation of a function increases the strength of its local singularities and improves its decay at infinity.
+Thus, if $Du\in L^p(\mathbb{R}^n)$, it is reasonable to expect that $f\in L^{p^*}(\mathbb{R}^n)$ for some $p^*>p$.
+By a simple dimensional analysis, we can obtain the only possible $p^*$:
+\begin{definition}
+    If $1\le p<n$, the Sobolev conjugate of $p$ is 
+    \[p^*=\frac{np}{n-p}\] 
+\end{definition}
+
+
+\begin{theorem}[Gagliardo-Nirenberg-Sobolev inequality]
+    
+\end{theorem}
+
+\begin{theorem}[estimates for $W^{1,p}$]
+    Let $U$ be a bounded, open subset of $\mathbb{R}^n$, and suppose $\partial U$ is $C^1$. Assume $1\le p<n$, and $u\in W^{1,p}(U)$.
+    Then $u\in L^{p^*}(U)$, with the estimate 
+    \[ \|u\|_{L^{p^*}(U)}\le C\|u\|_{W^{1,p}(U)}\] 
+    the constant $C$ depending only on $p,n$, and $U$.
+\end{theorem}
+
+
+The Gagliardo-Nirenberg-Sobolev inequality implies the embedding of $W^{1,p}(U)$ into $L^{p^*}(U)$ for $1\le p<n$.
+We now demonstrate that $W^{1,p}(U)$ is in fact \textbf{compactly} embedded in $L^q(U)$ for $1\le q<p^*$.
+This compactness will be fundamental for our applications of functional analysis to PDE.
+\begin{definition}
+    Let $X$ and $Y$ be Banach spaces, $X\subset Y$. We say that $X$ is compactly embedded in $Y$, written 
+    \[X\subset \subset Y\] 
+    provided \newline 
+    (i) $\|u\|_Y\le C\|u\|_X$ $(u\in X)$ for some constant $C$ and \newline 
+    (ii) each bounded sequence in $X$ is precompact in $Y$.
+\end{definition}
+
+
+\begin{theorem}[Rellich-Kondrachov Compactness Theorem]
+    
+\end{theorem}
+
+
+\subsection{\texorpdfstring{$n<p\le\infty$}{n<p}}
+In the previous section, we saw that if the weak derivative of a function that
+vanishes at infinity belongs to $L^p(\mathbb{R}^n)$ with $p < n$, then the function has improved
+integrability properties and belongs to $L^{p^*}(\mathbb{R}^n)$.
+In this regime the Sobolev conjugate of $p$ is negative. Therefore we should expect 
+Even though the function is weakly differentiable, it need not be continuous. 
+In this section, we show that if the derivative belongs to $L^p(\mathbb{R}^n)$ with $p > n$ then the function (or a pointwise a.e. equivalent
+version of it) is continuous, and in fact H\"older continuous. 
+\begin{theorem}[Morrey's inequality]
+    
+\end{theorem}
+
+\subsection{\texorpdfstring{$p=n$}{p=n}}
+Owing to the Gagliardo-Nirenberg-Sobolev inequality, and the fact that $p^*\to\infty$ as $p\to n$, we might expect $u\in L^\infty(U)$ provided 
+$u\in W^{1,n}(U)$. This is however false if $n>1$.
+\begin{example}
+    If $U=B^0(0,1)$, the function $u=\log\log (1+\frac{1}{|x|})$ belongs to $W^{1,n}(U)$ but not to $L^\infty(U)$.
+\end{example}
+
+\subsection{General Sobolev inequalities}
+Now we deal with $W^{k,p}(U)$ with general $k$.
+
+
+\section{Poincare's inequalities}
+\begin{notation}
+    $(u)_U=$ is the average of $u$ over $U$.
+\end{notation}
+
+\section{Fourier Transform}
+We employ the Fourier transform to give an alternate characterization of the spaces $H^k(\mathbb{R}^n)$.
+For this section all functions are complex-valued.
+\begin{theorem}[characterization of $H^k$ via Fourier transform]
+    Let $k$ be a nonnegative integer.\newline 
+    (i) A function $u\in L^2(\mathbb{R}^n)$ belongs to $H^k(\mathbb{R}^n)$ if and only if 
+    \[ (1+|y|^k)\hat{u}\in L^2(\mathbb{R}^n)\] 
+    (ii) In addition, there exists a positive constant $C$ s.t. 
+    \[ \frac{1}{C}\|u\|_{H^k(\mathbb{R}^n)}\le \| (1+|y|^k)\hat{u}\|_{L^2(\mathbb{R}^n)}\le C\|u\|_{H^k(\mathbb{R}^n)} \]
+\end{theorem}
+
+
+\section{\texorpdfstring{The Space $H^{-1}$}{The Space H-1}}
+It it important to have an explicit characterization of the dual space of $H^1_0$
+
+\section{Discussion}
+
+\citet{alma990019861400106761}

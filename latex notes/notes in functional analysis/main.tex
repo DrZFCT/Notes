@@ -1,0 +1,33 @@
+\documentclass{book}
+\usepackage[utf8]{inputenc}
+\usepackage[a4paper,total={6in,10in}]{geometry}
+
+\usepackage{style}
+\usepackage{thmtools}
+\usepackage{thm-restate}
+
+\usepackage{verbatim}
+\usepackage[all,cmtip]{xy}
+
+%bib
+\usepackage[square]{natbib}
+\bibliographystyle{plainnat}
+
+
+\title{Lecture Notes in Functional Analysis}
+\author{Kaizhao Liu}
+\date{\today}
+
+\begin{document}
+\maketitle
+\tableofcontents
+
+
+\input{chap_banach.tex}
+\input{chap_Hilbert.tex}
+\input{chap_Sobolev.tex}
+
+
+\bibliography{bib}
+
+\end{document}

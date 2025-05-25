@@ -1,0 +1,15 @@
+\begin{thebibliography}{1}
+\providecommand{\natexlab}[1]{#1}
+\providecommand{\url}[1]{\texttt{#1}}
+\expandafter\ifx\csname urlstyle\endcsname\relax
+  \providecommand{\doi}[1]{doi: #1}\else
+  \providecommand{\doi}{doi: \begingroup \urlstyle{rm}\Url}\fi
+
+\bibitem[Evans(2010)]{alma990019861400106761}
+Lawrence~C. Evans.
+\newblock \emph{Partial differential equations}.
+\newblock Graduate studies in mathematics, v. 19. American Mathematical
+  Society, Providence, R.I, 2nd ed. edition, 2010.
+\newblock ISBN 9780821849743.
+
+\end{thebibliography}
