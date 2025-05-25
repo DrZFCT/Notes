@@ -1,0 +1,292 @@
+
+\chapter{Basic Concepts: Lost Properties}
+This chapter collects some definitions and theorems out of the scope of linear algebra, but is of its own importance.
+\section{Noncommutative-Rings}
+This section aims to study the algebra of matrices from the perspective of noncommutative rings. \par
+The goal of next theorem is to express the invert of $x^{-1}+y^{-1}$ by $x$ and $y$. 
+\begin{theorem}
+If $x,y,(x+y)$ is invertible, then $x^{-1}+y^{-1}$ is invertible with 
+\[(x^{-1}+y^{-1})^{-1}=x(x+y)^{-1}y=y(x+y)^{-1}x\]
+\end{theorem}
+\begin{proof}
+  To see why this formula is correct, we seek inspiration from commutative rings which we are more familar with. 
+  If the ring is commutative, then \[(x^{-1}+y^{-1})^{-1}=\frac{xy}{x+y}.\] 
+  The formula we seek must reduce to the formual above when the ring is commutative. And the formula we seek must be invariant when we interchange $x$ and $y$. $xy(x+y)^{-1}$ or something like this can not satisfy the symmetry. So $x(x+y)^{-1}y$ is a good candidate.\par
+We first show that $x(x+y)^{-1}y=y(x+y)^{-1}x$. 
+\begin{align*}
+x(x+y)^{-1}y&=(x+y-y)(x+y)^{-1}y\\&=y-y(x+y)^{-1}y\\&=y-y(x+y)^{-1}(x+y-x)\\&=y(x+y)^{-1}x
+\end{align*}
+Now we prove that it's the inverse.
+\begin{align*}
+x^{-1}+y^{-1}&=x^{-1}yy^{-1}+x^{-1}xy^{-1}\\&=x^{-1}(x+y)y^{-1}
+\end{align*}
+The result follows immediately.
+\begin{align*}
+(x^{-1}+y^{-1})(y(x+y)^{-1}x)&=x^{-1}(x+y)y^{-1}(y(x+y)^{-1}x)\\&=1
+\end{align*}
+\end{proof}
+\begin{remark}
+Note how we do the tricks. These are typical in ring theory.
+\end{remark}
+
+\begin{theorem}
+If $1-yx$ is invertible, then $1-xy$ is invertible with
+\[(1-xy)^{-1}=1+x(1-yx)^{-1}y.\]
+\end{theorem}
+\begin{proof}
+To see why this formula is correct, we seek inspiration from geometric series. Formally,
+\begin{align*}
+(1-xy)^{-1}&=1+xy+xyxy+xyxyxy+\cdots\\
+&=1+x(1+yx+yxyx+\cdots)y\\&=1+x(1-yx)^{-1}y.
+\end{align*}
+The rest is direct computation.
+\end{proof}
+\section{Polynomials}
+\subsection{Euclid's algorithm}
+We list the two fundamental theorems on polynomial ring. These algorithms are the basic tools to portrait the polynomial ring
+\begin{theorem}[division with remainder]
+$f,g\in F[x],\exists q,r\text{ with } \deg r<\deg g$ s.t. $f=qg+r$
+\end{theorem}
+\begin{theorem}[Bézout's theorem]
+$f\text{ coprime with }g\in F[x],\exists u,v$ s.t. $uf+vg=1$
+\end{theorem}
+
+
+\subsection{}
+\begin{lemma}[Eisenstein's Criterion]
+\end{lemma}
+\begin{proof}
+let $f(x)=a_nx^n+...+a_0,(a_0,...,a_n)=1$
+\[p\mid a_0,...,p\mid a_{s-1},p\nmid a_s\]
+
+\end{proof}
+
+\begin{theorem}[Gauss's Lemma]
+ Let $f(x)\in \mathbb{Z}[x]$, and $f(x)$ is reducible in $\mathbb{Q}[x]$. Then $f(x)$ is reducible in $\mathbb{Z}[x]$.
+\end{theorem}
+\begin{proof} 
+  Let $f(x)=f_1(x)f_2(x), f_i(x)\in \mathbb{Q}[x]$ and $\deg f_i(x)<\deg f(x)$.
+\[f(x)=c(f)\]
+\end{proof}
+
+\subsection{symmetric polynomials}
+
+
+\begin{theorem}
+Let $A$ be a commutative ring and let $t_1,...,t_n$ be algebraically independent elements over $A$. Let $f(t)\in A[t_1,...,t_n] $ be symmetric of degree $d$. Then there exists a polynomial $g(X_1,...,X_n)$ of weight $\le d$ such that\[f(t)=g(s_1,...,s_n)\] where each $s_i=s_i(t_1,...,t_n)$ is a polynomial in $t_1,...,t_n$.
+\end{theorem}
+\begin{proof}
+By induction on $n$. The theorem is obvious if $n=1$, because $s_1=t_1$. Assume the theorem is proved for polynomials in n-1 variables.\par
+If we substitute $t_n=0$ in the expression for $F(X)$, we find \[(X-t_1)\cdot \cdot \cdot (X-t_{n-1})X=X^n-(s_1)_0X^{n-1}+\cdot \cdot \cdot +(-1)^{n-1}(s_{n-1})_0X\] where $(s_i)_0$ is the expression obtained by substituting $t_n=0$ in $s_i$. We see that $(s_i)_0$ are precisely the elementary symmetric polynomials in $t_1,...,t_{n-1}$.\par
+We now carry out induction on $d$. If $d=0$, our assertion is trivial. Assume $d>0$, and assume our assertion proved for polynomials of degree $<d$. Let $f(t_1,...,t_n)$ have degree $d$. There exists a polynomial $g_1(X_1,...,X_{n-1}$ of weight $\le d$ such that \[f(t_1,...,t_{n-1},0)=g_1((s_1)_0,...,(s_{n-1})_0)\]
+We note that $g_1(s_1,...,s_{n-1})$ has degree $\le d$ in $t_1,...,t_n$. The polynomial \[f_1(t_1,...,t_n)=f(t_1,...,t_n)-g_1(s_1,...,s_{n-1})\]
+has degree $\le d$ in $t_1,...,t_n$ and is symmetric. We have \[f_1(t_1,...,t_{n-1},0)=0\]
+Hence $f_1$ has a root $t_n$, and by symmetry, \[f_1=s_nf_2(t_1,...,t_n)\]
+$f_2$ has degree $\le d-n < d$. By induction, there exists a polynomial $g_2$ in $n$ variables and weight $\le d-n$ such that \[f_2(t_1,...,t_n)=g_2(s_1,...,s_n)\]
+We obtain \[f(t)=g_1(s_1,...,s_{n-1})+s_ng_2(s_1,...,s_n)\] and each term on the right has weight $\le d$. This completes the proof.
+\end{proof}
+\begin{corollary}
+\end{corollary}
+
+\subsection{}
+\begin{theorem}[Mason-Stothers Theorem]
+Let $a(t),b(t),c(t)$ be relatively prime polynomials over $\mathbb{C}$ such that $a+b=c$. Then \[\max \operatorname{deg}\left \{a,b,c\right \}\le \operatorname{deg} \operatorname{rad}(abc) -1\]
+\end{theorem}
+\begin{proof}
+ Dividing by $c$ and let $f=\frac{a}{c},g=\frac{b}{c}$.Then $f+g=1$, where $f,g$ are rational functions. Differentiating, we get $f'+g'=0$, which we rewrite as \[\frac{f'}{f}f+\frac{g'}{g}g=0\]
+So that \[\frac{b}{a}=\frac{g}{g}=-\frac{\frac{f'}{f}}{\frac{g'}{g}}\]
+\end{proof}
+
+\begin{theorem}[Newton's Formula]
+
+\end{theorem}
+\begin{proof}
+Let $h(x)=\prod_{i=1}^{n}(x-x_i)$. Then \[h'(x)=\sum_{i=1}^{n} \frac{h(x)}{x-x_i}\]
+\[x^{k+1}h'(x)=\sum_{i=1}^{n}\frac{x^{k+1}-x_i^{k+1}+x_i^{k+1}}{x-x_i}h(x)\]
+
+
+\[\text{if } k\ge n, 0=s_k-\sigma_1s_{k-1}+\cdot \cdot \cdot +(-1)^n\sigma_ns_{k-n}\]
+\[\text{if } k<n, (-1)^k(n-k)\sigma_k=s_k-\sigma_1s_{k-1}+\cdot \cdot \cdot +(-1)^k\sigma_ks_0\]
+For example,\[D(x_1,x_2,x_3)=\begin{vmatrix}
+  s_0& s_1 & s_2\\
+  s_1& s_2 &s_3 \\
+  s_2& s_3 &s_4
+\end{vmatrix}
+\]
+\[s_0=3,s_1=\sigma_1,s_2=\sigma_1^2-2\sigma_2,s_3=\sigma_1^3-3\sigma_1
+\sigma_2+3\sigma_3,s_4=\sigma_1^4-4\sigma_1^2\sigma_2+4\sigma_1\sigma_3
++2\sigma_2^2\]
+
+\end{proof}
+
+
+\section{Polynomials Revisited: Structure of Fields}
+\subsection{Algebraic Field Extensions}
+\begin{definition}[extension field]
+A field $F$ is said to be an extension field of $K$ provided that $K$ is a subfield of $F$.
+\end{definition}
+If $F$ is an extension field of $K$, then $F$ is a vector space over $K$. The dimension of the $K$-vector space $F$ will be denoted by $[F:K]$. $F$ is said to be a finite dimensional extension or infinite dimensional extension of $K$ according as $[F:K]$ is finite or infinite.
+\begin{theorem}
+Let F be an extension field of E and E an extension field of K. Then [F:K]=[F:E][E:K]. Futhermore [F:K] is finite if and only if [F:E] and [E:K] are finite.
+\end{theorem}
+In the situation $K\in E\in F$ of the above theorem, $E$ is said to be an intermediate field of $K$ and $F$.
+
+
+\subsection{The Fundamental Theorem of Galois Theory}
+\begin{definition}
+Let $E$ and $F$ be extension fields of a field $K$. A nonzero map $\sigma:E\longrightarrow F$ which is both a field and a $K$-module homomorphism is called a $K$-homomorphism. Similarly if a field automorphism $\sigma\in \operatorname{Aut}F$ is a $K$-homomorphism, then $\sigma$ is called a $K$-automorphism of $F$. The group of all $K$-automorphism of $F$ is called the Galios group if $F$ over $K$ and is denoted $\operatorname{Aut}_KF$.
+\end{definition}
+\begin{theorem}
+Let F be an extension field of K and $f\in K[x]$. If $u\in F$ is a root of f and $\sigma\in\operatorname{Aut}_KF$, then $\sigma(u)\in F$ is also a root of f.
+\end{theorem}
+
+\begin{example}
+If $F=\mathbb{Q}(\sqrt2,\sqrt3)=\mathbb{Q}(\sqrt2)(\sqrt3)$, then since $x^2-3$ is irreducible over $\QQ(\sqrt{2})$
+
+\end{example}
+
+\begin{theorem}
+Let F be an extension field of K, E an intermediate field and H a sbugroup of $Aut_KF$. Then
+\begin{align*}
+&(i)H'=\left\{ v\in F|\sigma(v)=v \forall \sigma\in H \right\}\text{ is an intermediate field of the extension}\\
+&(ii)E'=\left\{ \sigma\in Aut_KF|\sigma(u)=u \forall u\in E \right\}=Aut_EF\text{ is a subgroup of }Aut_KF\\
+\end{align*}
+
+\end{theorem}
+The field $H'$ is called the fix field of $H$ in $F$.
+\begin{definition}
+Let $F$ be an extension field of $K$ s.t. the fixed field of the galios group  $Aut_KF$ is K itself. Then $F$ is said to be a Galios extension of $K$.
+\end{definition}
+
+\begin{theorem}[Fundamental Theorem of Galios Theory]
+If F is a finite dimensional Galios extension of K, then there is a one to one correspond between the set of all intermediate fields of the extension and the set of all subgroups of the Galios group $Aut_KF$ such that:
+\end{theorem}
+
+
+\section{Matrices}
+
+\subsection{Schur Complement}
+\begin{definition}
+    Suppose $A=\begin{pmatrix}
+        A_{11} & A_{12}\\
+         A_{21}&A_{22}
+       \end{pmatrix}$. If $A_{11}$ is invertible, define the Schur complement of $A$ to be
+        $A\setminus A_{11}=A_{22}-A_{21}A_{11}^{-1}A_{12}$.
+
+\end{definition}
+\begin{theorem}
+    $\begin{pmatrix}
+        I & O\\
+        -A_{21}A_{11}^{-1} &I
+       \end{pmatrix}
+       \begin{pmatrix}
+        A_{11} & A_{12}\\
+        A_{21} & A_{22}
+       \end{pmatrix}=\begin{pmatrix}
+         A_{11}& A_{12}\\
+        O &A\setminus A_{11}
+       \end{pmatrix}$\par
+       $\begin{pmatrix}
+       A_{11} &A_{12} \\
+       A_{21} &A_{22}
+      \end{pmatrix}\begin{pmatrix}
+       I & -A_{11}^{-1}A_{12}\\
+       O & I
+      \end{pmatrix}=\begin{pmatrix}
+        A_{11}& O\\
+        A_{21}& A\setminus A_{11}
+      \end{pmatrix}$\par
+      $\begin{pmatrix}
+        I & O\\
+        -A_{21}A_{11}^{-1} &I
+       \end{pmatrix}\begin{pmatrix}
+        A_{11} & A_{12}\\
+        A_{21} & A_{22}
+       \end{pmatrix}\begin{pmatrix}
+        I & -A_{11}^{-1}A_{12}\\
+        O & I
+       \end{pmatrix}
+      =\begin{pmatrix}
+       A_{11} &O \\
+       O &A\setminus A_{11}
+      \end{pmatrix}$
+\end{theorem}
+If $A$ is Hermitian
+\begin{theorem}[Haynsworth]
+    
+\end{theorem}
+
+
+\section{Linear Homomorphism}
+\subsection{exact sequence}
+Exact sequence provide a sophisticated method for describing elementary properties of linear mappings. 
+\begin{definition}
+Suppose that 
+\begin{equation*}
+\xymatrix{0 \ar[r]& F \ar[r]^\varphi & E \ar[r]^\psi &G \ar[r] &0}
+\end{equation*}
+is a short exact sequence, and assume that $\chi : E\longleftarrow G$ is a linear mapping such that \[\psi \circ \chi =\iota \]
+Then $\chi$ is said to split the sequence and the sequence 
+\[\xymatrix{0 \ar[r]& F \ar[r]^\varphi & E \ar@/^/[r]^\psi  &G \ar[r] \ar@/^/[l]^\chi &0}\]
+is called a split short exact sequence.
+\end{definition}
+\begin{theorem}
+Consider the short exact sequence 
+\[\xymatrix{0 \ar[r] & E_1 \ar[r]^i & E \ar[r]^\pi & E/E_1 \ar[r] & 0}\]
+Then the relation \xymatrix{\chi \ar@/^/[r] & \operatorname{Im} \chi \ar@/^/[l] } defines a bijection between linear mappings $\chi : E\longleftarrow E/E_1$ which split the sequence, and complementary subspaces of $E_1$ in $E$.
+\end{theorem}
+\begin{proof}
+
+\end{proof}
+\begin{theorem}
+A short exact sequence \xymatrix{} is split if and only if there exist a linear mapping $\omega:F\longleftarrow E$ such that $\omega\circ\varphi=\iota$
+\end{theorem}
+\begin{theorem}
+Given an exact sequence 
+\[\xymatrix{E \ar[r]^\varphi & F \ar[r]^\psi &G \ar[r]^\chi &H}\]
+Then \[ \varphi \text{ is surjective}\Longleftrightarrow \chi \text{ is injective} \]
+\end{theorem}
+\begin{proof}
+\begin{align*}
+\chi \text{ is injective} &\Longleftrightarrow \ker \chi =\left\{0\right\}\\
+&\Longleftrightarrow \operatorname{Im} \psi =\left\{0\right\}\\
+&\Longleftrightarrow \ker \psi=F\\
+&\Longleftrightarrow \operatorname{Im} \varphi =F\\
+&\Longleftrightarrow \varphi \text{ is surjective}
+\end{align*}
+\end{proof}
+\begin{theorem}[5-lemma]
+Assume a commutative diagram of linear maps where both horizontal sequence are exact.
+\[\xymatrix{
+E_1 \ar[r]^{\alpha_1} \ar[d]^{\varphi_1} & E_2 \ar[r]^{\alpha_2} \ar[d]^{\varphi_2} & E_3 \ar[r]^{\alpha_3} \ar[d]^{\varphi_3} & E_4 \ar[r]^{\alpha_4} \ar[d]^{\varphi_4} & E_5 \ar[d]^{\varphi_5}\\
+F_1 \ar[r]^{\beta_1} & F_2 \ar[r]^{\beta_2} & F_3 \ar[r]^{\beta_3} & F_4 \ar[r]^{\beta_4} &F_5}\]
+Then :\par
+i) If $\varphi_4$ is injective and $\varphi_1$ is surjective, then \[\ker \varphi_3= \alpha_2( \ker \varphi_2 )\]
+ii) If $\varphi_5$ is injective and $\varphi_2$ is surjective, then \[ \operatorname{Im} \varphi_3=\beta_3^{-1} (\operatorname{Im} \varphi_4) \]
+iii) If maps $\varphi_1,\varphi_2,\varphi_4,\varphi_5$ are linear isomorphisms, then so is $\varphi_3$. 
+\end{theorem}
+\begin{proof}
+
+\end{proof}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

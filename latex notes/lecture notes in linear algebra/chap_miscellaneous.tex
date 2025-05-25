@@ -1,0 +1,116 @@
+
+\chapter{Miscellaneous Topics}
+In this chapter, we discuss several advanced topics making use of linear algebra.
+\section{Gelfand-Tsetlin Integrable System}
+We begin by listing some facts which are useful to the following discussion.
+\begin{theorem}[Cauchy's Interlace Theroem]
+Let A be a Hermitian matrix of order n, and let B be a principal submatrix of A of order $n-1$. If $\lambda_n \le \lambda_{n-1} \le\cdots\le \lambda_2 \le \lambda_1$ lists the eigenvalues of A and $\mu_n \le \mu_{n-1} \le···\le \mu_3 \le \mu_2$ the eigenvalues of B, then $\lambda_n \le \mu_n \le \lambda_{n-1} \le \mu_{n-1} \le\cdots\le \lambda_2 \le \mu_2 \le \lambda_1$
+\end{theorem}
+\begin{proof}[Proof 1]
+This is an immediate consequence of the Courant-Fischer minimax theorem.
+\end{proof}
+\begin{proof}[Proof 2]
+Compute the characteristic polynomial of the matrix in two different ways, one diagonal, the other submatrix diagonal and compare the coefficients. 
+\[A\sim \begin{pmatrix}\mu_2 &  &  &  & a_2\\ & \mu_3 &  &  & a_3\\ &  &\ddots &  & \vdots\\&  &  & \mu_n &a_n \\\bar{a}_2& \bar{a}_3 & \cdots & \bar{a}_n &d
+\end{pmatrix}\sim\begin{pmatrix}\lambda_1 &  &  &  & \\& \lambda_2 &  &  & \\ &  & \ddots &  & \\ &  &  & \lambda_{n-1} & \\&  &  &  &\lambda_n\end{pmatrix}\]
+\[\prod_{i=1}^{n} (\lambda-\lambda_i)=(\lambda-d-\sum_{i=2}^{n}\frac{\left | a_i \right |^2}{\lambda-\mu_i})  \prod_{i=2}^{n}(\lambda-\mu_i) \]
+\[\left | a_k \right | ^2=\frac{\prod _{i=1}^{n}(\mu_k-\lambda_i)}{\prod _{i\ne k,i=2}^n(\mu_k-\mu_i)}, k=2,\cdots,n\]
+\end{proof}
+\begin{definition}[Gelfand-Tsetlin Integrable System]
+The phase space $M=\text{Hermite}(n\times n)$. Let $A=(a_{ij})$ where $a_{ij}$ be the coordinate function of $(i,j)$. Define a Poisson bracket on $M$ by $\left\{a_{ij},a_{kl}\right\}=\delta_{jk}a_{il}-\delta_{li}a_{kj}$. This is Gelfand-Tsetlin integrable system.
+\end{definition}
+\begin{lemma}
+$\text{Tr}(A^k)$ is a Casimir function.
+\end{lemma}
+\begin{proof}
+We want to show: $\left\{\text{Tr}(A^k),a_{ij}\right\}=\mathcal{L}_{X_{a_{ij}}}\text{Tr}(A^k)=0$. Noticing that Tr$(A^k)$ is a symmetric function of eigenvalue functions, we want to show $X_{a_{ij}}$ is a tangent vector of a similarity transformation.
+\[X_{a_{ij}}(a_{kl})=\left\{a_{ij},a_{kl}\right\}=\delta_{jk}a_{il}-\delta_{li}a_{kj}\]
+\[X_{a_{ij}}=(\delta_{jk}a_{il}-\delta_{li}a_{kj})\frac{\partial }{\partial a_{kl}} \]
+\[\mathcal{L}_{X_{a_{ij}}}(A)=[E_{ij},A]\]
+\[g^t_{X_{a_{ij}}}(A)=e^{tE_{ij}}Ae^{-tE_{ij}}\]
+\end{proof}
+\begin{theorem}
+Denote $A^{(k)}$ the left-top $k\times k$ submatrix of $A\in\text{Hermite}(n\times n)$. Then $\left\{Tr(A^{(k)^j},Tr(A^{(s)^t})\right\}$=0.
+\end{theorem}
+\begin{proof}
+We do Thimm's trick.
+\[M_{1\times1}\subset M_{2\times2} \subset\cdots\subset M_{n\times n}\]
+\[C^\infty(M_{n\times n})\longrightarrow C^\infty(M_{(n-1)\times (n-1)})\longrightarrow\cdots\longrightarrow C^\infty(M_{1\times 1})\text{ by restriction}\]
+\end{proof}
+
+\section{Unitary Matrices}
+\begin{theorem}
+    Suppose $U\in U(n)$ is unitary and symmetric, then $U=P^{-1}\Lambda P$, where $P\in O(n)$ and $\Lambda$ is unitary diagonal.
+\end{theorem}
+\begin{proof}
+    The key is to separate the real and imaginary part of $U$, i.e. $U=A+iB$ with $A,B\in \mathbb{R}^{n\times n}$.\par
+    Notice that $A$ and $B$ are symmetric, $U^*U=\bar{U}U=(A-iB)(A+iB)$, so that $A^2+B^2=I$ and $AB=BA$.
+Therefore, $\exists P\in O(n)$, s.t. $A=P^{-1}\Lambda_1 P,B=P^{-1}\Lambda_2 P$ and $\Lambda_1,\Lambda_2$ are real diagonal.
+Thus $U=P^{-1}(\Lambda_1+i\Lambda_2)P:=P^{-1}\Lambda P$, where $\Lambda$ is diagonal. $\Lambda$ is unitary because $U$ is unitary.
+\end{proof}
+\begin{corollary}
+    Suppose $U\in U(n)$ is unitary and symmetric, then $U=B^tB$, where $B\in U(n)$.
+\end{corollary}
+\begin{theorem}
+    Any unitary matrix $U\in U(n)$ can be written as $U=P_{1}\Lambda P_{2}$, where $P_1,P_2\in O(n)$ and $\Lambda$ is a diagonal matrix.
+\end{theorem}
+\begin{proof}
+    Notice that $U^tU$ is a symmetric unitary matrix, therefore $U^tU=P^tDP$ where $P\in O(n)$ and $D$ is diagonal.
+Let $\Lambda$ be a square root of $D$, that is, $\Lambda^2=D$, then $\Lambda$ is also a unitary diagonal matrix, and $U^tU=P^t\Lambda^t\Lambda P$.
+Let $P_1=UP^{-1}\Lambda^{-1},P_{2}=P$, then $P_1^tP_1=I$. As $U,D,\Lambda$ are unitary, $P_1^*P_1=I$, so $P_1^t=P_1^*$. Therefore $P_1\in O(n)$. So $U=P_1\Lambda P_2$ satisfies the required conditions.
+\end{proof}
+\begin{corollary}[QS Decomposition]
+    $\forall U\in U(n)$, $\exists Q\in O(n),S\in U(n)$ s.t. $U=QS$ and $S=f(U^tU),\text{ for some } f\in \mathbb{C}[x]$
+\end{corollary}
+\begin{proof}
+    By the previous theorem, $U=P_1\Lambda P_2=P_1P_2 P_2^{-1}\Lambda P_2$. 
+We know $\Lambda =f(D)$, so $P_2^{-1}\Lambda P_2=f(P_2^{-1}DP_2)=f(U^tU)$.
+\end{proof}
+
+\section{Matrix Decomposition}
+In this section, we collect some results of matrix decomposition. 
+
+\subsection{Positive Definite Matrices}
+Throughout this subsection, $F=\mathbb{R}$ or $F=\mathbb{C}$.
+\begin{lemma}
+    If $P,Q\in \mathbb{C}^{n\times m}$, then 
+    \[P^*P=Q^*Q\Longleftrightarrow \exists U\in U(n)\text{, s.t. }Q=UP\]
+\end{lemma}
+\begin{proof}
+    Denote $A=P^*P=Q^*Q$, then $\ker A=\ker P=\ker Q$. Consider an inner product on $\mathbb{C}^m/\ker A$ defined by $\left\langle X,Y\right\rangle _A=Y^*AX$, and
+an inner product on $\mathbb{C}^n$ defined by $\left\langle X,Y\right\rangle _0=Y^*X$. Then $P:\mathbb{C}^m/\ker A\to \operatorname{Im}P$, $Q:\mathbb{C}^m/\ker A\to\operatorname{Im}Q$ are both isometries.
+So there exists a isometry $U:\operatorname{Im}P\to\operatorname{Im}Q$. Extending $U$ to an isometry of $\mathbb{C}^n$ gives the result.
+\end{proof}
+\begin{theorem}[Cholesky Decomposition]
+    If $A$ is positive definite, then there exist an invertible matrix $P$ s.t. $A=P^*P$. Futhermore, if we impose the following restrictions:\par
+    (1) $P$ is upper diagonal\par
+    (2) the diagonal elements of $P$ are positive real numbers\par
+    then $P$ is unique.
+\end{theorem}
+\begin{example}
+    For $A\in\mathbb{R}^n$, TFAE:\par
+    (1) $A$ is a product of two positive definite matrices\par
+    (2) $A$ is diagonalizable and all the eigenvalues of $A$ are positive
+
+\end{example}
+\begin{proof}
+    If $A=S_1S_2$, by Cholesky decomposition, $S_2=P^tP$, so $PAP^{-1}=PS_1P^t$ is still positive definite.\par
+    The other direction is evident.
+\end{proof}
+\begin{remark}
+    For semi-positive definite matrices, a similar result holds, but the matrix $P$ may not be invertible, and may not be unique.
+\end{remark}
+
+\subsection{}
+\begin{theorem}[LU Decomposition]
+    For $A\in GL_n(F)$, TFAE:
+    (1) the ordered principal minors of $A$ are nonzero
+    (2) $\exists L,U\in GL_n(F)$, $L$ is lower trianglular, $U$ is upper trianglular, and $A=LU$\par
+    Futhermore, if all the diagonal elements of $L$(or $U$) are $1$, then the decomposition is unique.
+    
+\end{theorem}
+
+\begin{theorem}[Bruhat Decomposition]
+
+    
+\end{theorem}

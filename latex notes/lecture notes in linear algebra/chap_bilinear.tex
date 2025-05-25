@@ -1,0 +1,429 @@
+\chapter{Theory of Bilinear Functions}
+
+Now we study the theory of bilinear functions. This chapter begins with a general definition of bilinear functions, then studies a more special case where the bilinear function is nondegenerate and induces a kind of duality. If we impose some other restrictions, then we would obtain metric vector spaces, and the more familiar inner product spaces.\par
+The duality provides us a powerful language to deal with the canonical form of normal operators, which is very difficult in the language of matrices. The bridge between these two viewpoints is that the transposition of a matrix is the adjoint of the operator corresponding to that matrix in the standard inner product space.\par
+We also know that the transposition of a matrix corresponds to the dual mapping of that matrix. And it is exactly the duality identify the dual mapping from the space of linear functions to the original space. These two different approaches lead to the same end.
+\section{Bilinear Functions}
+\begin{definition}[bilinear functions]
+Let $V$ and $W$ be vector spaces and $F$ be a field. Then a mapping $B:V\times W\to F$ satisfying 
+\begin{align*}
+B(\lambda v_1+\mu v_2,w)&=\lambda B(v_1,w)+\mu B(v_2,w)\quad \forall v_1,v_2\in V\,\,w\in W\\
+B(v,\lambda w_1+\mu w_2)&=\lambda B(v,w_1)+\mu B(v,w_2)\quad \forall v\in V\,\,w_1,w_2\in W
+\end{align*}
+\end{definition}
+\begin{remark}
+The space of all bilinear functions is denoted by $\text{Bil}(V,W;F)$.
+\end{remark}
+
+\begin{definition}[radicals]
+A bilinear function $B$ in $V\times W$ determines two subspaces $N_V\subset V$ and $N_W\subset W$ defined by 
+\begin{align*}
+N_V&=\left \{ v|B(v,W)=0 \right \} \\
+N_W&=\left \{ w|B(V,w)=0 \right \} 
+\end{align*}
+They are called the left radical and the right radical respectively.
+\end{definition}
+\begin{definition}[non-degenerate]
+If $N_V=N_W=\left \{ 0 \right \} $, then $B$ is called non-degenerate.
+\end{definition}
+\begin{definition}[orthogonality]
+Two vectors $v\in V$ and $w\in W$ are called orthogonal if $B(v,w)=0$, written $v\perp w$. Orthogonality for subspaces is defined similarly.
+\end{definition}
+\begin{definition}[orthogonal complement]
+Let $V_1$ be a subspace of $V$, then the vectors of $W$ which are orthogonal to $V_1$ forms a subspace $V_1^\perp$ of $W$. $V_1^\perp$ is called the orthogonal complement of $V_1$. In the same way $W_1\subset W$ determines an orthogonal complement $W_1^\perp\subset V$.
+\end{definition}
+
+\begin{theorem}
+$\text{Hom}(W,V^\vee)\simeq \text{Bil}(V,W;F)\simeq \text{Hom}(V,W^\vee)$
+\end{theorem}
+\begin{remark}
+Notice that for finite dimensional spaces $V,W$, a necessary condition for non-degenerate bilinear functions to exist is that $\dim V=\dim W$.
+\end{remark}
+\begin{corollary}
+Let $V,W$ be finite dimensional vector spaces, then \[\dim V-\dim N_V=\dim W-\dim N_W\]
+\end{corollary}
+\begin{theorem}
+Let $V,W$ be finite dimensional vector spaces with $\dim V=\dim W$, then $\forall B\in \text{Bil}(V,W;F)$, TFAE:\par
+(1) $B$ is non-degenerate.\par
+(2) $N_V=\left\{0\right\}$\par
+(3) $N_W=\left\{0\right\}$
+\end{theorem}
+
+
+
+\section{Dual Vector Spaces}
+In this section, we focus on non-degenerate bilinear functions.
+\subsection{Duality}
+\begin{definition}[dual spaces]
+Suppose $V,W$ is a pair of vector spaces, and assume that a fixed non-degenerate bilinear function, $\left\langle,\right\rangle$, in $V\times W$ is defined. Then $V$ and $W$ will be called \textbf{dual} with respect to the billinear function $\left\langle,\right\rangle$. 
+\end{definition}
+\begin{theorem}\label{general dual v.s. special dual}
+Let $V,W$ be a pair of vector spaces which are dual with respect to a scalar product $\left\langle,\right\rangle$. Then an injective linear map $\Phi : V \longrightarrow W^\vee$ is defined by \[\Phi(v)(w)=\left\langle v,w\right\rangle\]
+\end{theorem}
+\begin{remark}
+If $E$ has finite dimension, then $\Phi$ is also surjective, hence an isomorphism.
+\end{remark}
+
+\begin{definition}[dual mapping]
+Suppose that $V,V'$ and $W,W'$ are two pairs of dual spaces and $\varphi:V\to W$ and $\varphi^*:W'\to V'$ are linear mappings. The mappings $\varphi$ and $\varphi^*$ are called dual if \[\left\langle \varphi v,w'\right\rangle=\left\langle v,\varphi^* w'\right\rangle \quad \forall v\in V,w'\in W\]
+\end{definition}
+Uniqueness comes immediately.
+\begin{theorem}
+There exists at most one dual mapping to a given linear mapping $\varphi:V\to W$.
+\end{theorem}
+Let us discuss the operations of dual mappings.
+\begin{theorem}
+Let $\sigma:V\to W$ and $\tau:V\to W$ and $r\in F$\par
+(1) $(\sigma+\tau)^*=\sigma^*+\tau^*$\par
+(2) $(r\tau)^*=r\tau^*$
+\end{theorem}
+Now we look at the kernel and image spaces.
+\begin{theorem}
+Let $\sigma:V\to W$,\par
+(1) $\ker \varphi^*=(\operatorname{Im}\varphi)^\perp$ \par
+(2) $\ker \varphi=(\operatorname{Im}\varphi^*)^\perp $
+\end{theorem}
+\begin{theorem}
+Consider two subapsces $V_1$ and $V_2$ of $V$, then \[ (V_1+V_2)^\perp=V_1^\perp\cap V_2^\perp\]
+\end{theorem}
+\subsection{Space of Linear Functions}
+Let $V$ be a vector space and $V^\vee $ be the space of linear functions in $V$, then they are dual w.r.t. the natural evaluation.
+The space of linear functions have three important results, which are not valid for arbitrary pairs of dual spaces.\par
+The first result is the existence of dual mapping.
+\begin{theorem}
+Let $W,W'$ be arbitrary dual spaces and $\varphi:V\to W$ be a linear mapping. Then a dual mapping $\varphi^*:W'\to V^\vee  $ exists and is given by \[(\varphi^*w')(v)=\left\langle \varphi x,w'\right\rangle\quad\forall w'\in W', v\in V\]
+\end{theorem}
+
+\begin{theorem}
+Suppose $\varphi:V\to W$ is a linear mapping, and consider the dual mapping $\varphi^*:W^\vee\to V^\vee$. Then \[ \operatorname{Im}\varphi^*=(\ker \varphi)^\perp\]
+\end{theorem}
+
+\begin{theorem}
+If $W\subset V$ is any subspace, then \[ W^{\perp\perp}=W\]
+\end{theorem}
+Let us consider direct decompositions.
+\begin{theorem}
+Suppose $V=V_1\oplus V_2$. Then $V^\vee=V_1^\perp\oplus V_2^\perp $ and the pairs $V_1^\perp,V_2$ and $V_2^\perp,V_1$ are dual w.r.t. the induced evaluation.
+\end{theorem}
+\begin{remark}
+Thus the induced injections $V_1^\perp \to V_2^\vee$ and $V_2^\perp\to V_1^\vee$ are surjective, and hence $V^\vee=V_1^\vee\oplus V_2^\vee$. Finally $(V_1^\perp)^{\perp\perp}=V_1^\perp$ and $(V_2^\perp)^{\perp\perp}=V_2^\perp$.
+\end{remark}
+
+
+\subsection{Finite Dimensional Vector Spaces}
+For finite dimensional vector spaces, the dual spaces have some nice property, and the most important is remark\ref{general dual v.s. special dual}, which has established the relationship between a general dual space and the specific dual space of linear functions. Thus, we can transport the properties from the space of linear functions to any general dual space.
+
+
+
+\section{Metric Vector Spaces}
+In this section, all vector spaces are assumed finite-dimensional. We restrict our attention to two special kinds of bilinear form, namely the symmetic ones and the alternate ones. Note that we do not assume non-degeneration, because actually that is what we are going to deal with.
+\begin{definition}
+A bilinear form $V\times V\to F$ is \par
+(1) \textbf{symmetric} if $\left\langle x,y\right\rangle = \left\langle y,x \right\rangle\quad\forall x,y\in V$\par
+(2) \textbf{skew-symmetric} if $\left\langle x,y\right\rangle =- \left\langle y,x \right\rangle\quad\forall x,y\in V$\par
+(3) \textbf{alternate} if $\left\langle x,y\right\rangle = 0\quad\forall x\in V$
+\end{definition}
+\begin{definition}
+The pair $(V,\left\langle ,\right\rangle)$ is called a \textbf{metric vetor space} if $\left\langle ,\right\rangle$ is symmetric, skew-symmetric, or alternate.
+\end{definition}
+\begin{remark}
+A metric vector space with a symmetric/alternate form is called an orthogonal/symplectic geometry. 
+\end{remark}
+We exhibit the relationship between alternate and skew symmetric bilinear forms.
+\begin{theorem}
+Let $V$ be a vector space over a field $F$.\par
+(1) If $\text{char}(F)=2$, then \[alternate\Longrightarrow symmetric \Longleftrightarrow skew\text{-}symmetric\]
+(2) If $\text{char}(F)\ne2$, then \[alternate\Longleftrightarrow skew\text{-}symmetric\]
+\end{theorem}
+The reason we focus on symmetric or alternate bilinear forms is that only these kinds of bilinear forms guarantee the symmetric of orthogonality.
+\begin{theorem}
+Let $V$ be a vector space with a bilinear form. TFAE:\par
+(1) Orthogonality is a symmetric relation, i.e. $x\perp y\Longrightarrow y\perp x$\par
+(2) $V$ is a metric vector space, i.e. the form is symmetric or alternate.
+\end{theorem}
+Now we study two types of degenerate behaviors that a vector may possess. The first case is that a vector may be orthogonal to itself, and the more severe case is that it may be orthogonal to every vector in $V$.
+\begin{definition}[isotropic]
+Let $V$ be a metric vector space. A nonzero $v\in V$ is isotropic if $\left\langle v,v \right\rangle$=0. $V$ is isotropic if it contains at least one isotropic vector. 
+\end{definition}
+\begin{definition}[degenerate]
+A vector $v\in V$ is degenerate if $v\perp V$.
+\end{definition}
+\begin{remark}
+In a metric vetor space $V$, the left radical is equal to the right radical, called the radical of $V$ and denoted by $\rad(V)$. It is exactly the set of all degenerate vectors.
+\end{remark}
+\begin{definition}
+If $S$ is a subspace of a metric vector space $V$, then $\rad(S)$ denotes the set of vectors in $S$ that are degenerate in $S$.
+\end{definition}
+\begin{remark}
+$\rad(S)=S\cap S^\perp$
+\end{remark}
+\subsection{Orthogonal Direct Sum}
+\begin{definition}
+A metric vector space $V$ is the orthogonal direct sum of the subspace $S$ and $T$ if $V=S\oplus T$ and $S\perp T$, denoted by $V=S\odot T$.
+\end{definition}
+
+\begin{theorem}
+$V=\rad(V)\odot S$, where $S$ is non-degenerate.
+\end{theorem}
+\begin{proof}
+$S$ is any vector space complement of $\rad(V)$.
+\end{proof}
+
+\begin{lemma}
+Let $S$ be a subspace of a metric vector space $V$. If either $V$ or $S$ is non-degenerate, the linear map $\tau:V\to S^\vee $ defined by \[\tau x=\left\langle \cdot,x\right\rangle|_S\]
+is surjective and has kernel $S^\perp$.
+\end{lemma}
+\begin{proof}
+Use the Riesz representation theorem.
+\end{proof}
+\begin{theorem}
+Let $S$ be a subspace of $V$. If $S$ is non-degenerate, then \[\dim(S)+\dim(S^\perp)=\dim(V)\] Hence TFAE:\par
+(1) $V=S+S^\perp$\par
+(2) $S$ is non-degenerate\par
+(3) $V=S\odot S^\perp$
+\end{theorem}
+\begin{proof}
+Application of the above lemma.
+\end{proof}
+\begin{theorem}
+Let $S$ be a subspace of $V$. If $V$ is non-degenerate, then \[\dim(S)+\dim(S^\perp)=\dim(V)\] Hence:\par
+(1) $S^{\perp\perp}=S$\par
+(2) $\rad(S)=\rad(S^\perp)$\par
+(3) $S$ is non-degenerate if and only if $S^\perp$ is non-degenerate
+\end{theorem}
+\subsection{Isometry}
+We now turn to a discussion of structure-preserving maps on metric vector spaces.
+\begin{definition}
+Let $V$ and $W$ be metric vector spaces. A linear isomorphism is called an isometry if it preserves the metric. If an isometry exists from $V$ to $W$, we write $V\approx W$.
+\end{definition}
+\begin{remark}
+If $V$ is a nondegenerate orthogonal/symplectic geometry, an isometry of $V$ is called an orthogonal/symplectic transformation.
+\end{remark}
+\subsection{Hyperbolic Spaces}
+A special type of two-dimensional metric vector space plays an important role in the structure theory of metric vector spaces, so we single out this construction in this subsection.
+\begin{definition}
+Let $V$ be a metric vector space. A \textbf{hyperbolic pair} is a pair of vectors $u,v\in V$ for which \[\left \langle u,u \right \rangle =\left \langle v,v \right \rangle =0,\left \langle u,v \right \rangle=1 \]
+The subspace $H=\text{span}(u,v)$ is called a \textbf{hyperbolic plane}, and any space which is an orthogonal direct sum of several hyperbolic planes is called a \textbf{hyperbolic space}. 
+\end{definition}
+
+
+\section{Real and Complex Inner Product Spaces}
+For complex inner product spaces, we are no long considering bilinear forms, but sesquilinear forms. Here we impose positive-definiteness, but the vector space need not to be finite dimensional.
+\begin{definition}[inner product]
+Let $V$ be a vector space over $F=\mathbb{R}$ or $F=\mathbb{C}$. An inner product on $V$ is a positive-definite sesquilinear function $\left \langle , \right \rangle :V\times V\longrightarrow F$.
+
+
+\end{definition}
+
+\begin{example}[standard inner product on $\mathbb{R}^n$]
+\begin{equation*}
+\left \langle (r_1,\cdots,r_n),(s_1,\cdots,s_n) \right \rangle=r_1s_1+\cdots+r_ns_n
+\end{equation*}
+\end{example}
+\begin{example}[standard inner product on $\mathbb{R}^n$]
+\begin{equation*}
+\left \langle (r_1,\cdots,r_n),(s_1,\cdots,s_n) \right \rangle=r_1\bar{s}_1+\cdots+r_n\bar{s}_n
+\end{equation*}
+\end{example}
+\begin{example}
+The vectpr space $C[a,b]$ of all continous complex valued functions on the closed interval $[a,b]$ is a complex inner product space under the inner product 
+\begin{equation*}
+\left \langle f,g\right \rangle =\int_a^bf(x)\overline{g(x)}\mathrm{d}x
+\end{equation*}
+\end{example}
+
+The following lemma is a simple conseqence of the positive definiteness.
+\begin{lemma}
+If $\left \langle u,x \right \rangle =\left \langle v,x \right \rangle$ for every $x\in V$, then $u=v$.
+\end{lemma}
+The next result points out one of the main differneces between real and complex inner product spaces and will play a key role in later work. 
+\begin{theorem}
+Let $\tau\in \mathcal{L}(V)$.\par
+1)\begin{equation*}  \left\langle \tau v,w\right\rangle=0\,\, \forall v,w\in V\Longrightarrow \tau=0 \end{equation*}
+2)If $V$ is a complex inner product space, then
+\begin{equation*} \left\langle\tau v,v\right\rangle=0\,\, \forall v\in V\Longrightarrow\tau=0\end{equation*}
+but this does not hold for real inner porduct spaces.
+\end{theorem}
+\begin{proof}
+Part 1) follow directly from the above lemma. 
+\end{proof}
+\begin{definition}[norm]
+If $V$ is an inner product space, the \textbf{norm} of $v\in V$ is defined by
+\begin{equation*} \left \| v \right \| =\sqrt{\left \langle v,v \right \rangle } \end{equation*}
+\end{definition}
+Recalling that an isometry is an isomorphism which preserve the inner product, we have the following equivalent definition.
+\begin{theorem}
+An isomorphism $\tau\in \text{Hom}(V,W)$ is an isometry if and only if it preserves the norm.
+\end{theorem}
+
+Recalling the definition of an orthogonal direct sum, in an inner product space, we have the following properties.\par
+By positive definiteness, we have a non-degenerate property.
+\begin{theorem}
+For a subspace $S\subset V$, $\rad(S)=\left \{ 0 \right \} $.
+\end{theorem}
+
+We also have the uniqueness of an orthogonal direct sum decomposition.
+
+\subsection{Gram-Schmidt Orthogonalization}
+The Gram-Schmidt Orthogonalization process guarantee that for a finite dimensional inner product space, 
+\begin{theorem}
+If $V=S\odot T$, then $T=S^\perp$.
+\end{theorem}
+
+
+\subsection{Application: QR Decomposition}
+\begin{theorem}[QR decomposition]
+    
+\end{theorem}
+
+\begin{theorem}[Cholesky decomposition]
+    
+\end{theorem}
+
+\subsection{The Projection Theorem}
+\begin{theorem}
+If $S$ is a finite-dimensional subspace of an inner product space $V$, then $V=S\odot S^\perp$.
+\end{theorem}
+We can prove it by the general theory of metric vector space, but for inner product spaces, we can approach the problem by Gram-Schmidt Orthogonalization.
+\begin{theorem}
+
+\end{theorem}
+
+
+
+
+\subsection{Schur Triangularization}
+
+
+
+
+\section{Structure Theory for Normal Operators}
+Throughout this section, all vector spaces are assumed to be finite-dimensional unless noted. Also the field $F$ is either $\mathbb{R}$ or $\mathbb{C}$.
+\subsection{The Adjoint of a Linear Operator}
+We begin by limiting our attention within inner product spaces. We want to study a special type of linear operator, namely the normal operators. First we recall a definition.
+\begin{definition}
+Let $V$ and $W$ be finite-dimensional inner product spaces over $F$ and let $\tau\in \text{Hom}(V,W)$. Then there is a unique function $\tau^*:W\to V$ defined by \[\left \langle\tau v,w \right \rangle =\left \langle v,\tau^*w \right \rangle  \]
+\end{definition}
+\begin{remark}
+This is a special case of the more general construction of adjoint operators, where we restrict the nondegenerate bilinear form to the inner product.
+\end{remark}
+Here are some basic properties of the adjoint operator. These properties essentially rely on the properties of inner product spaces.
+\begin{theorem}
+Let $V$ and $W$ be finite-dimensional inner product spaces over $F$ and let $\sigma,\tau\in \text{Hom}(V,W)$ and $r\in F$,\par
+(1) $(\sigma+\tau)^*=\sigma^*+\tau^*$\par
+(2) $(r\tau)^*=\bar{r}\tau^*$\par
+(3) $\tau^{**}=\tau$, and so $\left \langle\tau^* v,w \right \rangle =\left \langle v,\tau w \right \rangle $ \par
+(4) If $V=W$, then $(\sigma\tau)^*=\tau^*\sigma^*$ \par
+(5) If $\tau$ is invertible, then $(\tau^{-1})^*=(\tau^*)^{-1}$\par
+(6) If $V=W$ and $p(x)\in\mathbb{R}[x]$, then $p(\tau)^*=p(\tau^*)$\par
+\end{theorem}
+\begin{theorem}
+If $\tau\in \text{End}(V)$ and $S$ is a subspace of $V$, then\par
+(1) $S$ is $\tau$-invariant if and only if $S^\perp$ is $\tau^*$-invariant \par
+(2) $(S,S^\perp)$ reduces $\tau$ if and only if $S$ is both $\tau$-invariant and $\tau^*$-invariant
+\end{theorem}
+\begin{theorem}
+Let $V$ and $W$ be finite-dimensional inner product spaces over $F$ and let $\tau\in \text{Hom}(V,W)$. \par
+(1) $\ker(\tau^*)=\operatorname{Im}(\tau)^\perp$ and $\operatorname{Im}(\tau^*)=\ker(\tau)^\perp$ \par
+(2) $\ker(\tau^*\tau)=\ker(\tau)$ and $\ker(\tau\tau^*)=\ker(\tau^*)$ \par
+(3) $\operatorname{Im}(\tau^*\tau)=\operatorname{Im}(\tau)$ and $\operatorname{Im}(\tau\tau^*)=\operatorname{Im}(\tau^*)$ \par
+(4) $(\rho_{S,T})^*=\rho_{T^\perp,S^\perp}$
+\end{theorem}
+
+\subsection{Orthogonal Projections}
+An operator $\rho$ is a projection operator if and only if it is idempotent. In an inner product space, we can single out some special projection operators.
+\begin{definition}
+A projection of the form $\rho_{S,S^\perp}$ is said to be orthogonal.
+\end{definition}
+\begin{remark}
+Some care must be taken to avoid confusion between orthogonal projections and two projections that are orthogonal to each other, that is $\rho\sigma=\sigma\rho=0$.
+\end{remark}
+Here is a characterization of orthogonal projections.
+\begin{theorem}
+Let $V$ be a finite-dimensional inner product space. TFAE:\par
+(1) $\rho$ is an orthogonal projection\par
+(2) $\rho$ is idempotent and self-adjoint\par
+(3) $\rho$ is idempotent and does not expand lengths
+\end{theorem}
+
+
+\subsection{Normal Operators}
+\begin{definition}
+A linear operator $\tau$ on an inner product space $V$ is normal if it commutes with its adjoint.
+\end{definition}
+\begin{theorem}
+Let $\tau\in \text{End}(V)$ be normal \par
+(1) The following are also normal:\par
+
+\quad a. $\tau|_S$ if $\tau$ reudces $(S,S^\perp)$\par
+\quad b. $\tau^*$\par
+\quad c. $\tau^{-1}$ if $\tau$ is invertible\par
+\quad d. $p(\tau)$, for any polynomial $p(x)\in F[x]$\par
+
+(2) For any $v,w\in V$, $\left \langle \tau v,\tau w \right \rangle =\left \langle \tau^* v,\tau^* w \right \rangle $, and in particular $\left \| \tau v \right \| =\left \| \tau^* w \right \| $, and so \[\ker(\tau^*)=\ker(\tau)\]\par
+(3) For any integer $k\ge 1$, \[\ker(\tau^k)=\ker(\tau)\]\par
+(4) The minimal polynomial $m_\tau(x)$ is a product of distinct prime monic polynomials\par
+(5) $\tau v=\lambda v\Longleftrightarrow \tau^*v=\bar{\lambda}v$ \par
+(6) If $S$ and $T$ are submodules of $V_\tau$ with relatively prime orders, then $S\perp T$, and in particular, if $\lambda$ and $\nu$ are distinct eigenvalues of $\tau$, then $\mathcal{E}_\lambda\perp \mathcal{E}_\nu$
+\end{theorem}
+Using the general structure above, we can obtain the spectral theorem for normal operators.
+\begin{theorem}[spectral theorem for normal operators: complex case]
+Let $V$ be finite-dimensional complex inner product spaces and let $\tau\in \text{End}(V)$. TFAE:\par
+(1) $\tau$ is normal\par
+(2) $\tau$ is unitary diagonalizable\par
+(3) $\tau$ has an orthogonal spectral resolution \[\tau=\lambda_1\rho_1+\cdots+\lambda_k\rho_k\]
+\end{theorem}
+\begin{theorem}[spectral theorem for normal operators: real case]
+
+\end{theorem}
+\subsection{Functional Calculus}
+
+
+\subsection{Application: Positive Operators}
+
+
+
+\subsection{Application: The Polar Decomposition}
+It is well-known that any nonzero complex number $z$ can be written in the polar form $z=\rho e^{i\theta}$. We can do the same for any nonzero linear operator $\tau$ on a finite-dimensional complex inner product space.
+\begin{theorem}
+Let $\tau$ be a nonzero linear operator on a finite-dimensional complex inner product space $V$.\par
+(1) There exist a positive operator $\rho$ and a unitary operator $\nu$ for which $\tau=\nu\rho$. Moreover, if $\tau$ is invertible, then the decomposition is unique.\par
+(2) There exist a positive operator $\sigma$ and a unitary operator $\mu$ for which $\tau=\sigma\mu$. Moreover, if $\tau$ is invertible, then the decomposition is unique.
+\end{theorem}
+Any unitary operator $\mu$ has the form $\mu=e^{i\sigma}$, where $\sigma$ is a self adjoint operator. This gives the following corollary.
+\begin{corollary}
+Let $\tau$ be a nonzero linear operator on a finite-dimensional complex inner product space $V$. Then there is a positive operator $\rho$ and a self-adjoint operator $\sigma$ for which $\tau$ has the polar decomposition \[\tau=\rho e^{i\sigma}\]
+Moreover, if $\tau$ is invertible, then the decomposition is unique.
+\end{corollary}
+Normal operators can be characterized using the polar decomposition.
+\begin{theorem}
+Let $\tau=\rho e^{i\sigma}$ be a polar decomposition of a nonzero operator $\tau$. Then $\tau$ is normal if and only if $\rho\sigma=\sigma\rho$.
+\end{theorem}
+
+\subsection{Normal Operators in Complex Inner Product Spaces: A Summary}
+\begin{theorem}
+    Let $(V,\left\langle,\right\rangle)$ be a finite-dimensional inner product space, $\tau\in \text{End}(V)$. TFAE:\par
+(1) $\tau$ is normal \par
+(2) $\left\|\tau \alpha \right\|=\left\|\tau^*\alpha\right\|,\forall\alpha\in V$\par
+(3) $\tau=\tau_1+i\tau_2$, where $T_1,T_2$ are self-adjoint and commutative\par
+(4) If $\alpha\in v,c\in \mathbb{C}$, $\tau\alpha=c\alpha$, then $\tau^*\alpha=\bar{c}\alpha$\par
+(5) $\tau$ is diagonalizable\par
+(6) $\exists g\in\mathbb{C}[x]$ s.t. $T^*=g(T)$\par
+(7) If a subspace $W\subset V$ is $\tau$-invariant, then $W$ is $T^*$-invariant\par
+(8) $\tau=\rho\mu$, $\rho$ is positive and $\mu$ is unitary with $\rho\mu=\mu\rho$\par
+(9) $\tau$ has an orthogonal spectral resolution\par
+(10) $\tr(T^*T)=\sum_{i=1}^n \left|\lambda_i\right|^2$, where $\lambda_i$ are the eigenvalues of $T$
+\end{theorem}
+\begin{theorem}
+    If $S,T,ST$ are normal, then $TS$ is normal.
+\end{theorem}
+\begin{proof}
+    First, notice that the eigenvalues of $ST$ are the same as the eigenvalues of $TS$.\par
+    Next, $\tr((TS)^*(TS))=\tr(S^*T^*TS)=\tr(T^*TSS^*)=\tr(TT^*S^*S)=\tr(T^*S^*ST)=\tr((ST)^*ST)=\sum_{i=1}^n\left|\lambda_i\right|^2$.
+So $TS$ is normal.
+\end{proof}
+
+
+\section{Discussion}
+
+Section ??? follows \citet{RomanSteven2013Ala}

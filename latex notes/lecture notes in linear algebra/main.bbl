@@ -1,0 +1,28 @@
+\begin{thebibliography}{3}
+\providecommand{\natexlab}[1]{#1}
+\providecommand{\url}[1]{\texttt{#1}}
+\expandafter\ifx\csname urlstyle\endcsname\relax
+  \providecommand{\doi}[1]{doi: #1}\else
+  \providecommand{\doi}{doi: \begingroup \urlstyle{rm}\Url}\fi
+
+\bibitem[Bhatia(1997)]{alma990008014770106761}
+Rajendra Bhatia.
+\newblock \emph{Matrix analysis}.
+\newblock Graduate texts in mathematics. Springer, New York, 1997.
+\newblock ISBN 0387948465.
+
+\bibitem[Hall(2004)]{HallBrianC2004LgLa}
+Brian~C Hall.
+\newblock \emph{Lie groups, Lie algebras, and representations: an elementary
+  introduction}, volume 222 of \emph{Graduate Texts in Mathematics}.
+\newblock Springer, New York, NY, 2004.
+\newblock ISBN 0387401229.
+
+\bibitem[Roman(2013)]{RomanSteven2013Ala}
+Steven Roman.
+\newblock \emph{Advanced linear algebra}, volume 135 of \emph{Graduate texts in
+  mathematics}.
+\newblock Springer, 3rd ed. edition, 2013.
+\newblock ISBN 0387978372.
+
+\end{thebibliography}

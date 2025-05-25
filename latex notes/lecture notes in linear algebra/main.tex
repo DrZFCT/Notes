@@ -1,0 +1,82 @@
+\documentclass{book}
+\usepackage[utf8]{inputenc}
+\usepackage[a4paper,total={6in,10in}]{geometry}
+
+\usepackage{style}
+\usepackage{thmtools}
+\usepackage{thm-restate}
+
+\usepackage{verbatim}
+\usepackage[all,cmtip]{xy}
+
+%bib
+\usepackage[square]{natbib}
+\bibliographystyle{plainnat}
+
+
+\title{Lecture Notes in Linear Algebra}
+\author{Kaizhao Liu}
+\date{\today}
+
+\begin{document}
+\maketitle
+\tableofcontents
+\section{Prologue}
+In my opinion, \textbf{the goal of mathematics} is to develop theories to solve particular questions. \par
+These are the criterion for good theories. The theories should be understandable, that is, if one novice follow the thoery from the beginning to the end, he or she should find all definitions, examples, theorems, proofs, and other mathematical objects as natural as possible. Tricks are not allowed, but integrated in the theory as a natural consequence of the definition. \par
+The questions are from two sources. One is real world, the other is the theory. Some questions are natural and have pratical usage. Other questions can be developed to torture students, can be asked for fun or novelty, being more palyful and having no practical use. For studying purpose, I suggest the secular questions, that is, the first kind of questions. The second kind of questions can be omitted.\par
+Remember the theory is developed for real world questions. In the process of developing the theory, theoritical questions emerge and produce more theories. New thoeries can also be put into real-world use. Therefore, the \textbf{relationship between theories and questions} is that they support each other, and can not be divided. When reading this book, you need to keep in mind what are the questions we care about. In this way, you can have a better understanding of the theory. However note that, for a certain problem, there exists other approaches unpresented here. You should compare and contrast them with the approach presented in this book.\par
+Different theories have close relationship. As stated above, one theory can be developed from another theory. One theory can provide method for another theory. All these theories form a mathematician's toolbox.\par
+Please take great care of the process of developing the theory. The ideas and insight can not be stated completely because the fallacy of language. These are left to the readers to feel with hearts. Take special care of the history of the theory. \par
+
+\[\spadesuit\spadesuit\spadesuit\]
+\textbf{WARNING:THIS IS AN UNFINISHED MANUSCRIPT}\par
+\textbf{DO NOT TAKE IT SERIOUSLY}
+\[\spadesuit\spadesuit\spadesuit\]
+\begin{itemize}
+\item \textbf{Cayley-Hamilton Theorem}
+\item \textbf{Perron-Frobenius Theorem}
+\item \textbf{Algorithm: division with remainders}
+\item \textbf{Algorithm: Euclid's algorithm}
+\item \textbf{Euclid's ring}
+\item \textbf{prime ideal}
+\item \textbf{principle ideal domain}
+\item \textbf{Unique Factor Domain}
+\item \textbf{Mason-Stothers Theorem} 
+\item \textbf{symmetric polynomials}
+\begin{enumerate}
+    \item elementary symmetric polynomials
+    \item fundamental theorem of symmetric polynomials: (representation of symmetric polynomials by elementary symmetric polynomials) proof and computation
+\end{enumerate}
+\item \textbf{Newton's formula} 
+\begin{enumerate}
+    \item derivation
+    \item memorization
+    \item application
+\end{enumerate}
+\item \textbf{Smith normal form} 
+\begin{enumerate}
+    \item algorithm \textit{from easy to complex then to easy}
+    \item proof
+\end{enumerate}
+\end{itemize}
+\textbf{Relationships between similarities of matrix and }
+
+\section{Notations}
+
+We use upper case letters for general rings, fields, vector spaces \dots
+$\RR$ for real, and $\CC$ for complex, $\FF$ for either $\RR$ or $\CC$, $\FF_p$ for 
+
+
+\input{chap_basic_concepts.tex}
+\input{chap_structure_theory.tex}
+\input{chap_bilinear.tex}
+\input{chap_multilinear.tex}
+\input{chap_lie.tex}
+\input{chap_matrix_analysis.tex}
+\input{chap_Hilbert.tex}
+\input{chap_miscellaneous.tex}
+
+\bibliography{bib}
+
+\end{document}

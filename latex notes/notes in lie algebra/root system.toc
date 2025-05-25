@@ -1,7 +1,0 @@
-\contentsline {section}{\numberline {1}Root}{1}{section.1}%
-\contentsline {section}{\numberline {2}Example: Rank 2}{3}{section.2}%
-\contentsline {section}{\numberline {3}Example: Rank 3}{3}{section.3}%
-\contentsline {section}{\numberline {4}Additional Properties}{3}{section.4}%
-\contentsline {section}{\numberline {5}Application: Classical Lie Algebras}{3}{section.5}%
-\contentsline {section}{\numberline {6}Dynkin Diagrams}{3}{section.6}%
-\contentsline {section}{\numberline {7}The Root Lattice}{3}{section.7}%

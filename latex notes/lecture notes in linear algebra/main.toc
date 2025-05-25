@@ -1,0 +1,98 @@
+\contentsline {section}{\numberline {0.1}Prologue}{5}{section.0.1}%
+\contentsline {section}{\numberline {0.2}Notations}{6}{section.0.2}%
+\contentsline {chapter}{\numberline {1}Basic Concepts: Lost Properties}{7}{chapter.1}%
+\contentsline {section}{\numberline {1.1}Noncommutative-Rings}{7}{section.1.1}%
+\contentsline {section}{\numberline {1.2}Polynomials}{8}{section.1.2}%
+\contentsline {subsection}{\numberline {1.2.1}Euclid's algorithm}{8}{subsection.1.2.1}%
+\contentsline {subsection}{\numberline {1.2.2}}{8}{subsection.1.2.2}%
+\contentsline {subsection}{\numberline {1.2.3}symmetric polynomials}{8}{subsection.1.2.3}%
+\contentsline {subsection}{\numberline {1.2.4}}{9}{subsection.1.2.4}%
+\contentsline {section}{\numberline {1.3}Polynomials Revisited: Structure of Fields}{9}{section.1.3}%
+\contentsline {subsection}{\numberline {1.3.1}Algebraic Field Extensions}{9}{subsection.1.3.1}%
+\contentsline {subsection}{\numberline {1.3.2}The Fundamental Theorem of Galois Theory}{10}{subsection.1.3.2}%
+\contentsline {section}{\numberline {1.4}Matrices}{10}{section.1.4}%
+\contentsline {subsection}{\numberline {1.4.1}Schur Complement}{10}{subsection.1.4.1}%
+\contentsline {section}{\numberline {1.5}Linear Homomorphism}{10}{section.1.5}%
+\contentsline {subsection}{\numberline {1.5.1}exact sequence}{10}{subsection.1.5.1}%
+\contentsline {chapter}{\numberline {2}Structure Theory of a Linear Transformation}{13}{chapter.2}%
+\contentsline {section}{\numberline {2.1}$\lambda $-matrix}{13}{section.2.1}%
+\contentsline {subsection}{\numberline {2.1.1}Smith normal form}{13}{subsection.2.1.1}%
+\contentsline {subsection}{\numberline {2.1.2}Jordan normal form: alternative treatment}{14}{subsection.2.1.2}%
+\contentsline {subsection}{\numberline {2.1.3}The Elementary factors of $f(A)$}{14}{subsection.2.1.3}%
+\contentsline {subsection}{\numberline {2.1.4}Intermezzo: Centers}{15}{subsection.2.1.4}%
+\contentsline {section}{\numberline {2.2}$\lambda $-matrix Revisited: Modules over PID}{16}{section.2.2}%
+\contentsline {subsection}{\numberline {2.2.1}Modules}{16}{subsection.2.2.1}%
+\contentsline {subsection}{\numberline {2.2.2}Modules over PID}{17}{subsection.2.2.2}%
+\contentsline {section}{\numberline {2.3}Decomposition of Linear Operators}{17}{section.2.3}%
+\contentsline {subsection}{\numberline {2.3.1}Cyclic Spaces}{18}{subsection.2.3.1}%
+\contentsline {subsection}{\numberline {2.3.2}Irreducible Spaces}{18}{subsection.2.3.2}%
+\contentsline {subsection}{\numberline {2.3.3}Centers}{18}{subsection.2.3.3}%
+\contentsline {section}{\numberline {2.4}Decomposition of Linear Operators Revisited: Modules over PID}{19}{section.2.4}%
+\contentsline {section}{\numberline {2.5}???Linear Homomorphisms}{19}{section.2.5}%
+\contentsline {subsection}{\numberline {2.5.1}???Semisimple Operators}{19}{subsection.2.5.1}%
+\contentsline {chapter}{\numberline {3}Theory of Bilinear Functions}{21}{chapter.3}%
+\contentsline {section}{\numberline {3.1}Bilinear Functions}{21}{section.3.1}%
+\contentsline {section}{\numberline {3.2}Dual Vector Spaces}{22}{section.3.2}%
+\contentsline {subsection}{\numberline {3.2.1}Duality}{22}{subsection.3.2.1}%
+\contentsline {subsection}{\numberline {3.2.2}Space of Linear Functions}{22}{subsection.3.2.2}%
+\contentsline {subsection}{\numberline {3.2.3}Finite Dimensional Vector Spaces}{23}{subsection.3.2.3}%
+\contentsline {section}{\numberline {3.3}Metric Vector Spaces}{23}{section.3.3}%
+\contentsline {subsection}{\numberline {3.3.1}Orthogonal Direct Sum}{24}{subsection.3.3.1}%
+\contentsline {subsection}{\numberline {3.3.2}Isometry}{24}{subsection.3.3.2}%
+\contentsline {subsection}{\numberline {3.3.3}Hyperbolic Spaces}{24}{subsection.3.3.3}%
+\contentsline {section}{\numberline {3.4}Real and Complex Inner Product Spaces}{25}{section.3.4}%
+\contentsline {subsection}{\numberline {3.4.1}Gram-Schmidt Orthogonalization}{25}{subsection.3.4.1}%
+\contentsline {subsection}{\numberline {3.4.2}Application: QR Decomposition}{26}{subsection.3.4.2}%
+\contentsline {subsection}{\numberline {3.4.3}The Projection Theorem}{26}{subsection.3.4.3}%
+\contentsline {subsection}{\numberline {3.4.4}Schur Triangularization}{26}{subsection.3.4.4}%
+\contentsline {section}{\numberline {3.5}Structure Theory for Normal Operators}{26}{section.3.5}%
+\contentsline {subsection}{\numberline {3.5.1}The Adjoint of a Linear Operator}{26}{subsection.3.5.1}%
+\contentsline {subsection}{\numberline {3.5.2}Orthogonal Projections}{27}{subsection.3.5.2}%
+\contentsline {subsection}{\numberline {3.5.3}Normal Operators}{27}{subsection.3.5.3}%
+\contentsline {subsection}{\numberline {3.5.4}Functional Calculus}{27}{subsection.3.5.4}%
+\contentsline {subsection}{\numberline {3.5.5}Application: Positive Operators}{27}{subsection.3.5.5}%
+\contentsline {subsection}{\numberline {3.5.6}Application: The Polar Decomposition}{27}{subsection.3.5.6}%
+\contentsline {subsection}{\numberline {3.5.7}Normal Operators in Complex Inner Product Spaces: A Summary}{28}{subsection.3.5.7}%
+\contentsline {section}{\numberline {3.6}Discussion}{28}{section.3.6}%
+\contentsline {chapter}{\numberline {4}Multilinear Algebra}{29}{chapter.4}%
+\contentsline {section}{\numberline {4.1}Tensor Product}{29}{section.4.1}%
+\contentsline {subsection}{\numberline {4.1.1}Tensor Product}{29}{subsection.4.1.1}%
+\contentsline {subsection}{\numberline {4.1.2}Kronecker Prodcut: Application to Matrix}{29}{subsection.4.1.2}%
+\contentsline {chapter}{\numberline {5}Lie Theory}{31}{chapter.5}%
+\contentsline {section}{\numberline {5.1}BCH Formula}{31}{section.5.1}%
+\contentsline {subsection}{\numberline {5.1.1}Matrix Exponetial}{31}{subsection.5.1.1}%
+\contentsline {subsection}{\numberline {5.1.2}Matrix Logarithm}{31}{subsection.5.1.2}%
+\contentsline {subsection}{\numberline {5.1.3}BCH Formula for Heisenberg Group}{32}{subsection.5.1.3}%
+\contentsline {subsection}{\numberline {5.1.4}General BCH Formula}{32}{subsection.5.1.4}%
+\contentsline {section}{\numberline {5.2}The Representations of SU(2) and SU(3)}{32}{section.5.2}%
+\contentsline {subsection}{\numberline {5.2.1}The Irreducible Representations of SU(2)}{32}{subsection.5.2.1}%
+\contentsline {section}{\numberline {5.3}Root Systems}{32}{section.5.3}%
+\contentsline {subsection}{\numberline {5.3.1}Root}{32}{subsection.5.3.1}%
+\contentsline {subsection}{\numberline {5.3.2}Example: Rank 2}{34}{subsection.5.3.2}%
+\contentsline {subsection}{\numberline {5.3.3}Example: Rank 3}{34}{subsection.5.3.3}%
+\contentsline {subsection}{\numberline {5.3.4}Additional Properties}{34}{subsection.5.3.4}%
+\contentsline {subsection}{\numberline {5.3.5}Application: Classical Lie Algebras}{34}{subsection.5.3.5}%
+\contentsline {subsection}{\numberline {5.3.6}Dynkin Diagrams}{34}{subsection.5.3.6}%
+\contentsline {subsection}{\numberline {5.3.7}The Root Lattice}{34}{subsection.5.3.7}%
+\contentsline {section}{\numberline {5.4}Lie Algebra: an Algebraic Viewpoint}{34}{section.5.4}%
+\contentsline {subsection}{\numberline {5.4.1}Basic Definition and Examples}{34}{subsection.5.4.1}%
+\contentsline {subsection}{\numberline {5.4.2}Lie Theorem}{35}{subsection.5.4.2}%
+\contentsline {subsection}{\numberline {5.4.3}Cartan's Criterion}{35}{subsection.5.4.3}%
+\contentsline {subsection}{\numberline {5.4.4}Killing form}{35}{subsection.5.4.4}%
+\contentsline {section}{\numberline {5.5}Discussion}{35}{section.5.5}%
+\contentsline {chapter}{\numberline {6}Matrix Analysis}{37}{chapter.6}%
+\contentsline {section}{\numberline {6.1}Positive Matrices}{37}{section.6.1}%
+\contentsline {section}{\numberline {6.2}Majorization}{37}{section.6.2}%
+\contentsline {section}{\numberline {6.3}Matrix Equations}{37}{section.6.3}%
+\contentsline {section}{\numberline {6.4}Discussion}{37}{section.6.4}%
+\contentsline {chapter}{\numberline {7}Operators on Hilbert Space}{39}{chapter.7}%
+\contentsline {section}{\numberline {7.1}Hilbert Spaces}{39}{section.7.1}%
+\contentsline {subsection}{\numberline {7.1.1}Examples}{39}{subsection.7.1.1}%
+\contentsline {section}{\numberline {7.2}Operators}{39}{section.7.2}%
+\contentsline {chapter}{\numberline {8}Miscellaneous Topics}{41}{chapter.8}%
+\contentsline {section}{\numberline {8.1}Gelfand-Tsetlin Integrable System}{41}{section.8.1}%
+\contentsline {section}{\numberline {8.2}Unitary Matrices}{42}{section.8.2}%
+\contentsline {section}{\numberline {8.3}Matrix Decomposition}{42}{section.8.3}%
+\contentsline {subsection}{\numberline {8.3.1}Positive Definite Matrices}{42}{subsection.8.3.1}%
+\contentsline {subsection}{\numberline {8.3.2}}{43}{subsection.8.3.2}%
+\contentsfinish 

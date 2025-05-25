@@ -1,0 +1,6 @@
+\contentsline {section}{\numberline {1}What is research?}{1}{section.1}%
+\contentsline {section}{\numberline {2}How to Read a Paper}{1}{section.2}%
+\contentsline {paragraph}{What problem is the paper addressing?}{1}{section*.2}%
+\contentsline {paragraph}{What perspective does the author take to address this problem?}{1}{section*.3}%
+\contentsline {paragraph}{What is the key conclusions of this paper?}{1}{section*.4}%
+\contentsline {paragraph}{If you were the author of this paper, what technical challenges would you anticipate facing?}{2}{section*.5}%
