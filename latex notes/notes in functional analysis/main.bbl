@@ -1,9 +1,17 @@
-\begin{thebibliography}{1}
+\begin{thebibliography}{2}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{\texttt{#1}}
 \expandafter\ifx\csname urlstyle\endcsname\relax
   \providecommand{\doi}[1]{doi: #1}\else
   \providecommand{\doi}{doi: \begingroup \urlstyle{rm}\Url}\fi
+
+\bibitem[Conway(2019)]{ConwayJohnB2019ACiF}
+John~B Conway.
+\newblock \emph{A Course in Functional Analysis}, volume~96 of \emph{Graduate
+  Texts in Mathematics}.
+\newblock Springer Nature, Netherlands, 2nd ed. 1990. corr. 4th printing 1994.
+  edition, 2019.
+\newblock ISBN 1475743831.
 
 \bibitem[Evans(2010)]{alma990019861400106761}
 Lawrence~C. Evans.

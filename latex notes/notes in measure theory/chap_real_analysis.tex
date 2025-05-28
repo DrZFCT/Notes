@@ -7,15 +7,38 @@
 \section{Differentiation and Integration}
 For conceptual simplicity, we study $\RR$ instead of $\RR^n$ in this section.
 Let us first recall what we learned in elementary calculus.
-\begin{theorem}[Newton-Leibniz]\label{thm:newton-leibniz}
-        Let \( f \) be a \textcolor{blue}{Riemann integrable} function on \([a,b]\).  
-        % Add your theorem content here...
-    
+
+\begin{theorem}
+    Let \( f \) be a \textcolor{blue}{continuous} function on \([a,b]\),
+    and $F$ be the function defined, for all $x$ in $[a,b]$, by
+    $$F(x)=\int_a^x f(t)\rd t.$$
+    Then $F$ is uniformly continuous on $[a,b]$ and differentiable on $(a,b)$, and $$F'(x)=f(x).$$  
 \end{theorem}
 
-\begin{definition}[Bounded Variation]
-    
+\begin{theorem}[Newton-Leibniz]\label{thm:newton-leibniz}
+    Let \( f \) be a \textcolor{blue}{Riemann integrable} function on \([a,b]\),
+    and $F$ a \textcolor{blue}{continuous} function on $[a,b]$ which is an antiderivative of $f$ in $(a,b)$:
+    $$F'(x)=f(x).$$
+    Then $$\int_a^b f(x)\mathrm{d}x=F(b)-F(a).$$  
+\end{theorem}
+
+
+\begin{definition}[Total Variation]
+    The total variation of a function $f$ defined on $[a,b]$ is the quantity
+    $$ V_a^b(f)=\sup_{P\in\cP}\sum_{i=0}^{n_P-1}|f(x_{i+1})-f(x_i)|,$$
+    where
+    $$\cP=\{P=\{x_0,\cdots,x_{n_P}\}| P \text{ is a partition of }[a,b]\text{ satisfying }x_i\leq x_{i+1}\text{ for }0\leq i\leq n_P-1\}.$$
+    If $V_a^b(f)<+\infty$, then $f$ is said to be of bounded variation on $[a,b]$.
 \end{definition}
+
+\begin{example}
+    The continuous function 
+    $$f(x)=\left\{\begin{matrix}
+        0,  &  x=0\\
+        x\sin(\frac{1}{x}),  & x\neq 0
+        \end{matrix}\right.$$
+    is not of bounded variation on $[0,2/\pi]$. Just consider the partition $$P=\{0,\frac{2}{2n-1},\frac{2}{2n-3},\cdots,\frac{2}{3},1\}.$$
+\end{example}
 
 \begin{theorem}[Jordan Decomposition Theorem]
     \begin{equation*}
@@ -29,7 +52,7 @@ Bounded variable functions says that it has a length
 Bounded variable functions are a.e. differentiable
 But it does not satisfies the desirable property: Length is equal to the integral of derivative,
 which is also known as the \textbf{fundamental theorem of calculus}.
-
+It turns out that absolute continuous functions is exactly the set of functions that satisfies this property.
 
 
 \begin{example}
@@ -38,10 +61,18 @@ which is also known as the \textbf{fundamental theorem of calculus}.
 
 
 
-\begin{definition}[Absolute Continuous]
-    
+\begin{definition}[Absolute Continuity]
+    A function $f:[a,b]\to \RR$ is absolutely continuous if for every positive number $\epsilon$,  there is a positive number $\delta$ such that 
+    whenever a finite sequence of pairwise disjoint sub-intervals $(x_k,y_k)$ satisfies
+    $$ \sum_{k=1}^{N}(y_k-x_k)<\delta $$
+    then $$\sum_{k=1}^{N}|f(y_k)-f(x_k)|<\epsilon.$$
 \end{definition}
 
+
+Absolutely continuous functions are of bounded variation.
+\begin{proposition}
+    If $f:[a,b]\to\RR$ is absolutely continuous, then it is of bounded variation on $[a,b]$.
+\end{proposition}
 
 \begin{theorem}\label{thm:abs-cont}
     If $f$ is absolute continuous function on $[a,b]$, then 
