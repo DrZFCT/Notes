@@ -33,53 +33,195 @@ The elements of $\cN(x)$ will be called neighbourhoods of $x$.
     Let $\cT_1$ and $\cT_2$ be two topologies on $X$. We say $\cT_1$ is weaker than $\cT_2$ if $\cT_1\subset \cT_2$.
 \end{definition}
 
+\subsection{Convergence and Continuity}
+\begin{definition}
+    Let $x_n$. If exists $x_0\in X$ such that for any neighborhood
+\end{definition}
+
+\begin{definition}
+    Let $f:(X,\cT_X)\to(Y,\cT_Y)$
+    \begin{enumerate}[label=(\roman*)]
+        \item continuity
+        \item sequential continuity
+    \end{enumerate}
+\end{definition}
+\begin{theorem}
+    continuity implies sequential continuity
+\end{theorem}
+
+
+\begin{definition}[Open and Closed Mappings]
+    Let $f:(X,\cT_X)\to(Y,\cT_Y)$
+    \begin{enumerate}[label=(\roman*)]
+        \item open mapping
+        \item closed mapping
+    \end{enumerate}
+\end{definition}
+
+
+\subsection{Topological Basis}
+
+
+
+\begin{equation*}
+    \cT_\cB=\{U\subset X|\forall x\in U,\exists B\in\cB \text{ such that } x\in B\subset U\}
+\end{equation*}
+
+for which $\cB$, $\cT_\cB$ defined as above is a topology.
+\begin{equation*}
+    \forall x\in X,\exists B\in\cB\text{ such that }x\in B.
+\end{equation*}
+\begin{equation*}
+    \forall B_1,B_2\in\cB,\forall x\in B_1\cap B_2,\exists B\in\cB\text{ such that }x\in B\subset B_1\cap B_2
+\end{equation*}
+
+
+\begin{theorem}
+    \begin{equation*}
+        \cT_\cB=\{\cup_{B\in\cB'}B|\cB'\subset \cB\}.
+    \end{equation*}
+\end{theorem}
+
+
 \subsection{Constructing New }
 
 \subsubsection{Subspace Topology}
 
 \subsubsection{Product Topology}
 
-\subsection{Topological Basis}
+\begin{definition}
+    Let $(Y_\alpha,\cT_\alpha)$ be a family of,
+    let 
+    $$
+    \cF={f_\alpha:X\to (Y_\alpha,\cT_\alpha)}
+    $$
+    be a family of mappings.
+    The the weakest topology on $X$ such that any $f_\alpha$ is continuous
+\end{definition}
+
+\begin{example}[Weak and Weak* Topology]
+    Let $X$ be a topological vector space and $X^*$ be its dual,
+    $$X^*=\{f:X\to\KK|f\text{ linear and continuous}\}.$$
+    \begin{enumerate}[label=(\roman*)]
+        \item weak topology: $X^*$-induced topology
+        \item weak* topology: $\{\ev_x|x\in X\}$-induced topology
+    \end{enumerate}
+\end{example}
 
 
 \subsection{Sets in Topological Space}
+
+
+
+
+
+\begin{definition}[Limit and Sequential Limit]
+    \begin{enumerate}[label=(\roman*)]
+        \item limit point (accumulation point)
+        \item sequential limit
+    \end{enumerate}
+\end{definition}
+
+A closed set has sequential limit.
+\begin{theorem}
+    Let $A\subset X$ be closed. If $x_n\in A$ and $x_n\to x\in X$, then $x\in A$.
+\end{theorem}
+
+a closed set also has its limit point, more precisely,
+\begin{theorem}
+    $A\subset X$ is closed if and only if $A'\subset A$.
+\end{theorem}
+
+closure $\bar{A}:=A\cup A'$
+\begin{theorem}
+    For any $A\subset X$, $A\cup A'$ is closed.
+\end{theorem}
+\begin{corollary}
+    \begin{equation*}
+        A\cup A'=\bigcup_{A\subset F \text{ closed }}F.
+    \end{equation*}
+\end{corollary}
+
+interior is the dual of closure 
+
+\begin{definition}[Dense and Nowhere Dense]
+    
+\end{definition}
+
+\begin{definition}
+    
+\end{definition}
 
 
 \section{Compactness}
 
 
 
-\begin{definition}[Compact]
-    Every open covering has finite sub covering.
+\begin{definition}[Compactness and Sequential Compactness]
+    \begin{enumerate}[label=(\roman*)]
+        \item Every open covering has finite sub covering.
+        \item Every sequence has a convergent subsequence.
+    \end{enumerate}
+    
 \end{definition}
 Leveraging the duality of open and closed set, we can immediately
 
-\begin{definition}[Sequentially Compact]
-    Every sequence has a convergent subsequence.
-\end{definition}
 
 What about subsets? The canonical definition is the following
 \begin{remark}
     Let $A\subset X$ be a subset. If $(A,\cT_{subspace})$ is compact, then we say $A$ is compact in $X$.
 \end{remark}
-
 We can see that the above definition reduce to the common 
 \begin{proposition}
     Let $A\subset X$ be a subset. $A$ is compact in $X$ if and only if 
 \end{proposition}
+For sequential compactness, the definition is straightforward.
 
 
-\subsection{Constructing New}
+\begin{theorem}
+    Let $f:X\to Y$ be a continuous map.
+    \begin{enumerate}[label=(\roman*)]
+        \item If $A\subset X$ is compact, then $f(A)\subset Y$ is compact.
+        \item If $A\subset X$ is sequentially compact, then $f(A)\subset Y$ is sequentially compact.
+    \end{enumerate}
+\end{theorem}
+\begin{corollary}
+    quotient space
+\end{corollary}
 
-\subsubsection{Subspace of Compact}
+\begin{theorem}
+    Let $A\subset X$ be closed.
+    \begin{enumerate}[label=(\roman*)]
+        \item If $X$ is compact, then $A$ is compact.
+        \item If $X$ is sequentially compact, then $A$ is sequentially compact.
+    \end{enumerate}
+\end{theorem}
 
-\subsubsection{Product of Compact}
+
+\subsection{Product of Compact}
 
 \begin{theorem}[Tychonoff]
     If $X_\alpha$ is compact for all $\alpha$, then $(\prod_{\alpha}X_{\alpha},\cT_{product})$ is also compact.
 \end{theorem}
 
-\subsection{Compactness in Metric Space}
+\subsection{Example: Metric Spaces}
+
+\begin{definition}[Total Boundedness]
+    Let $(X,d)$ be a metric space. If for any $\epsilon>0$, there exists a finite number of $\epsilon$ balls that cover $X$.
+\end{definition}
+
+\begin{definition}[$\epsilon$ net]
+    
+\end{definition}
+
+\begin{proposition}
+    total boundedness is equivalent to finite $\epsilon$ net
+\end{proposition}
+
+
+\begin{definition}[Absolutely Closed]
+    
+\end{definition}
 
 \begin{theorem}
     In a metric space $(X,d)$, TFAE:
@@ -94,13 +236,68 @@ We can see that the above definition reduce to the common
 \end{remark}
 
 
+
+\section{Topologies on Mappings}
+should move this to chapter 1.
+
+For any set $X$ and topological space $Y$, we can consider 
+$$
+\cM(X,Y):=\{f:X\to Y\}.
+$$
+We would like to study the topologies on $\cM(X,Y)$ that leverage the mapping structure.
+
+\begin{enumerate}[label=(\roman*)]
+    \item product topology = pointwise convergence topology $\cT_{p.c.}$
+    \item uniform convergence topology $\cT_{u.c.}$
+\end{enumerate}
+
+Suppose $(X,\cT)$ is a topological space and $Y$ is a metric space, then we can focus on continuous maps.
+$$
+\mathcal{C}(X,Y):=\{f\in \cM(X,Y)|f\text{ continuous}\}
+$$
+
+compact convergence $\cT_{c.c.}$
+
+when $Y$ is not a metric space
+compact open
+
+\subsection{Compactness in ...}
+
+\begin{definition}[Relatively Compact (Precompact)]
+    $A\subset X$. If $\bar{A}$ is compact, we say that $A$ is relatively compact.
+\end{definition}
+
+\begin{definition}
+    Let $\cF\subset \mathcal{C}(X,Y)$ be a family of continuous map
+    For $a\in X$, let $\cF_a:=\{f(a)|f\in\cF\}$.
+    \begin{enumerate}[label=(\roman*)]
+        \item pointwise bounded if for any $a\in X$ $\cF_a$ is bounded in $Y$.
+        \item 
+    \end{enumerate}
+\end{definition}
+
+\begin{theorem}[Arzela-Ascoli]
+    
+\end{theorem}
+
+\section{Countability}
+
+\begin{definition}
+    \begin{enumerate}
+        \item C1
+        \item C2
+    \end{enumerate}
+\end{definition}
+
+
+
 \section{Separability}
 
-\begin{definition}[first countability]
-    
+\begin{definition}
+    \begin{enumerate}
+        \item T1 Frechet
+        \item T2 Hausdorff
+        \item T3
+        \item T4
+    \end{enumerate}
 \end{definition}
-
-\begin{definition}[second countability]
-    
-\end{definition}
-

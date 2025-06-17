@@ -1,13 +1,13 @@
 # Fdb version 3
-["bibtex main"] 1748148539 "main.aux" "main.bbl" "main" 1748148539
+["bibtex main"] 1748741951 "main.aux" "main.bbl" "main" 1748741952
   "/usr/local/texlive/2022/texmf-dist/bibtex/bst/natbib/plainnat.bst" 1233624470 26816 ffe5423d2019860bad9f54bc402fac15 ""
   "bib.bib" 1748148539 3776 7eed2c22c9594e6511b7701f24d888b1 ""
-  "main.aux" 1748148329 15602 8db11163d7699ce392a2f6bf7166b5e5 "pdflatex"
+  "main.aux" 1748741951 15055 157fbea68c48541db182dfa9d99e1ace "pdflatex"
   (generated)
   "main.bbl"
   "main.blg"
-["pdflatex"] 1748148328 "/Users/mrzt/Documents/GitHub/notes/Notes/latex notes/lecture notes in linear algebra/main.tex" "main.pdf" "main" 1748148539
-  "/Users/mrzt/Documents/GitHub/notes/Notes/latex notes/lecture notes in linear algebra/main.tex" 1748147779 4025 d8317e3f329af4b65d91791d04eb332b ""
+["pdflatex"] 1748741951 "/Users/mrzt/Documents/GitHub/notes/Notes/latex notes/lecture notes in linear algebra/main.tex" "main.pdf" "main" 1748741952
+  "/Users/mrzt/Documents/GitHub/notes/Notes/latex notes/lecture notes in linear algebra/main.tex" 1748741948 4026 7634e33af8112279825fd1e8c86274ca ""
   "/usr/local/texlive/2022/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc" 1136849721 2900 1537cc8184ad1792082cd229ecc269f4 ""
   "/usr/local/texlive/2022/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "/usr/local/texlive/2022/texmf-dist/fonts/tfm/jknappen/ec/tcrm1000.tfm" 1136768653 1536 e07581a4bb3136ece9eeb4c3ffab8233 ""
@@ -209,7 +209,6 @@
   "/usr/local/texlive/2022/texmf-var/fonts/map/pdftex/updmap/pdftex.map" 1647878959 4410336 7d30a02e9fa9a16d7d1f8d037ba69641 ""
   "/usr/local/texlive/2022/texmf-var/web2c/pdftex/pdflatex.fmt" 1661094221 2826440 e3df3e53eaa293ef3171676f55b00abf ""
   "/usr/local/texlive/2022/texmf.cnf" 1647878952 577 209b46be99c9075fd74d4c0369380e8c ""
-  "chap_Hilbert.tex" 1748142317 1235 02997be2cbbe38668a2456451fbab5c9 ""
   "chap_basic_concepts.tex" 1748146013 12406 10a40cf2cc73363387907f5c3fe8f7b0 ""
   "chap_bilinear.tex" 1748148053 23084 278b3bbcacf4338dbcede30f7c64e75b ""
   "chap_lie.tex" 1748148087 12896 03048a8a56e4e227e097295f873fceab ""
@@ -217,12 +216,12 @@
   "chap_miscellaneous.tex" 1748144855 6911 1d08b5a1812fdfb622e913c03c0bd88f ""
   "chap_multilinear.tex" 1748147326 2965 5cdaec892eb148658e1bed902b814dcc ""
   "chap_structure_theory.tex" 1748146310 19701 ac23e110d4e6c0f026938c4400761b7d ""
-  "main.aux" 1748148329 15602 8db11163d7699ce392a2f6bf7166b5e5 "pdflatex"
-  "main.bbl" 1748148539 960 44fcede86be748d02dd69698ac2f861c "bibtex main"
-  "main.brf" 1748148329 169 7bf523175c0930e33d4ee2100bf2c06b "pdflatex"
-  "main.out" 1748148329 16287 296fbc405473aa3c19db8a96f24c3b79 "pdflatex"
-  "main.tex" 1748147779 4025 d8317e3f329af4b65d91791d04eb332b ""
-  "main.toc" 1748148329 8506 d429f35c310e58d60b806829e174fced "pdflatex"
+  "main.aux" 1748741951 15055 157fbea68c48541db182dfa9d99e1ace "pdflatex"
+  "main.bbl" 1748741951 960 44fcede86be748d02dd69698ac2f861c "bibtex main"
+  "main.brf" 1748741951 169 7bf523175c0930e33d4ee2100bf2c06b "pdflatex"
+  "main.out" 1748741951 15774 e8ef1a1792ba39180c12c483d1b0dfa8 "pdflatex"
+  "main.tex" 1748741948 4026 7634e33af8112279825fd1e8c86274ca ""
+  "main.toc" 1748741951 8199 54ebfca84f3ec96cd6dd42c2a7e83c45 "pdflatex"
   "style.sty" 1748146784 8257 2ec1b36336dff030a7d5570bc511c8df ""
   (generated)
   "main.aux"

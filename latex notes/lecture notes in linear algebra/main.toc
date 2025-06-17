@@ -1,5 +1,5 @@
-\contentsline {section}{\numberline {0.1}Prologue}{5}{section.0.1}%
-\contentsline {section}{\numberline {0.2}Notations}{6}{section.0.2}%
+\contentsline {section}{\numberline {0.1}Prologue}{4}{section.0.1}%
+\contentsline {section}{\numberline {0.2}Notations}{5}{section.0.2}%
 \contentsline {chapter}{\numberline {1}Basic Concepts: Lost Properties}{7}{chapter.1}%
 \contentsline {section}{\numberline {1.1}Noncommutative-Rings}{7}{section.1.1}%
 \contentsline {section}{\numberline {1.2}Polynomials}{8}{section.1.2}%
@@ -85,14 +85,10 @@
 \contentsline {section}{\numberline {6.2}Majorization}{37}{section.6.2}%
 \contentsline {section}{\numberline {6.3}Matrix Equations}{37}{section.6.3}%
 \contentsline {section}{\numberline {6.4}Discussion}{37}{section.6.4}%
-\contentsline {chapter}{\numberline {7}Operators on Hilbert Space}{39}{chapter.7}%
-\contentsline {section}{\numberline {7.1}Hilbert Spaces}{39}{section.7.1}%
-\contentsline {subsection}{\numberline {7.1.1}Examples}{39}{subsection.7.1.1}%
-\contentsline {section}{\numberline {7.2}Operators}{39}{section.7.2}%
-\contentsline {chapter}{\numberline {8}Miscellaneous Topics}{41}{chapter.8}%
-\contentsline {section}{\numberline {8.1}Gelfand-Tsetlin Integrable System}{41}{section.8.1}%
-\contentsline {section}{\numberline {8.2}Unitary Matrices}{42}{section.8.2}%
-\contentsline {section}{\numberline {8.3}Matrix Decomposition}{42}{section.8.3}%
-\contentsline {subsection}{\numberline {8.3.1}Positive Definite Matrices}{42}{subsection.8.3.1}%
-\contentsline {subsection}{\numberline {8.3.2}}{43}{subsection.8.3.2}%
+\contentsline {chapter}{\numberline {7}Miscellaneous Topics}{39}{chapter.7}%
+\contentsline {section}{\numberline {7.1}Gelfand-Tsetlin Integrable System}{39}{section.7.1}%
+\contentsline {section}{\numberline {7.2}Unitary Matrices}{40}{section.7.2}%
+\contentsline {section}{\numberline {7.3}Matrix Decomposition}{40}{section.7.3}%
+\contentsline {subsection}{\numberline {7.3.1}Positive Definite Matrices}{40}{subsection.7.3.1}%
+\contentsline {subsection}{\numberline {7.3.2}}{41}{subsection.7.3.2}%
 \contentsfinish 

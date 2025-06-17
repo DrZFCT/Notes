@@ -1164,10 +1164,6 @@ INPUT ./chap_matrix_analysis.tex
 INPUT chap_matrix_analysis.tex
 INPUT ./chap_matrix_analysis.tex
 INPUT chap_matrix_analysis.tex
-INPUT ./chap_Hilbert.tex
-INPUT chap_Hilbert.tex
-INPUT ./chap_Hilbert.tex
-INPUT chap_Hilbert.tex
 INPUT ./chap_miscellaneous.tex
 INPUT chap_miscellaneous.tex
 INPUT ./chap_miscellaneous.tex
