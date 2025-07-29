@@ -180,6 +180,33 @@ dominated by $q$. Just to find an extension, we can simply take a Hamel basis.
 
 
 
+\section{weak and weak*}
+
+weaker topologies, easier to converge 
+
+\begin{definition}[weakly bounded]
+    $E\subset X$ is a weakly bounded set if 
+    for any $f\in X^*$, there exists $M_f>0$ such that 
+    $$ |f(x)|\leq M_f,\quad \forall x\in E. $$
+\end{definition}
+
+\begin{theorem}
+    weak bounded if and only if bounded (in norm)
+\end{theorem}
+
+\begin{theorem}
+    $x_n\overset{w}{\to} x$ if and only if 
+    \begin{enumerate}[label=(\roman*)]
+        \item $\{\|x_n\|\}$ is bounded;
+        \item $\exists G\subset X^*$, $\span G$ is dense in $X^*$ and $\forall f\in G$, $$f(x_n)\to f(x).$$
+    \end{enumerate}
+\end{theorem}
+
+weakly sequential compact
+
+\begin{theorem}
+    Every convex subset $E$ of a Banach space $X$ that is closed (in the strong topology) is closed in the weak topology.
+\end{theorem}
 
 \section{The Adjoint of a Linear Operator}
 

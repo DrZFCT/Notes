@@ -28,9 +28,10 @@
 \contentsline {section}{\numberline {2.5}The Hahn-Banach Theorem}{10}{section.2.5}%
 \contentsline {section}{\numberline {2.6}The Opening Mapping Theorem}{11}{section.2.6}%
 \contentsline {section}{\numberline {2.7}The Principle of Uniform Boundness}{11}{section.2.7}%
-\contentsline {section}{\numberline {2.8}The Adjoint of a Linear Operator}{11}{section.2.8}%
-\contentsline {section}{\numberline {2.9}The Banach-Stone Theorem}{11}{section.2.9}%
-\contentsline {section}{\numberline {2.10}Compact Operators}{11}{section.2.10}%
+\contentsline {section}{\numberline {2.8}weak and weak*}{11}{section.2.8}%
+\contentsline {section}{\numberline {2.9}The Adjoint of a Linear Operator}{11}{section.2.9}%
+\contentsline {section}{\numberline {2.10}The Banach-Stone Theorem}{11}{section.2.10}%
+\contentsline {section}{\numberline {2.11}Compact Operators}{11}{section.2.11}%
 \contentsline {chapter}{\numberline {3}Hilbert Spaces}{13}{chapter.3}%
 \contentsline {section}{\numberline {3.1}Elementary Properties and Examples}{13}{section.3.1}%
 \contentsline {section}{\numberline {3.2}The Riesz Representation Theorem}{13}{section.3.2}%
