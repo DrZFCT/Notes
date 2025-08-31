@@ -17,15 +17,59 @@ Let $X$ be a (possibly empty) set.
 Let $\cN$ be a function assigning to each $x\in X$ a non-empty collection $\cN(x)$ of subsets of $X$.
 The elements of $\cN(x)$ will be called neighbourhoods of $x$.
 
+\begin{enumerate}[label=(\roman*)]
+    \item If $N\in \cN(x)$, then $x\in N$.
+    \item If $N\subset M$ and $N\in \cN(x)$, then $M\in \cN(x)$.
+    \item If $N_1,N_2\in \cN(x)$, then $N_1\cap N_2\in \cN(x)$.
+    \item If $N\in \cN(x)$, then there exists $M\in\cN(x)$ such that $M\subset N$, and for any $y\in M$ we have $N\in\cN(y)$.
+\end{enumerate}
+
 \subsubsection{Interior}
+Given a neighborhood structure, we can define the interior
+$$\operatorname{Int}(A):=\{x\in A|A\in\cN(x)\}$$
 
 
-\subsubsection{Open}
+\begin{enumerate}[label=(\roman*)]
+    \item $\operatorname{Int}(A)\subset A$.
+    \item $\operatorname{Int}(A)\cap \operatorname{Int}(B)=\operatorname{Int}(A\cap B)$.
+    \item $\operatorname{Int}(\operatorname{Int}(A))=\operatorname{Int}(A)$.
+    \item $\operatorname{Int}(X)=X$.
+\end{enumerate}
+
+Conversely, given an interior structure, we can define a neighborhood structure by
+$$\cN(x)=\{A\subset X|x\in\operatorname{Int}{A}\}.$$
 
 
+\subsubsection{Open Sets}
 
-\subsubsection{Closed}
+Given a neighborhood structure, we can define open sets. 
+\begin{definition}[Open]
+    A set $U$ is \textbf{open} if for any $x\in U$, $U\in\cN(x)$.
+\end{definition}
+By the equivalence of neighborhood and interior structure,
+\begin{proposition}
+    A set $U$ is open if and only if $\operatorname{Int}(U)=U$.
+\end{proposition}
+Denote $$\cT=\{U\subset X|U \text{ is open}\}.$$
 
+\begin{enumerate}[label=(\roman*)]
+    \item $\emptyset\in\cT,X\in\cT$.
+    \item If $U_1,U_2\in\cT$, then $U_1\cap U_2\in\cT$.
+    \item If $\{U_\lambda,\lambda\in\Lambda\}\subset\cT$, then $\cup_{\lambda\in\Lambda}U_\lambda\in\cT$.
+\end{enumerate}
+
+Given a topological structure, we cana define a neighborhood
+\begin{definition}
+    Let $(X,\cT)$ be a topological space, $x\in X$, and $N\subset X$.
+    If there exists $U\in\cT$ such that $x\in U\subset N$, then $N$ is a neighborhood of $x$.
+\end{definition}
+The neighborhood structure can be defined by $$\cN(x)=\{N\subset X|\exists U\in\cT\text{ such that }x\in U \subset N\}.$$
+
+\subsubsection{Closed Sets}
+\begin{definition}[Closed]
+    Let $F$ be a set in a topological space $(X,\cT)$.
+    It is \textbf{closed} if $F^c$ is open.
+\end{definition}
 
 \subsection{Comparing Different Topologies}
 
@@ -34,13 +78,17 @@ The elements of $\cN(x)$ will be called neighbourhoods of $x$.
 \end{definition}
 
 \subsection{Convergence and Continuity}
-\begin{definition}
-    Let $x_n$. If exists $x_0\in X$ such that for any neighborhood
+TODO: add examples
+
+The notion of convergence can be defined when given a topology only.
+\begin{definition}[Convergence]
+    Let $x_n$ be a sequence in a topological space $X$. 
+    If there exists $x_0\in X$ such that for any neighborhood $A$ of $x_0$ there exists $k$ such that $x_n\in A$ when $n>k$, then the sequence $x_n$ \textbf{converges} to $x_0$, denoted by $x_n\to x_0$.
 \end{definition}
 
-\begin{definition}
+\begin{definition}[Continuity and Sequential Continuity]
     Let $f:(X,\cT_X)\to(Y,\cT_Y)$
-    \begin{enumerate}[label=(\roman*)]
+    \begin{enumerate}
         \item continuity
         \item sequential continuity
     \end{enumerate}
@@ -53,8 +101,8 @@ The elements of $\cN(x)$ will be called neighbourhoods of $x$.
 \begin{definition}[Open and Closed Mappings]
     Let $f:(X,\cT_X)\to(Y,\cT_Y)$
     \begin{enumerate}[label=(\roman*)]
-        \item open mapping
-        \item closed mapping
+        \item If the image $f(U)$ of any open set $U$ is open in $Y$, then $f$ is called an \textbf{open mapping}.
+        \item If the image $f(F)$ of any closed set $F$ is closed in $Y$, then $f$ is called an \textbf{closed mapping}.
     \end{enumerate}
 \end{definition}
 
@@ -85,9 +133,16 @@ for which $\cB$, $\cT_\cB$ defined as above is a topology.
 
 \subsection{Constructing New }
 
-\subsubsection{Subspace Topology}
+\begin{definition}[Subspace Topology]
+    Let $(X,\cT)$ be a topological space and $Y\subset X$.
+    The set $$\cT_Y:=\{U\cap Y|U\in\cT\}$$ is a toplogy on $Y$, called the \textbf{subspace} topology.
+\end{definition}
 
-\subsubsection{Product Topology}
+\begin{definition}[Product Topology]
+    Let $(X,\cT_X),(Y,\cT_Y)$ be topological spaces. The set
+    $$\cT_{X\times Y}:=\{W\subset X\times Y|\forall (x,y)\in W,\exists U\in\cT_X\text{ and }V\in\cT_Y\text{ such that }(x,y)\in U\times V\subset W\}$$
+    is a topology on $X\times Y$, called the \textbf{product toplogy}.
+\end{definition}
 
 \begin{definition}
     Let $(Y_\alpha,\cT_\alpha)$ be a family of,
@@ -109,6 +164,63 @@ for which $\cB$, $\cT_\cB$ defined as above is a topology.
 \end{example}
 
 
+
+\subsection{Example: Topologies on Mappings}
+\label{subsec: toplogies on mappings 1}
+For any set $X$ and topological space $Y$, we can consider 
+$$
+\cM(X,Y):=\{f:X\to Y\}.
+$$
+We would like to study the topologies on $\cM(X,Y)$ that is associated with the mapping structure.
+As $\cM(X,Y)=Y^X$, by the product stucture we can define two topologies on $\cM(X,Y)$:
+\begin{enumerate}[label=(\roman*)]
+    \item product topology, in this case also the \textbf{pointwise convergence topology} $\cT_{p.c.}$;
+    \item box topology, which is not as useful when studying continuous maps.
+\end{enumerate}
+
+
+Now suppose $Y$ is a metric space, then the metric $d_Y$ on $Y$ induce a metric on $\cM(X,Y)$:
+$$d_u(f,g):=\sup_{x\in X}\frac{d_Y(f(x),g(x))}{1+d_Y(f(x),g(x))}.$$
+We can see that $f_n$ converges to $f$ in this metric if and only if $f_n$ converges uniformly to $f$.
+Therefore,
+\begin{definition}[Uniform Convergence Topology]
+    $d_u$ is called 
+\end{definition}
+
+Consider the space of continous mappings
+$$
+\mathcal{C}(X,Y):=\{f\in \cM(X,Y)|f\text{ continuous}\}.
+$$
+In general, $\mathcal{C}$ is not closed in $(\cM(X,Y),\cT_{p.c.})$.
+\begin{example}
+    
+\end{example}
+But we have 
+\begin{proposition}
+    $\mathcal{C}$ is closed in $(\cM(X,Y),d_u)$.
+\end{proposition}
+
+On $\mathcal{C}(X,Y)$, all of the above topologies are not satisfying:
+\begin{example}
+    Let $X=Y=\RR$, then 
+    \begin{enumerate}
+        \item Consider $\cT_{p.c.}$: the sequence of continuous functions $f_n(x)=e^{-nx^2}$ converges to $f_0(x)=\left\{\begin{matrix}
+            1, & x=0\\
+            0, & x\neq 0
+           \end{matrix}\right.,$ which is not continuous. This shows that $\cT_{p.c.}$ is too weak to ensure the continuity of the limit.
+        \item Consider $\cT_{u.c.}$ or $\cT_{box}$: the sequence of continuous functions $f_n(x)=x^2/n$ does not converge, where it converges to a 
+        continuous function $f_0(x)=0$ under $\cT_{p.c.}$. This shows that these topologies are too strong for sequences to converge.
+    \end{enumerate}
+\end{example}
+
+What is a good topology on $\mathcal{C}(X,Y)$? We will answer this question in Section \ref{subsec: toplogies on mappings 2}.
+
+compact convergence $\cT_{c.c.}$
+
+when $Y$ is not a metric space
+compact open
+
+
 \subsection{Sets in Topological Space}
 
 
@@ -116,23 +228,46 @@ for which $\cB$, $\cT_\cB$ defined as above is a topology.
 
 
 \begin{definition}[Limit and Sequential Limit]
+    Let $X$ be a topological space, $A\subset X$, and $x\in X$.
     \begin{enumerate}[label=(\roman*)]
-        \item limit point (accumulation point)
-        \item sequential limit
+        \item If for any neighborhood $U$ of $x$, $$U\cap(A\setminus\{x\})\neq\emptyset,$$ then $x$ is a \textbf{limit point (accumulation point)} of $A$.
+        The set of all limit points of $A$ is called the \textbf{derived set} of $A$, denoted by $A'$.
+        \item If there exists a sequence $a_n\in A$ such that $a_n\to x$, then $x$ is a \textbf{sequential limit point} of $A$. 
     \end{enumerate}
 \end{definition}
 
-A closed set has sequential limit.
-\begin{theorem}
+
+A closed set contains all its sequential limit points.
+\begin{proposition}
     Let $A\subset X$ be closed. If $x_n\in A$ and $x_n\to x\in X$, then $x\in A$.
-\end{theorem}
+\end{proposition}
+\begin{proof}
+    We prove by contradiction. Suppose $x\in A^c$, as $A^c$ is open, we can find an open neighborhood $U$ of $x_0$ such that $U\subset F^c$.
+    By the definition of convergence, there exists $N$ such that for any $n>N$, $x_n\in U$. This is contradictory to $x_n\in F$.
+\end{proof}
+But the converse is not true in general.
+\begin{example}
+    Consider the space $X=\cM([0,1],\RR)$ with the pointwise convergence topology.
+    \kz{to do 1.119}
+\end{example}
 
-a closed set also has its limit point, more precisely,
-\begin{theorem}
+A closed set also contains all its limit point. More precisely, we have:
+\begin{proposition}
     $A\subset X$ is closed if and only if $A'\subset A$.
-\end{theorem}
+\end{proposition}
+\begin{proof}
+    If $A$ is closed, for any $x\in A^c$ there exists an open neighborhood $U$ of $x$ such that $U\subset A^c$.
+    This means that $U\cap A=\emptyset$, so $x\notin A'$ and $A'\subset A$.
+    
+    If $A'\cap A$, for any $x\in A^c$ there exists a neighborhood $U$ of $x$ such that $U\cap (A\setminus\{x\})=\emptyset$.
+    So $U\subset A^c$ and $A$ is closed.
+\end{proof}
 
-closure $\bar{A}:=A\cup A'$
+
+closure $\overline{A}:=A\cup A'$
+
+
+
 \begin{theorem}
     For any $A\subset X$, $A\cup A'$ is closed.
 \end{theorem}
@@ -142,10 +277,28 @@ closure $\bar{A}:=A\cup A'$
     \end{equation*}
 \end{corollary}
 
+The following proposition provides a way to verify if a point is in the closure of a set.
+\begin{proposition}\label{prop:x in overline A}
+    $x\in \overline{A}\Longleftrightarrow$ for any open set $U$ contains $x$, $U\cap A\neq\emptyset$.
+\end{proposition}
+\begin{proof}
+    
+\end{proof}
+
+We can use the closure to characterize continuous mappings.
+\begin{proposition}
+    
+\end{proposition}
+
 interior is the dual of closure 
 
 \begin{definition}[Dense and Nowhere Dense]
-    
+    Let $X$ be a topological space and $A$ be a subset.
+    \begin{enumerate}[label=(\roman*)]
+        \item If $\overline{A}=X$, then $A$ is called \textbf{dense}.
+        \item If $\mathring{\overline{A}}=\emptyset$, then $A$ is called \textbf{meager(nowhere dense)}.
+        \item If $A$ is a countable union of meager sets, then $A$ is called a \textbf{Baire first category} set.
+    \end{enumerate}
 \end{definition}
 
 \begin{definition}
@@ -158,9 +311,10 @@ interior is the dual of closure
 
 
 \begin{definition}[Compactness and Sequential Compactness]
+    Let $(X,\cT)$ be a topological space.
     \begin{enumerate}[label=(\roman*)]
-        \item Every open covering has finite sub covering.
-        \item Every sequence has a convergent subsequence.
+        \item If every open covering of $X$ has a finite sub-covering, then $X$ is \textbf{compact}.
+        \item If every sequence in $X$ has a convergent subsequence, then $X$ is \textbf{sequentially compact}.
     \end{enumerate}
     
 \end{definition}
@@ -178,6 +332,7 @@ We can see that the above definition reduce to the common
 For sequential compactness, the definition is straightforward.
 
 
+Compactness is preserved under continuous mappings.
 \begin{theorem}
     Let $f:X\to Y$ be a continuous map.
     \begin{enumerate}[label=(\roman*)]
@@ -189,6 +344,7 @@ For sequential compactness, the definition is straightforward.
     quotient space
 \end{corollary}
 
+Compactness is inherited for closed subsets.
 \begin{theorem}
     Let $A\subset X$ be closed.
     \begin{enumerate}[label=(\roman*)]
@@ -198,13 +354,28 @@ For sequential compactness, the definition is straightforward.
 \end{theorem}
 
 
-\subsection{Product of Compact}
+\subsection{Product of Compact Spaces: Tychonoff Theorem}
 
 \begin{theorem}[Tychonoff]
     If $X_\alpha$ is compact for all $\alpha$, then $(\prod_{\alpha}X_{\alpha},\cT_{product})$ is also compact.
 \end{theorem}
 
 \subsection{Example: Metric Spaces}
+
+Let $(X,d)$ be a metric space.
+Compared with a general topological space, a metric space has the following nice properties:
+\begin{enumerate}[label=(\roman*)]
+    \item \textbf{first countable}, because. Thus,
+    \begin{itemize}
+        \item $F\subset X$ is closed if and only if it contains all sequential limit points.
+        \item For any topological space $Y$, $f:X\to Y$ is continuous if and only if $f$ is sequentially continuous.
+    \end{itemize} 
+    \item \textbf{Hausdorff}. Thus,
+    \begin{itemize}
+        \item Compact sets are closed.
+        \item A convergent sequence has a unique limit.
+    \end{itemize}
+\end{enumerate}
 
 \begin{definition}[Total Boundedness]
     Let $(X,d)$ be a metric space. If for any $\epsilon>0$, there exists a finite number of $\epsilon$ balls that cover $X$.
@@ -214,90 +385,170 @@ For sequential compactness, the definition is straightforward.
     
 \end{definition}
 
+Total boundedness is equivalent to finite $\epsilon$ net
 \begin{proposition}
-    total boundedness is equivalent to finite $\epsilon$ net
+    A metric space $X$ is totally bounded if and only if for any $\epsilon>0$, there is a finite $\epsilon$-net in $X$.
 \end{proposition}
 
-
+A topological view of completeness.
 \begin{definition}[Absolutely Closed]
     
 \end{definition}
+\begin{proposition}
+    A metric space is absolutely closed if and only if it is complete.
+\end{proposition}
+\begin{proof}
+    Suppose $(X,d)$ is complete, and $(X,d)$ can be ? into $(Y,d_Y)$. Then $X$ is closed in $(Y,d_Y)$ because it contains all 
+\end{proof}
 
 \begin{theorem}
     In a metric space $(X,d)$, TFAE:
     \begin{enumerate}[label=(\roman*)]
-        \item $A$ is compact
-        \item $A$ is sequentially compact
-        \item $A$ is \textbf{totally} bounded and complete.
+        \item $A$ is compact.
+        \item $A$ is sequentially compact.
+        \item $A$ is \textbf{totally} bounded and \textbf{absolutely} closed.
     \end{enumerate}
 \end{theorem}
 \begin{remark}
-    Generalization of compactness on $\RR$.
+    This theorem is a natural generalization of the different characterizations of compactness on $\RR$, which we have learned in mathematical analysis.
 \end{remark}
 
+\subsection{Example: Topologies on Mappings}
+\label{subsec: toplogies on mappings 2}
+This subsection continues the discussion of Section \ref{subsec: toplogies on mappings 1}.
+We can try to find a topology on $\cM(X,Y)$ that describes ``uniform convergence on every compact set''.
+We can find it by comparing with the construction of $\cT_{p.c.}$ and $\cT_{u.c.}$:
+\begin{itemize}
+    \item The topological basis of $\cT_{u.c.}$ are the balls $$B(f;X;\epsilon)=\{g\in\cM(X,Y)|\sup_{x\in X}d(f(x),g(x))<\epsilon\}.$$
+    \item The topological basis of $\cT_{p.c.}$, i.e. ``uniform convergence on every finite set'', are the balls $$B(f;x_1,\dots,x_m;\epsilon)=\{g\in\cM(X,Y)|\sup_{1\leq i\leq m}d(f(x_i),g(x_i))<\epsilon\}.$$
+\end{itemize}
+Thus for a compact set $K\subset X$, we define $$B(f;K;\epsilon)=\{g\in\cM(X,Y)|\sup_{x\in K}d(f(x),g(x))<\epsilon\}.$$
+\begin{lemma}[Compact Convergence Topology]
+    Let $X$ be a topological space and $Y$ be a metric space. Then $$\cB_{c.c.}=\{B(f;K;\epsilon)|f\in\cM(X,Y),K\subset X\text{ is compact, }\epsilon>0\}$$
+    is a topological basis of $\cM(X,Y)$. The topology $\cT_{c.c.}$, called the \textbf{compact convergence topology}, it generates satisfies:
+    $$ f_n\text{ converges to }f\text{ on every compact subset}\Longleftrightarrow f_n\text{ converges to }f\text{ in }\cT_{c.c.}.$$
+\end{lemma}
 
+Back to our original problem. Let $f_n\in\mathcal{C}(X,Y)$ and $f_n\to f_0$ under $\cT_{c.c.}$,
+then $f_0$ is continuous on every compact subset. But is $f_0$ continuous?
+\begin{example}
+    
+\end{example}
+To remedy, we introduce the following concept
+\begin{definition}[Locally Compact Space]
+    If every point in $X$ has a compact neighborhood, then $X$ is called a \textbf{locally compact space}.
+\end{definition}
+\begin{proposition}
+    If $X$ is a locally compact space, then $\mathcal{C}(X,Y)$ is closed in $(\cM(X,Y),\cT_{c.c.})$.
+\end{proposition}
+In most applications, locally compact spaces are also Hausdorff. A locally compact Hausdorff space is often shorthanded by a \textbf{LCH} space.
+\begin{proposition}
+    Let $X$ be a LCH space, $K$ be a compact set, $U\supset K$ be an open set. Then there exists an open set $V$ such that $\overline{V}$ is compact and 
+    $$ K\subset V\subset \overline{V}\subset U .$$
+\end{proposition}
 
-\section{Topologies on Mappings}
-should move this to chapter 1.
+Although locally compactness , it is not the weakest condition that we can come up with.
+\begin{definition}[Compactly Generated Space]
+    
+\end{definition}
 
-For any set $X$ and topological space $Y$, we can consider 
-$$
-\cM(X,Y):=\{f:X\to Y\}.
-$$
-We would like to study the topologies on $\cM(X,Y)$ that leverage the mapping structure.
+When $Y$ is a general topological space (not a metric space any more), we cannot define compact convergence toplogy on $\cM(X,Y)$.
+However, using standard topological arguments, we can define
+\begin{definition}[Compact-Open Topology]
+    
+\end{definition}
 
-\begin{enumerate}[label=(\roman*)]
-    \item product topology = pointwise convergence topology $\cT_{p.c.}$
-    \item uniform convergence topology $\cT_{u.c.}$
-\end{enumerate}
-
-Suppose $(X,\cT)$ is a topological space and $Y$ is a metric space, then we can focus on continuous maps.
-$$
-\mathcal{C}(X,Y):=\{f\in \cM(X,Y)|f\text{ continuous}\}
-$$
-
-compact convergence $\cT_{c.c.}$
-
-when $Y$ is not a metric space
-compact open
-
-\subsection{Compactness in ...}
-
+Now we begin to study the compactness of 
 \begin{definition}[Relatively Compact (Precompact)]
-    $A\subset X$. If $\bar{A}$ is compact, we say that $A$ is relatively compact.
+    $A\subset X$. If $\bar{A}$ is compact, we say that $A$ is \textbf{precompact(relatively compact)}.
 \end{definition}
 
 \begin{definition}
-    Let $\cF\subset \mathcal{C}(X,Y)$ be a family of continuous map
+    Let $\cF\subset \mathcal{C}(X,Y)$ be a family of continuous maps.
     For $a\in X$, let $\cF_a:=\{f(a)|f\in\cF\}$.
     \begin{enumerate}[label=(\roman*)]
-        \item pointwise bounded if for any $a\in X$ $\cF_a$ is bounded in $Y$.
-        \item 
+        \item $\cF$ is \textbf{pointwise bounded} if for any $a\in X$ $\cF_a$ is bounded in $Y$.
+        \item $\cF$ is \textbf{pointwise precompact} if for any $a\in X$ $\cF_a$ is precompact in $Y$.
     \end{enumerate}
 \end{definition}
 
 \begin{theorem}[Arzela-Ascoli]
+    Let $X$ be a compact space, $(Y,d)$ be a metric space, and $\cF\subset\mathcal{C}(X,Y)$ be equipped with $\cT_{c.c.}$.
+    \begin{enumerate}[label=(\roman*)]
+        \item If $\cF$ is equicontinuous and pointwise precompact, then $\cF$ is precompact in $(\mathcal{C}(X,Y),\cT_{c.c.})$.
+        \item If in addition $X$ is a LCH, then the converse is also true.
+    \end{enumerate}
+\end{theorem}
+\begin{proof}
+    
+\end{proof}
+\begin{remark}
+    Be careful that the conclusion stated compactness only, instead of sequential compactness.
+    Thus in general we can not obtain the existence of a convergent subsequence.
+\end{remark}
+However, when \textit{$X$ is compact}, then $\cT_{c.c.}=\cT_{u.c.}$. As $\cT_{u.c.}$ is induced by a metric, compactness is equivalent to sequential compactness in this case.
+
+
+When $X$ is only a LCH,
+by the diagonal argument
+\begin{definition}[$\sigma$-Compact Space]
+    If a topological space $X$ can be written as a countable union of compact subsets, then $X$ is called \textbf{$\sigma$-compact}.
+\end{definition}
+
+\subsection{Application: Stone-Weierstrass Theorem}
+
+
+
+
+\section{Countability Axioms}
+
+\begin{definition}
+    Let $(X,\cT)$ be a topological space
+    \begin{enumerate}
+        \item If each point of $X$ has a countable neighbourhood basis, then $X$ is called a \textbf{first-countable} space.
+        \item If $X$ has a countable topological basis, then $X$ is called a \textbf{second-countable} space.
+    \end{enumerate}
+\end{definition}
+\begin{remark}
+    second countability $\Longrightarrow$ first countability
+\end{remark}
+
+benefit of first cou
+
+\begin{definition}[Separability]
+    Let $(X,\cT)$ be a topological space. If $X$ contains a countable dense subset, then $X$ is called a \textbf{separable} space.
+\end{definition}
+
+\begin{theorem}[Second Countability $\Longrightarrow$ Separability]
     
 \end{theorem}
+\begin{proof}
+    Let $\{U_n\}$ be the countable topological basis. For each $n$ we can choose $x_n\in U_n$. Let $A=\{x_n\}$. $A$ is countable.
+    For any $x\in X$ and an open neighborhood $U$ of $x$, there exists $n$ such that $x\in U_n\subset U$. Thus $U\cap A\neq \emptyset$ and $\overline{A}=X$ by Proposition \ref{prop:x in overline A}.
+\end{proof}
 
-\section{Countability}
+\begin{proposition}
+    A metric space $(X,d)$ is second countable if and only if it is separable.
+\end{proposition}
+
+\section{Separation Axioms}
+
+TODO:This section is too abstract please give some examples
 
 \begin{definition}
+    Suppose $(X,\cT)$ is a topological space.
     \begin{enumerate}
-        \item C1
-        \item C2
+        \item If for any $x\neq y$, there exists open sets $U,V$ such that $$x\in U\setminus V\text{ and } y\in V\setminus U,$$
+        then $X$ is called a \textbf{Frechet(T1)} space.
+        \item If for any $x\neq y$, there exists open sets $U,V$ such that $$x\in U,\, y\in V,\text{ and } U\cap V=\emptyset,$$
+        then $X$ is called a \textbf{Hausdorff(T2)} space.
+        \item If for any closed set $A$ and $x\notin A$, there exists open sets $U,V$ such that $$A\subset U,\, x\in V,\text{ and }U\cap V=\emptyset,$$
+        then $X$ is called a \textbf{regular(T3)} space.
+        \item If for any closed sets $A\cap B=\emptyset$, there exists open sets $U,V$ such that $$A\subset U,\,B\subset V,\text{ and }U\cap V=\emptyset,$$
+        then $X$ is called a \textbf{normal(T4)} space.
     \end{enumerate}
 \end{definition}
 
+T1+T4 -> T3, T1+T3 ->T2
 
-
-\section{Separability}
-
-\begin{definition}
-    \begin{enumerate}
-        \item T1 Frechet
-        \item T2 Hausdorff
-        \item T3
-        \item T4
-    \end{enumerate}
-\end{definition}
+\subsection{Urysohn Metrization}

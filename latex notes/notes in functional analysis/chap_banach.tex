@@ -135,18 +135,26 @@ dominated by $q$. Just to find an extension, we can simply take a Hamel basis.
 \end{theorem}
 
 \section{The Opening Mapping Theorem}
-\begin{theorem}[Open Mapping Theorem]
-    If $V$ and $W$ are Banach spaces and $T:V\to W$ is a continuous linear surjection,
-    then $T(G)$ is open in $W$ whenever $G$ is open in $V$.
+
+
+
+\begin{theorem}[Open Mapping Theorem]\label{thm:open mapping theorem}
+    Let $X$ be a Banach space and $Y$ be a normed linear space. If $T:X\to Y$ is a bounded linear operator and $\im{T}$ is a Baire second category set in $Y$,
+    then $T$ is a surjective open mapping.
 \end{theorem}
+\begin{corollary}
+    If $X$ and $Y$ are Banach spaces and $T:X\to Y$ is a bounded linear surjection,
+    then $T$ is an open mapping.
+\end{corollary}
 
 
 \begin{theorem}[Inverse Mapping Theorem]
-    If $V$ and $W$ are Banach spaces and $T:V\to W$ is a bounded linear transformation that is bijective,
-    then $T^{-1}$ is bounded.
+    If $X$ is a Banach space, $Y$ is a normed linear space, $T:X\to Y$ is a bounded linear operator that is bijective, and $\im{T}$ is a Baire second category set in $Y$
+    then $Y$ is in fact a Banach space, and $T^{-1}$ is bounded linear operator defined everywhere on $Y$.
 \end{theorem}
 \begin{proof}
-    As $T$ is continuous and surjective, by the open mapping theorem $T$ is open and hence a homeomorphism.
+    By Theorem \ref{thm:open mapping theorem}, $T$ is surjective, and hence $T^{-1}$ is defined everywhere on $Y$.
+    Further, $T$ is an oepn mapping, so $T^{-1}$ is bounded. Therefore $Y$ is also a Banach space.
 \end{proof}
 
 \begin{definition}[isomorphism between Banach spaces]
@@ -173,12 +181,49 @@ dominated by $q$. Just to find an extension, we can simply take a Hamel basis.
 
 
 \section{The Principle of Uniform Boundness}
-\begin{theorem}
-    Let $X$ be a Banach space and $Y$ a normed space. If $\mathcal{T}\subset B(X,Y)$ s.t. $\forall x\in V$,
-    $\sup\left\{\left\|Tx\right\|:T\in \mathcal{T}\right\}<\infty$, then $\sup\left\{\left\|T\right\|:T\in\mathcal{T}\right\}<\infty$.
+The principle of uniformly boundedness asserts that every pointwise bounded family of bounded linear operators on a Banach space is uniformly bounded.
+
+Let $\{T_\lambda:\lambda\in\Lambda\}\subset B(X,Y)$ be a family of bounded linear operators from $X$ to $Y$.
+It is \textbf{pointwise bounded} on $E\subset X$ if $\forall x\in E,\,\sup_{\lambda\in\Lambda}\|T_\lambda x\|<\infty$.
+It is \textbf{uniformly bounded} if $\sup_{\lambda\in\Lambda}\|T_\lambda \|<\infty$.
+\begin{theorem}[Principle of Uniform Boundedness]\label{thm:principle of uniform boundedness}
+    Let $X,Y$ be normed linear spaces, $\{T_\lambda:\lambda\in\Lambda\}\subset B(X,Y)$ be a family of bounded linear operators.
+    If $\{T_\lambda:\lambda\in\Lambda\}$ is pointwise bounded on a Baire second category set, then it is uniformly bouneded.
 \end{theorem}
 
+\begin{corollary}
+    Let $X$ be a Banach space and $Y$ a normed space, $\{T_\lambda:\lambda\in\Lambda\}\subset B(X,Y)$ be a family of bounded linear operators.
+    If $\{T_\lambda:\lambda\in\Lambda\}$ is pointwise bounded, then it is uniformly bouneded.
+\end{corollary}
 
+The proof of Theorem \ref{thm:principle of uniform boundedness} relies on the following lemmas.
+\begin{lemma}[Osgood]
+    Let $X$ be a normed linear space, $\{f_\lambda:\lambda\in\Lambda\}$ be a family of lower semicontinuous functions on $X$.
+    If $\{f_\lambda:\lambda\in\Lambda\}$ is pointwise bounded on a Baire second category set $E\subset X$, then there exists $M>0$ and a nonempty open set $U$ such that 
+    $$f_\lambda(x)\leq M,\quad\forall\lambda\in\Lambda,\quad x\in U.$$
+\end{lemma}
+\begin{proof}
+    Let $$E_{\lambda,n}=\{x\in X:f_\lambda(x)\leq n\},\quad E_n=\bigcap_{\lambda\in \Lambda}E_{\lambda n}.$$
+    By lower semicontinuity, each $E_{\lambda,n}$ is closed and hence $E_n$ is closed. As $E\subset \bigcup_{n=1}^\infty E_n$ and $E$ is a Baire second category set,
+    $\bigcup_{n=1}^\infty E_n$ is also a Baire second category set.
+    Therefore there exists $n_0$ such that $U=\mathring{E_{n_0}}\neq\emptyset$. So, $$f_\lambda(x)\leq n_0,\quad\forall\lambda\in\Lambda,\quad x\in U.$$
+\end{proof}
+
+\begin{lemma}
+    Let $X,Y$ be normed linear spaces, $\{T_\lambda:\lambda\in\Lambda\}\subset B(X,Y)$ be a family of bounded linear operators, and $U$ be a nonempty open set.
+    If there exists $a>0$ such that $\sup_{\lambda\in\Lambda}\|T_\lambda x\|\leq a$, then there exists $M>0$ such that $\sup_{\lambda\in\Lambda}\|T_\lambda \|<M$.
+\end{lemma}
+\begin{proof}
+    We can assume $0\in U$, without any loss of generality. Now \kz{notation for a ball}
+\end{proof}
+
+\begin{proof}[Proof of Theorem \ref{thm:principle of uniform boundedness}]
+    Notice that $f_\lambda=\|T_\lambda x\|$ is a continous function of $x$. Combining the above lemmas yield the desired result.
+\end{proof}
+
+\begin{corollary}[Banach-Steinhaus]
+    
+\end{corollary}
 
 \section{weak and weak*}
 
