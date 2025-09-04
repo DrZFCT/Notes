@@ -1,12 +1,12 @@
 # Fdb version 3
-["bibtex main"] 1754220843 "main.aux" "main.bbl" "main" 1754220845
+["bibtex main"] 1756999120 "main.aux" "main.bbl" "main" 1756999316
   "/usr/local/texlive/2022/texmf-dist/bibtex/bst/natbib/plainnat.bst" 1233624470 26816 ffe5423d2019860bad9f54bc402fac15 ""
   "bib.bib" 1748268384 1794 bd204f331b9b46e6b4254acb2214c696 ""
-  "main.aux" 1754220844 10183 cbf6a7694c6d5d552fc59e2fe504ef97 "pdflatex"
+  "main.aux" 1756999316 10298 cb6dfc610137216fe903b44aa5f5c4fc "pdflatex"
   (generated)
   "main.bbl"
   "main.blg"
-["pdflatex"] 1754220843 "/Users/mrzt/Documents/GitHub/notes/Notes/latex notes/notes in functional analysis/main.tex" "main.pdf" "main" 1754220845
+["pdflatex"] 1756999316 "/Users/mrzt/Documents/GitHub/notes/Notes/latex notes/notes in functional analysis/main.tex" "main.pdf" "main" 1756999316
   "/Users/mrzt/Documents/GitHub/notes/Notes/latex notes/notes in functional analysis/main.tex" 1748250901 619 0a97bc5b6378e516d022c6392fdda51b ""
   "/usr/local/texlive/2022/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc" 1136849721 2900 1537cc8184ad1792082cd229ecc269f4 ""
   "/usr/local/texlive/2022/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
@@ -207,13 +207,13 @@
   "chap_Hilbert.tex" 1748268384 395 301a64b58a69f9f45f379c3cd8fa9b09 ""
   "chap_Sobolev.tex" 1748157683 12297 8f8db1c13972aa408d511b69c436d3ba ""
   "chap_banach.tex" 1754108511 12603 332430311cbdbb0a56f1008e8ee0e687 ""
-  "chap_topology.tex" 1754220841 21574 3d01d1a82a30cc7e45de71520f441aae ""
-  "main.aux" 1754220844 10183 cbf6a7694c6d5d552fc59e2fe504ef97 "pdflatex"
-  "main.bbl" 1754220843 829 d8eb6ae4727a26474e2688824dd2ddbb "bibtex main"
-  "main.brf" 1754220844 119 722fa6d6cf8a6254238222f692b4e086 "pdflatex"
-  "main.out" 1754220844 9610 fa85a544ce3c90d8b083a16b64d75433 "pdflatex"
+  "chap_topology.tex" 1756999315 22315 29232053846eaae84b3ad57461f094f3 ""
+  "main.aux" 1756999316 10298 cb6dfc610137216fe903b44aa5f5c4fc "pdflatex"
+  "main.bbl" 1756999120 829 d8eb6ae4727a26474e2688824dd2ddbb "bibtex main"
+  "main.brf" 1756999316 119 722fa6d6cf8a6254238222f692b4e086 "pdflatex"
+  "main.out" 1756999316 9730 3007b50683a2e1e8f932bcd81bd9a9f4 "pdflatex"
   "main.tex" 1748250901 619 0a97bc5b6378e516d022c6392fdda51b ""
-  "main.toc" 1754220844 5294 0155e984aabf116c3abc9bd2755d75a7 "pdflatex"
+  "main.toc" 1756999316 5368 3a1819dd9c08efbcba159e54ae6b7245 "pdflatex"
   "style.sty" 1754107028 8470 dc6ac057f739c14d6ee368e689e30ed8 ""
   (generated)
   "main.aux"

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2022.8.21)  25 MAY 2025 17:11
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2022.8.21)  31 AUG 2025 17:37
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -654,16 +654,11 @@ Overfull \hbox (15.07777pt too wide) in paragraph at lines 49--49
 ]
 Chapter 4.
 [23] [24] [25]
-Overfull \hbox (9.90837pt too wide) in paragraph at lines 204--204
+Overfull \hbox (17.06938pt too wide) in paragraph at lines 204--204
 []\OT1/cmr/bx/n/10 Theorem 4.5.5 \OT1/cmr/m/n/10 (Doob's in-equal-ity)\OT1/cmr/bx/n/10 . []\OT1/cmr/m/it/10 Let $\OML/cmm/m/it/10 X[]$ \OT1/cmr/m/it/10 be a sub-martin-gale, $\OML/cmm/m/it/10 ^^U > \OT1/cmr/m/n/10 0$\OT1/cmr/m/it/10 , and $\OML/cmm/m/it/10 A \OT1/cmr/m/n/10 = []$\OT1/cmr/m/it/10 ,
  []
 
 [26]
-Overfull \hbox (1.16835pt too wide) in paragraph at lines 254--255
-[]\OT1/cmr/bx/n/10 Theorem 4.6.3. []\OT1/cmr/m/it/10 Let $\OML/cmm/m/it/10 f\OMS/cmsy/m/n/10 E\OT1/cmr/m/n/10 1$ \OT1/cmr/m/it/10 be in-creas-ing with $[][] \OML/cmm/m/it/10 f\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 t\OT1/cmr/m/n/10 )[]d\OML/cmm/m/it/10 t < \OMS/cmsy/m/n/10 1$\OT1/cmr/m/it/10 . Then $[] \OMS/cmsy/m/n/10 ! \OT1/cmr/m/n/10 0$ \OT1/cmr/m/it/10 a.s. on $[]$. 
- []
-
-
 Overfull \hbox (26.12527pt too wide) in paragraph at lines 271--272
 []\OT1/cmr/bx/n/10 Theorem 4.7.4. []\OT1/cmr/m/it/10 Given a prob-a-bil-ity space $\OT1/cmr/m/n/10 (
 \OML/cmm/m/it/10 ; \OMS/cmsy/m/n/10 F[]\OML/cmm/m/it/10 :P\OT1/cmr/m/n/10 )$ \OT1/cmr/m/it/10 and an $\OML/cmm/m/it/10 X \OMS/cmsy/m/n/10 2 \OML/cmm/m/it/10 L[]$\OT1/cmr/m/it/10 , then $[]$
@@ -749,7 +744,7 @@ Here is how much of TeX's memory you used:
  1141 hyphenation exceptions out of 8191
  102i,12n,105p,3299b,448s stack positions out of 10000i,1000n,20000p,200000b,200000s
 {/usr/local/texlive/2022/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc}</usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx7.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmbxti10.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmsl10.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy5.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmti7.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm7.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/public/cm-super/sfrm1000.pfb>
-Output written on main.pdf (65 pages, 487341 bytes).
+Output written on main.pdf (65 pages, 488093 bytes).
 PDF statistics:
  1324 PDF objects out of 1440 (max. 8388607)
  1199 compressed objects within 12 object streams

@@ -1,0 +1,64 @@
+\chapter{Abstract Measure Theory}
+
+
+\section{}
+Why $\sigma$?
+
+
+\begin{definition}[generator of $\sigma$-algebra]
+    \[\sigma(\cA)=\{A\subset E:A\in\cE \quad \forall \cE \supset \]
+\end{definition}
+\begin{remark}
+    Borel $\sigma$-algebra
+\end{remark}
+
+\begin{definition}[$\pi$-system]
+    $\cA$ is a collection of subsets of $E$. Then $\cA$ is called a $\pi$-system if 
+    \begin{enumerate}
+        \item $\emptyset\in\cA$;
+        \item $A,B\in\cA$, then $A\cap B\in\cA$.
+    \end{enumerate}
+\end{definition}
+
+\begin{definition}[$d$-system]
+    $\cA$ is a collection of subsets 
+    \begin{enumerate}
+        \item $E\in\cA$;
+        \item $A,B\in\cA$, $A\subset B$, then $B\setminus A \in\cA$;
+        \item If $A_n\subset \cA$ such that $A_n\subset A_{n+1}$, then $\cup_{n}A_n\in\cA$.
+    \end{enumerate}
+\end{definition}
+
+\begin{proposition}
+    $\cA$ is a $\sigma$-algebra if and only if it is a $\pi$-system and a $d$-system.
+\end{proposition}
+
+\begin{lemma}[Dynkin's $\pi$-system lemma]
+    Let $\cA$ be a $\pi$-system. Then any $d$-system that contains $\cA$ also contains $\sigma(\cA)$.
+\end{lemma}
+Usage
+\begin{proof}
+    Let $\cD$ be the intersection of all $d$-system containing $\cA$.
+    We now prove that $\cD$ is a $\sigma$-algebra. As $\cD$ is already a $d$-system, we only need to prove that $\cD$ is a $\pi$-system.
+
+    (i) If $B\in\cD$ and $A\in\cA$, then $B\cap A\subset\cD$.
+    Let $\cD'=\{B\in\cD:B\cap A\in \cD\quad \forall A\in\cA\}$. $D'\supset \cA$. We check that $\cD'$ is a d-system.
+
+    Thus $\cD'=\cD$.
+
+    (ii) If $A,B\in\cD$, then $B\cap A\in\cD$.
+    Let $\cD''=\{B\in\cD:B\cap A\in \cD\quad \forall A\in\cD\}$.
+\end{proof}
+
+
+
+
+
+\begin{definition}[Set function]
+    $\cA$ be a collection of subsets of $E$ with $\emptyset\in\cA$.
+    A set function $\mu:\cA\to [0,\infty]$ is a function such that $\mu(\emptyset)=0$.
+\end{definition}
+
+\begin{definition}[Increasing Set function]
+    $A\subset B$, we have $\mu(A)\leq \mu(B)$.
+\end{definition}

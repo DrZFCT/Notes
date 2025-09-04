@@ -1023,6 +1023,10 @@ INPUT /usr/local/texlive/2022/texmf-dist/fonts/tfm/public/cm/cmbx12.tfm
 INPUT /usr/local/texlive/2022/texmf-dist/fonts/tfm/public/cm/cmr12.tfm
 INPUT /usr/local/texlive/2022/texmf-dist/fonts/tfm/public/cm/cmbx12.tfm
 INPUT /usr/local/texlive/2022/texmf-dist/fonts/tfm/public/cm/cmti10.tfm
+INPUT ./chap_abstract_measure_theory.tex
+INPUT chap_abstract_measure_theory.tex
+INPUT ./chap_abstract_measure_theory.tex
+INPUT chap_abstract_measure_theory.tex
 INPUT main.aux
 INPUT ./main.out
 INPUT ./main.out

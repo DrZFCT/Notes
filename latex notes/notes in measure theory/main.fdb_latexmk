@@ -1,6 +1,6 @@
 # Fdb version 3
-["pdflatex"] 1748183522 "/Users/mrzt/Documents/GitHub/notes/Notes/latex notes/notes in measure theory/main.tex" "main.pdf" "main" 1748183523
-  "/Users/mrzt/Documents/GitHub/notes/Notes/latex notes/notes in measure theory/main.tex" 1748100158 374 1bd591a48a1d3486a799cddb46437677 ""
+["pdflatex"] 1757015766 "/Users/mrzt/Documents/GitHub/notes/Notes/latex notes/notes in measure theory/main.tex" "main.pdf" "main" 1757015767
+  "/Users/mrzt/Documents/GitHub/notes/Notes/latex notes/notes in measure theory/main.tex" 1757013293 415 dfe2eee5e54e4c021aad25a9bc618b73 ""
   "/usr/local/texlive/2022/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "/usr/local/texlive/2022/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmbsy5.tfm" 1246382020 1120 1e8878807317373affa7f7bba4cf2f6a ""
   "/usr/local/texlive/2022/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmbsy6.tfm" 1246382020 1124 14ccf5552bc7f77ca02a8a402bea8bfb ""
@@ -152,11 +152,12 @@
   "/usr/local/texlive/2022/texmf-var/fonts/map/pdftex/updmap/pdftex.map" 1647878959 4410336 7d30a02e9fa9a16d7d1f8d037ba69641 ""
   "/usr/local/texlive/2022/texmf-var/web2c/pdftex/pdflatex.fmt" 1661094221 2826440 e3df3e53eaa293ef3171676f55b00abf ""
   "/usr/local/texlive/2022/texmf.cnf" 1647878952 577 209b46be99c9075fd74d4c0369380e8c ""
-  "chap_real_analysis.tex" 1748183522 3105 a293e5fa54dd5c97057ccc2a5b35f14c ""
-  "main.aux" 1748183523 1388 7c426051e17260b41c7cbfc94e222d1c "pdflatex"
-  "main.out" 1748183523 372 1e897f7e214b8804248c11efe5a07e9b "pdflatex"
-  "main.tex" 1748100158 374 1bd591a48a1d3486a799cddb46437677 ""
-  "main.toc" 1748183523 237 a533862a9379e4254e4eca4296d5e14e "pdflatex"
+  "chap_abstract_measure_theory.tex" 1757015766 1983 509603b8042b241efaa7388939da5711 ""
+  "chap_real_analysis.tex" 1757013293 3089 27fc4c563aa9143339976b42ef75edb2 ""
+  "main.aux" 1757015767 1685 c660d9dc8d68dc076d2b256e81470a2a "pdflatex"
+  "main.out" 1757015767 582 9514ce82d6be4e0fe17440fa396cfa44 "pdflatex"
+  "main.tex" 1757013293 415 dfe2eee5e54e4c021aad25a9bc618b73 ""
+  "main.toc" 1757015767 376 bae9cfab891238e5f61a7607db5ae0b0 "pdflatex"
   "style.sty" 1748181659 8162 60dc73413c3861631a62c020b474cdb2 ""
   (generated)
   "main.aux"
