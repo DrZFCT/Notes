@@ -2,15 +2,30 @@
 
 
 \section{}
-Why $\sigma$?
+In this section, we are working on a set $E$.
 
-
-\begin{definition}[generator of $\sigma$-algebra]
-    \[\sigma(\cA)=\{A\subset E:A\in\cE \quad \forall \cE \supset \]
+\begin{definition}[$\sigma$-algebra]
+    
 \end{definition}
 \begin{remark}
-    Borel $\sigma$-algebra
+    Greek letters $\sigma$ and $\delta$ are often used when countable unions and countable intersections are involved. 
+    For example, topologists call $F_\sigma$ every countable union of closed sets in a topological space ($F$ standing possibly for the French word fermé, closed) and $G_\delta$
+ every countable intersection of open sets ($G$ standing for the German word Gebiet, domain, connected open set). 
+ The letters $\sigma$
+ and $\delta$
+ are often given as Greek abbreviations of German words: $\sigma$
+ as S in Summe for sum (in the sense of sum of sets, that is, union) and $\delta$
+ as D in Durchschnitt for intersection, both countable. 
+ Thus, in the context of measure theory, the letter $\sigma$ refers to the stability of a collection of subsets by countable union.
 \end{remark}
+
+\begin{definition}[generator of $\sigma$-algebra]
+    \[\sigma(\cA)=\{A\subset E:A\in\cE \quad \forall \cE \supset \}\]
+\end{definition}
+
+\begin{example}
+    Borel $\sigma$-algebra
+\end{example}
 
 \begin{definition}[$\pi$-system]
     $\cA$ is a collection of subsets of $E$. Then $\cA$ is called a $\pi$-system if 
@@ -28,37 +43,53 @@ Why $\sigma$?
         \item If $A_n\subset \cA$ such that $A_n\subset A_{n+1}$, then $\cup_{n}A_n\in\cA$.
     \end{enumerate}
 \end{definition}
+\begin{remark}
+    $d$-system is also referred as $\lambda$-system.
+\end{remark}
 
-\begin{proposition}
+\begin{proposition}\label{prop:sigma dpi}
     $\cA$ is a $\sigma$-algebra if and only if it is a $\pi$-system and a $d$-system.
 \end{proposition}
+\begin{proof}
+    A $\sigma$-algebra is a $\pi$ system because
+
+    Conversely, 
+\end{proof}
 
 \begin{lemma}[Dynkin's $\pi$-system lemma]
     Let $\cA$ be a $\pi$-system. Then any $d$-system that contains $\cA$ also contains $\sigma(\cA)$.
 \end{lemma}
-Usage
+This lemma can reduce the problem of studying a $\sigma$-algebra to the study of a $\pi$-system.
 \begin{proof}
     Let $\cD$ be the intersection of all $d$-system containing $\cA$.
-    We now prove that $\cD$ is a $\sigma$-algebra. As $\cD$ is already a $d$-system, we only need to prove that $\cD$ is a $\pi$-system.
+    We now prove that $\cD$ is a $\sigma$-algebra. 
+    As $\cD$ is already a $d$-system, by Proposition \ref{prop:sigma dpi}, we only need to prove that $\cD$ is a $\pi$-system.
 
-    (i) If $B\in\cD$ and $A\in\cA$, then $B\cap A\subset\cD$.
-    Let $\cD'=\{B\in\cD:B\cap A\in \cD\quad \forall A\in\cA\}$. $D'\supset \cA$. We check that $\cD'$ is a d-system.
-
-    Thus $\cD'=\cD$.
+    (i) First we show the following property for $\cD$: If $B\in\cD$ and $A\in\cA$, then $B\cap A\subset\cD$.
+    Let $$\cD'=\{B\in\cD:B\cap A\in \cD\quad \forall A\in\cA\}.$$ 
+    To show that $\cD'=\cD$, we only need to check that $\cD'$ is a $d$-system containing $\cA$.
+    As $\cA$ is a $\pi$-system, $D'\supset \cA$. 
+    Now, we can check
+    \begin{itemize}
+        \item $E\in\cD'$; this is because $\cA\subset\cD$.
+        \item $B_1,B_2\in\cD'$, $B_1\subset B_2$, then $B_2\setminus B_1 \in\cD'$; this is because for any $A\in\cA$, $(B_2\setminus B_1)\cap A = (B_2\cap A)\setminus (B_1\cap A ) \in\cD$.
+        \item If $B_n\subset \cD'$ such that $B_n\subset B_{n+1}$, then $\cup_{n}B_n\in\cD'$; this is because for any $A\in\cA$, $(\cup_{n}B_n)\cap A=\cup_n (B_n\cap A)\in\cD$.
+    \end{itemize}
 
     (ii) If $A,B\in\cD$, then $B\cap A\in\cD$.
-    Let $\cD''=\{B\in\cD:B\cap A\in \cD\quad \forall A\in\cD\}$.
+    Let $$\cD''=\{B\in\cD:B\cap A\in \cD\quad \forall A\in\cD\}.$$ One can see that $\cD''$ is a $d$-system by noting that the argument holds for any $\cA\subset\cD$.
+    The fact that $\cD''$ contains $\cA$ follows from property (i). Therefore, $\cD''=\cD$ and $\cD$ is a $\pi$-system.
 \end{proof}
 
 
 
 
 
-\begin{definition}[Set function]
+\begin{definition}[set function]
     $\cA$ be a collection of subsets of $E$ with $\emptyset\in\cA$.
     A set function $\mu:\cA\to [0,\infty]$ is a function such that $\mu(\emptyset)=0$.
 \end{definition}
 
-\begin{definition}[Increasing Set function]
+\begin{definition}[increasing set function]
     $A\subset B$, we have $\mu(A)\leq \mu(B)$.
 \end{definition}
