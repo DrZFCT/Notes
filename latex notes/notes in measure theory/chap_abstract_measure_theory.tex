@@ -82,7 +82,7 @@ This lemma can reduce the problem of studying a $\sigma$-algebra to the study of
 \end{proof}
 
 
-
+\section{Caratheodory Extension Theorem}
 
 
 \begin{definition}[set function]
@@ -93,3 +93,122 @@ This lemma can reduce the problem of studying a $\sigma$-algebra to the study of
 \begin{definition}[increasing set function]
     $A\subset B$, we have $\mu(A)\leq \mu(B)$.
 \end{definition}
+
+\begin{definition}[Additive Set Function]
+    A set function is additve if whenever $A,B\in\cA$ and $A\cup B\in\cA,A\cap B=\emptyset$, then $\mu(A\cup B)=\mu(A)+\mu(B)$.
+\end{definition}
+
+\begin{definition}[Countably Additive Set Function]
+    A set function is countably additive if whenever $(A_n)\subset\cA$ such that $A_n\cap A_m=\emptyset$ forall $n\neq m$ and $\cup_{n\in\NN}A_n\in\cA$, then $\mu(\cup_{n\in\NN}A_n)=\sum_{n\in\NN}\mu(A_n)$.
+\end{definition}
+
+\begin{definition}[Countably subadditive Set Function]
+    A set function is countably subadditive if whenever $(A_n)\subset\cA$ such that $A_n\cap A_m=\emptyset$ forall $n\empty m$ and $\cup_{n\in\NN}A_n\in\cA$, then $\mu(\cup_{n\in\NN}A_n)\leq\sum_{n\in\NN}\mu(A_n)$.
+\end{definition}
+
+\begin{definition}[ring]
+    A collection of subsets $\cA$ of a subset $E$ is a ring if 
+    \begin{enumerate}
+        \item $\emptyset\in \cA$ 
+        \item $\forall A,B\in\cA$, we have $B\setminus A\in\cA$ and $A\cup B\in\cA$.
+    \end{enumerate}
+\end{definition}
+
+\begin{definition}[algebra]
+    A collection of subsets $\cA$ of a subset $E$ is an algebra if 
+    \begin{enumerate}
+        \item $\emptyset\in \cA$ 
+        \item $\forall A,B\in\cA$, we have $A^c \in\cA$ and $A\cup B\in\cA$.
+    \end{enumerate}
+\end{definition}
+
+\begin{theorem}[Caratheodory Extension Theorem]
+    Let $\cA$ be a ring on $E$, and $\mu$ be a countably additive set function on $\cA$.
+    Then $\mu$ extends to a measure on $\sigma(\cA)$.
+\end{theorem}
+
+\begin{theorem}
+    Suppose that $\mu_1,\mu_2$ are measures on $(E,\cE)$ with $\mu_1(E)=\mu_2(E)<\infty$.
+    If $\cA$ is a $\pi$-system with $\sigma(\cA)=\cE$ and $\mu_1|_\cA=\mu_2|_\cA$, then $\mu_1=\mu_2$.
+\end{theorem}
+\begin{proof}
+    Let $\cD=\{A\in\cE:\mu_1(A)=\mu_2(A)\}$, then $\cD\supset\cA$.
+    By Dynkin's lemma, it suffices to show that $\cD$ is a $d$-system.
+    We can check 
+    \begin{itemize}
+        \item $E\in\cD$.
+        \item Let $A,B\in\cD$ with $A\subset B$. (Note that finiteness is important here.)
+        \item 
+    \end{itemize}
+\end{proof}
+
+\begin{example}
+    Let $E=\ZZ$, $\cE=$. let $\cA=\{\{x,x+2,x+2,\dots\}:x\in E\}\cup\{\emptyset\}$. 
+    $\cA$ is a $\pi$-system such that $\cE=\sigma(\cA)$. Let $\mu_1(A)$ be the number of elements of $A$ and $\mu_2=2\mu_1$.
+\end{example}
+
+\begin{definition}[Borel $\sigma$-algebra]
+    Let $E$ be a topological space. 
+    $\cB(E)=\sigma(\{U\subset E:U\text{ open}\})$.
+\end{definition}
+
+\begin{definition}[borel and Radon Measure]
+    A measure $\mu$ on $(E,\cB(E))$ is called a Borel measure. 
+    If $\mu(K)<\infty$ for all $K\subset E$ compact, then $\mu$ is called a Radon measure.
+\end{definition}
+
+\section{Lebesgue Measure}
+
+\begin{theorem}
+    There exists a unique Borel measure $\mu$ on $\cB(\RR)$ with $\mu([a,b])=b-a$.
+\end{theorem}
+\begin{remark}
+    This measure is called the Lebesgue measure.
+\end{remark}
+\begin{proof}
+    \textbf{Uniqueness.} Suppose $\tilde{\mu}$ is another measure. For any $n\in\ZZ$, we set $\mu_n(A)=\mu(A\cap (n+1,n])$.
+    The previous theorem imples that $\mu_n=\tilde{\mu}_n$ for all $n\in\ZZ$. Firx $A\in\cB(\RR)$, $A=\cup_{n\in\ZZ}(A\cap (n,n+1])$,
+    $\mu(A)=\sum_{n\in\ZZ}\mu_n(A)=\sum_{n\in\ZZ}\tilde{\mu}_n(A)=\tilde{\mu}(A)$.
+
+    \textbf{Existence.} $\cA$ be the collection of finite, disjoint unions of the following form $A=\cup_{n\in\ZZ}(a_i,b_i]$.
+    $\cA$ is a ring on $\RR$ and $\sigma(\cA)=\cB(\RR)$. Define $\mu(A)=\sum_{i=1}^{n}(b_i-a_i)$. It is well defined and additive.
+    Suppose $A=\cup_{n=1}^\infty A_n\in\cA$, $\mu(A)=\sum_{i=1}^{n}\mu(A_i)+\mu(A\setminus\sum_{j=1}^{n}A_j)$. Let $B_n=A\setminus\sum_{j=1}^{n}A_j$.
+
+    Argue by contradiction,$\exists\epsilon>0,n_0\in\NN$ such that $\mu(B_n)\geq 2\epsilon$ $\forall n\geq n_0$.
+    $\forall n\in\NN$, $\exists C_n\in\cA$ such that $\overline{C_n}\subset B_n$ and $\mu(B_n\setminus C_n)\leq \frac{\epsilon}{2^n}$.
+    Then we have $\mu(B_n)-\mu (\cap_{m=1}^n \overline{C_m})=\mu(B_n\setminus \cap_{m=1}^n C_m)\leq \mu(\cup_{m=1}^n (B_m\setminus C_m))\leq \sum_{m=1}^{n}\mu(B_m\setminus C_m)\leq \epsilon$.
+    The finite intersection property
+\end{proof}
+\begin{lemma}[Finite intersection property of compact sets of $\RR$]
+    If 
+\end{lemma}
+
+\begin{definition}[$\sigma$-finite measure]
+    Let $(E,\cE)$ be a measurable space, and $\mu$ a measure on $\cE$.
+    We say that $\mu$ is $\sigma$-finite if $E=\cup_{n\in\NN}E_n,E_n\in\cE,\mu(E_n)<\infty\forall n$.
+\end{definition}
+
+It is easy to see that Lebesgue measure is translation invariant using the above theorem.
+Just take
+
+\begin{theorem}
+    Let $\tilde{\mu}$ be a Borel measure on $\RR$ that is translation invariant and $\tilde{\mu}([0,1])=1$.
+    Then $\tilde{\mu}$ is the Lebesgue measure.
+\end{theorem}
+\begin{proof}
+    First show no singleton.
+    $\tilde{\mu}(\{a\})\leq \tilde{\mu}([a,a+\frac{1}{n}))=\tilde{\mu}([0,\frac{1}{n}))\leq\frac{1}{n}$.
+
+    Can find $p_n,q_n\in\QQ$ such that $p_n\downarrow a$, $q_n\uparrow b$ as $n\to\infty$.
+\end{proof}
+
+\section{Probability Measure}
+
+\begin{definition}
+    Let $(E,\cE)$ be a measure space with the property $\mu(E)=1$.
+    Then $\mu$ is called a probability measure and $(E,\cE,\mu)$ a probability space.
+\end{definition}
+
+\section{Radon Measure}
+
+Every Borel measure on $\RR^n$ is regular and locally finite, which is Radon.
