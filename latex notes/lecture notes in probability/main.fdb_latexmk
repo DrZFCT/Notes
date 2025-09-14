@@ -1,5 +1,5 @@
 # Fdb version 3
-["pdflatex"] 1756676262 "/Users/mrzt/Documents/GitHub/notes/Notes/latex notes/lecture notes in probability/main.tex" "main.pdf" "main" 1756676264
+["pdflatex"] 1757620415 "/Users/mrzt/Documents/GitHub/notes/Notes/latex notes/lecture notes in probability/main.tex" "main.pdf" "main" 1757620417
   "/Users/mrzt/Documents/GitHub/notes/Notes/latex notes/lecture notes in probability/main.tex" 1748164313 842 1225546edd24c8fcca09969dd1914127 ""
   "/usr/local/texlive/2022/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc" 1136849721 2900 1537cc8184ad1792082cd229ecc269f4 ""
   "/usr/local/texlive/2022/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
@@ -204,17 +204,17 @@
   "chap_dsctmc.tex" 1748163982 8428 7183ab143f7e1856b328eec1f25a334d ""
   "chap_dsdtmc.tex" 1748163748 27779 80822fd04130d63e4bca17a69be4b5bd ""
   "chap_hdp.tex" 1748162513 6331 62ee01ad4f6901f5194e60f274bf1c6f ""
-  "chap_independence.tex" 1748162513 1657 2c187d4fc5ffaa09dad31a6c7a0d2f3c ""
+  "chap_independence.tex" 1757620415 2497 ee5eaca1106078b653880f1d1e8e3984 ""
   "chap_lln.tex" 1748162513 7978 fd84d8b7fd1e9b357d8262532c122ca8 ""
   "chap_martingale.tex" 1756676262 23675 c62811e05036f5a32818ab5399eeaa0b ""
   "chap_matrix.tex" 1748162271 123 c4fa2b839a2020f631944e0bfae78698 ""
   "chap_msdtmc.tex" 1748163618 256 893fb990935a0225d2f53298cc8f5030 ""
   "chap_probabilistic_method.tex" 1748162513 1926 2065fed09cc5ef4dcf540cde87784084 ""
   "chap_stochastic_calculus.tex" 1748163941 10220 01884b68ef44eb2fd82afb6bad68b773 ""
-  "main.aux" 1756676263 17211 bdd47873ef6b08bad6457fb350a66a2a "pdflatex"
-  "main.out" 1756676263 15515 ceda5ea86511cb01daf4ee655a2a81fc "pdflatex"
+  "main.aux" 1757620417 17211 bdd47873ef6b08bad6457fb350a66a2a "pdflatex"
+  "main.out" 1757620417 15515 ceda5ea86511cb01daf4ee655a2a81fc "pdflatex"
   "main.tex" 1748164313 842 1225546edd24c8fcca09969dd1914127 ""
-  "main.toc" 1756676263 9465 31f58729c6085e90be4f58f5f196f0ea "pdflatex"
+  "main.toc" 1757620417 9465 31f58729c6085e90be4f58f5f196f0ea "pdflatex"
   "style.sty" 1748156971 8298 2a8c2b6770e96c4826b1da94f6a4851a ""
   (generated)
   "main.aux"

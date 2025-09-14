@@ -3,12 +3,21 @@
 \begin{definition}[independence: events]
 Two events $A,B$ are independent if $P(AB)=P(A)P(B)$.
 \end{definition}
+\begin{remark}
+    A sequence of events $(A_n)\subset\cF$ is said to be independent if $\PP(\cap_{n\in\cI}A_n)=\prod_{n\in\cI}\PP(A_n)$ for every finite set $\cI\subset\NN$.
+\end{remark}
+
 \begin{definition}[independence: random variables]
 Two random variables $X,Y$ are independent if for all $C,D\in \mathcal{R}$, the events $A=\left \{ X\in C \right \} $ and $B=\left \{ Y\in D \right \} $ are independent.
 \end{definition}
+
 \begin{definition}[independence: $\sigma$-fields]
 Two $\sigma$-fields $\mathcal{F}$ and $\mathcal{G}$ are independent if for all $A\in\mathcal{F}$ and $B\in\mathcal{G}$, the events $A$ and $B$ are independent.
 \end{definition}
+\begin{remark}
+    A sequence of $\sigma$-algebra $(\cA_n)\subset\cF$ is said to be independent if any $A_n\in\cA_n$ we have $A_n$ is independent.
+\end{remark}
+
 Actually, the first definition is a special case of the second, which is a special case of the third. This can be summarized in the following theorem.
 \begin{theorem}
 \,\par
@@ -22,6 +31,15 @@ We can extend this definition in an evident way for finitely many objects. Then,
 \begin{theorem}[$\pi$-$\lambda$ theorem]
 If $\mathcal{P}$ is a $\pi$-system and $\mathcal{L}$ is a $\lambda$-system that contains $\mathcal{P}$, then $\sigma(\mathcal{P})\subset \mathcal{L}$.
 \end{theorem}
+
+\begin{theorem}
+    Suppose $\cA_1$ and $\cA_2$ are $\pi$-systems on $\cF$. If $\PP(A_1\cap A_2)=\PP(A_1)\PP(A_2)$, $\forall A_1\in\cA_1,A_2\in\cA_2$,
+    then $\sigma(\cA_1),\sigma(\cA_2)$ are independent.
+\end{theorem}
+\begin{proof}
+    Fix $A_1\in\cA_1$. We define the measures $\mu(A)=\PP(A\cap A_1)$, $\nu(A)=\PP(A)\PP(A_1)$ $\forall A\in\cF$. 
+    Then $\mu |_{\cA_1}=\nu |_{\cA_2}$ and $\mu,\nu$ are finite. This shows that $\mu |_{\sigma(\cA_1)}=\nu |_{\sigma(\cA_2)}$
+\end{proof}
 
 
 
