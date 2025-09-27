@@ -1,0 +1,66 @@
+\chapter{Riemannian Geometry}
+
+
+\section{Riemannian Metrics}
+
+\section{Tensor Algebra}
+
+\section{Connection}
+
+\subsection{Levi-Civita Connection}
+
+A connection is symmetric if 
+
+
+metric compaibility
+
+\begin{theorem}
+    Given a metric $g$, there is a unique connection $\nabla$ that is symmetric and metric compatible.
+    This connection is called the \textbf{Levi-Civita connection}, and is given by
+\end{theorem}
+
+\subsection{Tensor Leibniz}
+
+
+\begin{equation*}
+    \nabla_{E_i}E_j=\Gamma^k_{ij}E_k
+\end{equation*}
+
+
+\begin{proposition}
+    \begin{equation*}
+        F^{i_1\dots i_k}_{j_1\dots j_l;m}=E_m(F^{i_1\dots i_k}_{j_1\dots j_l})+\sum_{s=1}^{k}\Gamma^{i_s}_{mp} F^{i_1 \dots p \dots i_k}_{j_1\dots j_l}-\sum_{s=1}^{l}\Gamma^{p}_{mj_s} F^{i_1 \dots i_k}_{j_1\dots p \dots j_l}
+    \end{equation*}
+\end{proposition}
+
+higher order covariant derivative can be computed by iterating
+
+
+\subsection{Along a Curve}
+
+\section{Curvature}
+
+The covariant derivative of a $(r,s)$ tensor can be thought of as an $(r,s+1)$ tensor in a natural way.
+For example, if 
+
+Repeating this, we get a $(1,2)$ tensor $\nabla\nabla V$, which will abbreviate as $\nabla^2 V$.
+
+Using the Leibniz rule, we see that 
+\begin{equation*}
+    \nabla_X(\nabla_Y V)=\nabla^2_{X,Y}V+\nabla_{\nabla_X Y}V
+\end{equation*}
+
+The tensor is not necessarily symmetric in the two lower slots. In fact, the curvature comes in 
+
+\begin{align*}
+    \nabla^2_{X,Y}V-\nabla^2_{Y,X}V&= \nabla_X(\nabla_Y V)-\nabla_Y(\nabla_X V)-\nabla_{\nabla_X Y-\nabla_Y X}V\\
+    &=\nabla_X(\nabla_Y V)-\nabla_Y(\nabla_X V)-\nabla_{[X,Y]}V\\
+    &=R(Y,X)V
+\end{align*}
+This is known as the \textbf{Ricci identity}.
+
+\begin{definition}[Riemann curvature]
+    
+\end{definition}
+
+\subsection{Symmetries}
