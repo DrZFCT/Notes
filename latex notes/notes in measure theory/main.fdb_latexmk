@@ -1,6 +1,6 @@
 # Fdb version 3
-["pdflatex"] 1758077231 "d:/GitHub/Notes/latex notes/notes in measure theory/main.tex" "main.pdf" "main" 1758077232
-  "chap_abstract_measure_theory.tex" 1758077230 9591 f79788ca8ffd236187d5ce8a2cfc154f ""
+["pdflatex"] 1759020355 "d:/GitHub/Notes/latex notes/notes in measure theory/main.tex" "main.pdf" "main" 1759020356
+  "chap_abstract_measure_theory.tex" 1759020353 9736 2849a0974260573faa83d4cb6f1fd5f0 ""
   "chap_real_analysis.tex" 1758076881 3509 a41854444ed0d42eec8422eb2449ea48 ""
   "d:/GitHub/Notes/latex notes/notes in measure theory/main.tex" 1757016861 444 dfe2eee5e54e4c021aad25a9bc618b73 ""
   "d:/texlive/2022/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc" 1649388537 2900 1537cc8184ad1792082cd229ecc269f4 ""
@@ -159,10 +159,10 @@
   "d:/texlive/2022/texmf-var/fonts/map/pdftex/updmap/pdftex.map" 1649390905 4448422 15354be9acfb30b1b7485a9cb19efaa9 ""
   "d:/texlive/2022/texmf-var/web2c/pdftex/pdflatex.fmt" 1649391010 2826451 660740ac61e69e5937838ee186708b77 ""
   "d:/texlive/2022/texmf.cnf" 1649390884 713 e69b156964470283e0530f5060668171 ""
-  "main.aux" 1758077232 2296 ecaa85e2c4bf4b30fe1c1a9d8518b568 "pdflatex"
-  "main.out" 1758077232 1203 76daed01c2001dc9a90515c185b207f3 "pdflatex"
+  "main.aux" 1759020356 2296 ecaa85e2c4bf4b30fe1c1a9d8518b568 "pdflatex"
+  "main.out" 1759020356 1203 76daed01c2001dc9a90515c185b207f3 "pdflatex"
   "main.tex" 1757016861 444 dfe2eee5e54e4c021aad25a9bc618b73 ""
-  "main.toc" 1758077232 694 37db6effa56b244714cbc7bb918ab186 "pdflatex"
+  "main.toc" 1759020356 694 37db6effa56b244714cbc7bb918ab186 "pdflatex"
   "style.sty" 1749289752 8486 60dc73413c3861631a62c020b474cdb2 ""
   (generated)
   "main.aux"

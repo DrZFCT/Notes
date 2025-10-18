@@ -1,0 +1,76 @@
+\chapter{Distributions}
+
+
+\section{Space of Test Functions}
+
+Let $\Omega\subset\RR^n$ be an open set.
+
+\begin{definition}[Convergence in $C^\infty(\Omega)$]
+    $f_n$ converges to $f$ in $C^\infty(\Omega)$ iff for every compact set $K\subset \Omega$ and $\alpha$, $\|f_n-f\|_{C^\alpha(K)}\to 0$.
+\end{definition}
+
+not a norm space, but family of seminorms
+
+we can define a metric on $C^\infty(\Omega)$.
+
+$C_c^\infty(\Omega)$ or $C_0^\infty(\Omega)$ smooth functions with compact support
+
+\begin{definition}[Convergence in $C_c^\infty(\Omega)$]
+    convergence in $C^\infty(\Omega)$
+
+    $\supp f_n\subset K$ for some compact set $K$ for all $n$
+\end{definition}
+
+
+\section{Definition of Distributions}
+
+
+
+\begin{definition}
+    A linear map $\ell$ from $C_c^\infty(\Omega)$ to $\CC$ (or $\RR$) is called a distribution, if $\ell$ is sequentially continuous, \emph{i.e.}
+if $\phi_n\in C_c^\infty(\Omega)$ converge to $\phi$ in $C_c^\infty(\Omega)$, then $\ell(\phi_n)\to\ell(\phi)$.
+\end{definition}
+
+\begin{definition}
+    For any compact set $K\subset \Omega$, there is $N\in\NN$ and $C>0$ such that 
+    \[|\ell(\phi)|\leq C\|\phi\|_{C^N(K)}\]
+    for every $\supp\phi\subset K$.
+\end{definition}
+
+\begin{definition}
+    \begin{equation}
+        \ell(\phi)=\sum_{\alpha}\int_{\Omega}\partial^\alpha\phi\d{\mu_\alpha}
+    \end{equation}
+    $\mu_\alpha$ locally finite Borel measure in $\Omega$
+    locally finite sum, \emph{i.e.} $\supp\mu_\alpha\cap K=\emptyset$ for $|\alpha|>N$.
+\end{definition}
+
+\begin{example}
+    Let $f\in L^1_{loc}$ be a locally integrable function, \emph{i.e.} for any compact set $K\subset\Omega$ $\int_K |f|<\infty$.
+\end{example}
+
+\begin{definition}[Convergence in $D'(\Omega)$]
+    
+\end{definition}
+
+\begin{definition}[Mollifiers]
+    
+\end{definition}
+
+Pointwise limits of distributions are distributions
+\begin{theorem}
+    
+\end{theorem}
+\begin{proof}
+    Uniform Boundedness Principle
+\end{proof}
+
+\begin{theorem}
+    Every $u\in D'(\RR^n)$ can be approximated by $C^\infty$-smooth functions in the sense of distributions.
+\end{theorem}
+
+\section{Localization of Distributions}
+
+\begin{theorem}
+    $\phi\in C_c^\infty(\Omega)$, $\supp \phi\cap\supp u=\emptyset$, then $\left\langle u,\phi\right\rangle=0$.
+\end{theorem}

@@ -1,7 +1,8 @@
 # Fdb version 3
-["pdflatex"] 1758895294 "d:/GitHub/Notes/latex notes/notes in geometry/main.tex" "main.pdf" "main" 1758895296
-  "chap_riemannian.tex" 1758895101 1812 6fe37259d435b7c22d55a9e4900f274b ""
-  "d:/GitHub/Notes/latex notes/notes in geometry/main.tex" 1758659756 393 7b9a59a6f0945c374b74862ca119f574 ""
+["pdflatex"] 1760578764 "d:/GitHub/Notes/latex notes/notes in geometry/main.tex" "main.pdf" "main" 1760578766
+  "chap_riemannian.tex" 1760578764 2370 36199949f6584dd157219b19498c4dc2 ""
+  "chap_smooth.tex" 1760578666 71 56168299eb38099d35e8f4599f1d8ea0 ""
+  "d:/GitHub/Notes/latex notes/notes in geometry/main.tex" 1760578666 414 7c9de74e1d1b0b3df9aebd2b0bc04c46 ""
   "d:/texlive/2022/texmf-dist/fonts/map/fontname/texfonts.map" 1649389004 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "d:/texlive/2022/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmbsy5.tfm" 1649388241 1120 1e8878807317373affa7f7bba4cf2f6a ""
   "d:/texlive/2022/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmbsy6.tfm" 1649388241 1124 14ccf5552bc7f77ca02a8a402bea8bfb ""
@@ -61,6 +62,7 @@
   "d:/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb" 1649388241 32569 5e5ddc8df908dea60932f3c484a54c0d ""
   "d:/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb" 1649388241 32716 08e384dc442464e7285e891af9f45947 ""
   "d:/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb" 1649388241 37944 359e864bd06cde3b1cf57bb20757fb06 ""
+  "d:/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb" 1649388242 34694 870c211f62cb72718a00e353f14f254d ""
   "d:/texlive/2022/texmf-dist/tex/context/base/mkii/supp-pdf.mkii" 1649389693 71627 94eb9990bed73c364d7f53f960cc8c5b ""
   "d:/texlive/2022/texmf-dist/tex/generic/atbegshi/atbegshi.sty" 1649388291 24708 5584a51a7101caf7e6bbf1fc27d8f7b1 ""
   "d:/texlive/2022/texmf-dist/tex/generic/bigintcalc/bigintcalc.sty" 1649388416 40635 c40361e206be584d448876bba8a64a3b ""
@@ -155,10 +157,10 @@
   "d:/texlive/2022/texmf-var/fonts/map/pdftex/updmap/pdftex.map" 1649390905 4448422 15354be9acfb30b1b7485a9cb19efaa9 ""
   "d:/texlive/2022/texmf-var/web2c/pdftex/pdflatex.fmt" 1649391010 2826451 660740ac61e69e5937838ee186708b77 ""
   "d:/texlive/2022/texmf.cnf" 1649390884 713 e69b156964470283e0530f5060668171 ""
-  "main.aux" 1758895296 1851 07c21055d28c2ca6a39bc2e6413b03fa "pdflatex"
-  "main.out" 1758895296 1169 aecca9a2ead8426bd27153ae9242b989 "pdflatex"
-  "main.tex" 1758659756 393 7b9a59a6f0945c374b74862ca119f574 ""
-  "main.toc" 1758895296 722 72d1d1fe2fbdca0a6130ec45546bd9af "pdflatex"
+  "main.aux" 1760578766 2052 aa96dc3b9e13b9450acf9861ccc991b0 "pdflatex"
+  "main.out" 1760578766 1362 718d50611f3406f261e5434f52e954a1 "pdflatex"
+  "main.tex" 1760578666 414 7c9de74e1d1b0b3df9aebd2b0bc04c46 ""
+  "main.toc" 1760578766 806 9daa17fb850c291f713f5b6eac9a894d "pdflatex"
   "style.sty" 1749289752 8486 60dc73413c3861631a62c020b474cdb2 ""
   (generated)
   "main.aux"

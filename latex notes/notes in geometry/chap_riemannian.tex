@@ -1,15 +1,30 @@
-\chapter{Riemannian Geometry}
+\chapter{Riemannian Manifold}
 
 
 \section{Riemannian Metrics}
 
-\section{Tensor Algebra}
 
-\section{Connection}
+
+\section{Affine Connections}
+
+An affine connection $\nabla_{\cdot}(\cdot)$ is a map from $\Gamma(M)\times \Gamma(M)$ to $\Gamma(M)$ 
+
+\begin{definition}
+    \begin{enumerate}
+        \item $C(M)$-linear in the lower slot 
+        \item $\RR$-linear in the upper slot
+        \item $C(M)$-Leibniz rule in the upper slot 
+    \end{enumerate}
+\end{definition}
 
 \subsection{Levi-Civita Connection}
+Let $\nabla$ be an affine connection, then by the basis theorem there are locally defined functions $\Gamma^k_{ij}$ such that 
+\begin{equation}
+    \nabla_{\partial_i}\partial_j=\sum_k \Gamma^k_{ij}\partial_k.
+\end{equation}
 
 A connection is symmetric if 
+
 
 
 metric compaibility
@@ -19,7 +34,7 @@ metric compaibility
     This connection is called the \textbf{Levi-Civita connection}, and is given by
 \end{theorem}
 
-\subsection{Tensor Leibniz}
+\subsection{Tensor Leibniz Rule}
 
 
 \begin{equation*}
