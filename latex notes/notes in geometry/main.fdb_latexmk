@@ -1,6 +1,6 @@
 # Fdb version 3
-["pdflatex"] 1760578764 "d:/GitHub/Notes/latex notes/notes in geometry/main.tex" "main.pdf" "main" 1760578766
-  "chap_riemannian.tex" 1760578764 2370 36199949f6584dd157219b19498c4dc2 ""
+["pdflatex"] 1760913949 "d:/GitHub/Notes/latex notes/notes in geometry/main.tex" "main.pdf" "main" 1760913951
+  "chap_riemannian.tex" 1760913948 3622 b2b5a36309037ea8d9185dd7f9b35c3a ""
   "chap_smooth.tex" 1760578666 71 56168299eb38099d35e8f4599f1d8ea0 ""
   "d:/GitHub/Notes/latex notes/notes in geometry/main.tex" 1760578666 414 7c9de74e1d1b0b3df9aebd2b0bc04c46 ""
   "d:/texlive/2022/texmf-dist/fonts/map/fontname/texfonts.map" 1649389004 3524 cb3e574dea2d1052e39280babc910dc8 ""
@@ -157,10 +157,10 @@
   "d:/texlive/2022/texmf-var/fonts/map/pdftex/updmap/pdftex.map" 1649390905 4448422 15354be9acfb30b1b7485a9cb19efaa9 ""
   "d:/texlive/2022/texmf-var/web2c/pdftex/pdflatex.fmt" 1649391010 2826451 660740ac61e69e5937838ee186708b77 ""
   "d:/texlive/2022/texmf.cnf" 1649390884 713 e69b156964470283e0530f5060668171 ""
-  "main.aux" 1760578766 2052 aa96dc3b9e13b9450acf9861ccc991b0 "pdflatex"
-  "main.out" 1760578766 1362 718d50611f3406f261e5434f52e954a1 "pdflatex"
+  "main.aux" 1760913950 2276 b1a7b543f8c2ee19e5383c8575d3ada9 "pdflatex"
+  "main.out" 1760913950 1531 ea5d67c5bd0653ba211deaf277fe3d20 "pdflatex"
   "main.tex" 1760578666 414 7c9de74e1d1b0b3df9aebd2b0bc04c46 ""
-  "main.toc" 1760578766 806 9daa17fb850c291f713f5b6eac9a894d "pdflatex"
+  "main.toc" 1760913950 948 72eabd4f6b1d5a9df939fbdec9d4dab1 "pdflatex"
   "style.sty" 1749289752 8486 60dc73413c3861631a62c020b474cdb2 ""
   (generated)
   "main.aux"

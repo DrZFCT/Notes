@@ -8,6 +8,17 @@ Let $\Omega\subset\RR^n$ be an open set.
 \begin{definition}[Convergence in $C^\infty(\Omega)$]
     $f_n$ converges to $f$ in $C^\infty(\Omega)$ iff for every compact set $K\subset \Omega$ and $\alpha$, $\|f_n-f\|_{C^\alpha(K)}\to 0$.
 \end{definition}
+\begin{example}
+    Suppose $f^{(\alpha)}_n\to 0$ on $\Omega$.
+    An example that every degree of derivative converges but not uniformly 
+    \[ f_n(x)= \frac{1}{n}f(nx)\]
+    where $f(x)$ is a bump function.
+    so $f_n$ does not converge to $0$ in $C^\infty$.
+\end{example}
+\begin{remark}
+    Warning: Dini type of theorem () requires additional assumptions like monotone increasing...
+\end{remark}
+
 
 not a norm space, but family of seminorms
 
@@ -74,3 +85,9 @@ Pointwise limits of distributions are distributions
 \begin{theorem}
     $\phi\in C_c^\infty(\Omega)$, $\supp \phi\cap\supp u=\emptyset$, then $\left\langle u,\phi\right\rangle=0$.
 \end{theorem}
+
+proof use cut-off function and partition of unity
+
+distributions are uniquely defined by its localizations
+
+distribution with compact support 
