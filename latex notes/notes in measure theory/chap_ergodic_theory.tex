@@ -1,0 +1,54 @@
+\chapter{Ergodic Theory}
+
+Let $(E,\cE,\mu)$ be a measure space.
+
+\begin{definition}[Measure-Preserving Transformation]
+    \begin{equation}
+        \mu(\theta^{-1}(A))=\mu(A),\quad\forall A\in\cE
+    \end{equation}
+\end{definition}
+
+\begin{definition}[Invariant Subset]
+    We say that $A\in\cE$ is invariant for $\theta$ if $A=\theta^{-1}(A)$.
+\end{definition}
+
+\begin{definition}[Invariant Function]
+    A measurable function $f:E\to\RR$ is invariant for $\theta$ if $f=f\circ \theta$.
+\end{definition}
+
+\begin{equation}
+    \cE_\theta=\{A\in\cE:A\text{ is invariant}\}
+\end{equation}
+
+\begin{definition}[Ergodic]
+    We say that $\theta$ is \textbf{ergodic} if $A\in\cE_\theta$ implies that $\mu(A)=0$ or $\mu(A^c)=0$.
+\end{definition}
+
+\begin{proposition}
+    If $f:E\to\RR$ is integrable and $\theta:E\to E$ is measure-preserving,
+    then \[ \int_E f\circ\theta \d{\mu}=\int_E f\d{\mu}.\]
+\end{proposition}
+
+\begin{proposition}
+    If $\theta$ is ergodic and $f$ is invariant under $\theta$, then $f$ is a constant $\mu$-a.e..
+\end{proposition}
+
+\begin{example}[Bernoulli Shifts]
+    
+\end{example}
+
+\begin{theorem}[Birkhoff's Ergodic Theorem]
+    Let $(E,\cE,\mu)$ be $\sigma$-finite amd $f:E\to\RR$ be integrable.
+    Then there exists an invariant function $\bar{f}$, with $\mu(\bar{f})\leq \mu(|f|)$, such that $\frac{S_n(f)}{n}\to\bar{f}$ a.e. as $n\to\infty$.
+\end{theorem}
+
+\begin{theorem}[von Neumann's Ergodic Theorem]
+    Let $(E,\cE,\mu)$ be a finite measure space. Let $p\in[1,\infty)$ and $f\in L^p$.
+    Then $\frac{S_n(f)}{n}\to \bar{f}$ in $L^p$.
+\end{theorem}
+\begin{proof}
+    It is easy to see that $\|f\circ\theta^n\|_p=\|f\|_p$.
+    Now by the triangle inequality, $\|\frac{S_n(f)}{n}\|_p\leq \|f\|_p$.
+    We cannot apply DCT directly here, so let us fix $\epsilon>0$, take $M\in(0,\infty)$ large enough such that $\|g-f\|_p<\frac{\epsilon}{3}$, where $g=(f)$.
+    As $\mu$ is finite, $g$ is integrable. By Birkhoff's theorem, $\frac{S_n(g)}{n}\to\bar{g}$ a.e., by DCT we have this convergence also in $L^p$.
+\end{proof}
