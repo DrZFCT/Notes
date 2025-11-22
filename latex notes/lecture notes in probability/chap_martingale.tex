@@ -155,6 +155,9 @@ If $X_m$, $m\ge0$, is a submartingale, then \[(b-a)EU_n\le E(X_n-a)^+-E(X_0-a)^+
 Let we introduce $Y_n=a+(X_n-a)^+$ to fix the final incomplete upcrossing, then $Y_n$ is a submartingale that upcrosses $[a,b]$ the same number of times that $X_m$ does. Each upcross results in a profit $\geq(b-a)$ and a final incomplete upcrossing of $Y_n$ (instead of $X_n$) results in a nonnegative profit, therefore we have $(b-a)U_n\le (H\cdot Y)_n$.\par
 Let $K_m=1-H_m$, then $Y_n-Y_0=(H\cdot Y)_n+(K\cdot Y)_n$. $(K\cdot Y)_n$ is a submartingale as well, so $E(K\cdot Y)_n\geq E(K\cdot Y)_0=0$. Therefore $E(H\cdot Y)_n\le E(Y_n-Y_0)$.
 \end{proof}
+
+Whether the number of upcrossing is finite or infinite characterize convergence.
+
 \begin{theorem}[martingale convergence theorem]
 If $X_n$ is a submartingale with $\sup EX_n^+<\infty$, then as $n\to\infty$, $X_n$ converges a.s. to a limit $X$ with $E\left|X\right|<\infty$.
 \end{theorem}

@@ -44,27 +44,28 @@
 \contentsline {section}{\numberline {3.8}Projections and Idempotents}{17}{section.3.8}%
 \contentsline {section}{\numberline {3.9}Compact Operators}{17}{section.3.9}%
 \contentsline {section}{\numberline {3.10}Discussion}{17}{section.3.10}%
-\contentsline {chapter}{\numberline {4}Sobolev Spaces}{19}{chapter.4}%
-\contentsline {section}{\numberline {4.1}H\"older Spaces}{19}{section.4.1}%
-\contentsline {section}{\numberline {4.2}Sobolev Spaces}{19}{section.4.2}%
-\contentsline {subsection}{\numberline {4.2.1}Weak Derivatives}{20}{subsection.4.2.1}%
-\contentsline {subsection}{\numberline {4.2.2}Definition of Sobolev Spaces}{20}{subsection.4.2.2}%
-\contentsline {subsection}{\numberline {4.2.3}Properties}{21}{subsection.4.2.3}%
-\contentsline {section}{\numberline {4.3}Approximation}{21}{section.4.3}%
-\contentsline {section}{\numberline {4.4}Extensions}{21}{section.4.4}%
-\contentsline {section}{\numberline {4.5}Traces}{22}{section.4.5}%
-\contentsline {section}{\numberline {4.6}Compactness}{22}{section.4.6}%
-\contentsline {section}{\numberline {4.7}Sobolev Inequalities}{22}{section.4.7}%
-\contentsline {subsection}{\numberline {4.7.1}$1\le p<n$}{22}{subsection.4.7.1}%
-\contentsline {subsection}{\numberline {4.7.2}$n<p\le \infty $}{23}{subsection.4.7.2}%
-\contentsline {subsection}{\numberline {4.7.3}$p=n$}{23}{subsection.4.7.3}%
-\contentsline {subsection}{\numberline {4.7.4}General Sobolev inequalities}{23}{subsection.4.7.4}%
-\contentsline {section}{\numberline {4.8}Poincare's inequalities}{23}{section.4.8}%
-\contentsline {section}{\numberline {4.9}Fourier Transform}{23}{section.4.9}%
-\contentsline {section}{\numberline {4.10}The Space $H^{-1}$}{23}{section.4.10}%
-\contentsline {section}{\numberline {4.11}Discussion}{23}{section.4.11}%
-\contentsline {chapter}{\numberline {5}Distributions}{25}{chapter.5}%
-\contentsline {section}{\numberline {5.1}Space of Test Functions}{25}{section.5.1}%
-\contentsline {section}{\numberline {5.2}Definition of Distributions}{25}{section.5.2}%
-\contentsline {section}{\numberline {5.3}Localization of Distributions}{26}{section.5.3}%
+\contentsline {chapter}{\numberline {4}Distributions}{19}{chapter.4}%
+\contentsline {section}{\numberline {4.1}Space of Test Functions}{19}{section.4.1}%
+\contentsline {section}{\numberline {4.2}Definition of Distributions}{19}{section.4.2}%
+\contentsline {section}{\numberline {4.3}Localization of Distributions}{20}{section.4.3}%
+\contentsline {section}{\numberline {4.4}Tempered Distributions and the Fourier Transform}{20}{section.4.4}%
+\contentsline {chapter}{\numberline {5}Sobolev Spaces}{21}{chapter.5}%
+\contentsline {section}{\numberline {5.1}H\"older Spaces}{21}{section.5.1}%
+\contentsline {section}{\numberline {5.2}Sobolev Spaces}{21}{section.5.2}%
+\contentsline {subsection}{\numberline {5.2.1}Weak Derivatives}{22}{subsection.5.2.1}%
+\contentsline {subsection}{\numberline {5.2.2}Definition of Sobolev Spaces}{22}{subsection.5.2.2}%
+\contentsline {subsection}{\numberline {5.2.3}Properties}{23}{subsection.5.2.3}%
+\contentsline {section}{\numberline {5.3}Approximation}{23}{section.5.3}%
+\contentsline {section}{\numberline {5.4}Extensions}{23}{section.5.4}%
+\contentsline {section}{\numberline {5.5}Traces}{24}{section.5.5}%
+\contentsline {section}{\numberline {5.6}Compactness}{24}{section.5.6}%
+\contentsline {section}{\numberline {5.7}Sobolev Inequalities}{24}{section.5.7}%
+\contentsline {subsection}{\numberline {5.7.1}$1\le p<n$}{24}{subsection.5.7.1}%
+\contentsline {subsection}{\numberline {5.7.2}$n<p\le \infty $}{25}{subsection.5.7.2}%
+\contentsline {subsection}{\numberline {5.7.3}$p=n$}{25}{subsection.5.7.3}%
+\contentsline {subsection}{\numberline {5.7.4}General Sobolev inequalities}{25}{subsection.5.7.4}%
+\contentsline {section}{\numberline {5.8}Poincare's inequalities}{25}{section.5.8}%
+\contentsline {section}{\numberline {5.9}Fourier Transform}{25}{section.5.9}%
+\contentsline {section}{\numberline {5.10}The Space $H^{-1}$}{25}{section.5.10}%
+\contentsline {section}{\numberline {5.11}Discussion}{25}{section.5.11}%
 \contentsfinish 
