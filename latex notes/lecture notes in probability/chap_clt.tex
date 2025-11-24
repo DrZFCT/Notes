@@ -24,7 +24,7 @@ If $F$ satisfies (i),(ii),(iii) in \ref{properties of distribution fucntions}, t
 Let $\Omega=(0,1),\mathcal{F}$=the Borel sets, and $P$=Lebesgue measure. If $\omega\in(0,1)$, construct \[X(\omega)=\sup\left \{ y:F(y)<\omega \right \} \]
 We need to show:\[\left \{ \omega:X(\omega)\le x \right \} =\left \{ \omega:\omega\le F(x) \right \} \]\par
 For $\left \{ \omega:X(\omega)\le x \right \} \supseteq\left \{ \omega:\omega\le F(x) \right \}$, observe if $\omega \le F(x)$, then $X(\omega)\le x$.\par
-For $\left \{ \omega:X(\omega)\le x \right \} \subseteq\left \{ \omega:\omega\le F(x) \right \}$, observe if $\omega>F(x)$, then since $F$ is right continuous, $\exists \epsilon>0$ s.t. $F(x+\epsilon)<\omega$. Therefore, $X(\omega)\ge x+\epsilon>x$.
+For $\left \{ \omega:X(\omega)\le x \right \} \subseteq\left \{ \omega:\omega\le F(x) \right \}$, observe if $\omega>F(x)$, then since $F$ is right continuous, $\exists \epsilon>0$ s.t. $F(x+\epsilon)<\omega$. Therefore, $X(\omega)\geq x+\epsilon>x$.
 \end{proof}
 
 \section{weak convergence}
@@ -47,7 +47,7 @@ If $F_n\Longrightarrow F_\infty$, then $\exists \text{ r.v. } Y_n$ with distribu
 As in the proof of \ref{r.v. constructed from distribution}, let $\Omega=(0,1),\mathcal{F}$=the Borel sets, and $P$=Lebesgue measure. If $\omega\in(0,1)$, construct \[Y_n(\omega)=\sup\left \{ y:F_n(y)<\omega \right \} \]
 \par We want to show: \[Y_n(x)\longrightarrow Y_\infty(x)\] for all but a countable number of $x$.
 \par We begin by identifying the exceptional set. Let $a_x=\sup\left \{ y:F_\infty(y)<x \right \}, b_x=\inf\left \{ y:F_\infty(y)>x \right \}$, and $\Omega_0=\left \{ x:(a_x,b_x)=\emptyset \right \}$. Then $\Omega-\Omega_0$ is countable. If $x\in \Omega_0$, then $F_\infty(y)<x$ for $y<Y_\infty(x)$ and $F_\infty(y)>x$ for $y> Y_\infty(x)$.\par
-Now we show $\liminf_{n\to\infty} Y_n(x)\ge Y_\infty(x)$. Choose $y<Y_\infty(x)$ s.t. $F_\infty$ is continuous at $y$.  Then  $F_\infty(y)<x$ and $F_n(y)\longrightarrow F_\infty(y)$, so $F_n(y)< x$ for $n$ sufficient large, that is, $Y_n(x)\ge y$. This is true for all such $y$'s so the result follows.\par
+Now we show $\liminf_{n\to\infty} Y_n(x)\geq Y_\infty(x)$. Choose $y<Y_\infty(x)$ s.t. $F_\infty$ is continuous at $y$.  Then  $F_\infty(y)<x$ and $F_n(y)\longrightarrow F_\infty(y)$, so $F_n(y)< x$ for $n$ sufficient large, that is, $Y_n(x)\geq y$. This is true for all such $y$'s so the result follows.\par
 The reverse inequality $\limsup_{n\to\infty} Y_n(x)\le Y_\infty(x)$ is true by symmetry.
 \end{proof}
 \begin{theorem}
@@ -57,7 +57,7 @@ $X_n\Longrightarrow X_\infty\Longleftrightarrow\forall\text{ bounded continuous 
 $\Longrightarrow$: By \ref{Skorokhod}, let $Y_n$ have the same distribution as $X_n$ and converge a.s. Since $g$ is continuous, $g(Y_n)\longrightarrow g(Y_\infty)$ a.s. so by the bounded convergence theorem $Eg(X_n)\longrightarrow Eg(X_\infty)$.\par
 $\Longleftarrow$: construct a bounded and continuous function\[g_{x,\epsilon}(y)=\left\{\begin{matrix}
  1 &y\le x \\
- 0 & y\ge x+\epsilon\\
+ 0 & y\geq x+\epsilon\\
  \text{linear} & x< y< x+\epsilon
 \end{matrix}\right.\]
 Therefore, $\limsup_{n\to\infty} P(X_n\le x)\le \limsup_{n\to\infty} Eg_{x,\epsilon}(X_n)=Eg_{x,\epsilon}(X_\infty)\le P(X_\infty\le x+\epsilon)$. Letting $\epsilon\to 0$ gives $\limsup_{n\to\infty}P(X_n\le x)\le P(X_\infty\le x)$. The reverse inequality can be proved in the same way.
@@ -69,10 +69,19 @@ Therefore, $\limsup_{n\to\infty} P(X_n\le x)\le \limsup_{n\to\infty} Eg_{x,\epsi
 \begin{theorem}
 TFAE:\par
 (i) $X_n\Longrightarrow X_\infty$\par
-(ii) For all open sets $G$, $\liminf_{n\to\infty}P(X_n\in G)\ge P(X_\infty\in G)$\par
+(ii) For all open sets $G$, $\liminf_{n\to\infty}P(X_n\in G)\geq P(X_\infty\in G)$\par
 (iii) For all closed sets $K$, $\limsup_{n\to\infty}P(X_n\in K)\le P(X_\infty\in K)$\par
 (iv) For all Borel sets $A$ with $P(X_\infty\in\partial A)=0$, $\lim_{n\to\infty}P(X_n\in A)=P(X_\infty\in A)$
 \end{theorem}
+
+\textbf{vague convergence}
+From the test function viewpoint, $C_0(X)$ instead of $C_b(X)$.
+\begin{remark}
+    Vague convergence has a nice functional analytical interpretation. 
+    Let $X$ be a locally compact space.
+    By the Riesz representation theorem, the space $M(X)$ of Radon measures 
+\end{remark}
+The constant function is in $C_b$ but not $C_0$, this is why vague convergence 
 
 \begin{theorem}[Helly's selection theorem]
 For every sequence $F_n$ of distribution functions, there is a subsequence $F_{n(k)}$ and a right continuous nondecreasing function $F$ s.t. $F_{n(k)}\Longrightarrow_v F$.
@@ -83,7 +92,7 @@ The limit may not be a distribution function. This type of convergence is called
 \begin{proof}
 To construct the function $F$, we adopt the standard diagonal argument. Let $\left \{ q_i \right \} $ be an enumeration of the rationals. Since $F_m(q_k)\in [0,1]$ is bounded for all $m$, there is a subsubsequence $m_k(i)$ that is a subsequence of $m_{k-1}(i)$ s.t. $F_{m_k(i)}(q_k)\longrightarrow G(q_k)$. Select the diagonal sequence $n(k)=m_k(k)$, then by construction, $F_{n(k)}(q)\longrightarrow G(q)$ for all rational $q$.\par
 Now we need to consruct $F$ from $G$. Let \[F(x)=\inf \left \{ G(q):q\in \mathbb{Q},q>x \right \} \]then $F(x)$ is right continuous and nondecreasing.\par
-Let $x$ be a continuity point of $F$. Pick rational $s>x$ s.t. $F(x)\le F(s)< F(x)+\epsilon$, then as $F_{n(k)}(s)\longrightarrow G(s)\le F(s)$, for $k$ sufficient large, we have $F_{n(k)}(x)\le F_{n(k)}(s)<F(x)+\epsilon$. On the other hand, pick rational $r_1<r_2<x$ s.t. $F(x)-\epsilon<F(r_1)\le F(r_2)\le F(x)$, then as $F_{n(k)}(r_2)\longrightarrow G(r_2)\ge F(r_1)$, so $F_{n(k)}(x)\ge F_{n(k)}(r_2)>F(x)-\epsilon$ for $k$ sufficient large. Thus as $\epsilon\to 0$, we have the weak convergence.
+Let $x$ be a continuity point of $F$. Pick rational $s>x$ s.t. $F(x)\le F(s)< F(x)+\epsilon$, then as $F_{n(k)}(s)\longrightarrow G(s)\le F(s)$, for $k$ sufficient large, we have $F_{n(k)}(x)\le F_{n(k)}(s)<F(x)+\epsilon$. On the other hand, pick rational $r_1<r_2<x$ s.t. $F(x)-\epsilon<F(r_1)\le F(r_2)\le F(x)$, then as $F_{n(k)}(r_2)\longrightarrow G(r_2)\geq F(r_1)$, so $F_{n(k)}(x)\geq F_{n(k)}(r_2)>F(x)-\epsilon$ for $k$ sufficient large. Thus as $\epsilon\to 0$, we have the weak convergence.
 \end{proof}
 \begin{theorem}
 Every subsequential limit is the distribution function of a probability measure $\Longleftrightarrow$ the sequence is \textbf{tight}, i.e. $\forall \epsilon>0,\exists M_\epsilon$ s.t.
@@ -92,14 +101,14 @@ Every subsequential limit is the distribution function of a probability measure 
 \begin{proof}
 First note that for vague convergence $0\le F(x)\le 1$.\par
 $\Longleftarrow$: Suppose the sequence is tight and $F_{n(k)}\Longrightarrow_v F$. Let $r<-M_\epsilon,s>M_\epsilon$ be continuity points of $F$, then $1-F(s)+F(r)=\lim_{k\to\infty}1-F_{n(k)}(s)+F_{n(k)}(r)\le \limsup_{n\to\infty}1-F_n(M_\epsilon)+F_n(M_\epsilon)\le \epsilon$. Letting $r\to-\infty$ and $s\to\infty$ gives $\limsup_{n\to\infty}1-F(x)+F(-x)\le \epsilon$.\par
-$\Longrightarrow$: Suppose $F_n$ is not tight. Then there is an $\epsilon>0$ and a subsequence $n(k)\to\infty$ s.t. \[1-F_{n(k)}(k)+F_{n(k)}(-k)\ge\epsilon\] for all $k$. By passing to a further subsequence $F_{n(k_j)}$ we can suppose $F_{n(k_j)}\Longrightarrow_v F$. Let $r<0<s$ be continuity points of $F$. Then $1-F(s)+F(r)=\lim_{j\to\infty} 1-F_{n(k_j)}(s)+F_{n(k_j)}(r)\ge\liminf_{j\to\infty}1-F_{n(k_j)}(k_j)+F_{n(k_j)}(-k_j)\ge\epsilon$. Letting $s\to\infty$ and $r\to-\infty$, we see that $F$ is not the distribution function of a probability measure.
+$\Longrightarrow$: Suppose $F_n$ is not tight. Then there is an $\epsilon>0$ and a subsequence $n(k)\to\infty$ s.t. \[1-F_{n(k)}(k)+F_{n(k)}(-k)\geq\epsilon\] for all $k$. By passing to a further subsequence $F_{n(k_j)}$ we can suppose $F_{n(k_j)}\Longrightarrow_v F$. Let $r<0<s$ be continuity points of $F$. Then $1-F(s)+F(r)=\lim_{j\to\infty} 1-F_{n(k_j)}(s)+F_{n(k_j)}(r)\geq\liminf_{j\to\infty}1-F_{n(k_j)}(k_j)+F_{n(k_j)}(-k_j)\geq\epsilon$. Letting $s\to\infty$ and $r\to-\infty$, we see that $F$ is not the distribution function of a probability measure.
 \end{proof}
 \begin{corollary}
-If there is a $\varphi\ge0$ s.t. $\varphi(x)\to\infty$ as $\left | x \right | \to\infty$ and 
+If there is a $\varphi\geq0$ s.t. $\varphi(x)\to\infty$ as $\left | x \right | \to\infty$ and 
 \[\sup_n\int\varphi(x)\mathrm{d}F_n(x)=C<\infty\] then $F_n$ is tight.
 \end{corollary}
 \begin{proof}
-$C\ge\int\varphi(x)\mathrm{d}F_n(x)\ge\inf_{\left | x \right |\ge M}\varphi(x)(F_n(-M)+1-F_n(M))$
+$C\geq\int\varphi(x)\mathrm{d}F_n(x)\geq\inf_{\left | x \right |\geq M}\varphi(x)(F_n(-M)+1-F_n(M))$
 \end{proof}
 \begin{lemma}
 If $X_n\longrightarrow X$ in probability, then $X_n\Longrightarrow X$. Conversely, if $X_n\Longrightarrow c$ where $c$ is a constant, then $X_n\longrightarrow c$ in probability.
@@ -126,7 +135,7 @@ If $X_n\Longrightarrow X$ and $Y_n\Longrightarrow c$, where $c$ is a constant, t
     If $X_1$ and $X_2$ are independent and have ch.f.'s $\varphi_1$ and $\varphi_2$, then $X_1+X_2$ has ch.f. $\varphi_1(t)\varphi_2(t)$.
 \end{theorem}
 \begin{lemma}
-    If $F_1,\cdots,F_n$ have ch.f. $\varphi_1,\cdots,\varphi_n$ and $\lambda_i\ge 0$ have $\lambda_1+\cdots+\lambda_n=1$, then $\sum_{i=1}^n\lambda_iF_i$ has ch.f. $\sum_{i=1}^n\lambda_i\varphi_i$.
+    If $F_1,\cdots,F_n$ have ch.f. $\varphi_1,\cdots,\varphi_n$ and $\lambda_i\geq 0$ have $\lambda_1+\cdots+\lambda_n=1$, then $\sum_{i=1}^n\lambda_iF_i$ has ch.f. $\sum_{i=1}^n\lambda_i\varphi_i$.
 \end{lemma}
 
 
@@ -154,7 +163,7 @@ The next result is useful for constructing examples of ch.f.'s.
 
 \section{The Moment Problem}
 \begin{example}[Heyde(1963)]
-    Consider the lognormal density \[f_0(x)=\frac{1}{\sqrt{(2\pi)}}\frac{1}{x}\exp^{-\frac{(\log x)^2}{2}}1_{x\ge 0}\] 
+    Consider the lognormal density \[f_0(x)=\frac{1}{\sqrt{(2\pi)}}\frac{1}{x}\exp^{-\frac{(\log x)^2}{2}}1_{x\geq 0}\] 
     and for $-1\le a\le 1$ let \[f_a(x)=f_0(x)(1+a\sin(2\pi\log x))\]
     We claim that $f_a$ is a density and has the same moment as $f_0$
 \end{example}
