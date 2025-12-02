@@ -46,6 +46,84 @@ The approach to concentration inequality we developed so far relies crucially on
 We now pursue some alternative approaches to concentration, which are not based on independence.
 
 
+\section{Subgaussian Concentration}
+
+
+\subsection{The Entropy Method}
+
+First we define the entropy of a nonnegative random variable. 
+\begin{definition}
+    For a random variable $Z\geq 0$, its entropy is defined as the following:
+    \begin{equation*}
+        \Ent(Z):=\EE [Z\log Z]-\EE [Z]\log \EE[Z].
+    \end{equation*}
+\end{definition}
+\begin{remark}
+    When $Z(\omega)=\frac{\d{\mu}(\omega)}{\d{\nu}(\omega)}$ and $\omega$ with measure $\nu$, this is the KL divergence (or relative entropy).
+    However, note that this definition is different from entropy (or differential entropy) for a probability distribution.
+\end{remark}
+
+One can immediately see by Jensen's ineqaulity that 
+\[\Ent(Z)\leq \cov(Z,\log Z)\]
+
+\begin{lemma}[Herbst]
+    Suppose that 
+    \begin{equation*}
+        \Ent[e^{\lambda X}]\leq \frac{\lambda^2\sigma^2}{2}\EE[e^{\lambda X}],\quad\forall \lambda\geq 0.
+    \end{equation*}
+    Then 
+    \[\phi(\lambda):=\log \EE[e^{\lambda(X-\EE X)}]\leq \frac{\lambda^2\sigma^2}{2},\quad\forall \lambda\geq 0.\]
+\end{lemma}
+\begin{proof}
+    The key observation is the following calculation for $\phi(\lambda)$.
+    As $\phi(\lambda)=\log \EE[e^{\lambda X}]-\lambda \EE X$,
+    we can divide by $\lambda$ and make the following calculation to get rid of $\EE X$
+    \begin{equation*}
+        \frac{\d}{\d{\lambda}}\frac{\phi(\lambda)}{\lambda}=\frac{1}{\lambda^2}\frac{\Ent[e^{\lambda X}]}{\EE[e^{\lambda X}]}
+    \end{equation*}
+\end{proof}
+Here we just derive another equivalent formulation of Gaussian 
+
+The key is 
+\begin{theorem}
+    If $X_1,\dots,X_n$ are independent, then
+    \begin{equation*}
+          \Ent f(X_1,\dots,X_n)\leq \EE \sum_{i=1}^{n} \Ent_i f(X_1,\dots,X_n).  
+    \end{equation*}
+\end{theorem}
+\begin{proof}
+      
+\end{proof}
+
+Analogous to Donsker-Varadhan, we have a variational 
+
+\section{Lipschitz Concentration}
+
+Isoperimetirc inequality
+
+transport inequality, Bobkov-Gotze
+\begin{theorem}[Bobkov-Gotze]
+    Let 
+\end{theorem}
+\begin{proof}
+    Use variational representation of Wasserstein distance and KL divergence (Gibbs variational principle)
+\end{proof}
+
+Using the transportation  and the chain rule for KL divergence, we have the following tool for tensorization
+\begin{theorem}[Marton]
+    Let $\varphi:\RR^+\to\RR^+$ be a convex function, and let $w_i:\XX_i\times\XX_i\to\RR^+$ be positive weight function. Suppose that for $i=1,\dots,d$
+\end{theorem}
+
+But the RHS is not a Wasserstein distance itself.
+weighted $\ell_1$-metric
+\begin{equation*}
+    d_c(x,y):=\sum_{i=1}^{d}c_id_i(x_i,y_i),
+\end{equation*}
+
+
+\subsection{Talagrand's Concentrartion Inequality}
+One-Sided Lipschitz property
+
 \section{Kernel Trick}
 \begin{theorem}[Grothendick's inequality]
     Consider an $m\times m$ matrix $(a_{ij})$ of real numbers. Assume that for numbers $x_i,y_j\in\left\{0,1\right\}$,

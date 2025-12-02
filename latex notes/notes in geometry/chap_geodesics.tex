@@ -1,0 +1,47 @@
+\chapter{Geodesics and Minimal Submanifolds}
+
+
+
+\section{Variational Theory of Geodesics}
+
+Jacobi equation 
+
+\begin{definition}[Conjugate Points]
+    Suppose $\gamma$ is a geodesic. We say that $\gamma(t_2)$ is conjugate to $\gamma(t_1)$ along $\gamma$ if there is a non-zero Jacobi field $J$ along $\gamma$ so that 
+    $J(t_1)=J(t_2)=0$ 
+\end{definition}
+
+The energy of a piece-wise smooth curve $\gamma:[0,a]\to M$
+\begin{equation}
+    \bE(\gamma)=\int_{0}^{a}|\gamma'|^2\d{t}.
+\end{equation}
+
+
+\section{Variational Theory of Minimal Submanifolds}
+
+Given an isometrically embedded submanifold $\Sigma\subset M$, a variation is a map 
+\[F:\Sigma\times (-\epsilon,\epsilon)\to M\]
+so that $F(x,0)=x$. The variation vector field $F_s=\d{F}(\partial_s)$ describes the motion of points in $\Sigma$ under the variation.
+
+\subsection{First Variation}
+
+\begin{proposition}
+    \begin{equation}
+        \partial_s \overline{dv}=(\div(F_s^T)-\left\langle F_s^\perp,\bH\right\rangle)\overline{dv}
+    \end{equation}
+\end{proposition}
+
+\subsection{Monotonicity}
+
+
+\subsection{Second Variation}
+We now investigate the second derivative of volume for a hypersurface 
+\[\Sigma^n\subset M^{n+1},\]
+whose calculations are substantially simpler than a general submanifold.
+
+\begin{lemma}
+    Given a normal variation $F_s=u\bn$, the derivative of $\bH$ at 0 is 
+    \begin{equation}
+        \bH'=(\Delta u+|A|^2u+\ric(\bn,\bn))\bn-\left\langle \bH,\bn\right\rangle\nabla u.
+    \end{equation}
+\end{lemma}

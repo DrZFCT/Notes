@@ -1,0 +1,226 @@
+\chapter{The Laplacian}
+
+\section{Divergence and Laplacian}
+Let $M^n$ be a manifold with a metric $g$ and associated Levi-Civita connection $\nabla$.
+
+derivative of $u\in C(M)$:
+\begin{itemize}
+    \item gradient $\nabla u\in\Gamma^{1,0}(M)$
+    \item differential $du\in\Gamma^{0,1}(M)$.
+\end{itemize}
+they are dual via the metric 
+\[\left\langle\nabla u,V\right\rangle=du(V)=V(u).\]
+
+\begin{definition}[Hessian]
+    The Hessian is a (0,2) tensor defined by $\nabla du$, which satisfies 
+    \begin{equation}
+        \hess_u(V,W)=\left\langle \nabla_V\nabla u,W\right\rangle.
+    \end{equation}
+\end{definition}
+
+\begin{proposition}
+    $\hess_u$ is symmetric.
+\end{proposition}
+We will give two proofs. 
+\begin{proof}[Proof 1]
+    First,
+    \[\hess_u(\partial_i,\partial_j)=u_{ij}-\sum_{k}\Gamma^k_{ij}u_k\]
+\end{proof}
+\begin{proof}[Proof 2]
+    \begin{align*}
+        \hess_u(V,W)-\hess_u(W,V)&=\left\langle \nabla_V\nabla u,W\right\rangle-\left\langle \nabla_W\nabla u,V\right\rangle\\
+        &=V\left\langle \nabla u,W\right\rangle-\left\langle  \nabla u,\nabla_V W\right\rangle -W\left\langle \nabla u,V\right\rangle+\left\langle \nabla u,\nabla_W V\right\rangle\\
+        &=V(W(u))-W(V(u))-\left\langle  \nabla u,[V,W]\right\rangle=0.
+    \end{align*}
+\end{proof}
+
+\begin{definition}[Divergence]
+    The divergence $\div V$ of a vector field $V$ is the trace of the $(1,1)$ tensor $\nabla V$.
+\end{definition}
+
+In an orthonormal frame 
+\[\div V=\sum_i\left\langle \nabla_{e_i}V,e_i\right\rangle\]
+
+In a local coordinate,
+\[\div V=\partial_i V^i+\Gamma^{j}_{ij}V^i\]
+But we also have 
+\begin{proposition}\label{prop:divergence}
+    \begin{equation}
+        \div V=\frac{1}{\sqrt{\det g}}\sum_i \partial_i(\sqrt{\det g}V^i).
+    \end{equation}
+\end{proposition}
+\begin{proof}
+    This is shown by 
+    \[\frac{\partial_i \sqrt{\det g}}{\sqrt{\det g}}=\sum_j \Gamma^j_{ij}\]
+\end{proof}
+
+\Cref{prop:divergence} makes it possible to extend the Euclidean divergence theorem to manifolds. Recall the volume element $dv_g=\sqrt{\det g}\d{x}$, we have 
+\begin{equation}
+    \div(V)dv_g=\div_{\RR^n}(V\sqrt{\det g})\d{x}.
+\end{equation}
+
+From Leibniz rule 
+\begin{equation}
+    \div (uV)=u\div(V)+\left\langle \nabla u,V\right\rangle
+\end{equation}
+
+\begin{definition}[Laplacian]
+    The Laplacian is the divergence of $\nabla u$.
+\end{definition}
+
+Therefore, we have in an orthonormal frame
+\begin{align*}
+    \Delta u &=\sum_i\left\langle \nabla_{e_i}\nabla u,e_i\right\rangle\\
+    &=\sum_i\nabla_{e_i}\left\langle \nabla u,e_i\right\rangle - \left\langle \nabla u,\nabla_{e_i}e_i\right\rangle\\
+    &=\sum_i\nabla_{e_i}\nabla_{e_i} u -  \nabla_{\nabla_{e_i}e_i} u 
+\end{align*}
+which is in accordance with \Cref{eq:connection-applied-twice}
+
+\subsection{Bochner Formula}
+\begin{proposition}
+    If $u\in C(M)$, then 
+    \begin{equation}
+        \Delta\nabla u=\nabla (\Delta u)+\ric(\nabla u,\cdot)
+    \end{equation}
+\end{proposition}
+
+\begin{proof}[Proof 1]
+    
+\end{proof}
+
+geodesic normal coordinates for $p\in M$ fixed 
+
+\begin{itemize}
+    \item $g_{ij}(p)=\delta_{ij}$, meaning that $\partial_i$ are orthonormal at $p$
+    \item $\Gamma^k_{ij}=0$, meaning that $\nabla \partial_i(p)=0$
+\end{itemize}
+
+
+\begin{proof}[Proof 2]
+    
+\end{proof}
+
+\begin{corollary}\label{cor:bochner}
+    \begin{equation}
+        \Delta|\nabla u|^2=|\hess_u|^2+\left\langle \nabla (\Delta u),\nabla u\right\rangle+\ric(\nabla u,\nabla u)
+    \end{equation}
+\end{corollary}
+
+\subsection{Lichnerowicz Theorem}
+
+
+\section{Submanifold Divergence and Laplacian}
+
+In this section, $\Sigma\subset M$ is a submanifold with the induced connection $\bar{\nabla}$.
+
+\begin{proposition}
+    The submanifold Hessian is given by
+    \begin{equation}
+        \overline{\hess}_u(V,W)=\hess_u(V,W)+\left\langle A(V,W),\nabla^\perp u\right\rangle
+    \end{equation}
+\end{proposition}
+\begin{proof}
+    \begin{align*}
+        \overline{\hess}_u(V,W)&=\left\langle \nabla_V\nabla^T u,W\right\rangle\\
+        &=\left\langle \nabla_V\nabla u,W\right\rangle - \left\langle \nabla_V\nabla^\perp u,W\right\rangle\\
+        &=\hess_u(V,W)+  \left\langle \nabla^\perp u,\nabla_V W\right\rangle\\
+        &=\hess_u(V,W)+\left\langle A(V,W),\nabla^\perp u\right\rangle
+    \end{align*}
+\end{proof}
+
+\section{Laplacian Comparison}
+
+\subsection{Distance Function}
+
+\begin{definition}[Cut Point]
+    
+\end{definition}
+
+\begin{theorem}
+    If $q\in \cut(p)$, then either 
+    \begin{enumerate}
+        \item $q$ is the first conjugate to $p$ along a minimizing geodesic, or
+        \item $q$ is the first point along a minimizing geodesic where there is a second, different, minimizing geodesic from $p$.
+    \end{enumerate}
+\end{theorem}
+
+Now we show that $d$ is smooth away from $\cut(p)$.
+\begin{proposition}
+    
+\end{proposition}
+
+
+$\triangle |x|^2$ on $\RR^n$
+
+$\nabla|x|^2=2|x|\nabla|x|$
+
+$\triangle |x|=\frac{n-1}{|x|}$ on $\RR^n\setminus\{0\}$
+
+Another way 
+$\hess_{|x|}$
+
+Suppose $\ric\geq 0$
+
+\subsection{Laplacian Comparison}
+
+We first state the Laplacian comparison for smooth points
+\begin{theorem}
+Suppose that $\ric \geq 0$ and $r(x) = d(p, x)$ for $p$ fixed. Away from $\cut(p) \cup \{p\}$, we have that
+\[
+\Delta r \leq \frac{n-1}{r}.
+\]
+\end{theorem}
+\begin{proof}
+    First, $\hess_r$ has rank at most $n-1$, so 
+    \[|\hess_r|^2\geq \frac{(\Delta r)^2}{n-1}.\]
+    By Bochner formula (\Cref{cor:bochner}), along $\gamma$, 
+    \begin{align*}
+        0&=\frac{1}{2}\Delta|\nabla r|^2 \\
+        &=|\hess_r|^2+\left\langle \nabla (\Delta r),\nabla r\right\rangle+\ric(\nabla r,\nabla r)\\
+        &\geq \frac{(\Delta r)^2}{n-1}+ (\Delta r)'
+    \end{align*}
+\end{proof}
+
+\begin{lemma}
+    If $f(t)$ is a function on $(0, T]$ with $(n - 1) f' \leq -f^2$, then
+\[
+f(T) \leq \frac{n - 1}{T}.
+\]
+\end{lemma}
+\begin{proof}
+    Notice that
+    \[\left(\frac{1}{f(t)}\right)'=-\frac{f'(t)}{f(t)^2}\]
+\end{proof}
+
+\begin{definition}[barrier]
+We say that $\Delta f \geq g$ at $p \in \Omega$ in the \emph{barrier sense} if for every $\epsilon > 0$
+there exists a $C^2$ function $h_\epsilon$ and an open set $U_\epsilon$ containing $p$ so that
+\begin{enumerate}
+    \item $f(p) = h_\epsilon(p)$ and $h_\epsilon \leq f$ in $U_\epsilon$.
+    \item $\Delta h_\epsilon(p) \geq g(p) - \epsilon$.
+\end{enumerate}
+\end{definition}
+
+\begin{definition}[viscosity]
+We say that $\Delta f \geq g$ at $p \in \Omega$ in the \emph{viscosity sense} if for every open
+set $U$ containing $p$ and $C^2$ function $\varphi$ on $U$ with $f(p) = \varphi(p)$ and $\varphi \geq f$ in $U$, we have that
+$\Delta \varphi(p) \geq g(p)$.
+\end{definition}
+
+\begin{proposition}
+If $\Delta f \geq g$ at $p$ in the barrier sense, then it also holds in the viscosity sense. 
+If $\Delta f \geq g$ at $p$ in the viscosity sense, then it also holds in the distributional sense. 
+\end{proposition}
+
+\begin{theorem}
+    If $\ric\geq 0$ and $d(x):=d(p,x)$ for some fixed $p$, then $\Delta d\leq \frac{n-1}{d}$ in the barrier sense on $M\setminus\{p\}$.
+\end{theorem}
+
+\subsection{Bishop-Gromov Volume Comparison}
+
+\begin{theorem}
+    If $\ric\geq 0$, $p\in M^n$, and $0<r_1<r_2$, then 
+    \[\frac{\vol(B_{r_2}(p))}{r_2^n}\leq \frac{\vol(B_{r_1}(p))}{r_1^n}.\]
+\end{theorem}
+
+\subsection{Dirichlet Poincare Inequality}

@@ -1,69 +1,69 @@
 \chapter{Law of Large Numbers}
 
 \section{Stochastic Orders}
-In calculus, two sequence of real numbers, $\left\{a_n\right\}$ and $\left\{b_n\right\}$, satisfy $a_n=O(b_n)$ if and only if $\left|a_n\right|\le c\left|b_n\right|$ for all $n$ and a constant $c$; and $a_n=o(b_n)$ if and only if $\frac{a_n}{b_n}\to 0$ as $n\to0$.
+In calculus, two sequence of real numbers, $\left\{a_n\right\}$ and $\left\{b_n\right\}$, satisfy $a_n=O(b_n)$ if and only if $\left|a_n\right|\leq c\left|b_n\right|$ for all $n$ and a constant $c$; and $a_n=o(b_n)$ if and only if $\frac{a_n}{b_n}\to 0$ as $n\to0$.
 \begin{definition}
 Let $X_1,X_2,\cdots$ be random vectors and $Y_1,Y_2,\cdots$ be random variables defined on a common probability space.\par
-(i) $X_n=O(Y_n)$ a.s. if and only if $P(\left \| X_n \right \| =O(\left | Y_n \right | ))=1$.\par
+(i) $X_n=O(Y_n)$ a.s. if and only if $\PP(\left \| X_n \right \| =O(\left | Y_n \right | ))=1$.\par
 (ii) $X_n=o(Y_n)$ a.s. if and only if $\frac{X_n}{Y_n}\to 0$ a.s..\par
-(iii) $X_n=O_p(Y_n)$ if and only if for any $\epsilon>0$, there is a constant $C_\epsilon>0$ s.t. $\sup_nP(\left \| X_n \right \| \ge C_\epsilon \left | Y_n \right | )<\epsilon$.\par
+(iii) $X_n=O_p(Y_n)$ if and only if for any $\epsilon>0$, there is a constant $C_\epsilon>0$ s.t. $\sup_nP(\left \| X_n \right \| \geq C_\epsilon \left | Y_n \right | )<\epsilon$.\par
 (iv) $X_n=o_p(Y_n)$ if and only if $\frac{X_n}{Y_n}\to_p0$.
 \end{definition}
 \section{WLLN}
 In this section we study convergence in probability and the laws of large numbers associated with this type of convergence.
 \begin{lemma}[moments and tails]
-    Let $\xi>0$ be an random variable with $E\xi\in (0,\infty)$. Then 
-    \[(1-r)^2\frac{(E\xi)^2}{E\xi^2}\le P(\xi>rE\xi)\le \frac{1}{r},\quad r>0\]
+    Let $\xi>0$ be an random variable with $\EE\xi\in (0,\infty)$. Then 
+    \[(1-r)^2\frac{(\EE\xi)^2}{\EE\xi^2}\leq \PP(\xi>rE\xi)\leq \frac{1}{r},\quad r>0\]
 \end{lemma}
 \begin{theorem}[convergence in $L^p$ implies convergence in probability]
-If $p>0$, then \[E\left | Z_n \right | ^p\to 0 \Longrightarrow Z_n\longrightarrow 0\text{ in probability.}\]
+If $p>0$, then \[\EE\left | Z_n \right | ^p\to 0 \Longrightarrow Z_n\longrightarrow 0\text{ in probability.}\]
 \end{theorem}
 \begin{proof}
-$P(\left | Z_n \right |\ge\epsilon)\le\frac{E\left | Z_n \right | ^p}{\epsilon^p}\to 0$
+$\PP(\left | Z_n \right |\geq\epsilon)\leq\frac{\EE\left | Z_n \right | ^p}{\epsilon^p}\to 0$
 \end{proof}
 \begin{theorem}[$L^2$ weak law]
-Let $X_1,X_2,...,$ be uncorrelated random variables with $EX_i=\mu$ and $var(X_i)<C<\infty$. If $S_n=X_1+\cdots+X_n$, then as $n\to\infty$, $\frac{S_n}{n}\longrightarrow \mu$ in $L^2$.
+Let $X_1,X_2,...,$ be uncorrelated random variables with $EX_i=\mu$ and $\var(X_i)<C<\infty$. If $S_n=X_1+\cdots+X_n$, then as $n\to\infty$, $\frac{S_n}{n}\longrightarrow \mu$ in $L^2$.
 \end{theorem}
 \begin{proof}
-$E(\frac{S_n}{n}-\mu)^2=\text{var}(\frac{S_n}{n})=\frac{1}{n^2}(\sum\text{var}(X_i))\le \frac{Cn}{n^2}\to 0$
+$\EE(\frac{S_n}{n}-\mu)^2=\var(\frac{S_n}{n})=\frac{1}{n^2}(\sum\var(X_i))\leq \frac{Cn}{n^2}\to 0$
 \end{proof}
 
 \section{Borel-Cantelli Lemmas}
 Borel-Cantelli lemmas are the ladders from convergence in probability to a.s. convergence if the sequence of events are not decreasing.
 If the sequence of events are decreasing, then convergence in probability is the same as a.s. convergence, and there is no need for Borel-Cantelli lemma.
 \begin{theorem}[Borel-Cantelli lemma]
-$\sum_{n=1}^\infty P(A_n)<\infty\Longrightarrow P(A_n\text{ i.o.})=0$.
+$\sum_{n=1}^\infty \PP(A_n)<\infty\Longrightarrow \PP(A_n\text{ i.o.})=0$.
 \end{theorem}
 \begin{proof}
 Let $N=\sum_{n=1}^\infty 1_{A_n}$. $EN<\infty$ implies $N<\infty$ a.s.
 \end{proof}
 \begin{theorem}[The second Borel-Cantelli lemma]\label{The second Borel-Cantelli lemma}
-If the events $A_n$ are independent, then \[\sum_{n=1}^\infty P(A_n)=\infty\Longrightarrow P(A_n\text{ i.o.})=1\]
+If the events $A_n$ are independent, then \[\sum_{n=1}^\infty \PP(A_n)=\infty\Longrightarrow \PP(A_n\text{ i.o.})=1\]
 \end{theorem}
 \begin{proof}
-Let $M<N<\infty$. $1-x\le e^{-x}$ and independence imply $P(\bigcap_{n=M}^{N}A_n^c)=\prod_{n=M}^N(1-P(A_n))\ge \text{exp}(-\sum_{n=M}^NP(A_n))\to 0$ as $N\to\infty$, so $P(\bigcup_{n=M}^{N}A_n)=1,\forall M$. Therefore $P(\limsup A_n)=1$.
+Let $M<N<\infty$. $1-x\leq e^{-x}$ and independence imply $\PP(\bigcap_{n=M}^{N}A_n^c)=\prod_{n=M}^N(1-\PP(A_n))\geq \text{exp}(-\sum_{n=M}^NP(A_n))\to 0$ as $N\to\infty$, so $\PP(\bigcup_{n=M}^{N}A_n)=1,\forall M$. Therefore $\PP(\limsup A_n)=1$.
 \end{proof}
 \begin{theorem}[Kochen-Stone lemma]
-Suppose $\sum_{n=1}^\infty P(A_n)=\infty$. If 
-\[\limsup_{n\to\infty}\frac{(\sum_{k=1}^nP(A_k))^2}{(\sum_{1\le i,j\le n} P(A_i\cap A_k))}=\alpha>0\] then $P(A_n\text{ i.o.})\ge\alpha$.
+Suppose $\sum_{n=1}^\infty \PP(A_n)=\infty$. If 
+\[\limsup_{n\to\infty}\frac{(\sum_{k=1}^nP(A_k))^2}{(\sum_{1\leq i,j\leq n} \PP(A_i\cap A_k))}=\alpha>0\] then $\PP(A_n\text{ i.o.})\geq\alpha$.
 \end{theorem}
 \begin{remark}
 This is a generalization of \ref{The second Borel-Cantelli lemma}.
 \end{remark}
 \begin{theorem}
-If $A_1,A_2,...$ are pairwise independent and $\sum_{n=1}^\infty P(A_n)<\infty$, then $\heartsuit$
+If $A_1,A_2,...$ are pairwise independent and $\sum_{n=1}^\infty \PP(A_n)<\infty$, then $\heartsuit$
 \end{theorem}
 \section{SLLN}
 \section{0-1 Laws}
 \begin{theorem}[Kolmogorov's 0-1 law]
-    If $X_1,X_2,\cdots$ are independent and $A\in\mathcal{T}$, then $P(A)=0$ or $1$.
+    If $X_1,X_2,\cdots$ are independent and $A\in\mathcal{T}$, then $\PP(A)=0$ or $1$.
 \end{theorem}
 \begin{proof}
     The key point is to show that $A$ is independent of itself.\par
     To show this, we can procede by two limiting steps.
 \end{proof}
 \begin{theorem}[Hewitt-Savage 0-1 law]
-    If $X_1,X_2,\cdots$ are i.i.d. and $A\in\mathcal{E}$, then $P(A)=0$ or $1$.
+    If $X_1,X_2,\cdots$ are i.i.d. and $A\in\mathcal{\EE}$, then $\PP(A)=0$ or $1$.
 \end{theorem}
 \begin{lemma}
     
@@ -73,7 +73,7 @@ If $A_1,A_2,...$ are pairwise independent and $\sum_{n=1}^\infty P(A_n)<\infty$,
 
 \begin{theorem}[Kolmogorov's maximal inequality]
     Suppose $X_1,\cdots,X_n$ are independent with $EX_i=0$ and $\text{Var}(X_i)<\infty$. If $S_n=X_1+\cdots+X_n$, then
-    \[P(\max_{1\le k\le n}\left|S_k\right|\ge x)\le \frac{\text{Var}(S_n)}{x^2}\] 
+    \[\PP(\max_{1\leq k\leq n}\left|S_k\right|\geq x)\leq \frac{\text{Var}(S_n)}{x^2}\] 
 \end{theorem}
 \begin{proof}
     There is a proof by Doob's inequality.
@@ -85,25 +85,25 @@ If $A_1,A_2,...$ are pairwise independent and $\sum_{n=1}^\infty P(A_n)<\infty$,
 \end{theorem}
 \begin{proof}
     Let $S_N=\sum_{n=1}^N X_n$. From Kolmogorov's maximal inequality, we get 
-    \[P(\max_{M\le m\le N}\left|S_m-S_M\right|>\epsilon)\le \epsilon^{-2}\text{Var}(S_N-S_M)=\epsilon^{-2}\sum_{n=M+1}^N\text{Var}(X_n)\] 
-    Letting $N\to\infty$, we get \[P(\sup_{M\le m}\left|S_m-S_M\right|>\epsilon)\le \epsilon^{-2}\sum_{n=M+1}^\infty\text{Var}(X_n)\] 
-    If we let $w_M=\sup_{m,n\ge M}\left|S_m-S_n\right|$, then \[P(w_M>2\epsilon)\le P(\sup_{M\le m}\left|S_m-S_M\right|>\epsilon)\to 0\quad\text{as }M\to\infty\]
+    \[\PP(\max_{M\leq m\leq N}\left|S_m-S_M\right|>\epsilon)\leq \epsilon^{-2}\text{Var}(S_N-S_M)=\epsilon^{-2}\sum_{n=M+1}^N\text{Var}(X_n)\] 
+    Letting $N\to\infty$, we get \[\PP(\sup_{M\leq m}\left|S_m-S_M\right|>\epsilon)\leq \epsilon^{-2}\sum_{n=M+1}^\infty\text{Var}(X_n)\] 
+    If we let $w_M=\sup_{m,n\geq M}\left|S_m-S_n\right|$, then \[\PP(w_M>2\epsilon)\leq \PP(\sup_{M\leq m}\left|S_m-S_M\right|>\epsilon)\to 0\quad\text{as }M\to\infty\]
     As $w_M$ decreases as $M$ increases, $w_M\downarrow 0$ a.s.. But $w_M(\omega)\downarrow 0$ implies $S_n(\omega)$ is a Cauchy sequence
     and hence $\lim_{n\to\infty}S_n(\omega)$ exists.
 \end{proof}
 
 \begin{theorem}[Kolmogorov's three series theorem]
-    Let $X_1,X_2,\cdots$ be independent. Let $A>0$ and let $Y_i=X_i1_{\left|X_i\right|\le A}$. In order that $\sum_{n=1}^\infty X_n$ converges a.s.,
+    Let $X_1,X_2,\cdots$ be independent. Let $A>0$ and let $Y_i=X_i1_{\left|X_i\right|\leq A}$. In order that $\sum_{n=1}^\infty X_n$ converges a.s.,
     it is necessary and sufficient that:\newline 
-    (i) $\sum_{n=1}^\infty P(\left|X_n\right|>A)<\infty$\newline 
+    (i) $\sum_{n=1}^\infty \PP(\left|X_n\right|>A)<\infty$\newline 
     (ii) $\sum_{n=1}^\infty EY_n$ converges \newline 
     (iii) $\sum_{n=1}^\infty \text{Var}(Y_n)<\infty$
 \end{theorem}
 \begin{proof}
     To prove sufficiency, let $\mu_n=EY_n$. By the above theorem, $\sum_{n=1}^\infty(Y_n-\mu_n)$ converges a.s..
-    Using (ii), $\sum_{n=1}^\infty Y_n$ converges a.s.. (i) and Borel-Cantelli lemma imply $P(X_n\ne Y_n\, i.o.)=0$, so $\sum_{n=1}^\infty X_n$ converges a.s..
+    Using (ii), $\sum_{n=1}^\infty Y_n$ converges a.s.. (i) and Borel-Cantelli lemma imply $\PP(X_n\ne Y_n\, i.o.)=0$, so $\sum_{n=1}^\infty X_n$ converges a.s..
     \newline 
-    For necessity, if the sum of (i) is infinite, $P(\left|X_n\right|>A\, i.o.)>0$ and $\lim_{m\to\infty} \sum_{n=1}^m X_n$ can not converge.
+    For necessity, if the sum of (i) is infinite, $\PP(\left|X_n\right|>A\, i.o.)>0$ and $\lim_{m\to\infty} \sum_{n=1}^m X_n$ can not converge.
     Suppose next (i) is finite but the sum 
 \end{proof}
 
@@ -113,26 +113,26 @@ One of the advantage of the random series proof is that it provides estimates on
     \[\frac{S_n}{\sqrt{n(\log n)^{1+\epsilon}}}\to 0\text{ a.s. }\]
 \end{theorem}
 
-The next result, show that when $E\left|X_1\right|=\infty$, $\frac{S_n}{a_n}$ cannot converge almost surely to a nonzero limit.
+The next result, show that when $\EE\left|X_1\right|=\infty$, $\frac{S_n}{a_n}$ cannot converge almost surely to a nonzero limit.
 \begin{theorem}
-    Let $X_1,X_2,\cdots$ be i.i.d. with $E\left|X_1\right|=\infty$ and let $S_n=X_1+\cdots+X_n$.
+    Let $X_1,X_2,\cdots$ be i.i.d. with $\EE\left|X_1\right|=\infty$ and let $S_n=X_1+\cdots+X_n$.
     Let $a_n$ be a sequence of positive numbers with $\frac{a_n}{n}$ increasing
 \end{theorem}
 
 \section{Large Deviations}
-Let $X_1,X_2,\cdots$ be i.i.d. and let $S_n=X_1+\cdots+X_n$. We will investigate the rate at which $P(S_n\ge na)\to 0$ for $x>\mu=EX_i$.
+Let $X_1,X_2,\cdots$ be i.i.d. and let $S_n=X_1+\cdots+X_n$. We will investigate the rate at which $\PP(S_n\geq na)\to 0$ for $x>\mu=EX_i$.
 \begin{lemma}
-If $\gamma_{m+n}\ge\gamma_m+\gamma_n$, then as $n\to\infty$, $\frac{\gamma_n}{n}\to\sup_m\frac{\gamma_m}{m}$.
+If $\gamma_{m+n}\geq\gamma_m+\gamma_n$, then as $n\to\infty$, $\frac{\gamma_n}{n}\to\sup_m\frac{\gamma_m}{m}$.
 \end{lemma}
 \begin{theorem}
-$\gamma(x)=\lim_{n\to\infty}\frac{\log P(S_n\ge nx)}{n}$ exists $\le 0$.
+$\gamma(x)=\lim_{n\to\infty}\frac{\log \PP(S_n\geq nx)}{n}$ exists $\leq 0$.
 \end{theorem}
 \begin{proof}
-Let $\pi_n=P(S_n\ge nx)$, then $\pi_{m+n}\ge P(S_m\ge mx,S_{n+m}-S_m\ge nx)=\pi_m\pi_n$. Therefore, letting $\gamma_n=\log\pi_n$, from the lemma we conclude the existence of the limit.
+Let $\pi_n=\PP(S_n\geq nx)$, then $\pi_{m+n}\geq \PP(S_m\geq mx,S_{n+m}-S_m\geq nx)=\pi_m\pi_n$. Therefore, letting $\gamma_n=\log\pi_n$, from the lemma we conclude the existence of the limit.
 \end{proof}
 
 Next we want to determine the limit function $h(x)$. To do this, we need to introduce the cumulant-generating function of a random varaible $\xi$.
-\[\phi(t)=\log E e^{t\xi},\quad t\in \mathbb{R}\]
+\[\phi(t)=\log \EE e^{t\xi},\quad t\in \mathbb{R}\]
 and the Legendre transform of $\phi$, given by 
 \[\phi^*(x)=\sup_{t\in \mathbb{R}}(tx-\phi(t)),\quad x\in\mathbb{R}\]
 \begin{lemma}
