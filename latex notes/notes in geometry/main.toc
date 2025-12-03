@@ -28,4 +28,5 @@
 \contentsline {subsection}{\numberline {4.3.2}Laplacian Comparison}{15}{subsection.4.3.2}%
 \contentsline {subsection}{\numberline {4.3.3}Bishop-Gromov Volume Comparison}{16}{subsection.4.3.3}%
 \contentsline {subsection}{\numberline {4.3.4}Dirichlet Poincare Inequality}{16}{subsection.4.3.4}%
+\contentsline {section}{\numberline {4.4}Gradient Estimates}{16}{section.4.4}%
 \contentsfinish 
