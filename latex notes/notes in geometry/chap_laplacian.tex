@@ -235,8 +235,12 @@ If $\Delta f \geq g$ at $p$ in the viscosity sense, then it also holds in the di
 \]
 where $C$ depends just on $n$.
 \end{theorem}
+differential Harnack Inequality
+\begin{corollary}
+    
+\end{corollary}
 
-Bernstein
+Bernstein technique
 \begin{lemma}
     $w=\log u$ satisfies 
     \begin{itemize}
@@ -251,4 +255,66 @@ Use cut-off
 
 \begin{proof}
     
+\end{proof}
+
+Meanvalue Inequality
+
+for harmonic is evident due to Harnack, extend it to sub-harmonic
+\begin{proof}
+    $\phi$ cutoff $1$ on $B_{2R}(p)$,
+    reverse Poincare 
+    \[\int_{B_{2R}(p)}|\nabla v|^2\leq 4\int_{B_{4R}(p)}v^2|\nabla\phi|^2.\]
+    Choose $\phi$ such that $|\nabla\phi|\leq\frac{1}{2R}$,
+    \[\int_{B_{2R}(p)}|\nabla v|^2\leq \frac{1}{R^2}\int_{B_{4R}(p)}v^2.\]
+    \[\div(\phi^2v\nabla v)=\phi^2|\nabla v|^2+\phi^2v\Delta v+\]
+    solve for $u$ on $B_{2R}(p)$ such that $\Delta u=0$ in $B_{2R}(p)$ and $u=v$ on $\partial B_{2R}(p)$.
+    \[v\leq u.\]
+    use Harnack inequality on $u$
+\end{proof}
+
+
+\section{}
+
+
+\begin{theorem}[Colding-Minicozzi]
+    $\ric\geq 0$, $\dim\cH^d(M^n)\leq Cd^{n-1}$
+\end{theorem}
+
+\begin{theorem}
+    $\exists C=C(n)$ such that if $u_1,\dots,u_N$ are $L^2(B_{2r})$ orthonormal and $\Delta u_i=0$,
+    and $\int_{B_r}u_i^2\geq \alpha>0$, then $N\leq\frac{C}{\alpha}$.
+\end{theorem}
+
+\begin{lemma}
+    Given $x\in B_{2r}$, $\exists y\in S^{N-1}$ such that $w=\sum_{i=1}^{N}y_i u_i$ has $\sum u_i^2(x)=w^2(x)$
+\end{lemma}
+\begin{proof}
+    Define $f:S^{n-1}\to\RR$, $f(y)=\sum_{i=1}^{N}y_i u_i(x)$,
+    max achieved when.
+\end{proof}
+
+\begin{proof}
+    given $x\in B_r$, $\sum_{i=1}^{N}u_i^2(x)=w^2(x)$ where $w$ is from the lemma.
+    \[w^2(x)\leq \frac{C}{\vol(B_r(x))}\int_{B_r(x)}w^2\leq \frac{C}{\vol(B_r(x))}\]
+    Bishop-Gromov: 
+\end{proof}
+
+\begin{theorem}
+    If $v_1,\dots,v_{2N}\in\cH^d(M^n)$ and are linearly independent.
+    Then $\exists R>0$ and $u_1,\dots,u_N$ in the span of the $v_i$'s such that 
+    $\int_{B_{2R}}u_iu_j=\delta_{ij}$ and $\int_{B_R}u_i^2>2^{-4(d+n)}$
+\end{theorem}
+
+\begin{lemma}
+    $0<F\leq Cr^d$ on $[1,\infty)$, then $\exists \infty$ many $k\in\NN$ such that 
+    \[\frac{F(2^{k+1})}{F(2^k)}\leq 2^{d+\epsilon}.\]
+\end{lemma}
+\begin{proof}
+    by contradiction
+\end{proof}
+
+\begin{proof}
+    Define \[\Lambda_j=\{v_1,\dots,v_{j-1}\subset \cH^d\}.\]
+    Given $r$, define $w_{j,r}$ to be the $L^2(B_r)$ projection of $v_j$ onto $\Lambda_j$.
+    Define $f_j(r)=\int_{B_r}(v_j-w_{j,r})^2\leq \int_{B_r}(v_j-w)^2$
 \end{proof}

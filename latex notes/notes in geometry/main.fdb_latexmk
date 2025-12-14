@@ -1,5 +1,5 @@
 # Fdb version 3
-["pdflatex"] 1764688273 "/Users/mrzt/Documents/GitHub/notes/Notes/latex notes/notes in geometry/main.tex" "main.pdf" "main" 1764688274
+["pdflatex"] 1765294649 "/Users/mrzt/Documents/GitHub/notes/Notes/latex notes/notes in geometry/main.tex" "main.pdf" "main" 1765294650
   "/Users/mrzt/Documents/GitHub/notes/Notes/latex notes/notes in geometry/main.tex" 1764647935 440 4b0ddc97943b518ecdc5fae908ac651c ""
   "/usr/local/texlive/2022/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc" 1136849721 2900 1537cc8184ad1792082cd229ecc269f4 ""
   "/usr/local/texlive/2022/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
@@ -160,13 +160,13 @@
   "/usr/local/texlive/2022/texmf-var/web2c/pdftex/pdflatex.fmt" 1661094221 2826440 e3df3e53eaa293ef3171676f55b00abf ""
   "/usr/local/texlive/2022/texmf.cnf" 1647878952 577 209b46be99c9075fd74d4c0369380e8c ""
   "chap_geodesics.tex" 1764647935 1489 1d2a0746df7cf125345fec91d6fbd9a8 ""
-  "chap_laplacian.tex" 1764688270 7844 fc9bd405a389896844ca0b3a10c110ae ""
+  "chap_laplacian.tex" 1765294648 10028 d9df83f979b201640e414e84cb3898cb ""
   "chap_riemannian.tex" 1764647935 4421 c47ce015b6969721bd453fe9134be5a5 ""
   "chap_smooth.tex" 1764647935 443 5f22f734e8eb74dd894db0a3e6d2e6b3 ""
-  "main.aux" 1764688274 5314 a0d2b2d8aa4bc0393d4dab36935e3d56 "pdflatex"
-  "main.out" 1764688274 4889 838e56be3b08eb1c0e1d4bd05e414e07 "pdflatex"
+  "main.aux" 1765294650 5416 c7851dafe2dfb1255c49706d73e15649 "pdflatex"
+  "main.out" 1765294650 4936 e5e6e2e79c50fa3427dc6a5bfaf7d98e "pdflatex"
   "main.tex" 1764647935 440 4b0ddc97943b518ecdc5fae908ac651c ""
-  "main.toc" 1764688274 2640 54b896159dd0326d4b0651eecc481c5e "pdflatex"
+  "main.toc" 1765294650 2701 2dda6eebecac18b606238c06d548ba3d "pdflatex"
   "style.sty" 1764647935 8386 0dea8632b85f4b2e282b9fe0c7cbf60b ""
   (generated)
   "main.aux"
