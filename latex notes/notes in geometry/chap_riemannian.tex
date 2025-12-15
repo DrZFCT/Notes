@@ -141,11 +141,13 @@ $M$ is said to be \textit{minimal} if $\bH=0$.
 \subsection{Gauss and Codazzi Equations}
 The Gauss equation relates the curvature of the submanifold to the curvature via the second fundamental form 
 \begin{theorem}[Gauss Equation]
-    
+    Given $X,Y,Z,W\in\Gamma(M)$, we have 
+    \[\bar{\R}(X,Y,Z,W)=\R(X,Y,Z,W)+\left\langle A(X,Z),A(Y,W)\right\rangle -\left\langle A(Y,Z),A(X,W)\right\rangle. \]
 \end{theorem}
 
 \begin{theorem}[Codazzi Equation]
-    
+    If $U,V,W\in\Gamma(M)$, then 
+    \[(\R(U,V)W)^\perp =(\bar{\nabla}_V A)(U,W)-(\bar{\nabla}_U A)(V,W).\]
 \end{theorem}
 
 \subsection{Hypersurfaces}

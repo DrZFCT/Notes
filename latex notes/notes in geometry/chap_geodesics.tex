@@ -1,7 +1,22 @@
 \chapter{Geodesics and Minimal Submanifolds}
 
+\section{Geodesics Equation and Exponential Map}
+\begin{equation}
+    \nabla_{\gamma'}\gamma'=0
+\end{equation}
 
+The exponential map $\exp_p:T_pM\to M$
+the differential $(\d \exp_p)_v:T_pM\to T_{\exp_p(v)}M$
+\begin{proposition}
+    \[(\d\exp_p)_0(v)=v\]
+\end{proposition}
 
+\subsection{Gauss Lemma}
+
+\begin{lemma}[Gauss Lemma]
+    \[|F_t(s,t)|^2=|v|^2+s^2|w|^2\]
+    \[\left\langle F_s,F_t\right\rangle(0,t)=0.\]
+\end{lemma}
 \section{Variational Theory of Geodesics}
 
 Jacobi equation 
@@ -16,6 +31,23 @@ The energy of a piece-wise smooth curve $\gamma:[0,a]\to M$
     \bE(\gamma)=\int_{0}^{a}|\gamma'|^2\d{t}.
 \end{equation}
 
+The first 
+\begin{proposition}
+    \[\bE'(0)=-2\int_0^a\left\langle F_s,\nabla_{F_t}F_t\right\rangle\d{t}-\]
+\end{proposition}
+
+
+Define the index form $I(V,V)$ by 
+\[I(V,V)=\int_0^a |\nabla_{\gamma'}V|^2-\R(\gamma',V,\gamma',V)\]
+\begin{proposition}
+    The second variation of energy at $0$ is 
+    \[\frac{1}{2}\bE''(0)=I(V,V)\]
+\end{proposition}
+
+\begin{theorem}[Bonnet-Myers]
+    If $(M^n,g)$ is complete with $\ric\geq c>0$, then $M$ is compact and 
+    \[\diam^2(M)\leq (n-1)\frac{\pi^2}{c}\]
+\end{theorem}
 
 \section{Variational Theory of Minimal Submanifolds}
 

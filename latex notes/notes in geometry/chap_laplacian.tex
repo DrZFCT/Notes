@@ -224,7 +224,24 @@ If $\Delta f \geq g$ at $p$ in the viscosity sense, then it also holds in the di
 \end{theorem}
 
 \subsection{Dirichlet Poincare Inequality}
-
+Given a compact domain $\Omega\subset M$, a \textit{Dirichlet Poincare inequality} is an inequality of the form 
+\begin{equation}\label{eq:Dirichlet-Poincare}
+    \int_\Omega u^2\leq C_\Omega\int_\Omega |\nabla u|^2,
+\end{equation}
+where $u$ is required to vanish on $\partial \Omega$.
+\begin{theorem}
+    If $M^n$ has $\ric\geq 0$ and $\Omega=B_R(p)$, then \eqref{eq:Dirichlet-Poincare} holds with $C_\Omega=3^{2n+4}R^2$.
+\end{theorem}
+\begin{proof}
+    We apply the divergence theorem to $u^2\nabla w$, where $w$ is to be chosen.
+    \begin{align*}
+        0&=\int\div(u^2\nabla w)\\
+        &=\int u^2\Delta w+2u\left\langle \nabla u,\nabla w\right\rangle \\
+        &\geq \int u^2 \Delta w -2|u||\nabla u||\nabla w|
+    \end{align*}
+    If we can find a function $w$ such that $\Delta w$ is lower bounded and $|\nabla w|$ is upper bounded by some constants depending only on $\Omega$,
+    then 
+\end{proof}
 
 \section{Gradient Estimates}
 
@@ -242,13 +259,15 @@ differential Harnack Inequality
 
 Bernstein technique
 \begin{lemma}
-    $w=\log u$ satisfies 
+    If $\Delta u=0$, $u>0$, and $\ric\geq 0$, then $w=\log u$ satisfies 
     \begin{itemize}
         \item $\Delta w=-|\nabla w|^2 $
         \item $\frac{1}{2}\Delta|\nabla w|^2\geq \frac{1}{n}|\nabla w|^4-\left\langle\nabla w,\nabla|\nabla w|^2\right\rangle$
     \end{itemize}
 \end{lemma}
-
+\begin{proof}
+    
+\end{proof}
 
 But $|\nabla w\|^2$ may not have an interior max.
 Use cut-off 
@@ -260,6 +279,12 @@ Use cut-off
 Meanvalue Inequality
 
 for harmonic is evident due to Harnack, extend it to sub-harmonic
+\begin{theorem}
+    If $M^n$ has $\ric\geq 0$ and $v\geq 0$ and $\Delta v\geq 0$ on $B_{4R}(p)$, then 
+    \begin{equation}
+        \sup_{B_R(p)}v^2\leq C_n \frac{\int_{B_{4R}(p)}v^2}{\vol(B_{4R}(p))}
+    \end{equation}
+\end{theorem}
 \begin{proof}
     $\phi$ cutoff $1$ on $B_{2R}(p)$,
     reverse Poincare 
