@@ -108,6 +108,27 @@ geodesic normal coordinates for $p\in M$ fixed
 
 \subsection{Lichnerowicz Theorem}
 
+Since the trace of $g$ is $n$ and the trace of $\hess_u$ is $\Delta u$, we can define the trace free Hessian $\hess^0_u$ by 
+\begin{equation}
+    \hess^0_u:=\hess_u-\frac{\Delta u}{n}g.
+\end{equation}
+
+\begin{lemma}
+    \begin{equation}
+        |\hess_u|^2\geq \frac{(\Delta u)^2}{n}
+    \end{equation}
+    with equality holding if and only if $\hess^0_u=0$.
+\end{lemma}
+\begin{proof}
+    \[|\hess^0_u|^2=|\hess_u|^2-\frac{1}{n}(\Delta u)^2.\]
+\end{proof}
+
+\begin{theorem}[Lichnerowicz Theorem]
+    If $M$ is complete with $\ric\geq c>0$, then the first non-zero eigenvalue $\mu_1\geq\frac{cn}{n-1}$.
+\end{theorem}
+\begin{proof}
+    Let $u$ be a non-constant eigenfunction with $\Delta u=-\mu u$. By \Cref{thm:Bonnet-Myers},
+\end{proof}
 
 \section{Submanifold Divergence and Laplacian}
 

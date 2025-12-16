@@ -8,16 +8,38 @@
 The exponential map $\exp_p:T_pM\to M$
 the differential $(\d \exp_p)_v:T_pM\to T_{\exp_p(v)}M$
 \begin{proposition}
-    \[(\d\exp_p)_0(v)=v\]
+    \[(d\exp_p)_0(v)=v\]
 \end{proposition}
 
 \subsection{Gauss Lemma}
+
+Let $v,w\in T_p M$ be vectors with $\left\langle v,w\right\rangle=0$ and define a map $F:\RR^2\to M$ by
+\begin{equation*}
+    F(s,t)=\exp_p(t(v+sw)).
+\end{equation*}
+Define vector fields $F_s$ and $F_t$ by 
+\[F_s=d{F}(\partial_s)\]
 
 \begin{lemma}[Gauss Lemma]
     \[|F_t(s,t)|^2=|v|^2+s^2|w|^2\]
     \[\left\langle F_s,F_t\right\rangle(0,t)=0.\]
 \end{lemma}
+\begin{remark}
+    It is insightful to rewrite the conclusions of the Gauss Lemma as
+    \[\left\langle (d\exp_p)_v(v),(d\exp_p)_v(w)\right\rangle=\left\langle v,w\right\rangle\]
+    for $v,w\in T_pM$.
+\end{remark}
+
+\subsection{Hopf-Rinow Theorem}
+The Riemannian distance $d(p,q)$ between points $p,q\in M$ is defined to be the infimum over piece-wise smooth curves $\gamma$ from $p$ to $q$ of the length of $\gamma$.
+\begin{remark}
+    We choose piece-wise smooth curves as definition because it is convenient to work with.
+    In the end, we will see that...
+\end{remark}
+
 \section{Variational Theory of Geodesics}
+Given a Riemannian manifold $(M,g)$ and a curve $\gamma:[0,a]\to M$, a variation of $\gamma$ is a mapping $F:[-\epsilon,\epsilon]\times [0,a]\subset \RR^2$ so that 
+
 
 Jacobi equation 
 
@@ -44,10 +66,16 @@ Define the index form $I(V,V)$ by
     \[\frac{1}{2}\bE''(0)=I(V,V)\]
 \end{proposition}
 
-\begin{theorem}[Bonnet-Myers]
+\begin{theorem}[Bonnet-Myers]\label{thm:Bonnet-Myers}
     If $(M^n,g)$ is complete with $\ric\geq c>0$, then $M$ is compact and 
     \[\diam^2(M)\leq (n-1)\frac{\pi^2}{c}\]
 \end{theorem}
+\begin{proof}
+    We bound the length of any stable geodesic. Thus, suppose $\gamma:[0,a]\to M$ is a stable geodesic.
+    Let $e_1,\dots,e_{n-1}$ be a parallel orthonormal frame along $\gamma$ and define variation vector fields $V_1,\dots,V_{n-1}$ by 
+    \[V_j=\left(\sin\frac{\pi t}{a}\right)e_j.\]
+    Note that 
+\end{proof}
 
 \section{Variational Theory of Minimal Submanifolds}
 
