@@ -1,0 +1,191 @@
+\chapter{Optimal Transport}
+
+\section{The Optimal Transport Problem}
+
+\begin{equation}
+\label{KOT}\tag{\textsf{KOT}}
+\inf_{\gamma \in \Gamma_{\mu, \nu}} \int c(x, y)\, \gamma(\d x,\d y)\,.
+\end{equation}
+
+
+\begin{proposition}\label{prop:couplings}
+    Let $\mu, \nu$ be two probability measures on $\RR^d$. The set $\Gamma_{\mu, \nu}$ of couplings between $\mu$ and $\nu$ is \emph{non-empty}, \emph{convex}, and \emph{compact} with respect to the topology of weak convergence.
+\end{proposition}
+
+\subsection{Wasserstein Distances}
+
+\begin{definition}\label{def:wass}
+The $p$-Wasserstein distance between two probability measures $\mu, \nu \in \cP_p(\RR^d)$ is defined by
+\begin{equation*}
+W_p(\mu, \nu)=\min_{\gamma \in \Gamma_{\mu, \nu}}\left( \int \|x-y\|^p\, \gamma(\d x,\d y)\right)^{1/p}\,.
+\end{equation*}
+\end{definition}
+
+\subsection{p=2}
+Recall that
+\begin{equation}\label{W2}\tag{$\mathsf{W_2^2}$}
+W_2^2(\mu, \nu)=\min_{\gamma \in \Gamma_{\mu, \nu}}\int \|x-y\|^2\, \gamma(\d x,\d y)\,.
+\end{equation}
+
+\begin{theorem}[Brenier]\label{thm:brenier}
+Let $\mu, \nu \in \cP_2(\RR^d)$ be two probability measures such that $\mu$ has a density and let $X \sim \mu$. If $\bar \gamma$ is an optimal coupling for~\eqref{W2},
+$$
+\int \|x-y\|^2\, \bar \gamma(\d x,\d y)=\min_{\gamma \in \Gamma_{\mu, \nu}}\int \|x-y\|^2 \,\gamma(\d x,\d y)=W_2^2(\mu, \nu)\,,
+$$
+then there exists a convex function $\varphi:\RR^d \to \RR$ such that $(X, \nabla \varphi(X))\sim \bar \gamma \in \Gamma_{\mu, \nu}$.
+\end{theorem}
+
+The dual Kantorovich problem is given by
+\begin{equation}
+\label{DK}\tag{\textsf{D-}$\mathsf{W_2^2}$}
+\sup_{\substack{ f \in L^1(\mu),\, g\in L^1(\nu)\\f(x) +g(y)\le c(x,y)} }\left\{\int f\, \d \mu + \int g\, \d \nu\right\}\,.
+\end{equation}
+
+Since the dual problem is a supremum, we want to make $g$ as large as possible, but we must respect the constraint $f(x) + g(y) \le c(x,y)$.
+The optimal function $g$ is therefore given by
+\begin{align}\label{eq:c_conjugate}
+    g(y) = \inf_{x\in\RR^d}\{c(x,y) - f(x)\}\,.
+\end{align}
+The function defined in~\eqref{eq:c_conjugate} is called the \emph{$c$-conjugate} or \emph{$c$-transform} of $f$, denoted $f^c$, associated with the cost $c(x,y)$.
+This reasoning shows that we can reformulate the dual as
+\begin{align}
+    \eqref{DK}
+    &= \sup_{f\in L^1(\mu)}\biggl\{\int f\,\d \mu + \int f^c\,\d \nu\biggr\}\,.\label{eq:general_semidual}
+\end{align}
+This is a version of the \emph{semidual} problem.
+For the quadratic cost, we can go one step further and explicitly link the semidual with convex analysis. In this case, the semidual is given by
+\begin{equation}\label{SD}\tag{\textsf{SD}}
+       \inf_{{\phi \in L^1(\mu)}} {\biggl\{\int \phi\,\d \mu + \int \phi^* \,\d \nu\biggr\}}
+    \end{equation}
+where $\phi^*$ denotes the \emph{convex conjugate} of  $\phi$. 
+
+
+The following proposition proves the strong duality for the quadratic cost.
+In general, strong duality holds for cost function that is lower semicontinuous and bounded from below.
+\begin{proposition}\label{prop:semidual} 
+   Let $\mu,\nu\in \cP_2(\RR^d)$ be probability measures.
+   Then, the dual problem~\eqref{DK} is equivalent to the semidual problem~\eqref{SD} in the following sense:
+    \begin{enumerate}
+        \item {\bf Objective values:} Write ${\sf S}$ and ${\sf D}$ for the optimal objective values of~\eqref{SD} and \eqref{DK} respectively. Then 
+        $$
+        {\sf D}= \int\|\cdot\|^2 \, \d \mu + \int \|\cdot\|^2 \, \d \nu - 2\cdot{\sf S}\,.
+        $$
+        \item {\bf Solutions:} A pair of functions $(f,g)$ is optimal for~\eqref{DK} if and only if $f = \|\cdot\|^2 - 2\varphi$ and $g = \|\cdot\|^2 - 2\varphi^*$ where $\varphi$ is optimal for~\eqref{SD}.
+    \end{enumerate}
+\end{proposition}
+\begin{proof}
+    
+\end{proof}
+
+
+{\blue what else is needed to be proved?}
+
+\begin{theorem}[Fundamental theorem of optimal transport]\index{fundamental theorem of optimal transport}\label{thm:fundOT}
+Let $\mu, \nu \in \cP_2(\RR^d)$ be two probability measures such that $\mu$ has a density and let $X \sim \mu$. Then the following are equivalent:
+\begin{enumerate}[label=(\roman*)]
+\item $\bar \gamma \in \Gamma_{\mu,\nu}$ is an optimal coupling in the sense that:
+$$
+\int \|x-y\|^2 \,\bar \gamma(\d x,\d y)=W_2^2(\mu, \nu)\,.
+$$
+\item There exists a proper convex function $\varphi$ such that $(X, \nabla \varphi(X))\sim \bar \gamma \in \Gamma_{\mu, \nu}$.
+\item Strong duality holds between~\eqref{W2} and~\eqref{DK}:
+$$
+\int \|x-y\|^2 \,\bar \gamma(\d x,\d y) = \sup_{\substack{ f \in L^1(\mu), \,g\in L^1(\nu)\\f(x) +g(y)\le \|x-y\|^2} }\left\{\int f \,\d \mu + \int g\, \d \nu\right\}\,.
+$$
+Moreover, the above supremum is achieved for 
+$$
+\bar f(x) \deq \|x\|^2-2\varphi(x)\qquad \text{and} \qquad \bar g(y) \deq \|y\|^2-2\varphi^*(y)\,.
+$$
+\end{enumerate}
+\end{theorem}
+
+
+With the fundamental theorem, we can state an improved version of Brenier's theorem.
+\begin{theorem}[Improved Brenier]\label{thm:improvedBrenier}\index{Brenier's theorem!improved}
+Let $\mu, \nu \in \cP_2(\RR^d)$ be two probability measures such that $\mu$ has a density and let $X \sim \mu$. Then there exists a convex function $\varphi:\RR^d \to \RR$ such that $(X, \nabla \varphi(X))\sim \bar \gamma \in \Gamma_{\mu, \nu}$ and $\bar \gamma$ is an optimal coupling for~\eqref{W2}:
+$$
+\int \|x-y\|^2 \,\bar \gamma(\d x,\d y)=\min_{\gamma \in \Gamma_{\mu, \nu}}\int \|x-y\|^2\, \gamma(\d x,\d y)=W_2^2(\mu, \nu)\,.
+$$
+Moreover, $\nabla \varphi$ is unique in the sense that if there exists a convex function $\psi$ such that $\nabla\psi(X) \sim \nu$, then $\nabla \psi(X) = \nabla \varphi(X)$, almost surely.
+
+In particular, any valid coupling $\gamma \in \Gamma_{\mu, \nu}$ of the form $(X, \nabla \psi(X))\sim \gamma$ for some convex function $\psi$, must be the \emph{unique} optimal coupling between $\mu$ and $\nu$. 
+\end{theorem}
+
+\section{Entropic Optimal Transport}
+
+The basic principle of entropic optimal transport is to modify the definition of optimal transport to include a penalization term based on the entropy of the coupling, that is, to consider the optimization problem\index{entropic optimal transport}
+\begin{equation}\label{eq:eot_cont}
+	\inf_{\gamma \in \Gamma_{\mu, \nu}} \biggl\{\int \|x - y\|^2 \, \gamma(\d x, \d y) - \varepsilon \operatorname{Ent}(\gamma)\biggr\}\,,
+\end{equation}
+where $\operatorname{Ent}(\gamma)$ denotes the differential entropy $\int \gamma(x) \log \frac{1}{\gamma(x)} \, \d x$ for an absolutely continuous probability measure $\gamma$.
+
+Define
+\begin{equation*}
+	\iota^\varepsilon(f, g) = \varepsilon \iint \Bigl(e^{(f(x) + g(y) - \|x - y\|^2)/\varepsilon}  - 1\Bigr) \, \mu(\d x)\, \nu(\d y)\,.
+\end{equation*}
+The function $\iota^\varepsilon$ is convex and continuous on the space $C_b(\Omega)$ of bounded, continuous functions on $\Omega$.
+
+\begin{equation}\label{eta-D}\tag{$\mathsf{\varepsilon}$\textsf{-D-}$\mathsf{W_2^2}$}
+    \sup_{f, g \in C_b(\Omega)}{\biggl\{\int f \,\d \mu + \int g\, \d \nu - \iota^\varepsilon(f, g)\biggr\}}
+\end{equation}
+
+\begin{equation}
+\label{eta}\tag{$\mathsf{\varepsilon}$-$\mathsf{W_2^2}$}
+	\inf_{\gamma \in \Gamma_{\mu, \nu}}{\Bigl\{\int \|x - y\|^2\, \gamma(\d x,\d y) + \varepsilon \KL(\gamma \mmid \mu \otimes \nu)\Bigr\}}\,.
+\end{equation}
+
+\section{Wasserstein Gradient Flow}
+
+\begin{align}\label{eq:particle_ode}
+    \dot X_t
+    &= v_t(X_t)\,.
+\end{align}
+
+\begin{proposition}[Continuity equation]
+    Suppose that $X_0 \sim \mu_0$, and that ${(X_t)}_{t\geq 0}$ evolves according to the dynamics~\eqref{eq:particle_ode}, which we assume is well-posed.
+    Let $\mu_t$ denote the law of $X_t$ for all $t\geq 0$.
+    Then, ${(\mu_t)}_{t\geq 0}$ satisfies the following equation in the weak sense,
+    \begin{align}\label{eq:continuity}
+        \partial_t \mu_t + \divergence(\mu_t v_t) = 0\,,
+    \end{align}
+    i.e., for all compactly supported and smooth test functions $\varphi : \RR^d\to\RR$, it holds that
+    \begin{align}\label{eq:continuity_weak}
+        \partial_t \int \varphi \, \d \mu_t = \int \langle \nabla \varphi, v_t\rangle \, \d \mu_t\,.
+    \end{align}
+\end{proposition}
+
+
+\section{Otto Calculus}
+
+\begin{definition}[First variation]\label{defn:first_variation}\index{first variation}
+    Let $\cF : \cP_{2,\rm ac}(\RR^d)\to\RR$ be a functional.
+    The \emph{first variation} of $\cF$ at $\mu$, denoted $\delta \cF(\mu) : \RR^d\to\RR$, is the function defined by
+    \begin{align}\label{eq:first_var_def}
+        \lim_{\varepsilon\searrow 0}\frac{\cF(\mu+\varepsilon\chi) - \cF(\mu)}{\varepsilon} = \int \delta\cF(\mu)\,\d\chi\,,
+    \end{align}
+    for all signed measures $\chi$ such that $\mu+\varepsilon\chi \in \cP_{2,\rm ac}(\RR^d)$ for all sufficiently small $\varepsilon$.
+\end{definition}
+
+
+\begin{proposition}\label{prop:w2_grad}
+    Let $\cF : \cP_{2,\rm ac}(\RR^d) \to\RR$ be a functional with first variation $\delta \cF$.
+    Then, the Wasserstein gradient of $\cF$ is the vector field $ \gradW \cF(\mu): \RR^d \to \RR^d$ defined by
+    \begin{align*}
+        \gradW \cF(\mu) = \nabla \delta \cF(\mu)\,,
+    \end{align*}
+    where $\nabla$ on the right-hand side denotes the usual Euclidean gradient.
+\end{proposition}
+\begin{proof}
+    Let ${(\mu_t)}_{t\geq 0}$ be a curve of measures with tangent vectors ${(v_t)}_{t\geq 0}$.
+    The fact that $v_t$ is the tangent vector at time $t$ means that it solves the continuity equation~\eqref{eq:continuity}.
+    Using the definition of the first variation,
+    \begin{align*}
+        \partial_t \cF(\mu_t)
+        &= \int \delta \cF(\mu_t)\,\partial_t \mu_t
+        = -\int \delta \cF(\mu_t) \divergence(\mu_t v_t)\\
+        &= \int \langle \nabla \delta \cF(\mu_t), v_t\rangle\,\d \mu_t
+        = \langle \nabla \delta \cF(\mu_t), v_t\rangle_{\mu_t}\,.
+    \end{align*}
+    Moreover, since $\nabla \delta \cF(\mu_t)$ is the gradient of a function, from Definition~\ref{def:w2_tangent} we have $\nabla \delta \cF(\mu_t) \in T_{\mu_t} \cP_{2,\rm ac}(\RR^d)$.
+    From this, we conclude that $\nabla \delta \cF(\mu_t)$ is indeed the Wasserstein gradient of $\cF$ at $\mu_t$.
+\end{proof}
