@@ -1,0 +1,24 @@
+\begin{thebibliography}{3}
+\providecommand{\natexlab}[1]{#1}
+\providecommand{\url}[1]{\texttt{#1}}
+\expandafter\ifx\csname urlstyle\endcsname\relax
+  \providecommand{\doi}[1]{doi: #1}\else
+  \providecommand{\doi}{doi: \begingroup \urlstyle{rm}\Url}\fi
+
+\bibitem[Bakry et~al.(2014)Bakry, Gentil, and Ledoux]{bakry}
+Dominique Bakry, Ivan Gentil, and Michel Ledoux.
+\newblock \emph{Analysis and geometry of {Markov} diffusion operators}, volume
+  103.
+\newblock Springer, 2014.
+
+\bibitem[Chewi(2025)]{chewi}
+Sinho Chewi.
+\newblock Log-{{Concave Sampling}}.
+\newblock 2025.
+
+\bibitem[{Ramon van Handel}(2016)]{vanhandel}
+{Ramon van Handel}.
+\newblock Probability in {{High Dimension}}.
+\newblock 2016.
+
+\end{thebibliography}

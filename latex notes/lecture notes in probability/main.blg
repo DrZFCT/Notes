@@ -1,0 +1,49 @@
+This is BibTeX, Version 0.99d (TeX Live 2022)
+Capacity: max_strings=200000, hash_size=200000, hash_prime=170003
+The top-level auxiliary file: main.aux
+The style file: plainnat.bst
+Database file #1: bib.bib
+Warning--empty note in chewi
+Warning--empty note in vanhandel
+You've used 3 entries,
+            2773 wiz_defined-function locations,
+            606 strings with 5057 characters,
+and the built_in function-call counts, 961 in all, are:
+= -- 79
+> -- 50
+< -- 3
++ -- 18
+- -- 15
+* -- 69
+:= -- 169
+add.period$ -- 9
+call.type$ -- 3
+change.case$ -- 13
+chr.to.int$ -- 3
+cite$ -- 8
+duplicate$ -- 47
+empty$ -- 72
+format.name$ -- 18
+if$ -- 182
+int.to.chr$ -- 1
+int.to.str$ -- 1
+missing$ -- 2
+newline$ -- 23
+num.names$ -- 12
+pop$ -- 24
+preamble$ -- 1
+purify$ -- 11
+quote$ -- 0
+skip$ -- 38
+stack$ -- 0
+substring$ -- 6
+swap$ -- 2
+text.length$ -- 1
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 28
+warning$ -- 2
+while$ -- 9
+width$ -- 0
+write$ -- 42
+(There were 2 warnings)

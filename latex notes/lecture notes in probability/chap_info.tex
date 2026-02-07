@@ -8,7 +8,7 @@ For KL divergence,
 Defnie the tilting of $\QQ$ along $f$ by $\d{\QQ^f}=e^f\d{\QQ}$.
 Now,
 \begin{align*}
-    \KL(\PP\|\QQ)&=\EE_P \log \frac{\d{\PP}}{\d{\QQ}}\\
+    \KL(\PP\mmid\QQ)&=\EE_P \log \frac{\d{\PP}}{\d{\QQ}}\\
     &=\EE_P \log \frac{\d{\PP}}{\d{\QQ^f}}\frac{\d{\QQ^f}}{\d{\QQ}}
 \end{align*}
 
@@ -19,10 +19,10 @@ Now,
 \end{theorem}
 
 \begin{theorem}[Gibbs variational principle]\label{thm:gibbs-variational-principle}
-    $\log \EE_\QQ e^f=\sup_{\PP} \left(\EE_\PP f-\KL(\PP\|\QQ)\right)$
+    $\log \EE_\QQ e^f=\sup_{\PP} \left(\EE_\PP f-\KL(\PP\mmid\QQ)\right)$
 \end{theorem}
 
 In general, 
 \begin{theorem}
-    $\dis_f(\PP\|\QQ)$
+    $\dis_f(\PP\mmid\QQ)$
 \end{theorem}

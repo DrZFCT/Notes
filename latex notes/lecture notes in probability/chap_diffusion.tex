@@ -12,3 +12,108 @@ This is analogous to how the linear algebraic study of the transition matrix of 
 
 
 \subsection{Ito's theory???}
+
+
+\section{Markov Semigroup Theory}
+
+\begin{definition}[generator]
+    \begin{equation*}
+        \mathscr{L}f=\lim_{t\searrow 0}\frac{P_t f-f}{t},
+    \end{equation*}
+\end{definition}
+
+
+\begin{definition}[carre du champ]
+    \begin{equation*}
+        \Gamma(f,g):=\frac{1}{2}(\mathscr{L}(fg)-f\mathscr{L}g-g\mathscr{L}f).
+    \end{equation*}
+\end{definition}
+
+\begin{definition}[Dirichlet energy]
+    \begin{equation*}
+        \mathscr{E}(f,g):=\int \Gamma(f,g)\d \pi
+    \end{equation*}
+
+    \begin{equation*}
+        \mathscr{E}(f,g)=-\int f\mathscr{L}g\d \pi
+    \end{equation*}
+\end{definition}
+
+Carre du champ is nonnegative.
+
+\begin{proposition}
+    
+\end{proposition}
+
+\begin{definition}[iterated carre du champ]
+    \begin{equation*}
+        \Gamma_2(f,g):=\frac{1}{2}(\mathscr{L}\Gamma(f,g)-\Gamma(f,\mathscr{L}g)-\Gamma(g,\mathscr{L}f)).
+    \end{equation*}
+\end{definition}
+
+\begin{definition}[Bakry-Emery ]
+    \begin{equation*}
+        \Gamma_2(f,f)\geq \alpha \Gamma(f,f)
+    \end{equation*}
+    curvature-dimension condition $\textnormal{CD}(\alpha,\infty)$.
+\end{definition}
+
+The key point is that once the (iterated) carre du champ operators are known, the curvature-dimension condition amounts to an algebraic condition which can be easily checked.
+
+
+\begin{example}[Langevin diffusion]
+    \begin{equation}\label{eq:langevin diffusion}
+        \d X_t=-\nabla V(X_t)\d t+\sqrt{2}\d B_t
+    \end{equation}
+
+    \begin{equation*}
+        \mathscr{L}f(x)=\Delta f(x)-\left\langle \nabla V(x),\nabla f(x)\right\rangle.
+    \end{equation*}
+\end{example}
+
+\section{Functional Inequalities}
+
+\subsection{Poincare Inequality}
+
+\begin{definition}[Poincare inequality]
+    \begin{equation*}
+        \var_{\pi}(f)\leq \frac{C_\textnormal{PI}}{2}\mathscr{E} (f,f )
+    \end{equation*}
+\end{definition}
+
+
+\subsection{Log-Sobolev Inequality}
+
+\begin{definition}[log-Sobolev inequality]
+    \cite{chewi}
+    \begin{equation*}
+        \KL(\rho\pi \mmid \pi)\leq \frac{C_\textnormal{LSI}}{2}\mathscr{E} (\rho,\log\rho )
+    \end{equation*}
+
+    \citep{bakry}
+    \begin{equation*}
+        \Ent_\pi(f^2)\leq 2C_\textnormal{LSI}\mathscr{E}(f,f)
+    \end{equation*}
+\end{definition}
+
+\begin{example}
+    For the Langevin diffusion, the LSI reads
+    
+    \begin{equation*}
+        \KL(\rho\pi \mmid \pi)\leq \frac{C_\textnormal{LSI}}{2}\mathscr{E} (\rho,\log\rho )
+    \end{equation*}
+
+
+    \begin{equation*}
+        \Ent_\pi(f^2)\leq 2C_\textnormal{LSI}\EE_\pi \|\nabla f\|^2  
+    \end{equation*}
+\end{example}
+
+
+\begin{definition}[modified log-Sobolev inequality]
+    \citep{vanhandel}
+    \begin{equation*}
+        \Ent_\pi(f)\leq 2C_\textnormal{MLSI}\mathscr{E}(f,\log f)
+    \end{equation*}
+\end{definition}
+It seems to be equivalent to lsi if $\mathscr{L}$ works normally, for example in the case of diffusion.
