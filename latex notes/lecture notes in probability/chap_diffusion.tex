@@ -85,15 +85,16 @@ The key point is that once the (iterated) carre du champ operators are known, th
 \subsection{Log-Sobolev Inequality}
 
 \begin{definition}[log-Sobolev inequality]
+    \citep{bakry}
+    \begin{equation*}
+        \Ent_\pi(f^2)\leq 2C_\textnormal{LSI}\mathscr{E}(f,f)
+    \end{equation*}
+
     \cite{chewi}
     \begin{equation*}
         \KL(\rho\pi \mmid \pi)\leq \frac{C_\textnormal{LSI}}{2}\mathscr{E} (\rho,\log\rho )
     \end{equation*}
 
-    \citep{bakry}
-    \begin{equation*}
-        \Ent_\pi(f^2)\leq 2C_\textnormal{LSI}\mathscr{E}(f,f)
-    \end{equation*}
 \end{definition}
 
 \begin{example}
@@ -117,3 +118,25 @@ The key point is that once the (iterated) carre du champ operators are known, th
     \end{equation*}
 \end{definition}
 It seems to be equivalent to lsi if $\mathscr{L}$ works normally, for example in the case of diffusion.
+
+\section{Transport Inequalities}
+
+\begin{definition}[$T_2$-inequality]
+    \begin{equation}
+        W_2^2(\mu,\pi)\leq 2C_{\textnormal{T}_2} \KL(\mu\mmid \pi)
+    \end{equation}
+\end{definition}
+
+\begin{definition}[$T_1$-inequality]
+    \begin{equation}
+        W_1^2(\mu,\pi)\leq 2C_{\textnormal{T}_1} \KL(\mu\mmid \pi)
+    \end{equation}
+\end{definition}
+
+$T_2$ implies PI
+
+the curvature-dimension condition is equivalent to a gradient bound
+
+\begin{definition}[diffusion semigroup]
+    
+\end{definition}

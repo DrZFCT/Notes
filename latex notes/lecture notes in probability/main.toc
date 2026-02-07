@@ -125,6 +125,7 @@
 \contentsline {section}{\numberline {13.3}Functional Inequalities}{66}{section.13.3}%
 \contentsline {subsection}{\numberline {13.3.1}Poincare Inequality}{66}{subsection.13.3.1}%
 \contentsline {subsection}{\numberline {13.3.2}Log-Sobolev Inequality}{66}{subsection.13.3.2}%
+\contentsline {section}{\numberline {13.4}Transport Inequalities}{66}{section.13.4}%
 \contentsline {part}{III\hspace {1em}Information Theory}{67}{part.3}%
 \contentsline {chapter}{\numberline {14}Information Metrics}{69}{chapter.14}%
 \contentsline {section}{\numberline {14.1}Variational Principle}{69}{section.14.1}%
