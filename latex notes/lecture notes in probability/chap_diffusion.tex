@@ -23,7 +23,7 @@ This is analogous to how the linear algebraic study of the transition matrix of 
 \end{definition}
 
 
-\begin{definition}[carre du champ]
+\begin{definition}[carr\'e du champ]
     \begin{equation*}
         \Gamma(f,g):=\frac{1}{2}(\mathscr{L}(fg)-f\mathscr{L}g-g\mathscr{L}f).
     \end{equation*}
@@ -39,13 +39,13 @@ This is analogous to how the linear algebraic study of the transition matrix of 
     \end{equation*}
 \end{definition}
 
-Carre du champ is nonnegative.
+carr\'e du champ is nonnegative.
 
 \begin{proposition}
     
 \end{proposition}
 
-\begin{definition}[iterated carre du champ]
+\begin{definition}[iterated carr\'e du champ]
     \begin{equation*}
         \Gamma_2(f,g):=\frac{1}{2}(\mathscr{L}\Gamma(f,g)-\Gamma(f,\mathscr{L}g)-\Gamma(g,\mathscr{L}f)).
     \end{equation*}
@@ -58,7 +58,7 @@ Carre du champ is nonnegative.
     curvature-dimension condition $\textnormal{CD}(\alpha,\infty)$.
 \end{definition}
 
-The key point is that once the (iterated) carre du champ operators are known, the curvature-dimension condition amounts to an algebraic condition which can be easily checked.
+The key point is that once the (iterated) carr\'e du champ operators are known, the curvature-dimension condition amounts to an algebraic condition which can be easily checked.
 
 
 \begin{example}[Langevin diffusion]
@@ -71,13 +71,32 @@ The key point is that once the (iterated) carre du champ operators are known, th
     \end{equation*}
 \end{example}
 
+\begin{definition}[diffusion semigroup]
+    The Markov semigroup $(P_t)_{t\geq 0}$ is a diffusion semigroup if for all functions $f,g\in L^2(\pi)$ in the domain of the carr\'e du champ $\Gamma$ and all $\phi:\RR\to\RR$,
+    the chain rule holds:
+    \begin{equation}\label{eq:diffusion_semigroup_chain_rule}
+        \Gamma(\phi\circ f,g)=\phi'(g)\Gamma(f,g).
+    \end{equation}
+\end{definition}
+
+For the chain rule satisfied by, which is reminiscent of Ito's lemma.
+\begin{proposition}
+    Equivalently, the chain rule can be stated for the generator as 
+    \begin{equation*}
+        \mathscr{L}\phi(f)=\phi'(f)\mathscr{L}f+\phi''(f)\Gamma(f,f).
+    \end{equation*}
+\end{proposition}
+\begin{proof}
+    
+\end{proof}
+
 \section{Functional Inequalities}
 
 \subsection{Poincare Inequality}
 
 \begin{definition}[Poincare inequality]
-    \begin{equation*}
-        \var_{\pi}(f)\leq \frac{C_\textnormal{PI}}{2}\mathscr{E} (f,f )
+    \begin{equation*}\tag{$\mathsf{PI}$}
+        \var_{\pi}(f)\leq \frac{C_\mathsf{PI}}{2}\mathscr{E} (f,f )
     \end{equation*}
 \end{definition}
 
@@ -86,13 +105,13 @@ The key point is that once the (iterated) carre du champ operators are known, th
 
 \begin{definition}[log-Sobolev inequality]
     \citep{bakry}
-    \begin{equation*}
-        \Ent_\pi(f^2)\leq 2C_\textnormal{LSI}\mathscr{E}(f,f)
+    \begin{equation*}\tag{$\mathsf{LSI}$}
+        \Ent_\pi(f^2)\leq 2C_\mathsf{LSI}\mathscr{E}(f,f)
     \end{equation*}
 
     \cite{chewi}
     \begin{equation*}
-        \KL(\rho\pi \mmid \pi)\leq \frac{C_\textnormal{LSI}}{2}\mathscr{E} (\rho,\log\rho )
+        \KL(\rho\pi \mmid \pi)\leq \frac{C_\mathsf{LSI}}{2}\mathscr{E} (\rho,\log\rho )
     \end{equation*}
 
 \end{definition}
@@ -119,24 +138,52 @@ The key point is that once the (iterated) carre du champ operators are known, th
 \end{definition}
 It seems to be equivalent to lsi if $\mathscr{L}$ works normally, for example in the case of diffusion.
 
-\section{Transport Inequalities}
+The entropy has an additional $\log$ factor, thus we can see that log Sobolev inequality.
+Another way to see this is through a simple linearization argument.
+\begin{lemma}[$\mathsf{LSI} \Rightarrow \mathsf{PI}$]
+    The log-Sobolev inequality implies the Poincare inequality.
+\end{lemma}
+\begin{proof}
+    Suppose $\int f\d \pi=0$, the RHS of $\mathsf{LSI}$ can be linearized by
+    $$\KL((1+\epsilon f)\pi\mmid \pi)=\frac{\epsilon^2}{2}\int f^2\d\pi +o(\epsilon^2)$$
+\end{proof}
 
-\begin{definition}[$T_2$-inequality]
-    \begin{equation}
-        W_2^2(\mu,\pi)\leq 2C_{\textnormal{T}_2} \KL(\mu\mmid \pi)
-    \end{equation}
-\end{definition}
+\begin{theorem}
+    TFAE:
+    \begin{enumerate}
+        \item log-Sobolev
+        \item For any function $f$ and all $t\geq 0$,
+        \begin{equation*}
+            \Ent_\pi (P_tf)\leq \exp\left(-\frac{2t}{C_\mathsf{LSI}}\right)\Ent_\pi(f)
+        \end{equation*}
+        \item For any initial distribution $\pi_0$ and all $t\geq 0$,
+        \begin{equation*}
+            \KL(\pi_t\mmid \pi)\leq \exp\left(-\frac{2t}{C_\mathsf{LSI}}\right) \KL(\pi_0\mmid \pi)
+        \end{equation*}
+    \end{enumerate}
+\end{theorem}
+
+\subsection{Transport Inequalities}
 
 \begin{definition}[$T_1$-inequality]
-    \begin{equation}
-        W_1^2(\mu,\pi)\leq 2C_{\textnormal{T}_1} \KL(\mu\mmid \pi)
+    \begin{equation}\label{eq:T1}\tag{$\mathsf{T_1}$}
+        W_1^2(\mu,\pi)\leq 2C_\mathsf{T_1} \KL(\mu\mmid \pi)
     \end{equation}
 \end{definition}
 
-$T_2$ implies PI
+\begin{definition}[$T_2$-inequality]
+    \begin{equation}\label{eq:T2}\tag{$\mathsf{T_2}$}
+        W_2^2(\mu,\pi)\leq 2C_\mathsf{T_2} \KL(\mu\mmid \pi)
+    \end{equation}
+\end{definition}
+
+
+
+$\mathsf{LSI} \Rightarrow \mathsf{T_2}\Rightarrow \mathsf{PI}$ 
+
+it is evident that $\mathsf{T_2}\Rightarrow \mathsf{T_1}$. However, in general $\mathsf{T_1}$ and $\mathsf{PI}$ are incomparable.
+
+
 
 the curvature-dimension condition is equivalent to a gradient bound
 
-\begin{definition}[diffusion semigroup]
-    
-\end{definition}
