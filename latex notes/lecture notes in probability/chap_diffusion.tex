@@ -70,7 +70,7 @@ The key point is that once the (iterated) carr\'e du champ operators are known, 
         \mathscr{L}f(x)=\Delta f(x)-\left\langle \nabla V(x),\nabla f(x)\right\rangle.
     \end{equation*}
 \end{example}
-
+A Markov semigroup is diffusion if the carr\'e du champ satisfies the chain rule.
 \begin{definition}[diffusion semigroup]
     The Markov semigroup $(P_t)_{t\geq 0}$ is a diffusion semigroup if for all functions $f,g\in L^2(\pi)$ in the domain of the carr\'e du champ $\Gamma$ and all $\phi:\RR\to\RR$,
     the chain rule holds:
@@ -136,6 +136,9 @@ For the chain rule satisfied by, which is reminiscent of Ito's lemma.
         \Ent_\pi(f)\leq 2C_\textnormal{MLSI}\mathscr{E}(f,\log f)
     \end{equation*}
 \end{definition}
+\begin{remark}
+    When the carr\'e du champ satisfies a chain rule, then (2.6.1) and (2.6.2) are equivalent, but in general the first inequality (2.6.1) is strictly stronger.
+\end{remark}
 It seems to be equivalent to lsi if $\mathscr{L}$ works normally, for example in the case of diffusion.
 
 The entropy has an additional $\log$ factor, thus we can see that log Sobolev inequality.
@@ -187,8 +190,19 @@ it is evident that $\mathsf{T_2}\Rightarrow \mathsf{T_1}$. However, in general $
 
 the curvature-dimension condition is equivalent to a gradient bound
 
+\section{Operations Preserving Functional Inequalities}
 
-operations preserving 
 \subsection{Bounded Perturbation}
+
+
+
+\subsection{Lipschitz Mapping}
+
+
+\begin{corollary}[Lipschitz perturbations]
+    
+\end{corollary}
+
+\subsection{Convolutions}
 
 
