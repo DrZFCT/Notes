@@ -1,4 +1,4 @@
-\begin{thebibliography}{3}
+\begin{thebibliography}{6}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{\texttt{#1}}
 \expandafter\ifx\csname urlstyle\endcsname\relax
@@ -16,9 +16,28 @@ Sinho Chewi.
 \newblock Log-{{Concave Sampling}}.
 \newblock 2025.
 
+\bibitem[Kemperman(1974)]{kemperman1974shannon}
+JHB Kemperman.
+\newblock On the shannon capacity of an arbitrary channel.
+\newblock In \emph{Indagationes Mathematicae (Proceedings)}, volume~77, pages
+  101--115. North-Holland, 1974.
+
 \bibitem[{Ramon van Handel}(2016)]{vanhandel}
 {Ramon van Handel}.
 \newblock Probability in {{High Dimension}}.
 \newblock 2016.
+
+\bibitem[Yang and Barron(1999)]{yang1999information}
+Yuhong Yang and Andrew Barron.
+\newblock Information-theoretic determination of minimax rates of convergence.
+\newblock \emph{The Annals of Statistics}, 27\penalty0 (5):\penalty0
+  1564--1599, 1999.
+
+\bibitem[Yatracos(1985)]{yatracos1985rates}
+Yannis~G Yatracos.
+\newblock Rates of convergence of minimum distance estimators and kolmogorov's
+  entropy.
+\newblock \emph{The Annals of Statistics}, 13\penalty0 (2):\penalty0 768--774,
+  1985.
 
 \end{thebibliography}

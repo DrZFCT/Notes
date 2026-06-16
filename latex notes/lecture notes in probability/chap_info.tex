@@ -2,18 +2,247 @@
 
 \section{Entropy}
 
+\begin{definition}[Entropy]
+    Let $X$ be a \textit{discrete} random variable with probability mass function $\PP_X(x)$, $x\in\cX$.
+    \[H(X)=H(\PP_X)=\EE\left[\log\frac{1}{\PP_X(X)}\right]\]
+\end{definition}
+Here, we slightly abused the notation for a probability measure and its law.
 
+
+\begin{definition}[Conditional entropy]
+    \[H(X|Y)=\EE_{y\sim \PP_Y}[H(\PP_{X|Y=y})]=\EE\left[\log\frac{1}{\PP_{X|Y}(X|Y)}\right]\]
+\end{definition}
+
+\begin{example}
+    Let $Y=X\oplus Z$, where $\oplus$ denotes binary addition (XOR) and $X\sim\text{Ber}(1/2)$ and $Z\sim\text{Ber}(\delta)$ independently of $X$.
+    Then $P_{X|Y=0}=\text{Ber}(\delta)$ and $P_{X|Y=1}=\text{Ber}(\bar{\delta})$.
+    Since $h(\delta)=h(\bar{\delta})$, we obtain that $H(X|Y)=h(\delta)$.
+\end{example}
+
+\begin{example}[Binary entropy function]
+    \[h(p)=p\log\frac{1}{p}+\bar{p}\log\frac{1}{\bar{p}}\]
+\end{example}
+
+\begin{example}[Infinite Entropy]
+    Let $\PP(X=k)\propto \frac{1}{k\ln^2k}$, $k=2,3,\dots$.
+\end{example}
+
+\begin{proposition}[Properties of entropy]
+    \
+    \begin{enumerate}[label=(\roman*)]
+        \item $0\leq H(X)\leq \log|\cX|$
+        \item $H(X|Y)\leq H(X)$
+        \item $H(X,Y)=H(X)+H(Y|X)$
+    \end{enumerate}
+\end{proposition}
+
+\subsection{Axiomatic Characterization}
+
+\subsection{Submodularity}
+
+\begin{example}[projection]
+    
+\end{example}
+
+Let $S$ be a set. A set-function $f:2^S\to\RR$ is \textit{submodular} if for any $T_1,T_2\subset S$
+\[f(T_1\cup T_2)+f(T_1\cap T_2)\leq f(T_1)+f(T_2).\]
+Recall
+\begin{theorem}[Submodularity]
+    Let $X^n$ be a discrete random vector. Then $T\mapsto H(X_T)$ is submodular.
+\end{theorem}
+\begin{theorem}[Han's inequality]
+    
+\end{theorem}
 \section{Divergence}
+\begin{definition}[Kullback-Leibler (KL) divergence]
+    \[\KL(\PP\mmid \QQ)=\EE_{\QQ}\left[\frac{\d\PP}{\d\QQ}\log \frac{\d\PP}{\d\QQ}\right]\]
+\end{definition}
+Note that in general $\KL(\PP\mmid \QQ)\neq \KL(\QQ\mmid \PP)$. 
+This is natural; for example, it reflects the inherent asymmetry of hypothesis testing.
+
+
+for a pair of Markov kernels $\PP_{Y|X}:\cX\to\cY$
+\begin{definition}[Conditional divergence]
+    \[\KL(\PP_{Y|X}\mmid \QQ_{Y|X}\mid\PP_X)=\EE_{x\sim \PP_X}\KL(\PP_{Y|X=x}\mmid \QQ_{Y|X=x})\]
+\end{definition}
+
+\begin{example}[Binary divergence]
+    Consider $\PP=\text{Ber}(p)$ and $\QQ=\text{Ber}(q)$ on $\cX=\{0,1\}$. Then 
+    \[D(\PP\mmid\QQ)=d(p\mmid q):=p\log\frac{p}{q}+\bar{p}\log\frac{\bar{p}}{\bar{q}}.\]
+
+    The following quadratic lower bound is often used:
+    \[d(p\mmid q)\geq 2(p-q)^2\log e.\]
+    In fact, this is the backbone of Pinsker's inequality.
+\end{example}
+
+\begin{proposition}
+    \
+    \begin{enumerate}[label=(\roman*)]
+        \item $\KL(\PP\mmid\QQ)\geq 0$ with equality iff $\PP=\QQ$.
+        \item \textnormal{(chain rule)} $\KL(\PP_{X,Y}\mmid\QQ_{X,Y})=\KL(\PP_{Y|X}\mmid \QQ_{Y|X}\mid\PP_X)+\KL(\PP_X\mmid \QQ_X)$
+    \end{enumerate}
+\end{proposition}
+
+The chain rule has many implications
+
+data-processing inequality (DPI)
+the intuitive interpretation is that it is easier to distinguish two distributions using clean data as opposed to noisy data.
+
+\subsection{Local Behavior and Fisher Information}
+
+\subsection{Differential Entropy}
 
 \section{Mutual Information}
+We finally define the most important concept in the entire field of information theory, \textit{mutual information}.
+\begin{definition}[Mutual information]
+    The mutual information between a pair of random variables $X$ and $Y$ is
+    \[I(X;Y)=\KL(\PP_{X,Y}\mmid \PP_X\PP_Y)\]
+\end{definition}
+Intuitively, mutual information measures the dependence between $X$ and $Y$ by comparing their joint distribution to the product of the marginals in the KL divergence.
+Using the chain rule of KL-divergence, we see that mutual information can also be defined by comparing the conditional distribution to the unconditional:
+\begin{proposition}
+    Whenever $\cY$ is standard Borel,
+    \[I(X;Y)=\KL(\PP_{Y|X}\mmid \PP_Y|\PP_X).\]
+\end{proposition}
 
-\section{f-divergence}
+\begin{definition}[Conditional mutual information]
+    \[I(X;Y|Z)=\EE_{z\sim P_Z}I(X;Y|Z=z).\]
+\end{definition}
 
-\section{Tensorization}
 
-\section{Inequalities between f-divergences}
+\begin{example}[Binary symmetric channel]
+    Let $X\sim\text{Ber}(1/2)$ and $N\sim\text{Ber}(\delta)$ be independent.
+    Let $Y=X\oplus N$; or equivalently, $Y$ is obtained by flipping $X$ with probability $\delta$.
+    Then 
+    \[I(X;Y)=\log 2 - h(\delta).\]
+\end{example}
 
-\section{Variational Principle}
+
+
+\begin{theorem}
+    \
+    \begin{enumerate}[label=(\roman*)]
+        \item (positivity) $I(X;Y)\geq 0$, with equality $I(X;Y)=0$ iff $X\ind Y$.
+        \item (symmetry) $I(X;Y)=I(Y;X)$.
+        \item (deterministic maps) For any function $f$ we have $I(f(X);Y)\leq I(X;Y)$.
+        If $f$ is one-to-one with a measurable inverse, then $I(f(X);Y)=I(X;Y)$.
+        \item (chain rule) $I(X,Y;Z)=I(X;Z)+I(Y;Z|X).$
+        \item (more data $\Longrightarrow$ more information) $I(X_1,X_2;Z)\geq I(X_1;Z)$.
+        \item (DPI) If $X\to Y\to Z$, then $I(X;Z)\leq I(X;Y)$.
+    \end{enumerate}
+\end{theorem}
+
+\begin{theorem}[Mutual information and entropy]
+    \
+    \begin{enumerate}[label=(\roman*)]
+        \item If $X$ is discrete, then $I(X;Y)+H(X|Y)=H(X)$.
+        \item If both $X$ and $Y$ are discrete, then $I(X;Y)+H(X,Y)=H(X)+H(Y)$
+    \end{enumerate}
+\end{theorem}
+
+
+
+\begin{theorem}[Joint vs marginal mutual information]
+    \
+    \begin{enumerate}[label=(\roman*)]
+        \item Memoryless channel: If $\PP_{Y^n|X^n}=\prod \PP_{Y_i|X_i}$, then 
+        \[I(X^n;Y^n)\leq \sum_{i=1}^{n}I(X_i;Y_i),\]
+        with equality iff $\PP_{Y^n}=\prod \PP_{Y_i}$.
+        \item Memoryless source: If $X_1,\dots,X_n$ are independent, then \[I(X^n;Y)\geq \sum_{i=1}^{n}I(X_i;Y),\]
+        with equality iff $\PP_{X^n|Y}=\prod \PP_{X_i|Y}$ $\PP_Y$-a.s. 
+        Consequently,
+    \end{enumerate}
+\end{theorem}
+\begin{proof}
+    The easiest proof is by the variational principles.
+
+    For (i), note that $I(X^n;Y^n)=\inf_{\QQ_{Y^n}}\KL(\PP_{Y^n|X}\mmid\QQ_{Y^n}\mid\PP_X)$ and take $\QQ_{Y^n}=\prod_{i=1}^{n}\PP_{Y_i}$.
+    
+    For (ii), note that $I(X^n;Y)=\sup_{\QQ_{X^n|Y}}\EE\log \frac{\QQ_{X^n|Y}}{\prod_{i=1}^{n}\PP_{X_i}}$ and take $\QQ_{X^n|Y}=\prod_{i=1}^{n}\PP_{X_i|Y}$. 
+\end{proof}
+
+\subsection{Data Processing and Sufficient Statistic}
+
+\subsection{Fano's Inequality}
+
+For the first time of this book, we connect informational quantities to operational concepts.
+The key idea is to bound operational quantities involving arbitary complicated algorithms using informational quantities which can be evaluated.
+
+\begin{proposition}
+    Let $|\cX|=M<\infty$. Then for any $\hat{X}\ind X$,
+    \[H(X)\leq F_M(\PP(X=\hat{X}))\]
+    where $F_M(p)=h(p)+\bar{p}\log(M-1)$.
+\end{proposition}
+\begin{proof}
+    Consider an auxillary distribution $\QQ_{X,\hat X}=\UU_X\PP_{\hat X}$, where $\UU_X$ is the uniform distribution on $\cX$.
+    Then $\QQ(X=\hat X)=\frac{1}{M}$. Applying the DPI for KL divergence to the data processor $(X,\hat X)\mapsto 1\{X=\hat X\}$ yields 
+    \[d(\PP(X=\hat{X})\mmid\frac{1}{M})\leq \KL(\PP_{X,\hat{X}}\mmid \QQ_{X,\hat{X}})=\log M-H(X).\]
+\end{proof}
+\begin{corollary}
+    If $P_{\text{max}} =\max_{x\in\cX}\PP_X(x)$, then $$H(X)\leq F_M(P_{\text{max}}),$$ with equality iff $P_X=(P_{\text{max}},\frac{1-P_{\text{max}}}{M-1},\dots,\frac{1-P_{\text{max}}}{M-1})$.
+\end{corollary}
+
+\begin{theorem}[Fano's inequality]
+    Let $X\to Y\to \hat{X}$ and $P_{\text{max}} =\max_{x\in\cX}\PP_X(x)$.
+    Denote $P_e=\PP(X\neq\hat X)$, then 
+    \[I(X;Y)\geq (1-P_e)\log \frac{1}{P_{\text{max}}}-h(P_e).\]
+\end{theorem}
+\begin{proof}
+    
+\end{proof}
+Often, we further bound $h(P_e)\leq \log 2$ in statistical lower bound. 
+This step is not very lossy.
+
+\section{Variational Characterizations}
+
+\subsection{Geometric Interpretation of Mutual Information}
+\begin{theorem}[Golden formula]
+    For any $\QQ_Y$ we have 
+    \[\KL(\PP_{Y|X}\mmid \QQ_Y\mid \PP_X)=I(X;Y)+\KL(\PP_Y\mmid \QQ_Y).\]
+    Thus, if $\KL(\PP_Y\mmid \QQ_Y)<\infty$, then 
+    \[I(X;Y)=\KL(\PP_{Y|X}\mmid \QQ_Y\mid \PP_X)-\KL(\PP_Y\mmid \QQ_Y).\]
+\end{theorem}
+\begin{proof}
+    According to the chain rule, we can decompose $\KL(\PP_{X,Y}\mmid \QQ_{X,Y})$, where $\QQ_{X,Y}=\PP_X\QQ_Y$, in two ways. 
+    This leads to 
+    \[\KL(\PP_X\mid\PP_X)+\KL(\PP_{Y|X}\mmid \QQ_Y\mid \PP_X)=\KL(\PP_Y\mmid\QQ_Y)+\KL(\PP_{X|Y}\mmid \QQ_{X|Y}\mid\PP_Y).\]
+    Noting that $\QQ_{X|Y}=\PP_X$ completes the proof.
+\end{proof}
+
+\begin{corollary}[Mutual information as center of gravity]
+    \[I(X;Y)=\min_{Q_Y}\KL(P_{Y|X}\mmid Q_Y\mid P_X).\]
+\end{corollary}
+
+\begin{corollary}[Mutual information as distance to product distribution]
+    \[I(X;Y)=\min_{Q_X,Q_Y}\KL(P_{X,Y}\mmid Q_XQ_Y).\]
+\end{corollary}
+
+\begin{proposition}
+    For any Markov kernel $Q_{X|Y}$ such that $Q_{X|Y=y}$ 
+    If $I(X;Y)<\infty$, then 
+    \[I(X;Y)=\sup_{Q_{X|Y}}\EE_{(X,Y)\sim \PP_{X,Y}}\log \frac{\d \QQ_{X|Y}}{\d \PP_X}\]
+\end{proposition}
+\begin{proof}
+    By definition,
+    \begin{align*}
+        I(X;Y)&=\EE\log\frac{\d\PP_{X|Y}}{\d\PP_X}\frac{\d\QQ_{X|Y}}{\d\QQ_{X|Y}}\\
+        &=\EE\log\frac{\d\QQ_{X|Y}}{\d\PP_X}+\EE\log\frac{\d\PP_{X|Y}}{\d\QQ_{X|Y}}\\
+        &=\EE\log\frac{\d\QQ_{X|Y}}{\d\PP_X}+\KL(\PP_{X|Y}\mmid\QQ_{X|Y}\mid\PP_Y).
+    \end{align*}
+    $$$$
+\end{proof}
+
+
+
+\subsection{Characterizations of Divergence: Gelfand-Yaglom-Perez}
+\begin{theorem}[Gelfand-Yaglom-Perez]
+    Let $\PP,\QQ$ be two probability measures on $(\cX,\cF)$.
+    Then 
+    \[\KL(\PP\mmid\QQ)=\sup_{\{E_1,\dots,E_n\}}\sum_{i=1}^{n}\PP(E_i)\log\frac{\PP(E_i)}{\QQ(E_i)},\]
+    where the supremum is over all finite $\cF$-measurable partitions.
+\end{theorem}
+
+\subsection{Characterizations of Divergence: Donsker-Varadhan}
 
 For KL divergence, 
 
@@ -24,17 +253,497 @@ Now,
     &=\EE_P \log \frac{\d{\PP}}{\d{\QQ^f}}\frac{\d{\QQ^f}}{\d{\QQ}}
 \end{align*}
 
-
-
 \begin{theorem}[Donsker-Varadhan]
-    
+    \[\]
 \end{theorem}
+
+\subsection{Gibbs Variational Principle}
 
 \begin{theorem}[Gibbs variational principle]\label{thm:gibbs-variational-principle}
-    $\log \EE_\QQ e^f=\sup_{\PP} \left(\EE_\PP f-\KL(\PP\mmid\QQ)\right)$
+    \[\log \EE_\QQ e^f=\sup_{\PP} \left(\EE_\PP f-\KL(\PP\mmid\QQ)\right)\]
 \end{theorem}
+
+
+
+\section{Continuity}
+
+
+\begin{proposition}
+    Let $\cX$ be finite. Fix a distribution $\QQ>0$ on $\cX$.
+    Then the map $\PP\mapsto \KL(\PP\mmid \QQ)$ is continuous.
+\end{proposition}
+\begin{remark}
+    Divergence is not continuous in the pair, even for finite alphabets.
+For example, as $n\to\infty$, $d(\frac{1}{n}\mmid 2^{-n})\not\to 0$.
+\end{remark}
+\begin{corollary}
+    $P\mapsto H(P)$ is continous.
+\end{corollary}
+
+\begin{theorem}[Lower semicontinuity of divergence]
+    Let $\cX$ be a metric space with Borel $\sigma$-algebra $\cF$.
+    If $\PP_n$ and $\QQ_n$ converge weakly to $\PP$ and $\QQ$, respectively, then 
+    \[\liminf_{n\to\infty} \KL(\PP_n\mmid\QQ_n)\geq \KL(\PP\mmid \QQ).\]
+\end{theorem}
+\begin{corollary}
+    If $(X_n,Y_n)\stackrel{d}{\to}(X,Y)$, then 
+    \[\liminf_{n\to\infty} I(X_n;Y_n)\geq I(X;Y).\]
+\end{corollary}
+
+\begin{proposition}[Continuity of mutual information]
+    \
+    \begin{enumerate}[label=(\roman*)]
+        \item If $\cX$ and $\cY$ are both finite, then $P_{X,Y}\mapsto I(X;Y)$ is continuous.
+        \item If $\cX$ is finite, then $P_X\mapsto I(X;Y)$ is continuous.
+        \item Let $P_X$ range over the convex hull $\Pi =\co(P_1,\dots,P_n)$.
+        If $I(P_j,P_{Y|X})<\infty$ for $j\in [n]$, then the map $P_X\mapsto I(X;Y)$ is continuous.
+    \end{enumerate}
+\end{proposition}
+
+\section{Convexity}
+
+\begin{theorem}[Entropy]
+    The map $P_X\mapsto H(X)$ is concave.
+    Furthermore, if $P_{Y|X}$ is any channel, then $\PP_X\mapsto H(X|Y)$ is concave.
+    If $\cX$ is finite, then $P_X\mapsto H(X|Y)$ is continuous.
+\end{theorem}
+
+\begin{theorem}[KL divergence]
+    The map $(\PP,\QQ)\mapsto \KL(\PP\mmid\QQ)$ is convex.
+\end{theorem}
+
+\begin{theorem}[Mutual information]
+    \
+    \begin{itemize}
+        \item For fixed $P_{Y|X}$, $P_X\mapsto I(P_X,P_{Y|X})$ is concave.
+        \item For fixed $P_X$, $P_{Y|X}\mapsto I(P_X,P_{Y|X})$ is convex.
+    \end{itemize}
+\end{theorem}
+
+\section{Capacity: Saddle Point of Mutual Information}
+Suppose we have a bivariate function $f$. Then we always have the minimax inequality:
+\[\inf_y\sup_x f(x,y)\geq \sup_x\inf_y f(x,y).\]
+If equality holds, we say that $f$ satisfies minimax theorem.
+
+
+Recall that $(x^*,y^*)$ is a saddle point if 
+\[f(x,y^*)\leq f(x^*,y^*)\leq f(x^*,y)\quad \forall x,y\]
+
+
+
+\begin{lemma}
+    
+\end{lemma}
+
+\begin{assumption}[Capacity-achieving input distribution]
+
+\end{assumption}
+\begin{example}[Non-existence of capacity-achieving input distribution]
+    
+\end{example}
+
+It equals to the radius of the smallest divergence ``ball'' that encompasses all distributions $\{P_{Y|X=x}:x\in\cX\}$.
+Moreover, the optimal center $P_Y^*$ is a convex combination of some $P_{Y|X=x}$ and is equidistant to those.
+
+\begin{example}[Gaussian saddle point]
+    
+\end{example}
+
+\begin{theorem}[\citet{kemperman1974shannon}]\label{thm:kemperman-capacity}
+    For any $P_{Y|X}$ and a convex set of distributions $\cP$ such that
+    \[C=\sup_{P_X\in\cP}I(P_X,P_{Y|X})<\infty,\]
+    there exists a unique $P_Y^*$ with the property that 
+    \[C=\sup_{P_X\in\cP}\KL(P_{Y|X}\mmid P_Y^*|P_X).\]
+    Furthermore,
+    \begin{align*}
+        C&=\sup_{P_X\in\cP}\min_{Q_Y}\KL(P_{Y|X}\mmid Q_Y\mid P_X)\\
+        &=\min_{Q_Y}\sup_{P_X\in\cP}\KL(P_{Y|X}\mmid Q_Y\mid P_X)
+    \end{align*}
+\end{theorem}
+
+\section{Inequalities between f-divergences}
+
+
+
+\section{f-Divergences}
+
+\subsection{Definition}
+
+\subsection{Variational Principle}
 
 In general, 
 \begin{theorem}
     $\dis_f(\PP\mmid\QQ)$
 \end{theorem}
+
+\section{Renyi Divergences}
+
+
+\chapter{Hypothesis Testing and Large Deviations}
+
+\section{Neyman-Pearson Lemma}
+
+\subsection{Neyman-Pearson Formulation}
+Suppose we have two given distribution $\PP$ and $\QQ$ on a space $\cX$.
+We observe a sample $X$, which is generated from one of these distributions.
+The two possibilities are summarized as a pair of hypotheses:
+\begin{align*}
+    &H_0:X\sim \PP, \\
+    &H_1:X\sim \QQ.
+\end{align*}
+A (randomized) test is a Markov kernel $P_{Z|X}:\cX\to\{0,1\}$, so that $Z=0$ means the test choose $\PP$.
+
+\begin{remark}
+    This setting is called ``testing simple hypothesis against simple hypothesis.''
+In comparison, a ``composite'' hypothesis postulates that $X\sim \PP$ for \textit{some} $\PP\in\cP$, where $\cP$ is a class of distributions.
+\end{remark}
+
+We can quantify the performance of a test by two performance metrics
+\begin{equation*}
+\begin{matrix}
+ \alpha=\PP(Z=0) & 1-\text{type I error},\\
+\beta=\QQ(Z=0)& \text{type II error}.
+\end{matrix}
+\end{equation*}
+As we have two performance metrics, it is not easy to understand which test should be designated as the ``best''.
+Consequently, there are several approaches:
+\begin{itemize}
+    \item Bayesian
+    \item Minimax
+    \item Neyman-Pearson: Minimize the type II error $\beta$ subject to the condition that the success probability under the null is at least $\alpha$.
+\end{itemize}
+To study the Neyman-Pearson formulation, we formalize the fundamental performance limit as follows:
+\begin{definition}
+    The Neyman-Pearson region consists of achievable points for all randomized tests
+    \begin{equation*}
+        \cR(\PP,\QQ)=\bigcup_{P_{Z|X}:\cX\to [0,1]}(\PP(Z=0),\QQ(Z=0))\subset [0,1]^2.
+    \end{equation*}
+    In particular, its lower boundary is defined as
+    \begin{equation*}
+        \beta_\alpha(\PP,\QQ)=\inf_{\PP(Z=0)\geq \alpha}\QQ(Z=0).
+    \end{equation*}
+\end{definition}
+\begin{remark}
+    The Neyman-Pearson region encodes much useful information about the relationship between $\PP$ and $\QQ$.
+    In particular, every $f$-divergence can be computed from $\cR(\PP,\QQ)$.
+\end{remark}
+
+\section{Information Projection and Large Deviations}
+
+\section{Large-Deviations Exponents}
+\begin{theorem}
+    Let $X_1,\dots,X_n\stackrel{i.i.d.}{\sim} \PP$.
+    Then for any $\gamma\in\RR$,
+    \begin{equation*}
+        \lim_{n\to\infty}\frac{1}{n}\log \frac{1}{\PP(\frac{1}{n}\sum_{i=1}^{n}X_i>\gamma)}=\inf_{\QQ:\,\EE_\QQ X>\gamma}\KL(Q\mmid P)
+    \end{equation*}
+    Further, for every $n$ we have the firm upper bound 
+    \begin{equation*}
+        \PP\left(\frac{1}{n}\sum_{i=1}^{n}X_i>\gamma\right)\leq \exp\left\{-n\cdot \inf_{\QQ:\,\EE_\QQ X>\gamma}\KL(Q\mmid P)\right\}.
+    \end{equation*}
+\end{theorem}
+\begin{proof}
+    Let $E_n=\{ \frac{1}{n}\sum_{i=1}^{n}X_i>\gamma \}$.
+
+    \textbf{Upper bound on $\PP(E_n)$.}
+
+    \textbf{Lower bound on $\PP(E_n)$.} Let $\QQ$ be any distribution such that $\EE_\QQ X>\gamma$. Then by WLLN, $\QQ(E_n)=1-o(1)$.
+    Now the DPI gives 
+    \[d(\QQ(E_n)\mmid \PP(E_n))\leq \KL(\QQ_{X^n}\mmid \PP_{X^n})=n\KL(\PP\mmid \QQ).\]
+    We also know that 
+\end{proof}
+\begin{corollary}
+    The above result still holds for $\geq$ in place of $>$.
+\end{corollary}
+
+For a general set of distribution $\cE$
+\begin{theorem}[Sanov's theorem, informal]
+    Given $X_1,\dots,X_n\stackrel{i.i.d.}{\sim} \PP$ on $\cX$, denote the empirical distribution by $\hat{P}=\frac{1}{n}\sum_{j=1}^{n}\delta_{X_j}$.
+    Let $\cE$ be a set of distributions. Then under regularity conditions on $\cE$ and $\PP$,
+\begin{equation*}
+    \PP(\hat{P}\in\cE)=\exp\left\{-n\min_{\QQ\in\cE}\KL(\QQ\mmid\PP)+o(n)\right\}
+\end{equation*}
+\end{theorem}
+Regularity includes citation.
+
+\section{Information Projection}
+
+\chapter{Channel Coding}
+
+\section{Shannon's Noisy Channel Coding Theorem}
+
+\chapter{Rate Distortion Theory}
+
+\section{Scalar and Vector Quantization}
+
+\section{Shannon's Rate-Distortion Theorem}
+
+\subsection{Information-Theoretic Formulation}
+\paragraph{Hamming Game} 
+Given 100 unbiased bits, we are asked to inspect them and scribble something down on a piece of paper that can store 50 bits at most.
+Later we will be asked to guess the original 100 bits, with the goal of maximizing the number of correctly guessed bits. What is the best strategy?
+Intuitively, we can store half of the bits and randomly guess the rest, which gives 25\% bit error rate (BER).
+However, we will show that the optimal strategy amazingly achieves a BER of 11\%.
+
+\paragraph{Mathematical Formulation} A lossy compressor
+
+\subsection{Converse Bounds}
+\begin{definition}[Rate-distortion function]
+    \begin{equation}\label{eq:rate-distortion function}
+        \phi_X(D)=\inf_{P_{Y|X}:\EE[d(X,Y)]\leq D }I(X,Y)
+    \end{equation}
+\end{definition}
+\begin{proposition}[Properties of rate-distortion function]
+    \
+    \begin{enumerate}[label=(\roman*)]
+        \item $\phi_X$ is convex, non-increasing
+    \end{enumerate}
+\end{proposition}
+\begin{theorem}[General converse]
+    Suppose $X\to W\to \hat{X}$, where $W\in [M]$ and $\EE[d(X,\hat{X})]\leq D$. Then 
+
+\end{theorem}
+
+\section{Eva}
+\section{Metric Entropy}
+
+
+\chapter{Statistical Applications}
+
+
+\section{Mutual Information Method}
+
+In this section, we describe a strategy for proving statistical lower bound called the \textit{mutual information method},
+which entails comparing the amount of information data provides with the minimum amount of information needed to achieve a certain estimation accuracy.
+
+We first fix some prior $\pi$ on $\Theta$ and we aim to lower bound the Bayes risk $R_\pi^*$ of estimating $\theta\sim \pi$ on the basis of $X$ with respect to some loss function $\ell$.
+Let $\hat\theta$ be an estimator such that $\EE\ell(\theta,\hat\theta)\leq D$.
+Then applying the DPI to the Markov chain $\theta\to X\to\hat\theta$, we have 
+\[I(\theta;X)\geq I(\theta;\hat\theta)\geq \inf_{P_{\hat\theta|\theta}:\EE\ell(\theta,\hat\theta)\leq D}I(\theta;\hat\theta).\]
+Note that:
+\begin{itemize}
+    \item The rightmost quantity can be interpreted as the minimum amount of information required to achieve a given estimation accuracy. This is precisely the rate-distortion function $\phi$ defined in~\eqref{eq:rate-distortion function}.
+    \item The leftmost quantity can be interpreted as the amount of information provided by the data about the latent parameter. Sometimes it suffices to further upper bound it by the capacity of the channel $P_{X|\theta}$ by maximizing over all priors.
+\end{itemize}
+Therefore, we arrive at the following lower bound on the Bayes and hence the minimax risks:
+\[R_\pi^*\geq \phi^{-1}(I(\theta;X))\geq \phi^{-1}(C).\]
+
+
+``source-channel separation''
+
+Three popular approaches for proving statistical lower bounds, namely, \textit{Le Cam's method}, \textit{Assouad's lemma}, and \textit{Fano's method}.
+All three follow from the mutual information method, corresponding to different choice of prior $\pi$ for $\theta$, namely, the uniform distribution over a two-point set $\{\theta_0,\theta_1\}$, the hypercube $\{0,1\}^d$, and a packing.
+While these methods are highly useful in determining the minimax rate for many problems, they are often loose with constant factors compared to the MIM.
+
+\subsection{Application: Denoising a Vector in Gaussian Noise}
+
+\subsection{Application: Denoising a Sparse Vector}
+
+\subsection{Application: Community Detection}
+
+
+\section{Lower Bounds by Reduction to Hypothesis Testing}
+\subsection{Le Cam's Two-Point Method}
+\begin{theorem}
+    Suppose the loss function $\ell:\Theta\times\Theta\to\RR_{+}$ satisfies the following $\alpha$-triangle inequality for some $\alpha>0$: For all $\theta_0,\theta_1,\theta\in\Theta$,
+    \[\ell(\theta_0,\theta_1)\leq \alpha(\ell(\theta_0,\theta)+\ell(\theta_1,\theta)).\]
+    Then 
+    \begin{equation*}
+        \inf_{\hat\theta}\sup_{\theta\in\Theta}\EE_\theta\ell(\theta,\hat\theta)\geq \sup_{\theta_0,\theta_1\in\Theta}\frac{\ell(\theta_0,\theta_1)\ell(\theta_1,\theta_0)}{\alpha(\ell(\theta_0,\theta_1)+\ell(\theta_1,\theta_0))}(1-\TV(P_{\theta_0},P_{\theta_1})).
+    \end{equation*}
+\end{theorem}
+
+\subsection{Assouad's Lemma}
+
+
+\subsection{Fano's Method}
+
+\begin{theorem}
+    Let $d$ be a metric on $\Theta$. Fix an estimator $\hat\theta$.
+    For any $T\subset \Theta$ and $\epsilon>0$,
+    \begin{equation*}
+        \PP\left(d(\theta,\hat\theta)\geq\frac{\epsilon}{2}\right)\geq 1-\frac{C(T)+\log 2}{\log M(T,d,\epsilon)},
+    \end{equation*}
+    where $C(T)=\sup I(\theta,X)$ is the capacity of the channel from $\theta$ to $X$ with input space $T$, with the supremeum taken over all distributions on $T$.
+    Thus, for any $r>0$,
+    \begin{equation*}
+        \inf_{\hat\theta}\sup_{\theta\in\Theta}\EE_\theta d(\theta,\hat\theta)^r\geq \sup_{T\subset\Theta,\epsilon>0}\left(\frac{\epsilon}{2}\right)^r\left(1-\frac{C(T)+\log 2}{\log M(T,d,\epsilon)}\right).
+    \end{equation*}
+\end{theorem}
+\begin{proof}
+    Consider an $\epsilon$-packing $T'=\{\theta_1,\dots,\theta_M\}\subset T$. 
+    Let $\theta$ be uniformly distributed on this packing.
+    Given any estimator, construct a test by rounding $\hat\theta$ to $\tilde{\theta}=\arg\min_{\theta\in T'}d(\hat\theta,\theta)$.
+    By the triangle inequality, $d(\theta,\tilde{\theta})\leq 2 d(\theta,\hat\theta)$.
+    Thus, $\PP(\theta\neq\tilde{\theta})\leq \PP(d(\theta,\tilde{\theta})\geq \frac{\epsilon}{2})$.
+    Then we can appeal to Fano's inequality 
+    \[\PP(\theta\neq\tilde{\theta})\geq 1-\frac{I(\theta;X)+\log 2}{\log M(T,d,\epsilon)}.\]
+    The proof is completed by $I(\theta;X)\leq C(T)$.
+\end{proof}
+
+When applying Fano's method, since it is often difficult to evaluate the capacity $C(T)$,
+it is useful to 
+
+
+\section{Entropic Bounds for Statistical Estimation} 
+
+\subsection{Yang-Barron's Construction}
+
+\[R^*_{\KL}(n):=\inf_{\hat P}\sup_{\theta\in\Theta}\EE_{P_\theta}\KL(P_\theta\mmid \hat{P})=\inf_{\hat P}\sup_{\theta\in\Theta}\int \KL(P_\theta\mmid\hat{P}(\cdot|X^n))P_\theta^{\otimes n}(\d x^n),\]
+where the infimum is taken over all estimators $\hat{P}=\hat{P}(\cdot| X^n)$ which is a distribution on $\cX$.
+\begin{theorem}\label{thm:Yang-Barron}
+    Let $C_n$ denote the capacity of the channel $\theta\mapsto X^n\sim P_\theta^{\otimes n}$,
+    where the supremum is over all priors of $\theta$ taking values in $\Theta$.
+    Denote by 
+     Then
+    \begin{align*}
+        R^*_{\KL}(n)&\leq \frac{C_{n+1}}{n+1}
+    \end{align*}
+    Conversely,
+    \[\sum_{i=0}^n R^*_{\KL}(i)\geq C_{n+1}.\]
+\end{theorem}
+
+Any estimator, $\hat{P}=\hat{P}(\cdot|X^n)$, is a distribution on $\cX$ depending on $X^n$.
+As such, $\hat{P}$ can be identified with a conditional distribution, say, $Q_{X_{n+1}|X^n}$, and we shall do so henceforth.
+So let us introduce an unseen obsevation $X_{n+1}$ that is drawn from $P_\theta$ and independent of $X^n$ conditioned on $\theta$. 
+
+The following lemma shows that the Bayes KL risk equals the conditional mutual information and the Bayes estimator is precisely $P_{X_{n+1}|X^n}$ (with respect to the joint distribution induced by the prior),
+known as the \textit{predictive density estimator} in the statistics literature.
+\begin{lemma}
+    The Bayes risk for prior $\pi$ is given by
+    \[R^*_{\KL,\pi}(n):=\inf_{\hat{P}} \int \KL(P_\theta\mmid\hat{P}(\cdot|X^n))P_\theta^{\otimes n}(\d x^n)\pi(\d\theta)=I(\theta;X_{n+1}|X^n),\]
+    where $\theta\sim\pi$ and $(X_1,\dots,X_{n+1})\stackrel{\iid}{\sim}P_\theta$ conditioned on $\theta$.
+    The Bayes estimator achieving this infimum is given by $\hat{P}(\cdot|x^n)=P_{X_{n+1}|X^n=x^n}$.
+\end{lemma}
+\begin{proof}
+    We can calculate
+    \begin{align*}
+        \inf_{Q_{X_{n+1}|X^n}}\EE_{\theta,X^n}\KL(P_\theta\mmid Q_{X_{n+1}|X^n})
+        &=\EE_{X^n}\inf_{Q_{X_{n+1}|X^n}}\EE_{\theta|X^n}\KL(P_{X_{n+1}|\theta}\mmid Q_{X_{n+1}|X^n})\\
+        &=\EE_{X^n}\inf_{Q_{X_{n+1}|X^n}}\KL(P_{X_{n+1}|\theta,X^n}\mmid Q_{X_{n+1}|X^n}|P_{\theta|X^n})\\
+        &=\EE_{X^n}\KL(P_{X_{n+1}|\theta,X^n}\mmid P_{X_{n+1}|X^n}|P_{\theta|X^n})\\
+        &=I(\theta;X_{n+1}|X^n)
+    \end{align*}
+    where the first equality is by identifying $P_\theta$ with the conditional distribution 
+    Note that we have the Markov chain $X^n\to\theta\to X_{n+1}$.
+\end{proof}
+
+Note that the operational meaning of $I(\theta;X_{n+1}|X^n)$ is the information provided by one extra observation about $\theta$ having already obtained $n$ observations.
+In most cases, since $X^n$ will have already allowed $\theta$ to be consistently estimated as $n\to\infty$, the additional usefulness of $X_{n+1}$ is vanishing.
+This is made precise by the following result.
+\begin{lemma}
+    $n\mapsto I(\theta;X_{n+1}|X^n)$ is a decreasing sequence.
+\end{lemma}
+\begin{proof}
+    The easiest proof is to use the convexity of mutual information.
+    Consider a sampling channel where the input is $\theta$ and the output is $X$ sampled from $P_\theta$.
+    Let $I(\pi)$ denotes the mutual information when the input distribution is $\pi$, which is concave. Then
+    $$I(\theta;X_{n+1}|X^n)=\EE_{X^n}I(\PP_{\theta|X^n})\leq \EE_{X^{n-1}}I(\PP_{\theta|X^{n-1}})=I(\theta;X_n|X^{n-1}).$$
+\end{proof}
+
+Together with the chain rule of mutual information, we get
+$$I(\theta;X_{n+1}|X^n)\leq \frac{1}{n+1}I(\theta;X^{n+1}).$$
+
+Now we are ready to prove Theorem~\ref{thm:Yang-Barron}.
+\begin{proof}
+    For the converse bound, first fix any prior $\pi$. Since the minimax risk dominates any Bayes risk, we have
+    \begin{align*}
+        \sum_{t=0}^{n}R^*_{\KL}(t)\geq \sum_{t=0}^{n}I(\theta;X_{t+1}|X^t)=I(\theta;X^{n+1}).
+    \end{align*}    
+    Optimizing over the prior completes the proof.
+
+    For the upper bound, if we assume the minimax theorem holds so that $R^*_{\KL}=\sup_{\pi\in\cP(\Theta)}R^*_{\KL,\pi}$,
+    then 
+
+    Next, we present the original idea of \citet{yang1999information}, which does not assume the minimax theorem.
+    The main idea is to consider a Bayes estimator but analyze it in the worst case.
+\end{proof}
+
+\begin{theorem}
+    Let $\cQ=\{P_{B|A=a}:a\in\cA\}$ be a collection of distributions on some space $\cB$ and denote the capacity $C=\sup_{P_A\in\cP(\cA)}I(A;B)$.
+    Then 
+    \[C=\inf_{\epsilon>0}\{\epsilon^2+\log N_{KL}(\cQ,\epsilon)\},\]
+    where 
+    \[N_{\KL}(\cQ,\epsilon):=\min\left\{N:\exists Q_1,\cdots,Q_N \text{ s.t. }\forall a\in\cA,\exists i\in [N],\KL(P_{B|A=a}\mmid Q_i)\leq\epsilon^2\right\}\]
+    is the KL covering number for the class $\cQ$.
+\end{theorem}
+\begin{proof}
+    For the upper bound,
+
+    For the lower bound, suppose $C<\infty$. Theorem~\ref{thm:kemperman-capacity}.
+\end{proof}
+
+
+
+\subsection{Pairwise Comparison \`{a} la Le Cam-Birg\'{e}}
+
+\subsection{Yatracos' Class and Minimum-Distance Estimator}  
+
+\begin{theorem}[\citet{yatracos1985rates}]
+    Let $X_1,\dots,X_n\stackrel{\iid}{\sim} P\in\cP$,
+    where $\cP$ is a collection of distributions on a common measurable space $(\cX,\cE)$.
+    For any $\epsilon>0$, there exists a proper estimator $\hat{P}=\hat{P}(X_1,\dots,X_n)\in\cP$, such that 
+    \[\sup_{P\in\cP}\EE_{P}\TV(\hat{P},P)^2\leq C\left(\epsilon^2+\frac{\log N(\cP,\TV,\epsilon)}{n}\right).\]
+\end{theorem}
+
+For a loss function that is a distance, a natural idea for obtaining a proper estimator is the minimum-distance estimator
+\[P_{\texttt{min-dist}}=\arg\min_{Q\in\cP}\TV(\hat{P}_n,Q),\]
+where $\hat{P}_n=\frac{1}{n}\sum_{i=1}^{n}\delta_{X_i}$ is the empirical distribution.
+However, this strategy does not make sense if the elements of $\cP$ have densities.
+This is because TV, which compares two distributions over all measurable sets, is too strong.
+The key idea is to replace TV by a proxy, which only inspects a ``low complexity'' family of sets.
+
+To this end, let $\cA\subset\cE$ be a finite collection of measurable sets to be specified.
+Define a pseudo-distance 
+\[\texttt{dist}(P,Q)=\sup_{A\in\cA}|P(A)-Q(A)|.\]
+It is easy to see that \texttt{dist} satisfis the triangle inequality. As a result, the estimator
+\[\tilde{P}=\arg\min_{Q\in\cP}\texttt{dist}(Q,\hat{P}_n),\]
+satisfies
+\[\texttt{dist}(\tilde{P},P)\leq \texttt{dist}(\tilde{P},\hat{P}_n)+\texttt{dist}(\hat{P}_n,P)\leq 2\,\texttt{dist}(\hat{P}_n,P).\]
+
+In addition, applying the binomial tail bound and the union bound, we have
+\[\EE \texttt{dist}(P,\hat{P}_n)^2\leq\frac{C_0\log|\cA|}{n}\]
+for some absolute constant $C_0$.
+
+Now we need to choose $\cA$ such that $\texttt{dist}$ approximates the TV on $\cP$.
+Consider an $\epsilon$-covering $\{Q_1,\cdots,Q_N\}$ of $\cP$ in TV. Define the set 
+\[A_{ij}:=\left\{x:\frac{\d Q_i}{\d (Q_i+Q_j)}(x)\geq \frac{\d Q_j}{\d (Q_i+Q_j)}(x)\right\}\]
+and the \textit{Yatracos class} 
+\[\cA:=\{A_{ij}:i\neq j\in [N]\}.\]
+This ensures that $\texttt{dist}(Q_i,Q_j)=\TV(Q_i,Q_j)$. Consequently,
+\begin{lemma}
+    \[\texttt{dist}(P,Q)\leq \TV(P,Q)\leq \texttt{dist}(P,Q)+4\epsilon\]
+\end{lemma}
+\begin{proof}
+    For any $P,Q\in\cP$, there exist $i,j\in [N]$, such that $\TV(P,Q_i)\leq\epsilon$ and $\TV(Q,Q_j)\leq \epsilon$. Then we have
+    \begin{align*}
+        \TV(P,Q)&\leq \TV(P,Q_i)+\TV(Q_i,Q_j)+\TV(Q_j,Q)\\
+                &\leq 2\epsilon + \texttt{dist}(Q_i,Q_j)\\
+                &\leq 2\epsilon + \texttt{dist}(Q_i,P) +\texttt{dist}(P,Q)  + \texttt{dist}(Q,Q_j)\\
+                &\leq 4\epsilon +\texttt{dist}(P,Q).
+    \end{align*}
+\end{proof}
+Finally, 
+\begin{align*}
+    \TV(\tilde{P},P)&\leq \texttt{dist}(\tilde{P},P)+4\epsilon\\
+                    &\leq 2\, \texttt{dist}(P,\hat{P}_n)+4\epsilon.
+\end{align*}
+Squaring both sides, we have
+\[\EE\TV(\tilde{P},P)^2\leq 32\epsilon^2 + \frac{16C_0\log|N|}{n}.\]
+
+\begin{remark}
+    Yatracos' scheme works even if the model is mis-specified.
+\end{remark}
+
+\subsection{Application: Density Estimation over H\"{o}lder Classes}
+
+\begin{theorem}
+    Given $X_1,\dots,X_n\stackrel{\iid}{\sim}f\in \cF$, the minimax $L^2$ risk over $\cF$ satisfies
+    \[R^*_{L^2}(n;\cF):=\inf_{\hat f}\sup_{f\in\cF}\EE\|f-\hat{f}\|_2^2\asymp n^{-2\beta/2\beta+d}\]
+\end{theorem}
+
+We will prove this result by applying the entropic upper bound and Fano's inequality.
+To convert KL risk into $L^2$,
+\begin{lemma}
+    
+\end{lemma}

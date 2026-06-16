@@ -5,45 +5,45 @@ The style file: plainnat.bst
 Database file #1: bib.bib
 Warning--empty note in chewi
 Warning--empty note in vanhandel
-You've used 3 entries,
+You've used 6 entries,
             2773 wiz_defined-function locations,
-            606 strings with 5057 characters,
-and the built_in function-call counts, 961 in all, are:
-= -- 79
-> -- 50
-< -- 3
-+ -- 18
-- -- 15
-* -- 69
-:= -- 169
-add.period$ -- 9
-call.type$ -- 3
-change.case$ -- 13
-chr.to.int$ -- 3
-cite$ -- 8
-duplicate$ -- 47
-empty$ -- 72
-format.name$ -- 18
-if$ -- 182
+            629 strings with 5523 characters,
+and the built_in function-call counts, 2358 in all, are:
+= -- 219
+> -- 91
+< -- 8
++ -- 33
+- -- 27
+* -- 168
+:= -- 367
+add.period$ -- 19
+call.type$ -- 6
+change.case$ -- 26
+chr.to.int$ -- 6
+cite$ -- 14
+duplicate$ -- 119
+empty$ -- 207
+format.name$ -- 35
+if$ -- 490
 int.to.chr$ -- 1
 int.to.str$ -- 1
-missing$ -- 2
-newline$ -- 23
-num.names$ -- 12
-pop$ -- 24
+missing$ -- 5
+newline$ -- 38
+num.names$ -- 24
+pop$ -- 50
 preamble$ -- 1
-purify$ -- 11
+purify$ -- 21
 quote$ -- 0
-skip$ -- 38
+skip$ -- 92
 stack$ -- 0
-substring$ -- 6
-swap$ -- 2
-text.length$ -- 1
+substring$ -- 100
+swap$ -- 16
+text.length$ -- 3
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 28
+type$ -- 61
 warning$ -- 2
-while$ -- 9
+while$ -- 25
 width$ -- 0
-write$ -- 42
+write$ -- 83
 (There were 2 warnings)
