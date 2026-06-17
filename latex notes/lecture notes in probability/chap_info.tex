@@ -51,8 +51,40 @@ Recall
     Let $X^n$ be a discrete random vector. Then $T\mapsto H(X_T)$ is submodular.
 \end{theorem}
 \begin{theorem}[Han's inequality]
-    
+    Let $X^n$ be a discrete $n$-dimensional random vector and denote $$\bar{H}_k(X^n)=\frac{1}{\binom{n}{k}}\sum_{|T|=k,T\subset[n]}H(X_T)$$
+    the average entropy of a $k$-subset of coordinates. 
+    Then, the sequence $\bar{H}_k$ is increasing and concave (in the sense of decreasing slope):
+    \[\bar{H}_{k+1}-\bar{H}_k\leq\bar{H}_k-\bar{H}_{k-1}.\]
+    As a consequence, $\frac{\bar{H}_k}{k}$ is decreasing in $k$.
 \end{theorem}
+
+Finally, we present a generaliation of Han's inequality.
+\begin{theorem}[Shearer's Lemma]
+    Let $X^n$ be a discrete $n$-dimensional random vector and let $S\subset [n]$ be a random variable independent of $X^n$. Then 
+    \[H(X_S|S)\geq H(X^n)\cdot\min_{i\in [n]}\PP(i\in S).\]
+\end{theorem}
+\begin{proof}
+    We prove an equivalent version: If $\cS=(S_1,\dots,S_M)$ is a list (possibly with repetitions) of subsets of $[n]$, then
+    \[\sum_{j}H(X_{S_j})\geq H(X^n)\cdot\min_i\deg(i),\]
+    where $\deg(i):=|\{j:i\in S_j\}|$. 
+    
+    If $\cS$ is a chain (all subsets can be rearranged so that $S_1\subset \dots\subset S_M$), then this statement is trivial,
+    since the minimum on the RHS is either 0 (if $S_M\neq [n]$) or equals multiplicity of $S_M$ in $\cS$, in which case we have 
+    \[\sum_j H(X_{S_j})\geq H(X_{S_M})\cdot |\{j:S_j=S_M\}|=H(X^n)\cdot\min_i\deg(i).\]
+    
+    When $\cS$ is not a chain, consider a pair of sets $S_1,S_2$ that are not related by inclusion and replace them in the collection with $S_1\cap S_2,S_1\cup S_2$.
+    Submodularity implies that the LHS does not increase under this replacement, and the RHS is not changed.
+    Notice that the total number of pairs that are not related by inclusion strictly decreases by this replacement.
+    Therefore, by applying this operation we must eventually arrive to a chain, for which the statement has already been shown.
+\end{proof}
+
+Through the proof we can see that Han's inequality, 
+Shearer's lemma holds for any submodular set-function that is also non-negative.
+
+\begin{example}
+    mutual information 
+\end{example}
+
 \section{Divergence}
 \begin{definition}[Kullback-Leibler (KL) divergence]
     \[\KL(\PP\mmid \QQ)=\EE_{\QQ}\left[\frac{\d\PP}{\d\QQ}\log \frac{\d\PP}{\d\QQ}\right]\]
