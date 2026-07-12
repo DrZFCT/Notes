@@ -1,9 +1,16 @@
-\begin{thebibliography}{6}
+\begin{thebibliography}{10}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{\texttt{#1}}
 \expandafter\ifx\csname urlstyle\endcsname\relax
   \providecommand{\doi}[1]{doi: #1}\else
   \providecommand{\doi}{doi: \begingroup \urlstyle{rm}\Url}\fi
+
+\bibitem[Artstein et~al.(2004)Artstein, Milman, and
+  Szarek]{artstein2004duality}
+Shiri Artstein, Vitali Milman, and Stanis{\l}aw~J Szarek.
+\newblock Duality of metric entropy.
+\newblock \emph{Annals of Mathematics}, 159\penalty0 (3):\penalty0 1313--1328,
+  2004.
 
 \bibitem[Bakry et~al.(2014)Bakry, Gentil, and Ledoux]{bakry}
 Dominique Bakry, Ivan Gentil, and Michel Ledoux.
@@ -22,10 +29,29 @@ JHB Kemperman.
 \newblock In \emph{Indagationes Mathematicae (Proceedings)}, volume~77, pages
   101--115. North-Holland, 1974.
 
+\bibitem[Kuelbs and Li(1993)]{kuelbs1993metric}
+James Kuelbs and Wenbo~V Li.
+\newblock Metric entropy and the small ball problem for gaussian measures.
+\newblock \emph{Journal of Functional Analysis}, 116\penalty0 (1):\penalty0
+  133--157, 1993.
+
+\bibitem[Mu et~al.(2021)Mu, Pomatto, Strack, and Tamuz]{mu2021blackwell}
+Xiaosheng Mu, Luciano Pomatto, Philipp Strack, and Omer Tamuz.
+\newblock From blackwell dominance in large samples to r{\'e}nyi divergences
+  and back again.
+\newblock \emph{Econometrica}, 89\penalty0 (1):\penalty0 475--506, 2021.
+
 \bibitem[{Ramon van Handel}(2016)]{vanhandel}
 {Ramon van Handel}.
 \newblock Probability in {{High Dimension}}.
 \newblock 2016.
+
+\bibitem[R{\'e}nyi(1961)]{renyi1961measures}
+Alfr{\'e}d R{\'e}nyi.
+\newblock On measures of entropy and information.
+\newblock In \emph{Proceedings of the fourth Berkeley symposium on mathematical
+  statistics and probability, volume 1: contributions to the theory of
+  statistics}, volume~4, pages 547--562. University of California Press, 1961.
 
 \bibitem[Yang and Barron(1999)]{yang1999information}
 Yuhong Yang and Andrew Barron.

@@ -3,47 +3,48 @@ Capacity: max_strings=200000, hash_size=200000, hash_prime=170003
 The top-level auxiliary file: main.aux
 The style file: plainnat.bst
 Database file #1: bib.bib
+Warning--I didn't find a database entry for ""
 Warning--empty note in chewi
 Warning--empty note in vanhandel
-You've used 6 entries,
+You've used 10 entries,
             2773 wiz_defined-function locations,
-            629 strings with 5523 characters,
-and the built_in function-call counts, 2358 in all, are:
-= -- 219
-> -- 91
-< -- 8
-+ -- 33
-- -- 27
-* -- 168
-:= -- 367
-add.period$ -- 19
-call.type$ -- 6
-change.case$ -- 26
-chr.to.int$ -- 6
-cite$ -- 14
-duplicate$ -- 119
-empty$ -- 207
-format.name$ -- 35
-if$ -- 490
+            660 strings with 6354 characters,
+and the built_in function-call counts, 4426 in all, are:
+= -- 416
+> -- 191
+< -- 12
++ -- 67
+- -- 57
+* -- 340
+:= -- 669
+add.period$ -- 32
+call.type$ -- 10
+change.case$ -- 48
+chr.to.int$ -- 10
+cite$ -- 22
+duplicate$ -- 213
+empty$ -- 384
+format.name$ -- 71
+if$ -- 933
 int.to.chr$ -- 1
 int.to.str$ -- 1
-missing$ -- 5
-newline$ -- 38
-num.names$ -- 24
-pop$ -- 50
+missing$ -- 9
+newline$ -- 58
+num.names$ -- 40
+pop$ -- 91
 preamble$ -- 1
-purify$ -- 21
+purify$ -- 39
 quote$ -- 0
-skip$ -- 92
+skip$ -- 164
 stack$ -- 0
-substring$ -- 100
-swap$ -- 16
-text.length$ -- 3
+substring$ -- 221
+swap$ -- 31
+text.length$ -- 5
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 61
+type$ -- 105
 warning$ -- 2
-while$ -- 25
+while$ -- 46
 width$ -- 0
-write$ -- 83
-(There were 2 warnings)
+write$ -- 137
+(There were 3 warnings)
