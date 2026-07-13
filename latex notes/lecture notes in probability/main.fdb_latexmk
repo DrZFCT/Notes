@@ -1,12 +1,12 @@
 # Fdb version 3
-["bibtex main"] 1783823685 "main.aux" "main.bbl" "main" 1783823686
+["bibtex main"] 1783908137 "main.aux" "main.bbl" "main" 1783908140
   "bib.bib" 1783823684 4172 9765ada18178830b520242b905edd56d ""
   "d:/texlive/2022/texmf-dist/bibtex/bst/natbib/plainnat.bst" 1649389729 26816 ffe5423d2019860bad9f54bc402fac15 ""
-  "main.aux" 1783820425 35255 b6585329cc829c33e481abd02b5a4268 "pdflatex"
+  "main.aux" 1783908140 36381 90bf9b136db2c9abe44bc97bfa7364df "pdflatex"
   (generated)
   "main.bbl"
   "main.blg"
-["pdflatex"] 1783820423 "d:/GitHub/Notes/latex notes/lecture notes in probability/main.tex" "main.pdf" "main" 1783823686
+["pdflatex"] 1783908138 "d:/GitHub/Notes/latex notes/lecture notes in probability/main.tex" "main.pdf" "main" 1783908140
   "chap_bm.tex" 1749289752 3179 ef8f2aac5dce6a6c16f52883abc6a104 ""
   "chap_clt.tex" 1763958515 21699 05268d04696efe9a3c1808d15d3bdc8c ""
   "chap_diffusion.tex" 1770758872 6519 ccb7ed4946ec9b7062847cbb78a55a8d ""
@@ -14,7 +14,7 @@
   "chap_dsdtmc.tex" 1749289752 28452 80822fd04130d63e4bca17a69be4b5bd ""
   "chap_hdp.tex" 1771126692 9554 72e8da515a94d4354d0e657780528fb8 ""
   "chap_independence.tex" 1758076881 2542 ee5eaca1106078b653880f1d1e8e3984 ""
-  "chap_info.tex" 1783820422 47800 89ec1f71586c680ddee86f5c1c247940 ""
+  "chap_info.tex" 1783908133 54832 f46dd8fa53dd131e8e06948dff056763 ""
   "chap_lln.tex" 1764207916 8221 4ddd92b14712bf4f9fd461faa2e60364 ""
   "chap_martingale.tex" 1764208195 24366 5a997cb364435566302c03eabd4f4f39 ""
   "chap_matrix.tex" 1749289752 126 c4fa2b839a2020f631944e0bfae78698 ""
@@ -235,12 +235,12 @@
   "d:/texlive/2022/texmf-var/fonts/map/pdftex/updmap/pdftex.map" 1649390905 4448422 15354be9acfb30b1b7485a9cb19efaa9 ""
   "d:/texlive/2022/texmf-var/web2c/pdftex/pdflatex.fmt" 1649391010 2826451 660740ac61e69e5937838ee186708b77 ""
   "d:/texlive/2022/texmf.cnf" 1649390884 713 e69b156964470283e0530f5060668171 ""
-  "main.aux" 1783820425 35255 b6585329cc829c33e481abd02b5a4268 "pdflatex"
-  "main.bbl" 1783823686 2616 045124116012d44df15304e6f38611da "bibtex main"
-  "main.brf" 1783820425 568 5484e634f69712bd64a5f8cab4df435e "pdflatex"
-  "main.out" 1783820425 31315 e5f9344b863db3b19acd89b4d27da6a3 "pdflatex"
+  "main.aux" 1783908140 36381 90bf9b136db2c9abe44bc97bfa7364df "pdflatex"
+  "main.bbl" 1783908138 2616 045124116012d44df15304e6f38611da "bibtex main"
+  "main.brf" 1783908140 568 e76fea5cb0ca39d8195ed431e438eb37 "pdflatex"
+  "main.out" 1783908140 32547 4306eae64373d163be34785d347e46be "pdflatex"
   "main.tex" 1770348202 992 d2f8e85091b10a87aa4403ec5c81b09b ""
-  "main.toc" 1783820425 17122 3923f78531bdfd3b03a296019385f7bb "pdflatex"
+  "main.toc" 1783908140 17720 c93e8236a0ee490d6aff0465a07eba51 "pdflatex"
   "style.sty" 1783713283 8320 3e61467d84fe350b483f9be6285fe951 ""
   (generated)
   "main.aux"

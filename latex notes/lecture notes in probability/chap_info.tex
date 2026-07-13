@@ -406,12 +406,41 @@ Moreover, the optimal center $P_Y^*$ is a convex combination of some $P_{Y|X=x}$
     If $\PP\ll\QQ$                        
 \end{definition}
 
+$f$-divergences satisfy the data-processing inequality
+
+\begin{theorem}
+    \[\dis_f(\PP_Y\mmid\QQ_Y)\leq \dis_f(\PP_X\mmid\QQ_X)\]
+\end{theorem}
+
+$f$-divergences satisfy two additional properties: conditioning increases divergence (CID) and convexity in pair.
+\begin{theorem}
+    
+\end{theorem}
+
+\begin{remark}
+    More generally, we may call functional $g$-divergences.
+\end{remark}
+
+\subsection{Inequalities between f-Divergences: Joint Range}
+
+\subsubsection{A Selection of Inequalities}
+
+\begin{itemize}
+    \item KL versus TV
+    \item KL versus Hellinger
+    \item KL versus $\chi^2$
+    \item TV versus Hellinger
+    \item TV versus $\chi^2$
+\end{itemize}
+
 \subsection{Variational Principle}
 
 In general, 
 \begin{theorem}
     $\dis_f(\PP\mmid\QQ)$
 \end{theorem}
+
+
 
 \section{Renyi Divergences}
 
@@ -568,6 +597,20 @@ uniform most powerful (UMP) tests
 \begin{example}[Robust Hypothesis Testing]
     
 \end{example}
+
+\chapter{Lossless Data Compression}
+
+\section{Universal Compression}
+
+Since the probability law is ususally not given to us, one cannot apply the compression results that we have discussed so far.
+In this section, we discuss how to produce compression schemes that do not require a priori knowledge of the distribution.
+We will see that the optimal algorithms for this problem often coincide with the optimal algorithms for density estimation.
+
+\subsection{Online Prediction and Density Estimation}
+
+It turns out that the universal compression problem
+automatically solves two other important problems: online prediction in machine learning and density estimation in statistics.
+
 
 \chapter{Channel Coding}
 
@@ -731,6 +774,64 @@ where the first line can be proved by the second line is because $B_p\subset d^{
 \begin{remark}[Duality of Metric Entropy]
     \cite{artstein2004duality}
 \end{remark}
+
+
+\subsection{Infinite-Dimensional Space: Smooth Functions}
+
+\begin{theorem}
+    Assume that $L,A>0$ and $p\in [1,\infty]$ are constants.
+    Consider the class $\cF(A,L)$ of all $L$-Lipschitz probability densities on the compact interval $[0,A]$.
+    Then 
+    \[\log N(\cF(A,L),\|\cdot\|_p,\epsilon)=\Theta(\frac{1}{\epsilon}).\]
+    Furthermore, for $p=\infty$ we have the sharp asymptotics:
+    \[\log_2 N(\cF(A,L),\|\cdot\|_\infty,\epsilon)=\frac{LA}{\epsilon}(1+o(1)),\quad\epsilon\to 0.\]
+\end{theorem}
+\begin{proof}
+    By H\"{o}lder's inequality, $\|f\|_1\leq A^{1-\frac{1}{p}}\|f\|_p\leq A\|f\|_\infty$.
+    So it suffices to prove the upper bound for $p=\infty$ and the lower bound for $p=1$.
+    Specifically, we aim to show, by explicit construction,
+    \begin{align*}
+        &N(\cF,\|\cdot\|_\infty,\epsilon)\leq \frac{C}{\epsilon}2^{\frac{A}{\epsilon}},\\
+        &M(\cF,\|\cdot\|_1,\epsilon)\geq 2^{\frac{c}{\epsilon}}.
+    \end{align*}
+    By replacing $f(x)$ by $\frac{1}{\sqrt{L}}f(\frac{x}{\sqrt{L}})$, we can consider the collection of $1$-Lipschitz densities on $[0,A]$.
+
+    To construct a covering for $p=\infty$, set $x_k=k\epsilon$ for $k=1,\dots,n$. Here $n=\lceil\frac{A}{\epsilon}\rceil$.
+    Note that as $f$ is a density, $f(0)\leq M$ for some constant $M$.
+    Let $\cG$ be the collection of all lattice paths of $n$ steps starting from $(0,j\epsilon)$ for some $j\in\{0,\dots,J\}$, where $J=\lceil \frac{M}{\epsilon} \rceil$.
+    In other word, each element of $\cG$ is a continuous piecewise linear function on each subinterval $I_k=[x_k,x_{k+1})$ with slope being either $+1$ or $-1$.
+    Then $|\cG|\leq (J+1)2^n=O(\frac{1}{\epsilon}2^{\frac{A}{\epsilon}})$.
+    It is also to see that $\cG$ is an $\epsilon$-covering by induction.
+
+    To construct a packing for $p=1$, we perturb the uniform density.
+    Define a function $T$ by 
+    \[T(x)=\begin{cases}
+        x1\{x\leq\epsilon\}+(2\epsilon-x)1\{x\geq\epsilon\}+\frac{1}{A}, &0\leq x\leq 2\epsilon, \\
+        0, & \text{otherwise}.
+    \end{cases}\]
+    Let $n=\lceil\frac{A}{4\epsilon}\rceil$ and $a=2n\epsilon$. 
+    For each $y\in\{0,1\}^n$, define a density $f_y$ on $[0,A]$ such that 
+    \[f_y(x)=\begin{cases}
+        \sum_{i=1}^{n}y_i T(x-2(i-1)\epsilon), &0\leq x\leq a,\\
+        \text{linearly extend}, &a\leq x\leq A.
+    \end{cases}\]
+    Since $\int_0^a f_y=\frac{1}{2}+O(\epsilon)$, the slope of the linear extension is $O(\epsilon)$ for sufficiently small $\epsilon$, and $f_y\in \cF$.
+    Further, we have $\|f_y-f_{y'}\|_1=d_{\rm H}(y,y')\|T\|_1=\epsilon^2d_{\rm H}(y,y')$.
+    Invoking \Cref{thm:Gilbert-Varshamov}, we have an $\frac{n}{2}$-packing $\cY$ of $\{0,1\}^n$ with $|\cY|\geq 2^{cn}$.
+    Thus $\{f_y:y\in\cY\}$ constitutes an $\frac{n\epsilon^2}{2}=\Theta(\epsilon)$-packing of $\cF$.
+
+\end{proof}
+
+
+\begin{theorem}
+    Fix $L,A>0$, $p\in [1,\infty]$, and $d\in\NN$.
+    Let $\beta>0$ and write $\beta=\ell+\alpha$, where $\ell\in\ZZ_+$ and $\alpha\in(0,1]$.
+    Consider the class $\cF_\beta(A,L)$ of $\ell$-times continuously differentiable densities $f$ on $[0,A]^d$ whose $\ell$-th derivative is $(L,\alpha)$-H\"{o}lder continuous.
+    Then 
+    \[\log N(\cF_\beta(A,L),\|\cdot\|_p,\epsilon)=\Theta(\epsilon^{-\frac{d}{\beta}}).\]  
+\end{theorem}
+
+for the class of analytic functions, $\Theta((\log\frac{1}{\epsilon})^2)$.
 
 \subsection{Metric Entropy and Small-Ball Probability}
 
@@ -987,13 +1088,53 @@ Squaring both sides, we have
 
 \subsection{Application: Density Estimation over H\"{o}lder Classes}
 
-\begin{theorem}
+\begin{theorem}\label{thm:density-estimation-Holder-l2}
     Given $X_1,\dots,X_n\stackrel{\iid}{\sim}f\in \cF$, the minimax $L^2$ risk over $\cF$ satisfies
     \[R^*_{L^2}(n;\cF):=\inf_{\hat f}\sup_{f\in\cF}\EE\|f-\hat{f}\|_2^2\asymp n^{-2\beta/2\beta+d}\]
 \end{theorem}
 
-We will prove this result by applying the entropic upper bound and Fano's inequality.
+We will prove this result by applying the entropic upper bound and the minimax lower bound based on Fano's inequality.
 To convert KL risk into $L^2$,
 \begin{lemma}
-    
+    Suppose both $f=\frac{\d\PP}{\d\mu}$ and $g=\frac{\d\QQ}{\d\mu}$ are upper- and lower-bounded by absolute constants $c$ and $C$ respectively.
+    Then
+    \[\frac{1}{4C}\int (f-g)^2\d\mu\leq H^2(\PP,\QQ)\leq \KL(\PP\mmid\QQ)\leq \chi^2(\PP\mmid\QQ)\leq \frac{1}{c}\int (f-g)^2\d\mu.\]
 \end{lemma}
+\begin{proof}
+    For the upper bound, $\KL(\PP\mmid\QQ)\leq \chi^2(\PP\mmid\QQ)=\int\frac{(f-g)^2}{g}\d\mu\leq \frac{1}{c}\int (f-g)^2 \d\mu$.
+    
+    For the lower bound, $\KL(\PP\mmid\QQ)\geq H^2(\PP,\QQ)=\int \frac{(f-g)^2}{(\sqrt{f}+\sqrt{g})^2}\geq \frac{1}{4C}\int (f-g)^2\d\mu$.
+\end{proof}
+
+\begin{lemma}
+    Let $\cF'$ denote the collection of $f\in\cF$ which is bounded from below by $\frac{1}{2}$. Then 
+    \[R^*_{L^2}(n;\cF')\leq R^*_{L^2}(n;\cF)\leq 4R^*_{L^2}(n;\cF').\]
+\end{lemma}
+\begin{proof}
+    The first inequlaity follows because $\cF'\subset\cF$.
+
+    For the second inequality, fix some $f\in\cF$ and we observe $X_1,\dots,X_n\stackrel{\iid}{\sim} f$.
+    Let $U_1,\dots,U_n$ be independently sampled from the uniform distribution on $[0,1]^d$.
+    Define 
+    \[Z_i=\begin{cases}
+        U_i & \text{w.p.}\frac{1}{2},\\
+        X_i & \text{w.p.}\frac{1}{2}.
+    \end{cases}\]
+    Then $Z_1,\dots,Z_n \stackrel{\iid}{\sim} g:=\frac{1}{2}(1+f)\in\cF'$. 
+    Let $\hat{g}$ be an estimator that achieves the minimax risk $R^*_{L^2}(n;\cF')$ on $\cF'$/
+    Consider the estimator $\hat{f}=2\hat{g}-1$, then $\|f-\hat{f}\|_2^2=4\|g-\hat{g}\|_2^2$.
+    Taking the supremum over $f\in\cF$ proves the desired result.
+\end{proof}
+
+Now we can prove \Cref{thm:density-estimation-Holder-l2}.
+\begin{proof}
+    Using Yang-Barron's construction, we have
+    \begin{align*}
+        R^*_{L^2}(n;\cF')&\asymp R^*_{\KL}(n;\cF')\\
+        &\lesssim \inf_{\epsilon>0}\{\epsilon^2+\frac{1}{n}\log N_{\KL}(\cF',\epsilon)\}\\
+        &\asymp \inf_{\epsilon>0}\{\epsilon^2+\frac{1}{n}\log N(\cF',\|\cdot\|_2,\epsilon)\}\\
+        &\asymp \inf_{\epsilon>0}\{\epsilon^2+\frac{1}{n\epsilon^{\frac{d}{\beta}}}\}\asymp n^{-\frac{2\beta}{2\beta+d}}.
+    \end{align*}
+
+    For the lower bound, we can apply Fano's inequality.
+\end{proof}

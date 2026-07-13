@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2022.4.8)  11 JUL 2026 21:40
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2022.4.8)  12 JUL 2026 22:02
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -732,11 +732,11 @@ l.44 \part
 Chapter 14.
 [71
 
-] [72] [73] [74] [75] [76] [77] [78
-
-]
+] [72] [73] [74] [75] [76] [77] [78]
 Chapter 15.
-[79] [80] [81] [82
+[79
+
+] [80] [81] [82
 
 ]
 Chapter 16.
@@ -744,74 +744,78 @@ Chapter 16.
 
 ]
 Chapter 17.
-[85]
-
-Package amsmath Warning: Foreign command \atopwithdelims;
-(amsmath)                \frac or \genfrac should be used instead
-(amsmath)                 on input line 648.
-
-[86] [87] [88
+[85] [86
 
 ]
 Chapter 18.
-[89] [90] [91] [92]) [93] [94
+[87]
 
-] [95] [96] (./chap_ot.tex
+Package amsmath Warning: Foreign command \atopwithdelims;
+(amsmath)                \frac or \genfrac should be used instead
+(amsmath)                 on input line 691.
+
+[88] [89] [90]
 Chapter 19.
-[97
+[91
+
+] [92] [93] [94]) [95] [96] [97
+
+] [98] (./chap_ot.tex
+Chapter 20.
+[99
 
 
-pdfTeX warning (ext4): destination with the same identifier (name{equation.19.1.1}) has been already used, duplicate ignored
+pdfTeX warning (ext4): destination with the same identifier (name{equation.20.1.1}) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
 l.65 \begin{proposition}
                         \label{prop:semidual}
-pdfTeX warning (ext4): destination with the same identifier (name{equation.19.1.1}) has been already used, duplicate ignored
+pdfTeX warning (ext4): destination with the same identifier (name{equation.20.1.1}) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
 l.65 \begin{proposition}
                         \label{prop:semidual}
-pdfTeX warning (ext4): destination with the same identifier (name{equation.19.1.1}) has been already used, duplicate ignored
+pdfTeX warning (ext4): destination with the same identifier (name{equation.20.1.1}) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
 l.65 \begin{proposition}
-                        \label{prop:semidual}] [98]
+                        \label{prop:semidual}] [100]
 
-LaTeX Warning: Reference `def:w2_tangent' on page 99 undefined on input line 189.
+LaTeX Warning: Reference `def:w2_tangent' on page 101 undefined on input line 189.
 
 ) (./main.bbl (./main.brf)
 \tf@brf=\write6
 \openout6 = `main.brf'.
 
- [99
-pdfTeX warning (ext4): destination with the same identifier (name{equation.19.2.4}) has been already used, duplicate ignored
+ [101
+pdfTeX warning (ext4): destination with the same identifier (name{equation.20.2.4}) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
 l.1 \begin{thebibliography}{10}
-                               ] [100
+                               ] [102
 
-]) [101] (./main.aux)
+]) [103] (./main.aux)
 
 LaTeX Warning: There were undefined references.
 
 Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: E5F9344B863DB3B19ACD89B4D27DA6A3;31315.
+(rerunfilecheck)             Checksum: 4306EAE64373D163BE34785D347E46BE;32547.
 Package rerunfilecheck Info: File `main.brf' has not changed.
-(rerunfilecheck)             Checksum: 5484E634F69712BD64A5F8CAB4DF435E;568.
+(rerunfilecheck)             Checksum: E76FEA5CB0CA39D8195ED431E438EB37;568.
  ) 
 Here is how much of TeX's memory you used:
- 20529 strings out of 478268
- 330175 string characters out of 5850346
- 753381 words of memory out of 5000000
- 37527 multiletter control sequences out of 15000+600000
+ 20550 strings out of 478268
+ 330518 string characters out of 5850346
+ 755500 words of memory out of 5000000
+ 37534 multiletter control sequences out of 15000+600000
  491818 words of font info for 118 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  102i,14n,105p,3274b,576s stack positions out of 10000i,1000n,20000p,200000b,200000s
 {d:/texlive/2022/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc}<d:/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb><d:/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb><d:/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx7.pfb><d:/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmbxti10.pfb><d:/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb><d:/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmex7.pfb><d:/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmitt10.pfb><d:/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb><d:/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb><d:/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb><d:/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb><d:/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmmib10.pfb><d:/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb><d:/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb><d:/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb><d:/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb><d:/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb><d:/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmsl10.pfb><d:/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmss10.pfb><d:/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmss8.pfb><d:/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb><d:/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy5.pfb><d:/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb><d:/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb><d:/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmti7.pfb><d:/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb><d:/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt8.pfb><d:/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb><d:/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb><d:/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm5.pfb><d:/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm7.pfb><d:/texlive/2022/texmf-dist/fonts/type1/public/rsfs/rsfs10.pfb><d:/texlive/2022/texmf-dist/fonts/type1/public/cm-super/sfrm1000.pfb>
-Output written on main.pdf (101 pages, 694816 bytes).
+Output written on main.pdf (103 pages, 707143 bytes).
 PDF statistics:
- 2249 PDF objects out of 2487 (max. 8388607)
- 2052 compressed objects within 21 object streams
- 806 named destinations out of 1000 (max. 500000)
- 1401 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 2294 PDF objects out of 2487 (max. 8388607)
+ 2095 compressed objects within 21 object streams
+ 820 named destinations out of 1000 (max. 500000)
+ 1441 words of extra memory for PDF output out of 10000 (max. 10000000)
 

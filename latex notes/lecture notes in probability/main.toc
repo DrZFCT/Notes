@@ -153,7 +153,9 @@
 \contentsline {section}{\numberline {14.8}Inequalities between f-divergences}{77}{section.14.8}%
 \contentsline {section}{\numberline {14.9}f-Divergences}{77}{section.14.9}%
 \contentsline {subsection}{\numberline {14.9.1}Definition}{77}{subsection.14.9.1}%
-\contentsline {subsection}{\numberline {14.9.2}Variational Principle}{77}{subsection.14.9.2}%
+\contentsline {subsection}{\numberline {14.9.2}Inequalities between f-Divergences: Joint Range}{77}{subsection.14.9.2}%
+\contentsline {subsubsection}{A Selection of Inequalities}{77}{section*.30}%
+\contentsline {subsection}{\numberline {14.9.3}Variational Principle}{77}{subsection.14.9.3}%
 \contentsline {section}{\numberline {14.10}Renyi Divergences}{77}{section.14.10}%
 \contentsline {chapter}{\numberline {15}Hypothesis Testing and Large Deviations}{79}{chapter.15}%
 \contentsline {section}{\numberline {15.1}Neyman-Pearson Lemma}{79}{section.15.1}%
@@ -163,40 +165,44 @@
 \contentsline {section}{\numberline {15.4}Information Projection}{80}{section.15.4}%
 \contentsline {section}{\numberline {15.5}Sequential Hypothesis Testing}{80}{section.15.5}%
 \contentsline {section}{\numberline {15.6}Composite Hypothesis Testing}{81}{section.15.6}%
-\contentsline {chapter}{\numberline {16}Channel Coding}{83}{chapter.16}%
-\contentsline {section}{\numberline {16.1}Shannon's Noisy Channel Coding Theorem}{83}{section.16.1}%
-\contentsline {chapter}{\numberline {17}Rate Distortion Theory}{85}{chapter.17}%
-\contentsline {section}{\numberline {17.1}Scalar and Vector Quantization}{85}{section.17.1}%
-\contentsline {section}{\numberline {17.2}Shannon's Rate-Distortion Theorem}{85}{section.17.2}%
-\contentsline {subsection}{\numberline {17.2.1}Information-Theoretic Formulation}{85}{subsection.17.2.1}%
-\contentsline {paragraph}{Hamming Game}{85}{section*.30}%
-\contentsline {paragraph}{Mathematical Formulation}{85}{section*.31}%
-\contentsline {subsection}{\numberline {17.2.2}Converse Bounds}{85}{subsection.17.2.2}%
-\contentsline {section}{\numberline {17.3}Eva}{85}{section.17.3}%
-\contentsline {section}{\numberline {17.4}Metric Entropy}{85}{section.17.4}%
-\contentsline {subsection}{\numberline {17.4.1}Finite-Dimensional Space and Volume Bound}{86}{subsection.17.4.1}%
-\contentsline {subsection}{\numberline {17.4.2}Beyond the Volume Bound}{86}{subsection.17.4.2}%
-\contentsline {subsection}{\numberline {17.4.3}Metric Entropy and Small-Ball Probability}{87}{subsection.17.4.3}%
-\contentsline {chapter}{\numberline {18}Statistical Applications}{89}{chapter.18}%
-\contentsline {section}{\numberline {18.1}Mutual Information Method}{89}{section.18.1}%
-\contentsline {subsection}{\numberline {18.1.1}Application: Denoising a Vector in Gaussian Noise}{89}{subsection.18.1.1}%
-\contentsline {subsection}{\numberline {18.1.2}Application: Denoising a Sparse Vector}{89}{subsection.18.1.2}%
-\contentsline {subsection}{\numberline {18.1.3}Application: Community Detection}{89}{subsection.18.1.3}%
-\contentsline {section}{\numberline {18.2}Lower Bounds by Reduction to Hypothesis Testing}{89}{section.18.2}%
-\contentsline {subsection}{\numberline {18.2.1}Le Cam's Two-Point Method}{89}{subsection.18.2.1}%
-\contentsline {subsection}{\numberline {18.2.2}Assouad's Lemma}{90}{subsection.18.2.2}%
-\contentsline {subsection}{\numberline {18.2.3}Fano's Method}{90}{subsection.18.2.3}%
-\contentsline {section}{\numberline {18.3}Entropic Bounds for Statistical Estimation}{90}{section.18.3}%
-\contentsline {subsection}{\numberline {18.3.1}Yang-Barron's Construction}{90}{subsection.18.3.1}%
-\contentsline {subsection}{\numberline {18.3.2}Pairwise Comparison \`{a} la Le Cam-Birg\'{e}}{92}{subsection.18.3.2}%
-\contentsline {subsection}{\numberline {18.3.3}Yatracos' Class and Minimum-Distance Estimator}{92}{subsection.18.3.3}%
-\contentsline {subsection}{\numberline {18.3.4}Application: Density Estimation over H\"{o}lder Classes}{93}{subsection.18.3.4}%
-\contentsline {part}{IV\hspace {1em}Optimal Transport}{95}{part.4}%
-\contentsline {chapter}{\numberline {19}Optimal Transport}{97}{chapter.19}%
-\contentsline {section}{\numberline {19.1}The Optimal Transport Problem}{97}{section.19.1}%
-\contentsline {subsection}{\numberline {19.1.1}Wasserstein Distances}{97}{subsection.19.1.1}%
-\contentsline {subsection}{\numberline {19.1.2}p=2}{97}{subsection.19.1.2}%
-\contentsline {section}{\numberline {19.2}Entropic Optimal Transport}{99}{section.19.2}%
-\contentsline {section}{\numberline {19.3}Wasserstein Gradient Flow}{99}{section.19.3}%
-\contentsline {section}{\numberline {19.4}Otto Calculus}{99}{section.19.4}%
+\contentsline {chapter}{\numberline {16}Lossless Data Compression}{83}{chapter.16}%
+\contentsline {section}{\numberline {16.1}Universal Compression}{83}{section.16.1}%
+\contentsline {subsection}{\numberline {16.1.1}Online Prediction and Density Estimation}{83}{subsection.16.1.1}%
+\contentsline {chapter}{\numberline {17}Channel Coding}{85}{chapter.17}%
+\contentsline {section}{\numberline {17.1}Shannon's Noisy Channel Coding Theorem}{85}{section.17.1}%
+\contentsline {chapter}{\numberline {18}Rate Distortion Theory}{87}{chapter.18}%
+\contentsline {section}{\numberline {18.1}Scalar and Vector Quantization}{87}{section.18.1}%
+\contentsline {section}{\numberline {18.2}Shannon's Rate-Distortion Theorem}{87}{section.18.2}%
+\contentsline {subsection}{\numberline {18.2.1}Information-Theoretic Formulation}{87}{subsection.18.2.1}%
+\contentsline {paragraph}{Hamming Game}{87}{section*.31}%
+\contentsline {paragraph}{Mathematical Formulation}{87}{section*.32}%
+\contentsline {subsection}{\numberline {18.2.2}Converse Bounds}{87}{subsection.18.2.2}%
+\contentsline {section}{\numberline {18.3}Eva}{87}{section.18.3}%
+\contentsline {section}{\numberline {18.4}Metric Entropy}{87}{section.18.4}%
+\contentsline {subsection}{\numberline {18.4.1}Finite-Dimensional Space and Volume Bound}{88}{subsection.18.4.1}%
+\contentsline {subsection}{\numberline {18.4.2}Beyond the Volume Bound}{88}{subsection.18.4.2}%
+\contentsline {subsection}{\numberline {18.4.3}Infinite-Dimensional Space: Smooth Functions}{89}{subsection.18.4.3}%
+\contentsline {subsection}{\numberline {18.4.4}Metric Entropy and Small-Ball Probability}{90}{subsection.18.4.4}%
+\contentsline {chapter}{\numberline {19}Statistical Applications}{91}{chapter.19}%
+\contentsline {section}{\numberline {19.1}Mutual Information Method}{91}{section.19.1}%
+\contentsline {subsection}{\numberline {19.1.1}Application: Denoising a Vector in Gaussian Noise}{91}{subsection.19.1.1}%
+\contentsline {subsection}{\numberline {19.1.2}Application: Denoising a Sparse Vector}{91}{subsection.19.1.2}%
+\contentsline {subsection}{\numberline {19.1.3}Application: Community Detection}{91}{subsection.19.1.3}%
+\contentsline {section}{\numberline {19.2}Lower Bounds by Reduction to Hypothesis Testing}{91}{section.19.2}%
+\contentsline {subsection}{\numberline {19.2.1}Le Cam's Two-Point Method}{91}{subsection.19.2.1}%
+\contentsline {subsection}{\numberline {19.2.2}Assouad's Lemma}{92}{subsection.19.2.2}%
+\contentsline {subsection}{\numberline {19.2.3}Fano's Method}{92}{subsection.19.2.3}%
+\contentsline {section}{\numberline {19.3}Entropic Bounds for Statistical Estimation}{92}{section.19.3}%
+\contentsline {subsection}{\numberline {19.3.1}Yang-Barron's Construction}{92}{subsection.19.3.1}%
+\contentsline {subsection}{\numberline {19.3.2}Pairwise Comparison \`{a} la Le Cam-Birg\'{e}}{94}{subsection.19.3.2}%
+\contentsline {subsection}{\numberline {19.3.3}Yatracos' Class and Minimum-Distance Estimator}{94}{subsection.19.3.3}%
+\contentsline {subsection}{\numberline {19.3.4}Application: Density Estimation over H\"{o}lder Classes}{95}{subsection.19.3.4}%
+\contentsline {part}{IV\hspace {1em}Optimal Transport}{97}{part.4}%
+\contentsline {chapter}{\numberline {20}Optimal Transport}{99}{chapter.20}%
+\contentsline {section}{\numberline {20.1}The Optimal Transport Problem}{99}{section.20.1}%
+\contentsline {subsection}{\numberline {20.1.1}Wasserstein Distances}{99}{subsection.20.1.1}%
+\contentsline {subsection}{\numberline {20.1.2}p=2}{99}{subsection.20.1.2}%
+\contentsline {section}{\numberline {20.2}Entropic Optimal Transport}{101}{section.20.2}%
+\contentsline {section}{\numberline {20.3}Wasserstein Gradient Flow}{101}{section.20.3}%
+\contentsline {section}{\numberline {20.4}Otto Calculus}{101}{section.20.4}%
 \contentsfinish 
