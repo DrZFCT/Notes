@@ -1,4 +1,4 @@
-\begin{thebibliography}{10}
+\begin{thebibliography}{11}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{\texttt{#1}}
 \expandafter\ifx\csname urlstyle\endcsname\relax
@@ -22,6 +22,12 @@ Dominique Bakry, Ivan Gentil, and Michel Ledoux.
 Sinho Chewi.
 \newblock Log-{{Concave Sampling}}.
 \newblock 2025.
+
+\bibitem[Endres and Schindelin(2003)]{endres2003new}
+Dominik~Maria Endres and Johannes~E Schindelin.
+\newblock A new metric for probability distributions.
+\newblock \emph{IEEE Transactions on Information theory}, 49\penalty0
+  (7):\penalty0 1858--1860, 2003.
 
 \bibitem[Kemperman(1974)]{kemperman1974shannon}
 JHB Kemperman.

@@ -6,45 +6,45 @@ Database file #1: bib.bib
 Warning--I didn't find a database entry for ""
 Warning--empty note in chewi
 Warning--empty note in vanhandel
-You've used 10 entries,
+You've used 11 entries,
             2773 wiz_defined-function locations,
-            660 strings with 6354 characters,
-and the built_in function-call counts, 4426 in all, are:
-= -- 416
-> -- 191
-< -- 12
-+ -- 67
-- -- 57
-* -- 340
-:= -- 669
-add.period$ -- 32
-call.type$ -- 10
-change.case$ -- 48
-chr.to.int$ -- 10
-cite$ -- 22
-duplicate$ -- 213
-empty$ -- 384
-format.name$ -- 71
-if$ -- 933
+            669 strings with 6517 characters,
+and the built_in function-call counts, 4900 in all, are:
+= -- 462
+> -- 212
+< -- 13
++ -- 74
+- -- 63
+* -- 379
+:= -- 739
+add.period$ -- 35
+call.type$ -- 11
+change.case$ -- 53
+chr.to.int$ -- 11
+cite$ -- 24
+duplicate$ -- 233
+empty$ -- 426
+format.name$ -- 80
+if$ -- 1033
 int.to.chr$ -- 1
 int.to.str$ -- 1
-missing$ -- 9
-newline$ -- 58
-num.names$ -- 40
-pop$ -- 91
+missing$ -- 10
+newline$ -- 63
+num.names$ -- 44
+pop$ -- 99
 preamble$ -- 1
-purify$ -- 39
+purify$ -- 43
 quote$ -- 0
-skip$ -- 164
+skip$ -- 180
 stack$ -- 0
-substring$ -- 221
-swap$ -- 31
+substring$ -- 254
+swap$ -- 32
 text.length$ -- 5
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 105
+type$ -- 116
 warning$ -- 2
-while$ -- 46
+while$ -- 51
 width$ -- 0
-write$ -- 137
+write$ -- 150
 (There were 3 warnings)

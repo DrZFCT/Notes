@@ -12,8 +12,12 @@
     Let $\mu, \nu$ be two probability measures on $\RR^d$. The set $\Gamma_{\mu, \nu}$ of couplings between $\mu$ and $\nu$ is \emph{non-empty}, \emph{convex}, and \emph{compact} with respect to the topology of weak convergence.
 \end{proposition}
 
-\subsection{Wasserstein Distances}
+\begin{proposition}
+    If the cost function $(x,y)\mapsto c(x,y)$ is lower semicontinuous, then the above minimum is attained.
+\end{proposition}
 
+\subsection{Wasserstein Distances}
+For any $p\geq 1$, let $\cP_p(\RR^d)$ be the set of probability measures over $\RR^d$ equipped with the Euclidean norm $\|\cdot\|$ that have finite $p$-th moment.
 \begin{definition}\label{def:wass}
 The $p$-Wasserstein distance between two probability measures $\mu, \nu \in \cP_p(\RR^d)$ is defined by
 \begin{equation*}
@@ -21,7 +25,30 @@ W_p(\mu, \nu)=\min_{\gamma \in \Gamma_{\mu, \nu}}\left( \int \|x-y\|^p\, \gamma(
 \end{equation*}
 \end{definition}
 
-\subsection{p=2}
+\begin{proposition}
+    The $p$-Wasserstein distance defines a metric over $\cP_p(\RR^d)$.
+\end{proposition}
+
+Wasserstein distances metrize weak convergence on compact spaces.
+\begin{proposition}
+    A sequence $(\mu_n)_n$ satisfies $W_p(\mu_n,\mu)\to 0$ if and only if 
+    \begin{enumerate}[label=(\roman*)]
+        \item $\mu_n$ converges weakly to $\mu$
+        \item $p$-th moment converges
+    \end{enumerate}
+\end{proposition}
+
+On a bounded domain, the Wasserstein distance is dominated by the total variation distance.
+\begin{theorem}
+    
+\end{theorem}
+
+
+\begin{example}[One-Dimensional Optimal Transport]
+    
+\end{example}
+
+\subsection{2-Wasserstein Distance}
 Recall that
 \begin{equation}\label{W2}\tag{$\mathsf{W_2^2}$}
 W_2^2(\mu, \nu)=\min_{\gamma \in \Gamma_{\mu, \nu}}\int \|x-y\|^2\, \gamma(\d x,\d y)\,.
@@ -33,6 +60,8 @@ $$
 \int \|x-y\|^2\, \bar \gamma(\d x,\d y)=\min_{\gamma \in \Gamma_{\mu, \nu}}\int \|x-y\|^2 \,\gamma(\d x,\d y)=W_2^2(\mu, \nu)\,,
 $$
 then there exists a convex function $\varphi:\RR^d \to \RR$ such that $(X, \nabla \varphi(X))\sim \bar \gamma \in \Gamma_{\mu, \nu}$.
+
+Moreover, $\nabla \varphi$ is unique in the sense that if there exists a convex function $\psi$ such that $\nabla\psi(X) \sim \nu$, then $\nabla \psi(X) = \nabla \varphi(X)$, almost surely.
 \end{theorem}
 
 The dual Kantorovich problem is given by
@@ -80,7 +109,7 @@ In general, strong duality holds for cost function that is lower semicontinuous 
 
 {\blue what else is needed to be proved?}
 
-\begin{theorem}[Fundamental theorem of optimal transport]\index{fundamental theorem of optimal transport}\label{thm:fundOT}
+\begin{theorem}[Fundamental theorem of optimal transport]\label{thm:fundOT}
 Let $\mu, \nu \in \cP_2(\RR^d)$ be two probability measures such that $\mu$ has a density and let $X \sim \mu$. Then the following are equivalent:
 \begin{enumerate}[label=(\roman*)]
 \item $\bar \gamma \in \Gamma_{\mu,\nu}$ is an optimal coupling in the sense that:
@@ -88,7 +117,10 @@ $$
 \int \|x-y\|^2 \,\bar \gamma(\d x,\d y)=W_2^2(\mu, \nu)\,.
 $$
 \item There exists a proper convex function $\varphi$ such that $(X, \nabla \varphi(X))\sim \bar \gamma \in \Gamma_{\mu, \nu}$.
-\item Strong duality holds between~\eqref{W2} and~\eqref{DK}:
+\end{enumerate}
+\end{theorem}
+\begin{corollary}
+    Under the setting in Theorem~\ref{thm:fundOT}, strong duality holds between~\eqref{W2} and~\eqref{DK}:
 $$
 \int \|x-y\|^2 \,\bar \gamma(\d x,\d y) = \sup_{\substack{ f \in L^1(\mu), \,g\in L^1(\nu)\\f(x) +g(y)\le \|x-y\|^2} }\left\{\int f \,\d \mu + \int g\, \d \nu\right\}\,.
 $$
@@ -96,20 +128,49 @@ Moreover, the above supremum is achieved for
 $$
 \bar f(x) \deq \|x\|^2-2\varphi(x)\qquad \text{and} \qquad \bar g(y) \deq \|y\|^2-2\varphi^*(y)\,.
 $$
-\end{enumerate}
+\end{corollary}
+
+
+The implication (ii)$\Longrightarrow$(i) means that:
+\begin{corollary}
+    Any valid coupling $\gamma \in \Gamma_{\mu, \nu}$ of the form $(X, \nabla \psi(X))\sim \gamma$ for some convex function $\psi$, must be the \emph{unique} optimal coupling between $\mu$ and $\nu$. 
+\end{corollary}
+
+\begin{example}[One-Dimensional Optimal Transport]
+    
+\end{example}
+
+\begin{example}[Gaussian Optimal Transport]
+    
+\end{example}
+
+\subsection{1-Wasserstein Distance}
+
+c-conjugate
+
+\begin{theorem}\label{thm:Wpduality}
+Fix $p \ge 1$ and let $\mu, \nu \in \cP_p(\RR^d)$ be two probability measures. Then the following holds:
+\begin{equation}
+\label{eq:Wpduality}
+W_p^p(\mu, \nu) =\sup_{\substack{f \in  L^1(\mu),\ g \in L^1(\nu
+)\\f(x)+g(y) \le \|x-y\|^p }}\left\{\int f\, \d \mu + \int g\, \d \nu\right\}\,.
+\end{equation}
+\end{theorem}
+In the case where $p=1$, this result can be simplified to eliminate one of the dual functions.
+\begin{theorem}\label{thm:W1duality}
+Let $\mu, \nu \in \cP_1(\RR^d)$ be two probability measures. Then the following holds:
+\begin{equation}\label{eq:W1duality}
+W_1(\mu, \nu) =\sup_{f \in \, \mathrm{Lip}_1}\left\{\int f\, \d \mu - \int f\, \d \nu\right\}\,,
+\end{equation}
+where $\mathrm{Lip}_1$ is the set of 1-Lipschitz functions.
 \end{theorem}
 
+The reduction is via the following proposition
+\begin{proposition}
+    For $c(x,y)=\|x-y\|$, a function $g:\RR^d\to\RR$ is a c-trnasform if and only if it is $1$-Lipschitz.
+    Moreover, any $1$-Lipschitz function satisfies $g^c=-g$.
+\end{proposition}
 
-With the fundamental theorem, we can state an improved version of Brenier's theorem.
-\begin{theorem}[Improved Brenier]\label{thm:improvedBrenier}\index{Brenier's theorem!improved}
-Let $\mu, \nu \in \cP_2(\RR^d)$ be two probability measures such that $\mu$ has a density and let $X \sim \mu$. Then there exists a convex function $\varphi:\RR^d \to \RR$ such that $(X, \nabla \varphi(X))\sim \bar \gamma \in \Gamma_{\mu, \nu}$ and $\bar \gamma$ is an optimal coupling for~\eqref{W2}:
-$$
-\int \|x-y\|^2 \,\bar \gamma(\d x,\d y)=\min_{\gamma \in \Gamma_{\mu, \nu}}\int \|x-y\|^2\, \gamma(\d x,\d y)=W_2^2(\mu, \nu)\,.
-$$
-Moreover, $\nabla \varphi$ is unique in the sense that if there exists a convex function $\psi$ such that $\nabla\psi(X) \sim \nu$, then $\nabla \psi(X) = \nabla \varphi(X)$, almost surely.
-
-In particular, any valid coupling $\gamma \in \Gamma_{\mu, \nu}$ of the form $(X, \nabla \psi(X))\sim \gamma$ for some convex function $\psi$, must be the \emph{unique} optimal coupling between $\mu$ and $\nu$. 
-\end{theorem}
 
 \section{Entropic Optimal Transport}
 

@@ -112,6 +112,8 @@ for a pair of Markov kernels $\PP_{Y|X}:\cX\to\cY$
     \begin{enumerate}[label=(\roman*)]
         \item $\KL(\PP\mmid\QQ)\geq 0$ with equality iff $\PP=\QQ$.
         \item \textnormal{(chain rule)} $\KL(\PP_{X,Y}\mmid\QQ_{X,Y})=\KL(\PP_{Y|X}\mmid \QQ_{Y|X}\mid\PP_X)+\KL(\PP_X\mmid \QQ_X)$
+        \item \textnormal{(monotonicity)}
+        \item \textnormal{(tensorization)} 
     \end{enumerate}
 \end{proposition}
 
@@ -119,10 +121,80 @@ The chain rule has many implications
 
 data-processing inequality (DPI)
 the intuitive interpretation is that it is easier to distinguish two distributions using clean data as opposed to noisy data.
+\begin{proposition}[DPI for KL]
+    Given $\PP_{Y|X}$, let $\PP_Y=\PP_{Y|X}\circ\PP_X$ and $\QQ_Y=\PP_{Y|X}\circ\QQ_X$.
+    Then 
+    \[\KL(\PP_Y\mmid\QQ_Y)\leq\KL(\PP_X\mmid\QQ_X).\]
+\end{proposition}
+\begin{proof}
+    By the chain rule,
+    \begin{align*}
+        \KL(\PP_{X,Y}\mmid\QQ_{X,Y})&=\KL(\PP_{Y|X}\mmid\PP_{Y|X}\mid\PP_X)+\KL(\PP_X\mmid\QQ_X)\\
+        &=\KL(\PP_{X|Y}\mmid\QQ_{X|Y}\mid\PP_Y)+\KL(\PP_Y\mmid\QQ_Y).
+    \end{align*}
+    The proof is concluded by the positivity of KL.
+\end{proof}
+
+conditioning increases divergence, which is a dual to DPI
+\begin{proposition}
+    Given $\PP_{Y|X},\QQ_{Y|X}$, and $\PP_X$, let $\PP_Y=\PP_{Y|X}\circ\PP_X$ and $\QQ_Y=\QQ_{Y|X}\circ\PP_X$. Then 
+    \[\KL(\PP_Y\mmid\QQ_Y)\leq \KL(\PP_{Y|X}\mmid\QQ_{Y|X}\mid\PP_X),\]
+    with equality iff $\KL(\PP_{X|Y}\mmid\QQ_{X|Y}\mid\PP_Y)=0$.
+\end{proposition}
 
 \subsection{Local Behavior and Fisher Information}
+KL divergence is in general not continuous.
+Nevertheless, it is reasonable to expect that in non-pathological cases the functional $\KL(\PP\mmid\QQ)$ vanishes when $\PP$ approaches $\QQ$ ``smoothly''.
+Due to the smoothness and strict convexity of $x\log x$ at $x=1$, it is then also natural to expect this functional decays ``quadratically''.
 
+In this section we examine this question first along the linar interpolation between $\PP$ and $\QQ$, then, more generally, in smooth parameterized families of distributions.
+Let $0\leq \lambda\leq 1$ and consider $\KL(\lambda\PP+\bar{\lambda}Q\mmid\QQ)$, which vanishes as $\lambda\to 0$.
+The following proposition show that this decay is always sublinear.
+\begin{proposition}
+    When $\KL(\PP\mmid\QQ)<\infty$, the one-sided derivative at $\lambda=0$ vanishes:
+    \[\frac{\d}{\d\lambda}\bigg\vert_{\lambda=0}\KL(\lambda\PP+\bar{\lambda}\QQ\mmid\QQ)=0.\]
+    If the arguments are interchanged, the condition required is simpler:
+    \[\frac{\d}{\d\lambda}\bigg\vert_{\lambda=0}\KL(\QQ\mmid \lambda\PP+\bar{\lambda})=0\Longleftrightarrow P\ll Q.\]
+\end{proposition}
+\begin{proof}
+    
+\end{proof}
+\begin{remark}
+    More generally, under suitable technical conditions,
+    \[\frac{\d}{\d\lambda}\bigg\vert_{\lambda=0}\KL(\lambda\PP+\bar{\lambda}\QQ\mmid\RR)=\EE_\PP\left[\log\frac{\d\QQ}{\d\RR}-\KL(\QQ\mmid\RR)\right]\]
+    and 
+    \[\frac{\d}{\d\lambda}\bigg\vert_{\lambda=0}\KL(\lambda\PP_1+\bar{\lambda}\QQ_1\mmid \lambda\PP_0+\bar{\lambda}\QQ_0)\]
+\end{remark}
+
+The above proposition states that the function $\lambda\mapsto \KL(\lambda\PP+\bar{\lambda}\QQ\mmid\QQ)$ is $o(\lambda)$ as $\lambda\to 0$.
+In fact, in most cases it is quadratic in $\lambda$.
+\begin{proposition}[KL is locally $\chi^2$-like]
+    \[\lim_{\lambda\to 0}\frac{1}{\lambda^2}\KL(\lambda\PP+\bar{\lambda}\QQ\mmid\QQ)=\frac{1}{2}\chi^2(\PP\mmid\QQ)\]
+    where both sides are finite or infinite simultaneously.
+\end{proposition}
+\begin{proof}
+    First, by Fatou's lemma:
+    \[\lim\inf_{\lambda\to 0}\EE_\QQ\left[ \frac{1}{\lambda^2}g\left(\bar{\lambda}+\lambda\frac{\d\PP}{\d\QQ}\right)\right]\geq \EE_\QQ\left[\lim\inf_{\lambda\to 0}\frac{1}{\lambda^2}g\left(\bar{\lambda}+\lambda\frac{\d\PP}{\d\QQ}\right)\right]=\frac{1}{2}\chi^2(\PP\mmid\QQ).\]
+    Now assume that $\chi^2(\PP\mmid\QQ)<\infty$ and prove
+    \[\KL(\lambda\PP+\bar{\lambda}\QQ\mmid\QQ)=\frac{\lambda^2}{2}\chi^2(\PP\mmid\QQ)+o(\lambda^2),\lambda\to 0.\]
+    Notice that 
+    \[\KL(\PP\mmid\QQ)=\EE_\QQ\left[g\left(\frac{\d\PP}{\d\QQ}\right)\right],\]
+    where $g(x)=x\log x - (x-1)$. Now $g(x)\leq (x-1)^2$, hence 
+    \[0\leq \frac{1}{\lambda^2}g\left(\bar{\lambda}+\lambda\frac{\d\PP}{\d\QQ}\right)\leq \left(\frac{\d\PP}{\d\QQ}-1\right)^2<\infty.\]
+    By the dominated convergence theorem, we have
+    \[\lim_{\lambda\to 0}\frac{1}{\lambda^2}\EE_\QQ g\left(\bar{\lambda}+\lambda\frac{\d\PP}{\d\QQ}\right)=\frac{g''(1)}{2}\EE_\QQ\left(\frac{\d\PP}{\d\QQ}-1\right)^2=\frac{1}{2}\chi^2(\PP\mmid\QQ).\]
+\end{proof}
+
+
+Now, consider a parameterized set of distributions $\{\PP^\theta:\theta\in\Theta\}$, where $\Theta$ is an open subset of $\RR^d$.
+Further, suppose that 
+\[\PP^\theta(\d x)=p_\theta(x)\mu(\d x)\]
 \subsection{Differential Entropy}
+
+\subsubsection{Entropy-Power Inequality}
+For any $\RR^d$-valued random variable $X$, we define its entropy power to be
+\[N(X)=\frac{1}{2\pi e}\exp\left(\frac{2}{d}h(X)\right)\]
+
 
 \section{Mutual Information}
 We finally define the most important concept in the entire field of information theory, \textit{mutual information}.
@@ -132,13 +204,15 @@ We finally define the most important concept in the entire field of information 
 \end{definition}
 Intuitively, mutual information measures the dependence between $X$ and $Y$ by comparing their joint distribution to the product of the marginals in the KL divergence.
 Using the chain rule of KL-divergence, we see that mutual information can also be defined by comparing the conditional distribution to the unconditional:
-\begin{proposition}
+\begin{proposition}[Mutual information as conditional divergence]
     Whenever $\cY$ is standard Borel,
-    \[I(X;Y)=\KL(\PP_{Y|X}\mmid \PP_Y|\PP_X).\]
+    \begin{equation}\label{eq:mutual-information-conditional-divergence}
+        I(X;Y)=\KL(\PP_{Y|X}\mmid \PP_Y|\PP_X).
+    \end{equation}
 \end{proposition}
 
 \begin{definition}[Conditional mutual information]
-    \[I(X;Y|Z)=\EE_{z\sim P_Z}I(X;Y|Z=z).\]
+    \[I(X;Y|Z)=\EE_{z\sim \PP_Z}I(X;Y|Z=z).\]
 \end{definition}
 
 
@@ -163,6 +237,14 @@ Using the chain rule of KL-divergence, we see that mutual information can also b
         \item (DPI) If $X\to Y\to Z$, then $I(X;Z)\leq I(X;Y)$.
     \end{enumerate}
 \end{theorem}
+\begin{proof}
+    Using \eqref{eq:mutual-information-conditional-divergence}, the results follow from the respective properties for KL divergence.
+    
+    Take the chain rule for an example, $I(X,Y;Z)$ is the conditional (on $Z$) divergence between $\PP_{X,Y|Z}$ and $\PP_{X,Y}$.
+    Using the chain rule for KL, it is the sum of the divergence between $\PP_{X|Z}$ and $\PP_X$, and between $\PP_{Y|Z,X}$ and $\PP_{Y|X}$.
+
+    Take the DPI for another example, consider the channel $\PP_{Z|Y}$, applying the DPI for the conditional KL divergences yield the desired result.
+\end{proof}
 
 \begin{theorem}[Mutual information and entropy]
     \
@@ -188,12 +270,27 @@ Using the chain rule of KL-divergence, we see that mutual information can also b
 \begin{proof}
     The easiest proof is by the variational principles.
 
-    For (i), note that $I(X^n;Y^n)=\inf_{\QQ_{Y^n}}\KL(\PP_{Y^n|X}\mmid\QQ_{Y^n}\mid\PP_X)$ and take $\QQ_{Y^n}=\prod_{i=1}^{n}\PP_{Y_i}$.
+    For (i), note that $I(X^n;Y^n)=\inf_{\QQ_{Y^n}}\KL(\PP_{Y^n|X}\mmid\QQ_{Y^n}\mid\PP_X)$ from \eqref{eq:mutual-information-center-of-gravity} and take $\QQ_{Y^n}=\prod_{i=1}^{n}\PP_{Y_i}$.
     
-    For (ii), note that $I(X^n;Y)=\sup_{\QQ_{X^n|Y}}\EE\log \frac{\QQ_{X^n|Y}}{\prod_{i=1}^{n}\PP_{X_i}}$ and take $\QQ_{X^n|Y}=\prod_{i=1}^{n}\PP_{X_i|Y}$. 
+    For (ii), note that $I(X^n;Y)=\sup_{\QQ_{X^n|Y}}\EE\log \frac{\QQ_{X^n|Y}}{\prod_{i=1}^{n}\PP_{X_i}}$ from \eqref{eq:mutual-information-supremum-characterization} and take $\QQ_{X^n|Y}=\prod_{i=1}^{n}\PP_{X_i|Y}$. 
 \end{proof}
 
 \subsection{Data Processing and Sufficient Statistic}
+
+Let $\PP_X^\theta$ be a collection of distribution of $X$ parameterized by $\theta\in\Theta$.
+
+\begin{definition}[sufficient statistics]
+    
+\end{definition}
+\begin{theorem}
+    Let $\theta,X,T$ be as in the setting above.
+    \begin{enumerate}[label=(\roman*)]
+        \item $T$ is a suficient statistics of $X$ for $\theta$.
+        \item $\forall\, \PP^\theta_X$, $\theta\to T\to X$.
+        \item $\forall\, \PP^\theta_X$, $I(\theta;X|T)$.
+        \item $\forall\, \PP^\theta_X$, $I(\theta;X)=I(\theta;T)$.
+    \end{enumerate}
+\end{theorem}
 
 \subsection{Fano's Inequality}
 
@@ -228,6 +325,7 @@ This step is not very lossy.
 \section{Variational Characterizations}
 
 \subsection{Geometric Interpretation of Mutual Information}
+First, let us consider fixing varing the marginal distributions in \eqref{eq:mutual-information-conditional-divergence}.
 \begin{theorem}[Golden formula]
     For any $\QQ_Y$ we have 
     \[\KL(\PP_{Y|X}\mmid \QQ_Y\mid \PP_X)=I(X;Y)+\KL(\PP_Y\mmid \QQ_Y).\]
@@ -242,17 +340,30 @@ This step is not very lossy.
 \end{proof}
 
 \begin{corollary}[Mutual information as center of gravity]
-    \[I(X;Y)=\min_{Q_Y}\KL(P_{Y|X}\mmid Q_Y\mid P_X).\]
+    \begin{equation}\label{eq:mutual-information-center-of-gravity}
+        I(X;Y)=\min_{\QQ_Y}\KL(\PP_{Y|X}\mmid \QQ_Y\mid \PP_X).
+    \end{equation}
 \end{corollary}
 
 \begin{corollary}[Mutual information as distance to product distribution]
-    \[I(X;Y)=\min_{Q_X,Q_Y}\KL(P_{X,Y}\mmid Q_XQ_Y).\]
+    \[I(X;Y)=\min_{\QQ_X,\QQ_Y}\KL(\PP_{X,Y}\mmid \QQ_X\QQ_Y)\]
+    with the unique minimizer $(\QQ_X,\QQ_Y)=(\PP_X,\PP_Y)$.
 \end{corollary}
+\begin{proof}
+    In fact, by the chain rule and the golden formula,
+    \begin{align*}
+        \KL(\PP_{X,Y}\mmid\QQ_X\QQ_Y)&=\KL(\PP_{Y|X}\mmid\QQ_Y\mid\PP_X)+\KL(\PP_X\mmid\QQ_X)\\
+        &=I(X;Y)+\KL(\PP_Y\mmid \QQ_Y)+\KL(\PP_X\mmid\QQ_X).
+    \end{align*}
+\end{proof}
 
+Now let us consider varing the Markov kernel.
 \begin{proposition}
-    For any Markov kernel $Q_{X|Y}$ such that $Q_{X|Y=y}$ 
+    For any Markov kernel $\QQ_{X|Y}$ such that $\QQ_{X|Y=y}\ll \PP_X$ for $\PP_Y$-a.e. $y$ 
     If $I(X;Y)<\infty$, then 
-    \[I(X;Y)=\sup_{Q_{X|Y}}\EE_{(X,Y)\sim \PP_{X,Y}}\log \frac{\d \QQ_{X|Y}}{\d \PP_X}\]
+    \begin{equation}\label{eq:mutual-information-supremum-characterization}
+        I(X;Y)=\sup_{\QQ_{X|Y}}\EE_{(X,Y)\sim \PP_{X,Y}}\log \frac{\d \QQ_{X|Y}}{\d \PP_X}
+    \end{equation}
 \end{proposition}
 \begin{proof}
     By definition,
@@ -343,14 +454,28 @@ For example, as $n\to\infty$, $d(\frac{1}{n}\mmid 2^{-n})\not\to 0$.
 \begin{theorem}[KL divergence]
     The map $(\PP,\QQ)\mapsto \KL(\PP\mmid\QQ)$ is convex.
 \end{theorem}
+\begin{proof}
+    Let $\PP_X=\QQ_X=\operatorname{Ber}(\lambda)$ and define the two conditional kernels:
+    \begin{align*}
+        &\PP_{Y|X=0}=\PP_0,\quad \PP_{Y|X=1}=\PP_1,\\
+        &\QQ_{Y|X=0}=\QQ_0,\quad \QQ_{Y|X=1}=\QQ_1.
+    \end{align*}
+    Then 
+    \[\KL(\PP_{X,Y}\mmid\QQ_{X,Y})=\bar{\lambda}\KL(\PP_0\mmid\QQ_0)+\lambda \KL(\PP_1\mmid\QQ_1).\]
+    Applying the monotonicity $\KL(\PP_{X,Y}\mmid\QQ_{X,Y})\geq \KL(\PP_Y\mmid\QQ_Y)$ completes the proof.
+\end{proof}
 
 \begin{theorem}[Mutual information]
     \
     \begin{itemize}
-        \item For fixed $P_{Y|X}$, $P_X\mapsto I(P_X,P_{Y|X})$ is concave.
-        \item For fixed $P_X$, $P_{Y|X}\mapsto I(P_X,P_{Y|X})$ is convex.
+        \item For fixed $\PP_{Y|X}$, $\PP_X\mapsto I(\PP_X,\PP_{Y|X})$ is concave.
+        \item For fixed $\PP_X$, $\PP_{Y|X}\mapsto I(\PP_X,\PP_{Y|X})$ is convex.
     \end{itemize}
 \end{theorem}
+\begin{proof}
+    For the first statement, \eqref{eq:mutual-information-center-of-gravity} states that the mutual information is a pointwise minimum of affine functions in $\PP_X$ and hence concave.
+    For the second statement, as $I(X;Y)=\KL(\PP_{Y|X}\mmid \PP_Y\mid\PP_X)$ and $\PP_Y$ is a linear function of $\PP_{Y|X}$, the statement follows froms the convexity of KL in pairs.
+\end{proof}
 
 \section{Capacity: Saddle Point of Mutual Information}
 Suppose we have a bivariate function $f$. Then we always have the minimax inequality:
@@ -367,19 +492,65 @@ Recall that $(x^*,y^*)$ is a saddle point if
     
 \end{lemma}
 
-\begin{assumption}[Capacity-achieving input distribution]
-
+\begin{assumption}[Capacity-achieving input distribution]\label{ass:existence-capacity-achieving-input-distribution}
+    Let $\cP$ be a convex set of distributions on $\cX$.
+    Assume there exists $\PP_X^*\in\cP$, called a capacity-achieving input distribution, such that
+    \[\sup_{\PP_X\in\cP}I(\PP_X,\PP_{Y|X})=I(\PP_X^*,\PP_{Y|X}):=C.\]
+    Call $\PP_Y^*=\PP_{Y|X}\circ\PP_X^*$ a capacity-achieving output distribution.
 \end{assumption}
 \begin{example}[Non-existence of capacity-achieving input distribution]
-    
+    Let $Z\sim\cN(0,1)$ and consider the problem
+    \[C=\sup_{\PP_X:\EE[X]=0,\EE[X^2]=P,\EE[X^4]=s}I(X;X+Z).\]
+    Without the constraint $\EE[X^4]=s$, the capacity is uniquely achieved at the input distribution $\PP_X=\cN(0,P)$.
+    Although such $\PP_X$ is no longer feasible when $s\neq 3P^2$, the supremum $C=\frac{1}{2}\log(1+P)$ is still correct for $s>3P^2$.
+    Indeed, we can add a small ``bump'' to the Gaussian distribution as follows:
+    \[\PP_X=(1-p)\cN(0,P)+p\delta_x,\]
+    where $p\to 0$ and $x\to\infty$ such that $px^2\to 0$ but $px^4\to s-3P^2$.
+    This shows that for $s>3P^2$, the capacity-achieving input distribution does not exist, but the capacity-achieving output distribution $\PP_Y^*=\cN(1+P)$ exists and is unique, as \Cref{thm:kemperman-capacity} shows.
 \end{example}
+
+\begin{theorem}[saddle point]
+    Suppose \Cref{ass:existence-capacity-achieving-input-distribution} holds.
+    Then for all $\PP_X\in\cP$ and for all $\QQ_Y$, we have 
+    \[\KL(\PP_{Y|X}\mmid \PP_Y^*\mid\PP_X)\leq \KL(\PP_{Y|X}\mmid\PP_Y^*\mid \PP_X^*)\leq\KL(\PP_{Y|X}\mmid\QQ_Y\mid\PP_X^*).\]
+\end{theorem}
+\begin{proof}
+    The second inequality follows from $C=I(\PP_X^*,\PP_{Y|X})=\min_{\QQ_Y}\KL(\PP_{Y|X}\mmid\QQ_Y\mid\PP_X^*)$.
+
+    The first inequality is trivial when $C=\infty$, so we can assume that $C<\infty$.
+    Let $\PP_{X_\lambda}=\lambda\PP_X+\bar{\lambda}\PP_X^*\in\cP$ and $\PP_{Y_\lambda}=\PP_{Y|X}\circ\PP_{X_\lambda}$.
+    We have then 
+    \begin{align*}
+        C&\geq I(X_\lambda,Y_\lambda)\\
+        &=\lambda\KL(\PP_{Y|X}\mmid\PP_{Y_\lambda}\mid\PP_X)+\bar{\lambda}\KL(\PP_{Y|X}\mmid\PP_{Y_\lambda}\mid\PP_X^*)\\
+        &\geq \lambda \KL(\PP_{Y|X}\mmid\PP_{Y_\lambda}\mid\PP_X) + \bar{\lambda}C.
+    \end{align*}
+    Thus we get $\KL(\PP_{X,Y}\mmid \PP_X\PP_{Y_\lambda})\leq C$.
+    Taking $\lim\inf_{\lambda\to\infty}$ and applying the lower semicontinuity of divergence, we get the desired result.
+\end{proof}
+\begin{remark}
+    The assumptions of the theorem does not have compactness, so we can not apply general minimax theorems directly.
+\end{remark}
+
+\begin{corollary}
+    Suppose \Cref{ass:existence-capacity-achieving-input-distribution} holds with $C<\infty$.
+    Then the capacity-achieving output distribution $\PP_Y^*$ is unique.
+    For any $\PP_Y$ induced by some $\PP_X\in\cP$ (i.e., $\PP_Y=\PP_{Y|X}\circ\PP_X$) we have
+    \[\KL(\PP_Y\mmid\PP_Y^*)\leq C<\infty\]
+    and in particular $\PP_Y\ll\PP_Y^*$.
+\end{corollary}
+\begin{remark}
+    The condition $C<\infty$ is necessary. For a counterexample, consider the identity channel $Y=X$, where $X$ takes values on integers.
+    Then any distribution with infinite entropy is a capacity-achieving input (output) distribution.
+\end{remark}
+
+\begin{corollary}
+    For an finite $\cX$
+\end{corollary}
 
 It equals to the radius of the smallest divergence ``ball'' that encompasses all distributions $\{P_{Y|X=x}:x\in\cX\}$.
 Moreover, the optimal center $P_Y^*$ is a convex combination of some $P_{Y|X=x}$ and is equidistant to those.
 
-\begin{example}[Gaussian saddle point]
-    
-\end{example}
 
 \begin{theorem}[\citet{kemperman1974shannon}]\label{thm:kemperman-capacity}
     For any $P_{Y|X}$ and a convex set of distributions $\cP$ such that
@@ -391,6 +562,18 @@ Moreover, the optimal center $P_Y^*$ is a convex combination of some $P_{Y|X=x}$
         C&=\sup_{P_X\in\cP}\min_{Q_Y}\KL(P_{Y|X}\mmid Q_Y\mid P_X)\\
         &=\min_{Q_Y}\sup_{P_X\in\cP}\KL(P_{Y|X}\mmid Q_Y\mid P_X)
     \end{align*}
+\end{theorem}
+
+\subsection{Gaussian saddle point}
+
+\begin{theorem}
+    Let $X_g\sim\cN(0,\sigma_X^2)$, $N_g\sim\cN(0,\sigma_N^2)$, and $X_g\ind N_g$.
+    Then we have the following:
+    \begin{enumerate}[label=(\roman*)]
+        \item \textnormal{(Gaussian capacity)}: \[C=I(X_g;X_g+N_g)=\frac{1}{2}\log\left(1+\frac{\sigma_X^2}{\sigma_N^2}\right).\]
+        \item \textnormal{(Gaussian input is the best for Gaussian noise)}:
+        \item \textnormal{(Gaussian noise is the worst for Gaussian input)}:
+    \end{enumerate}
 \end{theorem}
 
 \section{Inequalities between f-divergences}
@@ -406,15 +589,49 @@ Moreover, the optimal center $P_Y^*$ is a convex combination of some $P_{Y|X=x}$
     If $\PP\ll\QQ$                        
 \end{definition}
 
-$f$-divergences satisfy the data-processing inequality
+The following are common $f$-divergences:
+\begin{itemize}
+    \item \textbf{Kullback-Leibler (KL) divergence}: We recover the usual $\KL(\PP\mmid\QQ)$ by taking $f(x)=x\log x$.
+    \item \textbf{Total variation}: $f(x)=\frac{1}{2}|x-1|$, \[\TV(\PP,\QQ):=\frac{1}{2}\EE_\QQ\left|\frac{\d\PP}{\d\QQ}-1\right|=\frac{1}{2}\int|\d\PP-\d\QQ|=1-\int\d(\PP\wedge\QQ).\] Moreover, $\TV(\cdot,\cdot)$ is a metric on the space of probability distributions.
+    \item \textbf{$\chi^2$-divergence}: $f(x)=(x-1)^2$, \[\chi^2(\PP\mmid\QQ)=\EE_\QQ\left[\left(\frac{\d\PP}{\d\QQ}\right)^2\right]=\int\frac{(\d\PP-\d\QQ)^2}{\d\QQ}=\int\frac{\d\PP^2}{\d\QQ}-1.\]
+    \item \textbf{Squared Hellinger distance}: $f(x)=(1-\sqrt{x})^2$, \[\operatorname{H}^2(\PP,\QQ):=\EE_\QQ\left[\left(1-\sqrt{\frac{\d\PP}{\d\QQ}}\right)^2\right]=\int(\sqrt{\d\PP}-\sqrt{\d\QQ})^2=2-2\int\sqrt{\d\PP\d\QQ}.\] Note that $\operatorname{H}(\cdot,\cdot)=\sqrt{\operatorname{H} ^2(\cdot,\cdot)}$ defines a metric on the space of probability distributions.
+    \item \textbf{Le Cam divergence}: $f(x)=\frac{1-x}{2x+2}$, \[\operatorname{LC}(\PP,\QQ)=\frac{1}{2}\int\frac{(\d\PP-\d\QQ)^2}{\d\PP+\d\QQ}.\] Moreover, $\sqrt{\operatorname{LC}(\cdot,\cdot)}$ is a metric on the space of probability distributions \citep{endres2003new}, known as Le Cam distance.
+    \item \textbf{Jensen-Shannon divergence}: $f(x)=x\log\frac{2x}{x+1}+\log\frac{2}{x+1}$, \[\operatorname{JS}(\PP,\QQ)=\KL\left(\PP\mmid\frac{\PP+\QQ}{2}\right)+\KL\left(\QQ\mmid\frac{\PP+\QQ}{2}\right).\] Moreover, $\sqrt{\operatorname{JS}(\cdot,\cdot)}$ is a metric on the space of probability distributions \citep{endres2003new}.
+\end{itemize}
+
+\begin{example}[Divergences between Gaussians]
+    
+\end{example}
+
+\begin{proposition}[Basic properties]
+    The following holds:
+    \begin{enumerate}[label=(\roman*)]
+        \item $\dis_{f_1+f_2}(\PP\mmid\QQ)=\dis_{f_1}(\PP\mmid\QQ)+\dis_{f_2}(\PP\mmid\QQ)$.
+        \item $\dis_f(\PP\mmid\PP)=0$.
+        \item $\dis_f(\PP\mmid\QQ)=0$ for all $\PP\neq\QQ$ iff $f(x)=c(x-1)$ for some $c$. For any other $f$ we have $\dis_f(\PP\mmid\QQ)=f(0)+f'(\infty)>0$ for $P\perp\QQ$.
+        \item Let $f_1(x)=f(x)+c(x-1)$, then $\dis_{f_1}(\PP\mmid\QQ)=\dis_f(\PP\mmid\QQ)$.
+        \item \textnormal{(conditional $f$-divergence)}: If $\PP_{X,Y}=\PP_X\PP_{Y|X}$ and $\QQ_{X,Y}=\PP_X\QQ_{Y|X}$, then the function $x\mapsto \dis_f(\PP_{Y|X=x}\mmid\QQ_{Y|X=x})$ is measurable and \[\dis_f(\PP_{X,Y}\mmid\QQ_{X,Y})=\int_{\cX}\dis_f(\PP_{Y|X=x}\mmid\QQ_{Y|X=x})\d\PP_X(x):=\dis_f(\PP_{Y|X}\mmid\QQ_{Y|X}\mid\PP_X).\]
+        \item If $\PP_{X,Y}=\PP_X\PP_{Y|X}$ and $\QQ_{X,Y}=\QQ_X\PP_{Y|X}$ then \[\dis_f(\PP_{X,Y}\mmid\QQ_{X,Y})=\dis_f(\PP_X\mmid\QQ_X).\]
+    \end{enumerate}
+\end{proposition}
 
 \begin{theorem}
+    
+\end{theorem}
+
+$f$-divergences satisfy the data-processing inequality
+\begin{theorem}[DPI for $f$-divergences]
+    COnsider a channel $\PP_{Y|X}$,
     \[\dis_f(\PP_Y\mmid\QQ_Y)\leq \dis_f(\PP_X\mmid\QQ_X)\]
 \end{theorem}
 
 $f$-divergences satisfy two additional properties: conditioning increases divergence (CID) and convexity in pair.
 \begin{theorem}
-    
+    \begin{enumerate}[label=(\roman*)]
+        \item \textnormal{Non-negativity}: $\dis_f(\PP\mmid\QQ)\geq 0$. If $f$ is strictly convex\footnote{For any $s,t\in[0,\infty)$ and $\alpha\in(0,1)$ such that $\alpha s+\bar{\alpha}t=1$, we have $\alpha f(s)+\bar{\alpha}f(t)>1$.} at $1$, then $\dis_f(\PP\mmid\QQ)=0$ if and only if $\PP=\QQ$.
+        \item \textnormal{Joint convexity}: $(\PP,\QQ)\mapsto\dis_f(\PP\mmid\QQ)$ is a jointly convex function.
+        \item \textnormal{Conditioning increases $f$-divergence}
+    \end{enumerate}
 \end{theorem}
 
 \begin{remark}
@@ -424,7 +641,9 @@ $f$-divergences satisfy two additional properties: conditioning increases diverg
 \subsection{Inequalities between f-Divergences: Joint Range}
 
 \subsubsection{A Selection of Inequalities}
-
+The most important thing to remember is that 
+\[\operatorname{H}^2\lesssim \TV\lesssim \operatorname{H}\lesssim\sqrt{\KL}\lesssim \sqrt{\chi^2}.\]
+Specifically, we have
 \begin{itemize}
     \item KL versus TV
     \item KL versus Hellinger
@@ -616,7 +835,17 @@ automatically solves two other important problems: online prediction in machine 
 
 \section{Shannon's Noisy Channel Coding Theorem}
 
+Given $\PP_{Y|X}:cX\times\cY$
+$f:[M]\to\cX$ and $g:\cY\to [M]\cup\{e\}$ is called a $M$-code.
+
+\[W\stackrel{f}{\longrightarrow}X \stackrel{\PP_{Y|X}}{\longrightarrow} Y \stackrel{g}{\longrightarrow} \hat{W}\] 
+where $W\sim\operatorname{Unif}[M]$.
+
+An $(n,M,\epsilon)$-code is an $(M,\epsilon)$-code
+
 \chapter{Rate Distortion Theory}
+
+
 
 \section{Scalar and Vector Quantization}
 
@@ -629,12 +858,20 @@ Later we will be asked to guess the original 100 bits, with the goal of maximizi
 Intuitively, we can store half of the bits and randomly guess the rest, which gives 25\% bit error rate (BER).
 However, we will show that the optimal strategy amazingly achieves a BER of 11\%.
 
-\paragraph{Mathematical Formulation} A lossy compressor
+\paragraph{Mathematical Formulation} A lossy compressor is an encoder-decoder pair $(f,g)$ that induces the following Markov chain:
+\[X\stackrel{f}{\longrightarrow} W\stackrel{g}{\longrightarrow}\hat{X},\]
+where $X\in\cX$ is referred to as the source, $W=f(X)$ is the compressed discrete data, and $\hat{X}=g(W)$ is the reconstruction which takes value in some alphabet $\hat{\cX}$ that need not to be the same as $\cX$.
+
+A distortion metric is a measurable function $d:\cX\times\hat{\cX}\to\RR\cup\{+\infty\}$.
+There are various formulations of the lossy compression problem:
+\begin{enumerate}
+    \item Fixed length, average distortion: $W\in [M]$, minimize $\EE[d(X,\hat{X})]$.
+\end{enumerate}
 
 \subsection{Converse Bounds}
 \begin{definition}[Rate-distortion function]
     \begin{equation}\label{eq:rate-distortion function}
-        \phi_X(D)=\inf_{P_{Y|X}:\EE[d(X,Y)]\leq D }I(X,Y)
+        \phi_X(D)=\inf_{\PP_{Y|X}:\EE[d(X,Y)]\leq D }I(X,Y)
     \end{equation}
 \end{definition}
 \begin{proposition}[Properties of rate-distortion function]
@@ -648,7 +885,17 @@ However, we will show that the optimal strategy amazingly achieves a BER of 11\%
 
 \end{theorem}
 
-\section{Eva}
+\section{Evaluating the Rate-Distortion Function}
+
+\subsection{Bernoulli Source}
+
+
+\subsection{Gaussian Source}
+
+
+\subsection{Saddle-Point Property in Rate Distortion}
+
+
 \section{Metric Entropy}
 \begin{definition}
     Let $(V,d)$ be a metric space and $\Theta\subset V$.
@@ -1138,3 +1385,121 @@ Now we can prove \Cref{thm:density-estimation-Holder-l2}.
 
     For the lower bound, we can apply Fano's inequality.
 \end{proof}
+
+\section{Strong Data-Processing Inequality}
+
+\begin{definition}
+    For a fixed conditional distribution $\PP_{Y|X}$, define
+    \[\eta_f(\PP_{Y|X})=\sup\frac{\dis_f(\PP_Y\mmid\QQ_Y)}{\dis_f(\PP_X\mmid\QQ_X)},\]
+    where the supremum is over all pairs of $(\PP_X,\QQ_X)$ satisfying $0<\dis_f(\PP_X\mmid\QQ_X)<\infty$, and $\PP_Y=\PP_{Y|X}\circ \PP_X$, $\QQ_Y=\PP_{Y|X}\circ\QQ_X$.
+\end{definition}
+Recall that the DPI states that $\eta_f\leq 1$.
+In general, $\eta$ is hard to compute.
+\begin{theorem}
+    \[\eta_{\TV}=\sup_{x\neq x'}\TV(\PP_{Y|X=x},\PP_{Y|X=x'}).\]
+\end{theorem}
+\begin{example}[$\eta_{\TV}$ of a binary symmetric channel]
+    \[\eta_{\TV}(\operatorname{BSC}_\delta)=\TV(\operatorname{Ber}(\delta),\operatorname{Ber}(1-\delta))=|1-2\delta|.\]
+\end{example}
+
+\begin{theorem}
+    \[\eta_f(\PP_{Y|X})=\sup_{\PP_{UX}:U\to X\to Y}\frac{I_f(U;Y)}{I_f(U;X)}.\]
+\end{theorem}
+\begin{proof}
+    First notice that for any $u$, we have $\dis_f(\PP_{Y|U=u}\mmid\PP_Y)\leq \eta_f\dis_f(\PP_{X|U=u}\mmid \PP_X)$.
+    Averaging over $u\sim\PP_U$, we obtain 
+    \[I_f(U;Y)\leq \eta_f I_f(U;X).\]
+    Second, fix 
+\end{proof}
+
+
+\begin{example}[$\eta_{\KL}$ of a binary symmetric channel]
+    
+\end{example}
+
+\begin{lemma}
+    Consider a pair of binary random variable $X,Y$ such that for all $x,y\in\{0,1\}$ we have 
+    \[\PP_{X,Y}(x,y)=f(x)\left(\frac{\delta}{1-\delta}\right)^{1\{x\neq y\}}g(y)\]
+    for some functions $f$ and $g$. Then $\eta_{\KL}(\PP_{Y|X})\leq (1-2\delta)^2$.
+\end{lemma}
+\begin{proof}
+    From 
+    \[\eta_{\KL}(\PP_{Y|X})\leq H^2(\PP_{Y|X},\PP_X)\]
+\end{proof}
+
+\subsection{Input-Dependent SDPI}
+\begin{definition}[Input-dependent contraction coefficient]
+    For any input distribution $\PP_X$, Markov kernel $\PP_{Y|X}$, and convex function $f$, we define 
+    \[\eta_f(\PP_X,\PP_{Y|X}):=\sup \frac{\dis_f(\QQ_Y\mmid\PP_Y)}{\dis_f(\QQ_X\mmid\QQ_Y)},\]
+    where the supremum is over $\QQ_X$ satisfying $0<\dis_f(\QQ_X\mmid\PP_X)<\infty$ and
+    $\PP_Y=\PP_{Y|X}\circ \PP_X$, $\QQ_Y=\PP_{Y|X}\circ\QQ_X$.
+\end{definition}
+
+\begin{proposition}
+    \[\eta_{\KL}(\PP_X^{\otimes n},\PP_{Y|X}^{\otimes n})=\eta_{\KL}(\PP_X,\PP_{Y|X}).\]
+\end{proposition}
+
+Among the input-dependent $\eta_f$, the most elegant is the theory of $\eta_{\chi^2}$.
+
+\begin{theorem}
+    Consider finite $\cX$ and $\cY$. Then, we have
+    \begin{enumerate}[]
+        \item 
+    \end{enumerate}
+\end{theorem}
+The properties hold for general $\PP_{X|Y}$.
+
+\begin{example}[SDPI constants of erasure channel]
+    We define $\operatorname{EC}_\tau$ as the following channel
+    \[Y=\begin{cases}
+        X &\text{w.p. } 1-\tau,\\
+        ? &\text{w.p. }\tau.
+    \end{cases}\]
+\end{example}
+
+\begin{example}[SDPI constants of joint Gaussian]
+    Let $X,Y$ be jointly Gaussian with correlation coefficient $\rho$. Then
+    \[\eta_{\chi^2}(\PP_X,\PP_{Y|X})=\eta_{\KL}(\PP_X,\PP_{Y|X})=\rho^2.\]
+\end{example}
+
+\begin{example}[Mixing of Markov Chains]
+    
+\end{example}
+
+\subsection{Strong Data-Post-Processing Inequality (Post-SDPI)}
+
+\begin{definition}
+    Given a conditional distribution $\PP_{Y|X}$, define the input-dependent and input-free contraction coefficients respectively as
+    \[\eta_{\KL}^{(p)}(\PP_X,\PP_{Y|X})=\sup_{\PP_{U|Y}}\left\{\frac{I(U;X)}{I(U;Y)}:X\to Y\to U\right\}\]
+    and
+    \[\eta_{\KL}^{(p)}(\PP_X,\PP_{Y|X})=\sup_{\PP_X,\PP_{U|Y}}\left\{\frac{I(U;X)}{I(U;Y)}:X\to Y\to U\right\}\]
+\end{definition}
+It is easy to see that by the data-processing inequality, $\eta_{\KL}^{(p)}(\PP_{Y|X})\leq 1$. Also, notice that 
+\[\eta_{\KL}^{(p)}(\PP_X,\PP_{Y|X})=\eta_{\KL}(\PP_Y,\PP_{X|Y}),\]
+\[\eta_{\KL}^{(p)}(\PP_{Y|X})=\sup_{\PP_X}\eta_{\KL}(\PP_Y,\PP_{X|Y}).\]
+
+\begin{example}[Erasure channels]
+    Let $\PP_{Y|X}=\operatorname{BEC}_\tau$.
+    Define $U$ to be $0$ if $Y=0$ or $Y=?$, and $U=1$ if $Y=1$.
+    Let $X\sim\operatorname{Ber}(\epsilon)$.
+    Intuitively, when $\epsilon\to 0$, observing $X$ or $Y$ all 
+    Specifically, we can compute $I(Y;U)=H(U)=h(\epsilon\bar{\tau})$ and $I(X;U)=H(U)-H(U|X)=h(\epsilon\bar{\tau})-\epsilon h(\tau)$. Hence as $\epsilon\to 0$,
+    \begin{align*}
+        \eta_{\KL}^{(p)}(\PP_{Y|X})\geq 1-h(\tau)\frac{\epsilon}{h(\epsilon\bar{\tau})}\to 1.
+    \end{align*}
+\end{example} 
+
+Nevertheless, the post-SDPI constant is often non-trivial, most importantly for the BSC:
+\begin{theorem}
+    \[\eta_{\KL}^{(p)}(\operatorname{BSC}_\delta)=(1-2\delta)^2.\]
+\end{theorem}
+\begin{proof}
+    Now observe $P_{X,Y}$ 
+\end{proof}
+
+
+\begin{theorem}[Post-SDPI for BI-AWGN]
+    Let $0\leq\epsilon \leq 1$ and consider the channel $\PP_{Y|X}$ with $X\in\{\pm 1\}$ given by
+    \[Y=\epsilon X+Z,\quad Z\sim\cN(0,1).\]
+    Then for any 
+\end{theorem}
